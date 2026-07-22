@@ -204,7 +204,103 @@
   .legend-chip { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:12px; font-size:10px; font-weight:750; border:1px solid var(--border-light); background:#fff; }
   .legend-chip-dot { width:8px; height:8px; border-radius:50%; flex:0 0 auto; }
   .empty-state { padding:30px; text-align:center; color:var(--muted); font-size:13px; }
-  @media(max-width:1100px){ .actions-toolbar{grid-template-columns:repeat(2,1fr)} .kpi-row{grid-template-columns:repeat(2,1fr)} }
+  /* Responsive layout */
+  .table-scroll { -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .timeline-wrap { -webkit-overflow-scrolling:touch; }
+
+  @media (max-width:1100px) {
+    .actions-toolbar { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .actions-toolbar .clear-btn { grid-column:1 / -1; }
+    .kpi-row { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .header { padding:12px 20px; }
+    .main,.actions-main { padding:16px; }
+  }
+
+  @media (max-width:720px) {
+    body { overflow-x:hidden; }
+    .header { padding:10px 12px; align-items:flex-start; gap:10px; }
+    .header-left { min-width:0; gap:9px; }
+    .header-left img { height:34px; padding:3px 6px; flex:0 0 auto; }
+    .header h1 { font-size:15px; line-height:1.25; letter-spacing:-.15px; }
+    .header-right { display:none; }
+
+    .portal-nav { top:0; padding:0 8px; gap:4px; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch; }
+    .portal-tab { flex:1 0 auto; min-width:135px; padding:12px 10px 10px; font-size:12px; }
+
+    .main,.actions-main { padding:10px; }
+    .kpi-row { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-bottom:10px; }
+    .kpi-card { padding:15px 13px; border-radius:11px; min-width:0; }
+    .kpi-card:hover { transform:none; }
+    .kpi-label { font-size:9px; letter-spacing:.65px; margin-bottom:6px; }
+    .kpi-value { font-size:25px; }
+    .kpi-sub { font-size:9px; line-height:1.35; }
+    .kpi-row .kpi-card:last-child:nth-child(odd) { grid-column:1 / -1; }
+
+    .summary-row { gap:10px; margin-bottom:10px; }
+    .summary-card { border-radius:11px; }
+    .summary-card .sc-header { padding:10px 12px; font-size:12px; }
+    .summary-card .sc-body { padding:7px 8px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .stbl { min-width:560px; font-size:10px; }
+    .stbl td { padding:6px 7px; }
+
+    .section { border-radius:11px; }
+    .section-header { padding:11px 12px; align-items:flex-start; gap:5px; flex-direction:column; }
+    .section-title { font-size:12px; line-height:1.35; }
+    .legend { width:100%; gap:10px; overflow-x:auto; padding-bottom:2px; }
+    .legend-item { font-size:10px; flex:0 0 auto; }
+    .legend-dot { width:12px; height:12px; }
+
+    .gantt-toolbar { padding:9px 10px; gap:6px; overflow-x:auto; flex-wrap:nowrap; -webkit-overflow-scrolling:touch; }
+    .gantt-toolbar > * { flex:0 0 auto; }
+    .filter-btn,.multi-select-btn { padding:7px 10px; font-size:10px; }
+    .filter-sep { display:none; }
+    .multi-select-dd { position:fixed; left:12px; right:12px; top:auto; min-width:0; max-height:60vh; overflow:auto; }
+    table.combined { min-width:1260px; font-size:10px; }
+    table.combined thead th { padding:7px 5px; font-size:9px; }
+    table.combined tbody td { padding:5px 4px; }
+    .logo-cell img { height:24px; width:64px; }
+    .gantt-cell-active,.gantt-cell-waiting { width:18px; height:18px; }
+
+    .actions-toolbar { grid-template-columns:1fr 1fr; gap:8px; padding:11px; }
+    .filter-field label { font-size:9px; }
+    .filter-field select,.filter-field input { min-height:42px; padding:9px 8px; font-size:12px; }
+    .actions-toolbar .clear-btn { grid-column:1 / -1; width:100%; min-height:42px; }
+
+    .timeline-wrap { padding:10px; overflow:visible; }
+    .timeline-grid { grid-template-columns:1fr; min-width:0; gap:10px; }
+    .timeline-month { border-radius:10px; }
+    .timeline-month-header { padding:10px 11px; font-size:12px; }
+    .timeline-items { max-height:none; padding:7px 8px; }
+    .timeline-item { margin-left:9px; padding:8px 7px 9px 12px; }
+    .timeline-action { font-size:11px; }
+    .timeline-meta { display:flex; flex-wrap:wrap; gap:4px; margin-top:5px; }
+
+    .actions-legend { flex-wrap:nowrap; overflow-x:auto; padding:9px 10px; -webkit-overflow-scrolling:touch; }
+    .actions-legend > strong,.legend-chip { flex:0 0 auto; }
+
+    .year-toggle { padding:12px; font-size:12px; gap:8px; }
+    .year-toggle > span:last-child { display:none; }
+    .year-toggle .year-left { gap:7px; }
+
+    /* On phones, the actions history becomes stacked cards instead of a wide table. */
+    .actions-table,.actions-table tbody,.actions-table tr,.actions-table td { display:block; width:100%; }
+    .actions-table thead { display:none; }
+    .actions-table tr { padding:10px 11px; border-bottom:1px solid var(--border-light); }
+    .actions-table tr:hover td { background:transparent; }
+    .actions-table td { border:0; padding:3px 0 3px 92px; min-height:24px; position:relative; white-space:normal !important; }
+    .actions-table td::before { content:attr(data-label); position:absolute; left:0; top:4px; width:82px; color:var(--muted); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.45px; }
+    .actions-table td.action-title { min-width:0; padding-top:5px; padding-bottom:7px; line-height:1.45; }
+    .actions-table td.action-title::before { top:6px; }
+    .pill { white-space:normal; line-height:1.25; }
+  }
+
+  @media (max-width:390px) {
+    .kpi-row { grid-template-columns:1fr; }
+    .kpi-row .kpi-card:last-child:nth-child(odd) { grid-column:auto; }
+    .actions-toolbar { grid-template-columns:1fr; }
+    .actions-toolbar .clear-btn { grid-column:auto; }
+    .header h1 { font-size:14px; }
+  }
 
 </style>
 </head>
@@ -635,7 +731,7 @@ function renderLocalLegend(){
 
 function renderTimeline() {
   const monthKeys=[];
-  for(let i=2;i>=0;i--){ const d=new Date(latestDateObj.getFullYear(),latestDateObj.getMonth()-i,1); monthKeys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')); }
+  for(let i=0;i<=2;i++){ const d=new Date(latestDateObj.getFullYear(),latestDateObj.getMonth()-i,1); monthKeys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')); }
   document.getElementById('timelineReference').textContent='Base atualizada até '+actionFmtDate(latestActionDate);
   document.getElementById('actionsTimeline').innerHTML=monthKeys.map(key=>{
     const [y,m]=key.split('-').map(Number);
@@ -663,7 +759,7 @@ function renderActionHistory(){
   const mostRecentYear=years[0];
   document.getElementById('actionsHistory').innerHTML=years.map(year=>{
     const open=year===mostRecentYear?' open':'';
-    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td class="action-title">'+escapeHtml(a.acao)+'</td><td><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td></tr>';}).join('');
+    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Início" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td data-label="Final" style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td></tr>';}).join('');
     return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>'+(year===mostRecentYear?'Expandido':'Recolhido')+'</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Início</th><th>Final</th><th>Ação</th><th>Local</th><th>Setor</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
   }).join('');
 }
