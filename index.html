@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Dashboard - Controle de Lotes de Publicação</title>
+<style>
+  :root {
+    --bg: #eef2f7;
+    --bg2: #e2e8f0;
+    --card: #ffffff;
+    --border: #cbd5e1;
+    --border-light: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --accent-dark: #1d4ed8;
+    --green: #16a34a;
+    --green-bg: #dcfce7;
+    --green-light: #bbf7d0;
+    --orange: #d97706;
+    --orange-bg: #fef3c7;
+    --orange-light: #fde68a;
+    --red: #dc2626;
+    --red-bg: #fee2e2;
+    --purple: #7c3aed;
+    --purple-bg: #ede9fe;
+    --cyan: #0891b2;
+    --cyan-bg: #cffafe;
+    --row-highlight: #eff6ff;
+    --row-highlight-border: #bfdbfe;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header-left img { height: 40px; width: auto; background: white; border-radius: 8px; padding: 4px 8px; }
+  .header h1 { font-size: 20px; font-weight: 700; color: white; letter-spacing: -0.3px; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .header .date-badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); color: white; padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; white-space: nowrap; border: 1px solid rgba(255,255,255,0.25); }
+
+  .main { padding: 20px 24px; max-width: 1900px; margin: 0 auto; }
+
+  /* KPI Cards */
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 16px; }
+  .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: transform 0.15s, box-shadow 0.15s; }
+  .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .kpi-card.blue::before { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+  .kpi-card.green::before { background: linear-gradient(90deg, #16a34a, #4ade80); }
+  .kpi-card.orange::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
+  .kpi-card.red::before { background: linear-gradient(90deg, #dc2626, #f87171); }
+  .kpi-card.purple::before { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+  .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+  .kpi-value { font-size: 32px; font-weight: 800; letter-spacing: -1px; color: var(--text); }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* Summary row */
+  .summary-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .summary-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .summary-card .sc-header { padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: 13px; font-weight: 700; color: var(--accent-dark); background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .summary-card .sc-body { padding: 10px 14px; }
+
+  /* Section */
+  .section { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .section-header { padding: 14px 20px; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .section-title { font-size: 14px; font-weight: 700; color: var(--accent-dark); display: flex; align-items: center; gap: 8px; }
+
+  /* Summary tables */
+  .stbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .stbl td { padding: 6px 10px; border-bottom: 1px solid var(--border-light); white-space: nowrap; text-align: center; }
+  .stbl td:first-child { text-align: left; }
+  .stbl tr:last-child td { border-bottom: none; }
+  .stbl .sh td { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding-bottom: 8px; font-weight: 600; }
+  .stbl tr:last-child td { font-weight: 700; border-top: 2px solid var(--accent); padding-top: 8px; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+  .badge-ativo { background: #dcfce7; color: #15803d; }
+  .badge-novo { background: #dbeafe; color: #1d4ed8; }
+  .badge-reativando { background: #ede9fe; color: #6d28d9; }
+  .badge-sim { background: #dcfce7; color: #15803d; }
+  .badge-proximo { background: #fef3c7; color: #92400e; }
+  .badge-espera { background: #ffedd5; color: #9a3412; }
+  .badge-indefinido { background: #f1f5f9; color: #475569; }
+
+  .rk-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-size: 11px; font-weight: 700; }
+  .rk-1 { background: #dcfce7; color: #15803d; }
+  .rk-2 { background: #dbeafe; color: #1d4ed8; }
+  .rk-3 { background: #fef3c7; color: #92400e; }
+  .rk-4 { background: #ffedd5; color: #9a3412; }
+
+  .num { text-align: center; font-variant-numeric: tabular-nums; }
+  .num-right { text-align: right; font-variant-numeric: tabular-nums; }
+  .num-bold { font-weight: 700; }
+  .zero { color: #cbd5e1; }
+
+  /* Combined table */
+  .table-scroll { overflow-x: auto; }
+  table.combined { border-collapse: collapse; font-size: 12px; min-width: 1400px; width: 100%; }
+  table.combined thead th { background: #f1f5f9; padding: 9px 8px; text-align: center; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); border-bottom: 2px solid var(--border); position: sticky; top: 0; white-space: nowrap; z-index: 2; }
+  table.combined thead th:first-child { text-align: left; }
+  table.combined tbody td { padding: 5px 6px; border-bottom: 1px solid var(--border-light); white-space: nowrap; text-align: center; vertical-align: middle; }
+  table.combined tbody tr:hover { background: #f8fafc; }
+
+  /* Row highlight for "sim" */
+  table.combined tbody tr.row-sim { background: var(--row-highlight); }
+  table.combined tbody tr.row-sim:hover { background: #dbeafe; }
+  table.combined tbody tr.row-sim td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+
+  /* Logo in table */
+  .logo-cell { display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .logo-cell img { height: 28px; width: 75px; object-fit: contain; }
+  .logo-cell .forn-name { font-weight: 600; font-size: 12px; }
+
+  /* Gantt */
+  .gantt-cell-active { background: var(--green); border-radius: 4px; display: inline-block; width: 22px; height: 22px; }
+  .gantt-cell-waiting { background: var(--orange); border-radius: 4px; display: inline-block; width: 22px; height: 22px; }
+  table.combined .gantt-col { text-align: center; min-width: 32px; max-width: 38px; padding: 5px 2px !important; }
+
+  .month-header { font-size: 11px !important; letter-spacing: 0.8px; border-bottom: 2px solid var(--accent) !important; font-weight: 700 !important; color: var(--accent-dark) !important; }
+  .col-sep { border-left: 2px solid var(--border) !important; }
+
+  .totals-row td { background: #f1f5f9 !important; font-weight: 700; border-top: 2px solid var(--accent); font-size: 12px; color: var(--accent-dark); }
+
+  /* Filter buttons */
+  .gantt-toolbar { display: flex; align-items: center; gap: 10px; padding: 10px 20px; background: #f8fafc; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; }
+  .filter-btn { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--border); background: white; color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .filter-btn:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent-dark); }
+  .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 2px 6px rgba(37,99,235,0.25); }
+  .filter-sep { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+
+  /* Multi-select dropdown */
+  .multi-select { position: relative; }
+  .multi-select-btn { padding: 6px 14px; border-radius: 8px; border: 1px solid var(--border); background: white; color: var(--text); font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.15s; }
+  .multi-select-btn:hover { background: var(--accent-light); border-color: var(--accent); }
+  .multi-select-btn .arrow { font-size: 8px; margin-left: 2px; }
+  .multi-select-dd { position: absolute; top: 100%; left: 0; margin-top: 4px; background: white; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); z-index: 100; min-width: 220px; padding: 6px 0; display: none; }
+  .multi-select-dd.open { display: block; }
+  .multi-select-dd label { display: flex; align-items: center; gap: 8px; padding: 8px 14px; font-size: 12px; font-weight: 500; cursor: pointer; transition: background 0.1s; }
+  .multi-select-dd label:hover { background: #f1f5f9; }
+  .multi-select-dd input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+  .ms-count { font-size: 10px; background: var(--accent); color: white; border-radius: 8px; padding: 1px 6px; min-width: 18px; text-align: center; }
+
+  .row-hidden { display: none !important; }
+
+  .legend { display: flex; gap: 20px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+  .legend-dot { width: 16px; height: 16px; border-radius: 4px; }
+  .legend-label { color: var(--text); }
+
+  @media (max-width: 1400px) {
+    .kpi-row { grid-template-columns: repeat(3, 1fr); }
+    .summary-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <img src="guimepa.png" alt="Guimepa">
+    <h1>Dashboard - Controle de Lotes de Publicação</h1>
+  </div>
+  <div class="header-right">
+    <div class="date-badge" id="currentDate"></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="kpi-row" id="kpiRow"></div>
+  <div class="summary-row">
+    <div class="summary-card">
+      <div class="sc-header">Resumo por Responsável</div>
+      <div class="sc-body" id="summaryResponsavel"></div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-header">Resumo por Status de Produção</div>
+      <div class="sc-body" id="summaryStatus"></div>
+    </div>
+    <div class="summary-card">
+      <div class="sc-header">Resumo por Prioridade</div>
+      <div class="sc-body" id="summaryRK"></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">Detalhamento por Fornecedor + Cronograma Gantt</span>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div><span class="legend-label">Em Produção</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div><span class="legend-label">Próximo</span></div>
+      </div>
+    </div>
+    <div class="gantt-toolbar">
+      <button class="filter-btn" data-filter="sim" onclick="toggleFilter(this)">Em Produção</button>
+      <button class="filter-btn" data-filter="próximo" onclick="toggleFilter(this)">Próximos da fila</button>
+      <button class="filter-btn" data-filter="espera" onclick="toggleFilter(this)">Em Espera</button>
+      <button class="filter-btn" data-filter="indefinido" onclick="toggleFilter(this)">Indefinidos</button>
+      <div class="filter-sep"></div>
+      <div class="multi-select">
+        <button class="multi-select-btn" onclick="toggleMultiSelect()">
+          <span>Filtros Avançados</span>
+          <span class="ms-count" id="msCount">3</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="multi-select-dd" id="msDropdown">
+          <label><input type="checkbox" value="sim" checked onchange="updateMultiSelect()"> Em Produção</label>
+          <label><input type="checkbox" value="próximo" checked onchange="updateMultiSelect()"> Próximo</label>
+          <label><input type="checkbox" value="espera" checked onchange="updateMultiSelect()"> Espera</label>
+          <label><input type="checkbox" value="indefinido" onchange="updateMultiSelect()"> Indefinido</label>
+        </div>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="table-scroll" id="combinedContainer"></div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const fmt = n => n.toLocaleString('pt-BR');
+const fmtSigned = n => n < 0 ? '-' + fmt(Math.abs(n)) : fmt(n);
+
+// Date
+const now = new Date();
+const diaSemana = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'][now.getDay()];
+const mesNome = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'][now.getMonth()];
+document.getElementById('currentDate').textContent = 'Última atualização: ' + diaSemana + ', ' + now.getDate() + ' de ' + mesNome + ' de ' + now.getFullYear();
+
+// KPI Cards (5 cards)
+const totalProdutos = data.reduce((s,d) => s + d.produzir, 0);
+const totalProduzindo = data.filter(d => d.prod === 'sim').length;
+const totalEspera = data.filter(d => d.prod === 'próximo' || d.prod === 'espera').length;
+const totalIndefinido = data.filter(d => d.prod === 'indefinido').length;
+const totalFornecedores = data.length;
+const totalComResp = data.filter(d => d.resp !== 's/ resp.').length;
+
+const kpis = [
+  { label: 'Total de Fornecedores', value: totalFornecedores, sub: totalComResp + ' com responsável designado', cls: 'blue' },
+  { label: 'Em Produção', value: totalProduzindo, sub: 'publicando agora', cls: 'green' },
+  { label: 'Próximo / Espera', value: totalEspera, sub: 'aguardando publicar', cls: 'orange' },
+  { label: 'Indefinido', value: totalIndefinido, sub: 'sem cronograma', cls: 'red' },
+  { label: 'Total a Produzir', value: fmt(totalProdutos), sub: 'unidades', cls: 'purple' },
+];
+document.getElementById('kpiRow').innerHTML = kpis.map(k =>
+  '<div class="kpi-card ' + k.cls + '"><div class="kpi-label">' + k.label + '</div><div class="kpi-value">' + k.value + '</div><div class="kpi-sub">' + k.sub + '</div></div>'
+).join('');
+
+// Summary: Responsável
+const respOrder = ['Lucas','Bruno','Jone','s/ resp.'];
+const respGroups = {};
+data.forEach(d => {
+  if (!respGroups[d.resp]) respGroups[d.resp] = { producao:0, prontos:0, produzir:0, restantes:0, count:0 };
+  const g = respGroups[d.resp];
+  g.producao += d.producao; g.prontos += d.prontos; g.produzir += d.produzir; g.restantes += d.restantes; g.count++;
+});
+
+let htmlResp = '<table class="stbl">';
+htmlResp += '<tr class="sh"><td>Responsável</td><td>Forn.</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td><td>Restantes</td></tr>';
+const respSorted = respOrder.filter(r => respGroups[r]);
+respSorted.forEach(name => {
+  const g = respGroups[name];
+  const bgP = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
+  htmlResp += '<tr><td>' + name + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
+});
+const totResp = Object.values(respGroups).reduce((s,g) => ({ producao:s.producao+g.producao, prontos:s.prontos+g.prontos, produzir:s.produzir+g.produzir, restantes:s.restantes+g.restantes }), {producao:0,prontos:0,produzir:0,restantes:0});
+const bgPTot = totResp.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
+htmlResp += '<tr><td>TOTAL</td><td>' + data.length + '</td><td class="num num-bold" style="' + bgPTot + '">' + fmt(totResp.producao) + '</td><td class="num">' + fmt(totResp.prontos) + '</td><td class="num num-bold">' + fmt(totResp.produzir) + '</td><td class="num" style="color:' + (totResp.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(totResp.restantes) + '</td></tr>';
+htmlResp += '</table>';
+document.getElementById('summaryResponsavel').innerHTML = htmlResp;
+
+// Summary: Status de Produção
+const statusGroups = {};
+data.forEach(d => {
+  if (!statusGroups[d.prod]) statusGroups[d.prod] = { ativo:0, novo:0, reativando:0, count:0, produzir:0, producao:0 };
+  const g = statusGroups[d.prod]; g.count++; g.produzir += d.produzir; g.producao += d.producao;
+  if (d.status === 'Ativo') g.ativo++; else if (d.status === 'Novo') g.novo++; else g.reativando++;
+});
+let htmlSt = '<table class="stbl">';
+htmlSt += '<tr class="sh"><td rowspan="2">Status Produção</td><td colspan="4" style="text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--accent-dark);">Fornecedores</td><td rowspan="2">Em Produção</td><td rowspan="2">Produzir</td></tr>';
+htmlSt += '<tr class="sh"><td>Qtd</td><td>Ativo</td><td>Novo</td><td>Reativ.</td></tr>';
+['sim','próximo','espera','indefinido'].forEach(s => {
+  const g = statusGroups[s]; if (!g) return;
+  const bgSt = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
+  htmlSt += '<tr><td><span class="badge badge-' + s + '">' + s + '</span></td><td>' + g.count + '</td><td class="num">' + g.ativo + '</td><td class="num">' + g.novo + '</td><td class="num">' + g.reativando + '</td><td class="num num-bold" style="' + bgSt + '">' + fmt(g.producao) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td></tr>';
+});
+htmlSt += '</table>';
+document.getElementById('summaryStatus').innerHTML = htmlSt;
+
+// Summary: Prioridade
+const rkGroups = {};
+data.forEach(d => {
+  if (!rkGroups[d.rk]) rkGroups[d.rk] = { count:0, produzir:0, producao:0, prontos:0 };
+  const g = rkGroups[d.rk]; g.count++; g.produzir += d.produzir; g.producao += d.producao; g.prontos += d.prontos;
+});
+const rkDesc = { 1:'Enorme potencial', 2:'Grande potencial', 3:'Bom potencial', 4:'Baixo potencial' };
+let htmlRK = '<table class="stbl">';
+htmlRK += '<tr class="sh"><td>Prioridade</td><td>Fornecedores</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td></tr>';
+[1,2,3,4].forEach(rk => {
+  const g = rkGroups[rk]; if (!g) return;
+  const bgRk = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
+  htmlRK += '<tr><td><span class="rk-badge rk-' + rk + '">' + rk + '</span> <span style="font-size:10px;color:var(--muted);margin-left:3px;">' + rkDesc[rk] + '</span></td><td>' + g.count + '</td><td class="num num-bold" style="' + bgRk + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td></tr>';
+});
+htmlRK += '</table>';
+document.getElementById('summaryRK').innerHTML = htmlRK;
+
+// Combined Table + Gantt
+let html = '<table class="combined"><thead>';
+html += '<tr>';
+html += '<th colspan="7" style="text-align:left;padding-left:14px;">Dados do Fornecedor</th>';
+months.forEach(m => { html += '<th class="month-header" colspan="5">' + m + '</th>'; });
+html += '</tr>';
+html += '<tr>';
+html += '<th style="min-width:140px;text-align:center;">Fornecedor</th>';
+html += '<th style="min-width:72px;">Status</th>';
+html += '<th style="min-width:40px;">Lote</th>';
+html += '<th style="min-width:72px;">Status Produção</th>';
+html += '<th style="min-width:34px;">RK</th>';
+html += '<th style="min-width:72px;">Responsável</th>';
+html += '<th style="min-width:65px;">Em Produção</th>';
+html += '<th style="min-width:55px;">Prontos</th>';
+html += '<th style="min-width:60px;">Produzir</th>';
+html += '<th class="col-sep" style="min-width:55px;">Restantes</th>';
+months.forEach((m, mi) => {
+  weeks.forEach(w => {
+    const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
+    html += '<th class="gantt-col' + sep + '" title="' + m + ' Sem ' + w + '">' + w + '</th>';
+  });
+});
+html += '</tr></thead><tbody>';
+
+data.forEach((d, i) => {
+  const schedule = ganttSchedule.find(g => g.idx === i);
+  const statusCls = d.status === 'Ativo' ? 'ativo' : d.status === 'Novo' ? 'novo' : 'reativando';
+  const rowCls = d.prod === 'sim' ? ' class="row-sim"' : '';
+  const logoHTML = d.logo
+    ? '<img src="' + d.logo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
+    : '<span class="forn-name">' + d.fornecedor + '</span>';
+
+  html += '<tr' + rowCls + ' data-prod="' + d.prod + '">';
+  html += '<td><div class="logo-cell">' + logoHTML + '</div></td>';
+  html += '<td><span class="badge badge-' + statusCls + '">' + d.status + '</span></td>';
+  html += '<td>' + d.lote + '</td>';
+  html += '<td><span class="badge badge-' + d.prod + '">' + d.prod + '</span></td>';
+  html += '<td><span class="rk-badge rk-' + d.rk + '">' + d.rk + '</span></td>';
+  html += '<td style="color:' + (d.resp==='s/ resp.'?'var(--muted)':'var(--text)') + ';">' + d.resp + '</td>';
+  html += '<td class="num ' + (d.producao===0?'zero':'') + '" style="' + (d.producao>0?'background:var(--accent-light);border-radius:4px;padding:2px 6px;font-weight:700;':'') + '">' + fmt(d.producao) + '</td>';
+  html += '<td class="num ' + (d.prontos===0?'zero':'') + '">' + fmt(d.prontos) + '</td>';
+  html += '<td class="num num-bold">' + fmt(d.produzir) + '</td>';
+  html += '<td class="num col-sep" style="color:' + (d.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(d.restantes) + '</td>';
+
+  months.forEach((m, mi) => {
+    weeks.forEach(w => {
+      const key = m + '-' + w;
+      const cell = schedule ? schedule.cells.find(c => c.w === key) : null;
+      const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
+      if (cell) {
+        const cls = cell.t === 'active' ? 'gantt-cell-active' : 'gantt-cell-waiting';
+        html += '<td class="gantt-col' + sep + '"><div class="' + cls + '"></div></td>';
+      } else {
+        html += '<td class="gantt-col' + sep + '"></td>';
+      }
+    });
+  });
+  html += '</tr>';
+});
+
+// Totals
+const totP = data.reduce((s,d)=>s+d.producao,0);
+const totPr = data.reduce((s,d)=>s+d.prontos,0);
+const totPz = data.reduce((s,d)=>s+d.produzir,0);
+const totR = data.reduce((s,d)=>s+d.restantes,0);
+html += '<tr class="totals-row">';
+html += '<td colspan="6" style="padding-left:14px;">TOTAL GERAL (' + data.length + ' fornecedores)</td>';
+const bgTotP = totP > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
+html += '<td class="num num-bold" style="' + bgTotP + '">' + fmt(totP) + '</td>';
+html += '<td class="num">' + fmt(totPr) + '</td>';
+html += '<td class="num">' + fmt(totPz) + '</td>';
+html += '<td class="num col-sep">' + fmtSigned(totR) + '</td>';
+months.forEach((m, mi) => {
+  weeks.forEach(w => {
+    const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
+    html += '<td class="gantt-col' + sep + '"></td>';
+  });
+});
+html += '</tr>';
+html += '</tbody></table>';
+document.getElementById('combinedContainer').innerHTML = html;
+
+// ============ FILTERS ============
+let activeBtnFilter = null;
+
+function toggleFilter(btn) {
+  const filter = btn.getAttribute('data-filter');
+  if (activeBtnFilter === filter) {
+    activeBtnFilter = null;
+    btn.classList.remove('active');
+    showAllRows();
+  } else {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    activeBtnFilter = filter;
+    btn.classList.add('active');
+    filterRows([filter]);
+  }
+  resetMultiSelectCheckboxes(activeBtnFilter ? [activeBtnFilter] : ['sim','próximo','espera']);
+}
+
+function filterRows(statusList) {
+  const rows = document.querySelectorAll('#combinedContainer tbody tr:not(.totals-row)');
+  rows.forEach(row => {
+    const prod = row.getAttribute('data-prod');
+    if (statusList.includes(prod)) {
+      row.classList.remove('row-hidden');
+    } else {
+      row.classList.add('row-hidden');
+    }
+  });
+}
+
+function showAllRows() {
+  document.querySelectorAll('#combinedContainer tbody tr').forEach(row => {
+    row.classList.remove('row-hidden');
+  });
+  resetMultiSelectCheckboxes(['sim','próximo','espera','indefinido']);
+}
+
+function toggleMultiSelect() {
+  const dd = document.getElementById('msDropdown');
+  dd.classList.toggle('open');
+}
+
+function updateMultiSelect() {
+  const checkboxes = document.querySelectorAll('#msDropdown input[type="checkbox"]');
+  const selected = [];
+  checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.value); });
+  document.getElementById('msCount').textContent = selected.length;
+
+  activeBtnFilter = null;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+
+  if (selected.length === 4 || selected.length === 0) {
+    showAllRows();
+  } else {
+    filterRows(selected);
+  }
+}
+
+function resetMultiSelectCheckboxes(values) {
+  const checkboxes = document.querySelectorAll('#msDropdown input[type="checkbox"]');
+  checkboxes.forEach(cb => { cb.checked = values.includes(cb.value); });
+  document.getElementById('msCount').textContent = values.length;
+}
+
+document.addEventListener('click', function(e) {
+  const ms = document.querySelector('.multi-select');
+  if (!ms.contains(e.target)) {
+    document.getElementById('msDropdown').classList.remove('open');
+  }
+});
+
+// Initial filter: hide indefinido by default
+filterRows(['sim','próximo','espera']);
+</script>
+</body>
+</html>
