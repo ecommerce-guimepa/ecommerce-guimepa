@@ -494,7 +494,7 @@
         </div>
         <button class="clear-btn" id="clearMarketplaceFilters" type="button">Exibir todas</button>
         <button class="clear-btn marketplace-meli-btn" id="filterMercadoLivre" type="button" title="Exibir somente as lojas do Mercado Livre">
-          <img src="logos-marketplaces/meli.png" alt="Mercado Livre" onerror="this.style.display='none'">
+          <img src="logos-marketplaces/meli.png" data-logo="meli.png" data-logo-attempt="0" alt="Mercado Livre" onerror="tryMarketplaceLogoPath(this)">
           <span>Mercado Livre</span>
         </button>
         <span class="marketplaces-count" id="marketplacesResultCount"></span>
@@ -623,8 +623,9 @@ data.forEach((d, i) => {
   const schedule = ganttSchedule.find(g => g.idx === i);
   const statusCls = d.status === 'Ativo' ? 'ativo' : d.status === 'Novo' ? 'novo' : 'reativando';
   const rowCls = d.prod === 'sim' ? ' class="row-sim"' : '';
-  const logoHTML = d.logo
-    ? '<img src="' + d.logo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
+  const logoArquivo = d.logo ? String(d.logo).split('/').pop().split('\\').pop() : '';
+  const logoHTML = logoArquivo
+    ? '<img src="logos-marcas/' + logoArquivo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
     : '<span class="forn-name">' + d.fornecedor + '</span>';
 
   html += '<tr' + rowCls + ' data-prod="' + d.prod + '">';
@@ -890,6 +891,19 @@ const mpEscape = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&
 const mpMissing = value => value === null || value === undefined || String(value).trim()==='' || value === 'Não informado';
 const mpInitials = name => String(name).split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
 let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
+function tryMarketplaceLogoPath(img){
+  const file=img.dataset.logo||'';
+  const attempt=Number(img.dataset.logoAttempt||0);
+  const candidates=[file,'logos-marketplaces/'+file.replace(/\.png$/i,'.PNG'),file.replace(/\.png$/i,'.PNG')];
+  if(attempt<candidates.length){
+    img.dataset.logoAttempt=String(attempt+1);
+    img.src=candidates[attempt];
+    return;
+  }
+  img.style.display='none';
+  const fallback=img.nextElementSibling;
+  if(fallback&&fallback.classList.contains('marketplace-logo-fallback')) fallback.style.display='flex';
+}
 function mpField(label,value,highlight=false){const missing=mpMissing(value);return '<div class="marketplace-field"><div class="marketplace-field-label">'+mpEscape(label)+'</div><div class="marketplace-field-value'+(missing?' missing':'')+'">'+(highlight&&!missing?'<span class="marketplace-highlight">'+mpEscape(value)+'</span>':mpEscape(value||'Não informado'))+'</div></div>';}
 function countBy(values){return values.reduce((acc,v)=>{if(!mpMissing(v))acc[v]=(acc[v]||0)+1;return acc;},{});}
 function renderMarketplaceKPIs(){
@@ -917,7 +931,7 @@ function renderMarketplaceCards(){
   if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja selecionada. Use a lista acima ou clique em “Exibir todas”.</div>';return;}
   document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
     '<article class="marketplace-card"><header class="marketplace-card-header">'+
-    '<div class="marketplace-logo-box"><img src="logos-marketplaces/'+mpEscape(item.image)+'" alt="Logo '+mpEscape(item.canal)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
+    '<div class="marketplace-logo-box"><img src="logos-marketplaces/'+mpEscape(item.image)+'" data-logo="'+mpEscape(item.image)+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
     '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store">Loja: '+mpEscape(item.nomeLoja)+' • Faturamento: '+mpEscape(item.faturamento)+'</div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
     '<div class="marketplace-card-body">'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+mpField('Cota por SKU?',item.cotaSku)+'</section>'+
