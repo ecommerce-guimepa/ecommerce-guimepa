@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="logos-marketplaces/favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1067,7 +1067,7 @@ let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
 function marketplaceLogoFile(item){
   const canal=String(item?.canal || '').trim();
   const explicit={
-    'AMAZON GUIMEPA':'Amazon.jpg',
+    'AMAZON GUIMEPA':'amazon.png',
     'LEROY MERLIN':'Leroy.png',
     'LL LOYALTY':'LL.png',
     'LIVELO':'LIVELO.png',
@@ -1088,7 +1088,7 @@ function tryMarketplaceLogoPath(img){
   const stem=file.replace(/\.[^.]+$/,'');
   const ext=(file.match(/\.[^.]+$/)||[''])[0];
   const knownFiles={
-    'amazon.jpg':'Amazon.jpg','magalu.png':'Magalu.png','shophub.png':'Shophub.png',
+    'amazon.ppg':'Amazon.png','magalu.png':'Magalu.png','shophub.png':'Shophub.png',
     'tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png',
     'livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png',
     'senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.jpg':'TEMU.jpg',
