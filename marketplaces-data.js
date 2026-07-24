@@ -1,7 +1,7 @@
 const marketplacesData = [
   {
     "ordem": 1,
-    "image": "amazon.png",
+    "image": "Amazon.jpg",
     "canal": "AMAZON GUIMEPA",
     "comissaoBase": "11% a 14%",
     "faturamento": "TODAS",
@@ -101,7 +101,7 @@ const marketplacesData = [
   },
   {
     "ordem": 5,
-    "image": "loja.png",
+    "image": "loja.jpg",
     "canal": "LOJA DO COOPERADO - SICOOB",
     "comissaoBase": "16%",
     "faturamento": "GMK8",
@@ -126,7 +126,7 @@ const marketplacesData = [
   },
   {
     "ordem": 6,
-    "image": "magalu.png",
+    "image": "Magalu.png",
     "canal": "MAGALU-GUIMEPA",
     "comissaoBase": "13%",
     "faturamento": "GMP",
@@ -151,7 +151,7 @@ const marketplacesData = [
   },
   {
     "ordem": 7,
-    "image": "magalu.png",
+    "image": "Magalu.png",
     "canal": "MAGALU-GUIMEPA SHOP",
     "comissaoBase": "13%",
     "faturamento": "GMK8",
@@ -175,7 +175,7 @@ const marketplacesData = [
     "validaXml": "Status Altera Por Xml"
   },
   {
-    "ordem": 8,
+    "ordem": 11,
     "image": "meli.png",
     "canal": "MELI DELTATOP",
     "comissaoBase": "12% Clá 17% Pre",
@@ -200,7 +200,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 9,
+    "ordem": 8,
     "image": "meli.png",
     "canal": "MELI GUIMEPA",
     "comissaoBase": "12% Clá 17% Pre",
@@ -225,7 +225,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 10,
+    "ordem": 9,
     "image": "meli.png",
     "canal": "MELI GUIMEPA SHOP",
     "comissaoBase": "12% Clá 17% Pre",
@@ -250,7 +250,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 11,
+    "ordem": 10,
     "image": "meli.png",
     "canal": "MELI GUIMEPA STORE",
     "comissaoBase": "12% Clá 17% Pre",
@@ -351,7 +351,7 @@ const marketplacesData = [
   },
   {
     "ordem": 15,
-    "image": "shophub.png",
+    "image": "Shophub.png",
     "canal": "SHOPHUB",
     "comissaoBase": "15%",
     "faturamento": "TODAS",
@@ -401,7 +401,7 @@ const marketplacesData = [
   },
   {
     "ordem": 17,
-    "image": "tiktok.png",
+    "image": "TIKTOK.png",
     "canal": "TIKTOK SHOP",
     "comissaoBase": "6% + 8% Afiliado",
     "faturamento": "GMK8",
@@ -426,7 +426,7 @@ const marketplacesData = [
   },
   {
     "ordem": 18,
-    "image": "webcontinental.png",
+    "image": "Webcontinental.png",
     "canal": "WEBCONTINENTAL GUIMEPA SHOP",
     "comissaoBase": "19%",
     "faturamento": "GMK8",

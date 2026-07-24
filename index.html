@@ -392,10 +392,10 @@
   .person-special { display:inline-flex; align-items:center; padding:6px 9px; border-radius:10px; font-size:10px; font-weight:800; }
   .person-automatic { background:#2563eb; color:#fff; }
   .person-undefined { background:#e5e7eb; color:#6b7280; font-style:italic; }
-  .activity-ranking { padding:14px; display:flex; flex-direction:column; gap:10px; }
-  .rank-row { display:grid; grid-template-columns:minmax(120px,1fr) 3fr auto; gap:10px; align-items:center; }
+  .activity-ranking { padding:12px; display:flex; flex-direction:column; gap:7px; }
+  .rank-row { display:grid; grid-template-columns:minmax(135px,1fr) minmax(55px,110px) 28px; gap:8px; align-items:center; }
   .rank-label { font-size:11px; font-weight:750; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .rank-bar { height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden; }
+  .rank-bar { height:6px; background:#e2e8f0; border-radius:999px; overflow:hidden; width:100%; max-width:110px; justify-self:end; }
   .rank-bar > span { display:block; height:100%; width:var(--pct); background:var(--bar-color,#2563eb); border-radius:999px; }
   .rank-value { font-size:11px; font-weight:800; color:var(--muted); }
   .activity-summary-kpi .kpi-sub strong { color:var(--text); }
@@ -405,6 +405,41 @@
   .timeline-meta .publication-person { justify-content:flex-start; }
   @media(max-width:1100px){ .activities-layout{grid-template-columns:1fr;} .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));} }
   @media(max-width:720px){ .activities-main{padding:10px;} .activities-filters{grid-template-columns:1fr 1fr;padding:11px;} .activities-filters .clear-btn{grid-column:1/-1;} .activity-grid{grid-template-columns:1fr;padding:10px;} }
+
+
+  .marketplace-field:has(.marketplace-highlight){background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:8px 9px;margin-bottom:9px;}
+  .marketplace-field:has(.marketplace-highlight) .marketplace-field-label{color:#1d4ed8;}
+  .year-group.open .year-arrow{transform:rotate(90deg);display:inline-block;}
+  @media(max-width:720px){
+    .marketplace-field:has(.marketplace-highlight){padding:9px;}
+    .activities-layout{gap:10px;margin-top:10px;}
+    .activity-card-title{font-size:12px;}
+    .marketplace-info-group{padding:11px;}
+    .portal-nav{scrollbar-width:none;} .portal-nav::-webkit-scrollbar{display:none;}
+  }
+
+  /* Activities dashboard - table layout */
+  .activities-rankings-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:16px 0; }
+  .activities-ranking-card { min-width:0; }
+  .activities-ranking-card .activity-ranking { height:260px; overflow-y:auto; scrollbar-width:thin; }
+  .activity-table-wrap { overflow:auto; -webkit-overflow-scrolling:touch; }
+  .activity-table { width:100%; border-collapse:collapse; font-size:12px; min-width:920px; }
+  .activity-table th { position:sticky; top:0; z-index:2; background:#f1f5f9; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; font-size:10px; padding:10px 12px; text-align:left; border-bottom:2px solid var(--border); white-space:nowrap; }
+  .activity-table td { padding:10px 12px; border-bottom:1px solid var(--border-light); vertical-align:middle; }
+  .activity-table tbody tr:hover td { background:#f8fafc; }
+  .activity-platform { display:flex; align-items:center; gap:9px; font-weight:800; white-space:nowrap; }
+  .activity-platform-logo { width:32px; height:32px; object-fit:contain; border:1px solid var(--border-light); border-radius:8px; background:#fff; padding:3px; flex:0 0 auto; }
+  .activity-table-title { font-weight:700; line-height:1.4; min-width:280px; }
+  .rank-owner { display:flex; align-items:center; gap:8px; min-width:0; }
+  .rank-owner .team-avatar { flex:0 0 auto; }
+  @media(max-width:1100px){ .activities-rankings-row{grid-template-columns:1fr;} .activities-ranking-card .activity-ranking{height:220px;} }
+  @media(max-width:720px){
+    .activities-rankings-row{gap:10px;margin:10px 0;}
+    .activities-ranking-card .activity-ranking{height:210px;}
+    .activity-table{min-width:780px;font-size:11px;}
+    .activity-table th,.activity-table td{padding:8px 9px;}
+    .activity-platform-logo{width:28px;height:28px;}
+  }
 
 </style>
 </head>
@@ -549,6 +584,13 @@
 <section id="dashboard-atividades" class="dashboard-panel">
   <div class="activities-main">
     <div class="kpi-row activity-summary-kpi" id="activitiesKpiRow"></div>
+
+    <div class="activities-rankings-row">
+      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Área</span></div><div class="activity-ranking" id="activitiesByArea"></div></div>
+      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Sub-área</span></div><div class="activity-ranking" id="activitiesBySubarea"></div></div>
+      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Responsável</span></div><div class="activity-ranking" id="activitiesByOwner"></div></div>
+    </div>
+
     <div class="section">
       <div class="section-header"><span class="section-title">Painel de atividades da equipe</span><span id="activitiesResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span></div>
       <div class="activities-filters">
@@ -558,13 +600,11 @@
         <div class="filter-field"><label>Responsável</label><select id="activityFilterOwner"></select></div>
         <button class="clear-btn" id="clearActivityFilters">Limpar filtros</button>
       </div>
-      <div class="activities-layout">
-        <div class="section"><div class="section-header"><span class="section-title">Atividades</span></div><div class="activity-grid" id="activityCards"></div></div>
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <div class="section"><div class="section-header"><span class="section-title">Atividades por Área</span></div><div class="activity-ranking" id="activitiesByArea"></div></div>
-          <div class="section"><div class="section-header"><span class="section-title">Atividades por Sub-área</span></div><div class="activity-ranking" id="activitiesBySubarea"></div></div>
-          <div class="section"><div class="section-header"><span class="section-title">Atividades por Responsável</span></div><div class="activity-ranking" id="activitiesByOwner"></div></div>
-        </div>
+      <div class="activity-table-wrap">
+        <table class="activity-table">
+          <thead><tr><th>Plataforma</th><th>Atividade</th><th>Área</th><th>Sub-área</th><th>Rotina</th><th>Responsável</th></tr></thead>
+          <tbody id="activityTableBody"></tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -672,6 +712,8 @@ htmlRK += '</table>';
 document.getElementById('summaryRK').innerHTML = htmlRK;
 
 // Combined Table + Gantt
+const publicationStatusOrder = { 'sim':1, 'próximo':2, 'espera':3, 'indefinido':4 };
+const publicationRows = data.map((item,index)=>({...item,_originalIndex:index})).sort((a,b)=>(publicationStatusOrder[a.prod]||99)-(publicationStatusOrder[b.prod]||99)||a.rk-b.rk||String(a.fornecedor).localeCompare(String(b.fornecedor),'pt-BR'));
 let html = '<table class="combined"><thead>';
 html += '<tr>';
 html += '<th colspan="7" style="text-align:left;padding-left:14px;">Dados do Fornecedor</th>';
@@ -696,8 +738,8 @@ months.forEach((m, mi) => {
 });
 html += '</tr></thead><tbody>';
 
-data.forEach((d, i) => {
-  const schedule = ganttSchedule.find(g => g.idx === i);
+publicationRows.forEach((d) => {
+  const schedule = ganttSchedule.find(g => g.idx === d._originalIndex);
   const statusCls = d.status === 'Ativo' ? 'ativo' : d.status === 'Novo' ? 'novo' : 'reativando';
   const rowCls = d.prod === 'sim' ? ' class="row-sim"' : '';
   const logoArquivo = d.logo ? String(d.logo).split('/').pop().split('\\').pop() : '';
@@ -941,11 +983,10 @@ function renderActionHistory(){
   const groups={}; filtered.forEach(a=>{const y=a.inicio.slice(0,4);(groups[y]??=[]).push(a)});
   const years=Object.keys(groups).sort((a,b)=>b-a);
   if(!years.length){document.getElementById('actionsHistory').innerHTML='<div class="empty-state">Nenhuma ação encontrada para os filtros selecionados.</div>';return;}
-  const mostRecentYear=years[0];
   document.getElementById('actionsHistory').innerHTML=years.map(year=>{
-    const open=year===mostRecentYear?' open':'';
+    const open='';
     const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Início" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td data-label="Final" style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td><td data-label="Responsável"><span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></td></tr>';}).join('');
-    return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>'+(year===mostRecentYear?'Expandido':'Recolhido')+'</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Início</th><th>Final</th><th>Ação</th><th>Local</th><th>Setor</th><th>Responsável</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
+    return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>Recolhido</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Início</th><th>Final</th><th>Ação</th><th>Local</th><th>Setor</th><th>Responsável</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
   }).join('');
 }
 
@@ -971,35 +1012,37 @@ const mpInitials = name => String(name).split(/\s+/).filter(Boolean).slice(0,2).
 let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
 function marketplaceLogoFile(item){
   const canal=String(item?.canal || '').trim();
-  if(/AMAZON/i.test(canal)) return 'amazon.png';
-  if(/LOJA DO COOPERADO|SICOOB/i.test(canal)) return 'loja.png';
+  const explicit={
+    'AMAZON GUIMEPA':'Amazon.jpg',
+    'LEROY MERLIN':'leroy.png',
+    'LL LOYALTY':'ll.png',
+    'LIVELO':'livelo.png',
+    'LOJA DO COOPERADO - SICOOB':'loja.jpg',
+    'TIKTOK SHOP':'TIKTOK.png',
+    'SHOPHUB':'Shophub.png',
+    'MAGALU-GUIMEPA':'Magalu.png',
+    'MAGALU-GUIMEPA SHOP':'Magalu.png'
+  };
+  if(explicit[canal]) return explicit[canal];
   const raw=item?.image || item?.imagem || item?.logo || '';
-  return String(raw).split(/[\/]/).pop().trim();
+  return String(raw).split(/[\\/]/).pop().trim();
 }
 function tryMarketplaceLogoPath(img){
   const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim();
   const attempt=Number(img.dataset.logoAttempt||0);
-  const lower=file.toLowerCase();
-  const upperExt=lower.replace(/\.png$/i,'.PNG');
+  const stem=file.replace(/\.[^.]+$/,'');
+  const ext=(file.match(/\.[^.]+$/)||[''])[0];
   const candidates=[
-    'logos-marketplaces/'+lower,
-    'logos-marketplaces/'+upperExt,
-    lower,
-    upperExt
+    'logos-marketplaces/'+file,
+    'logos-marketplaces/'+stem.toLowerCase()+ext.toLowerCase(),
+    'logos-marketplaces/'+stem+'.png',
+    'logos-marketplaces/'+stem+'.jpg',
+    'logos-marketplaces/'+stem+'.jpeg'
   ].filter((value,index,array)=>value&&array.indexOf(value)===index&&value!==img.getAttribute('src'));
-  if(attempt<candidates.length){
-    img.dataset.logoAttempt=String(attempt+1);
-    img.src=candidates[attempt];
-    return;
-  }
-  img.onerror=null;
-  img.style.display='none';
-  const fallback=img.nextElementSibling;
-  if(fallback&&fallback.classList.contains('marketplace-logo-fallback')) fallback.style.display='flex';
+  if(attempt<candidates.length){img.dataset.logoAttempt=String(attempt+1);img.src=candidates[attempt];return;}
+  img.onerror=null;img.style.display='none';const fallback=img.nextElementSibling;if(fallback&&fallback.classList.contains('marketplace-logo-fallback')) fallback.style.display='flex';
 }
-function marketplaceLogoPath(item){
-  return 'logos-marketplaces/'+marketplaceLogoFile(item).toLowerCase();
-}
+function marketplaceLogoPath(item){return 'logos-marketplaces/'+marketplaceLogoFile(item);}
 function mpField(label,value,highlight=false){const missing=mpMissing(value);return '<div class="marketplace-field"><div class="marketplace-field-label">'+mpEscape(label)+'</div><div class="marketplace-field-value'+(missing?' missing':'')+'">'+(highlight&&!missing?'<span class="marketplace-highlight">'+mpEscape(value)+'</span>':mpEscape(value||'Não informado'))+'</div></div>';}
 function countBy(values){return values.reduce((acc,v)=>{if(!mpMissing(v))acc[v]=(acc[v]||0)+1;return acc;},{});}
 function renderMarketplaceKPIs(){
@@ -1022,7 +1065,12 @@ function renderMarketplaceFilter(){
 function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.checked=selectedMarketplaces.has(cb.value));}
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
 function renderMarketplaceCards(){
-  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal));
+  const orderPriority={'MELI GUIMEPA':1,'MELI GUIMEPA SHOP':2,'MELI GUIMEPA STORE':3,'MELI DELTATOP':4};
+  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)).sort((a,b)=>{
+    const am=/^MELI /.test(a.canal), bm=/^MELI /.test(b.canal);
+    if(am&&bm) return (orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);
+    return (a.ordem||999)-(b.ordem||999);
+  });
   document.getElementById('marketplacesResultCount').textContent=visible.length+' de '+marketplacesData.length+' lojas exibidas';
   if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja selecionada. Use a lista acima ou clique em “Exibir todas”.</div>';return;}
   document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
@@ -1030,10 +1078,10 @@ function renderMarketplaceCards(){
     '<div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
     '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store">Loja: '+mpEscape(item.nomeLoja)+' • Faturamento: '+mpEscape(item.faturamento)+'</div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
     '<div class="marketplace-card-body">'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+mpField('Cota por SKU?',item.cotaSku)+'</section>'+
+    '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section>'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section>'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de cancelamento',item.politicaCancelamento)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+mpField('CNPJ',item.cnpj)+'</section>'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('ID da loja',item.idLoja)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>'
+    '<section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('CNPJ',item.cnpj,true)+mpField('Política de cancelamento',item.politicaCancelamento,true)+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+'</section>'+
+    '<section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>'
   ).join('');
 }
 function setAllMarketplaces(checked){selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
@@ -1056,20 +1104,47 @@ initMarketplacesDashboard();
 
 <script>
 // ============ ATIVIDADES ============
-const activityData = Array.isArray(window.atividadesData) ? window.atividadesData : (typeof atividadesData !== 'undefined' && Array.isArray(atividadesData) ? atividadesData : []);
+const activityData = (typeof atividadesData !== 'undefined' && Array.isArray(atividadesData)) ? atividadesData : [];
 const activityPalette=['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#dc2626','#0f766e','#9333ea','#ca8a04','#0284c7'];
 const activityUnique=v=>[...new Set(v.filter(x=>x!==null&&x!==undefined&&String(x).trim()!==''))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR'));
 const activityColorMap=values=>Object.fromEntries(activityUnique(values).map((v,i)=>[v,activityPalette[i%activityPalette.length]]));
 function activityValue(item,...keys){for(const k of keys){if(item[k]!==undefined&&item[k]!==null&&String(item[k]).trim()!=='')return String(item[k]).trim();}return 'Indefinido';}
-function activityNormalized(){return activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade','rotina','Rotina','descricao','Descrição'),execucao:activityValue(x,'execucao','Execução','frequencia','Frequência'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','subArea','Sub-área','Sub Área','Subarea'),responsavel:activityValue(x,'responsavel','Responsável')}));}
-const activityRows=activityNormalized();
+const activityRows=activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade'),execucao:activityValue(x,'execucao','Execução'),rotina:activityValue(x,'rotina','Rotina'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','Sub-área','Sub Área'),responsavel:activityValue(x,'responsavel','Responsável')}));
 const activityAreaColors=activityColorMap(activityRows.map(x=>x.area));
 const activitySubareaColors=activityColorMap(activityRows.map(x=>x.subarea));
-const activityRoutineColors=activityColorMap(activityRows.map(x=>x.atividade));
+const activityRoutineColors=activityColorMap(activityRows.map(x=>x.rotina));
 function fillActivitySelect(id,values,label){const el=document.getElementById(id);el.innerHTML='<option value="">'+label+'</option>'+activityUnique(values).map(v=>'<option value="'+escapeHtml(v)+'">'+escapeHtml(v)+'</option>').join('');}
 function filteredActivities(){const e=document.getElementById('activityFilterExecution').value,a=document.getElementById('activityFilterArea').value,s=document.getElementById('activityFilterSubarea').value,r=document.getElementById('activityFilterOwner').value;return activityRows.filter(x=>(!e||x.execucao===e)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r));}
-function rankHTML(rows,key,colors){const counts={};rows.forEach(x=>counts[x[key]]=(counts[x[key]]||0)+1);const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR'));const max=Math.max(1,...entries.map(x=>x[1]));return entries.length?entries.map(([n,q])=>'<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+escapeHtml(n)+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>').join(''):'<div class="empty-state">Sem dados.</div>'; }
-function renderActivities(){const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.execucao)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.execucao)).length;document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';const k=[{label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},{label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},{label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},{label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'}];document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');document.getElementById('activityCards').innerHTML=rows.length?rows.map(x=>'<article class="activity-card" style="--activity-color:'+(activityRoutineColors[x.atividade]||'#2563eb')+'"><div class="activity-card-title">'+escapeHtml(x.atividade)+'</div><div class="activity-tags"><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></div><div class="activity-execution"><span>'+escapeHtml(x.execucao)+'</span><span class="activity-person">'+teamPersonHTML(x.responsavel,false)+'</span></div></article>').join(''):'<div class="empty-state" style="grid-column:1/-1">A base de atividades ainda não foi carregada em <strong>atividades-data.js</strong>.</div>';document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors);document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors);document.getElementById('activitiesByOwner').innerHTML=rankHTML(rows,'responsavel',Object.fromEntries(activityUnique(rows.map(x=>x.responsavel)).map((n,i)=>[n,activityPalette[i%activityPalette.length]])));}
+function activityPlatformLogo(execucao){
+  const value=String(execucao||'').trim().toUpperCase();
+  if(value==='BOARD'||value==='CARD') return '<img class="activity-platform-logo" src="logo-plataformas/trello.png" data-logo-options="logo-plataformas/trello.jpg|logo-plataformas/trello.jpeg|logo-plataformas/trello.jng|logo-plataformas/Trello.png" data-logo-index="0" alt="Trello" onerror="tryActivityPlatformLogo(this)">';
+  if(value==='ERP') return '<img class="activity-platform-logo" src="logo-plataformas/erp.png" data-logo-options="logo-plataformas/ERP.png|logo-plataformas/erp.jpg|logo-plataformas/erp.jpeg" data-logo-index="0" alt="ERP" onerror="tryActivityPlatformLogo(this)">';
+  return '';
+}
+function tryActivityPlatformLogo(img){
+  const options=String(img.dataset.logoOptions||'').split('|').filter(Boolean);
+  const index=Number(img.dataset.logoIndex||0);
+  if(index<options.length){img.dataset.logoIndex=String(index+1);img.src=options[index];return;}
+  img.onerror=null;img.style.display='none';
+}
+function rankHTML(rows,key,colors,withOwner=false){
+  const counts={};rows.forEach(x=>counts[x[key]]=(counts[x[key]]||0)+1);
+  const specialOwnerOrder=name=>{const normalized=String(name||'').trim().toLocaleLowerCase('pt-BR');if(normalized==='indefinido')return 2;if(normalized==='automático'||normalized==='automatico')return 1;return 0;};
+  const entries=Object.entries(counts).sort((a,b)=>{if(withOwner){const d=specialOwnerOrder(a[0])-specialOwnerOrder(b[0]);if(d!==0)return d;}return b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR');});
+  const max=Math.max(1,...entries.map(x=>x[1]));
+  return entries.length?entries.map(([n,q])=>'<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+(withOwner?'<span class="rank-owner">'+teamPersonHTML(n,true)+'</span>':escapeHtml(n))+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>').join(''):'<div class="empty-state">Sem dados.</div>';
+}
+function renderActivities(){
+ const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.rotina)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.rotina)).length;
+ document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';
+ const k=[{label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},{label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},{label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},{label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'}];
+ document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');
+ document.getElementById('activityTableBody').innerHTML=rows.length?rows.map(x=>'<tr><td><div class="activity-platform">'+activityPlatformLogo(x.execucao)+'<span>'+escapeHtml(x.execucao)+'</span></div></td><td class="activity-table-title">'+escapeHtml(x.atividade)+'</td><td><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span></td><td><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></td><td><span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span></td><td>'+teamPersonHTML(x.responsavel,false)+'</td></tr>').join(''):'<tr><td colspan="6"><div class="empty-state">Nenhuma atividade encontrada.</div></td></tr>';
+ document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors);
+ document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors);
+ const ownerColors=Object.fromEntries(activityUnique(rows.map(x=>x.responsavel)).map((n,i)=>[n,activityPalette[i%activityPalette.length]]));
+ document.getElementById('activitiesByOwner').innerHTML=rankHTML(rows,'responsavel',ownerColors,true);
+}
 function initActivities(){fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');fillActivitySelect('activityFilterOwner',activityRows.map(x=>x.responsavel),'Todos os responsáveis');['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).value='');renderActivities();});renderActivities();}
 initActivities();
 </script>
