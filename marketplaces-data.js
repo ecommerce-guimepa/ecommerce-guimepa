@@ -101,7 +101,7 @@ const marketplacesData = [
   },
   {
     "ordem": 5,
-    "image": "loja.jpg",
+    "image": "loja.png",
     "canal": "LOJA DO COOPERADO - SICOOB",
     "comissaoBase": "16%",
     "faturamento": "GMK8",

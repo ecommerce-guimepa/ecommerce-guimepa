@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="logos-marketplaces/favicon.png">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="shortcut icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -306,15 +308,15 @@
 
 
 
-  .marketplace-logo-filter-btn { width:86px; height:54px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; }
+  .marketplace-channel-buttons { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .marketplace-logo-filter-btn { width:86px; height:54px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; background:transparent !important; border:1.5px solid var(--channel-color, var(--border)) !important; color:var(--channel-color, var(--text)) !important; transition:background .18s ease, box-shadow .18s ease, transform .18s ease; }
+  .marketplace-logo-filter-btn:hover { background:color-mix(in srgb, var(--channel-color, #64748b) 7%, transparent) !important; box-shadow:0 2px 8px color-mix(in srgb, var(--channel-color, #64748b) 18%, transparent); transform:translateY(-1px); }
+  .marketplace-logo-filter-btn.active { background:color-mix(in srgb, var(--channel-color, #64748b) 10%, transparent) !important; box-shadow:0 0 0 2px color-mix(in srgb, var(--channel-color, #64748b) 14%, transparent); }
   .marketplace-logo-filter-btn img { width:100%; height:100%; max-width:68px; max-height:40px; object-fit:contain; }
-  .marketplace-meli-btn { background:#ffe600 !important; border-color:#d4bd00 !important; color:#2d3277 !important; }
-  .marketplace-shopee-btn { background:#fff !important; border-color:#ee4d2d !important; color:#ee4d2d !important; }
-  .marketplace-shopee-btn:hover { background:#fff7f5 !important; border-color:#d63d21 !important; }
-  .marketplace-magalu-btn { background:#fff !important; border-color:#0086ff !important; color:#0086ff !important; }
-  .marketplace-magalu-btn:hover { background:#f0f8ff !important; border-color:#006ed6 !important; }
+  .marketplace-all-btn { font-size:11px; font-weight:800; line-height:1.15; text-align:center; letter-spacing:.1px; }
   .marketplace-filter-wrap { min-width:260px; }
-  .marketplace-filter-menu { min-width:300px; }
+  .marketplace-filter { margin-left:auto; }
+  .marketplace-filter-menu { min-width:300px; right:0; left:auto !important; }
 
   /* Marketplaces dashboard */
   .marketplaces-main { padding:20px 24px; max-width:1900px; margin:0 auto; }
@@ -556,6 +558,8 @@
         <span style="font-size:11px;color:var(--muted);font-weight:600;">Ordem original da planilha</span>
       </div>
       <div class="marketplaces-toolbar">
+        <div class="marketplace-channel-buttons" id="marketplaceChannelButtons"></div>
+        <span class="marketplaces-count" id="marketplacesResultCount"></span>
         <div class="marketplace-filter" id="marketplaceFilter">
           <span class="marketplace-filter-label">Filtrar lojas</span>
           <button class="marketplace-filter-button" id="marketplaceFilterButton" type="button"><span id="marketplaceFilterText">Todas as lojas</span><span>▼</span></button>
@@ -564,17 +568,6 @@
             <div id="marketplaceFilterOptions"></div>
           </div>
         </div>
-        <button class="clear-btn" id="clearMarketplaceFilters" type="button">Exibir todas</button>
-        <button class="clear-btn marketplace-logo-filter-btn marketplace-meli-btn" id="filterMercadoLivre" type="button" title="Exibir somente as lojas do Mercado Livre" aria-label="Filtrar Mercado Livre">
-          <img src="logos-marketplaces/meli.png" data-logo="meli.png" data-logo-attempt="0" alt="Mercado Livre" onerror="tryMarketplaceLogoPath(this)">
-        </button>
-        <button class="clear-btn marketplace-logo-filter-btn marketplace-shopee-btn" id="filterShopee" type="button" title="Exibir somente as lojas da Shopee" aria-label="Filtrar Shopee">
-          <img src="logos-marketplaces/shopee.png" data-logo="shopee.png" data-logo-attempt="0" alt="Shopee" onerror="tryMarketplaceLogoPath(this)">
-        </button>
-        <button class="clear-btn marketplace-logo-filter-btn marketplace-magalu-btn" id="filterMagalu" type="button" title="Exibir somente as lojas da Magalu" aria-label="Filtrar Magalu">
-          <img src="logos-marketplaces/magalu.png" data-logo="magalu.png" data-logo-attempt="0" alt="Magalu" onerror="tryMarketplaceLogoPath(this)">
-        </button>
-        <span class="marketplaces-count" id="marketplacesResultCount"></span>
       </div>
       <div class="marketplace-list" id="marketplaceCards"></div>
     </div>
@@ -942,7 +935,6 @@ function renderActionKPIs(dataSet) {
   const items = [
     {label:'Total de Ações',value:dataSet.length,sub:'registros históricos',cls:'blue'},
     {label:'Mês mais recente',value:currentMonthCount,sub:actionMonths[latestDateObj.getMonth()]+' de '+latestDateObj.getFullYear(),cls:'green'},
-    {label:'Período coberto',value:years.length,sub:'anos na base',cls:'purple'},
     {label:'Locais',value:locals.length,sub:'origens das ações',cls:'orange'},
     {label:'Setores',value:sectors.length,sub:'áreas de atuação',cls:'red'},
     {label:'Responsáveis',value:uniq(dataSet.map(a=>a.responsavel).filter(v=>v&&v!=='Não informado')).length,sub:'pessoas ou equipes',cls:'blue'}
@@ -1014,14 +1006,15 @@ function marketplaceLogoFile(item){
   const canal=String(item?.canal || '').trim();
   const explicit={
     'AMAZON GUIMEPA':'Amazon.jpg',
-    'LEROY MERLIN':'leroy.png',
-    'LL LOYALTY':'ll.png',
-    'LIVELO':'livelo.png',
-    'LOJA DO COOPERADO - SICOOB':'loja.jpg',
+    'LEROY MERLIN':'Leroy.png',
+    'LL LOYALTY':'LL.png',
+    'LIVELO':'LIVELO.png',
+    'LOJA DO COOPERADO - SICOOB':'loja.png',
     'TIKTOK SHOP':'TIKTOK.png',
     'SHOPHUB':'Shophub.png',
     'MAGALU-GUIMEPA':'Magalu.png',
-    'MAGALU-GUIMEPA SHOP':'Magalu.png'
+    'MAGALU-GUIMEPA SHOP':'Magalu.png',
+    'SENFF':'SENFF.png'
   };
   if(explicit[canal]) return explicit[canal];
   const raw=item?.image || item?.imagem || item?.logo || '';
@@ -1032,9 +1025,17 @@ function tryMarketplaceLogoPath(img){
   const attempt=Number(img.dataset.logoAttempt||0);
   const stem=file.replace(/\.[^.]+$/,'');
   const ext=(file.match(/\.[^.]+$/)||[''])[0];
+  const knownFiles={
+    'amazon.jpg':'Amazon.jpg','magalu.png':'Magalu.png','shophub.png':'Shophub.png',
+    'tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png',
+    'livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png',
+    'senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.jpg':'TEMU.jpg',
+    'guimepa.png':'guimepa.png'
+  };
+  const canonical=knownFiles[file.toLowerCase()] || file;
   const candidates=[
+    'logos-marketplaces/'+canonical,
     'logos-marketplaces/'+file,
-    'logos-marketplaces/'+stem.toLowerCase()+ext.toLowerCase(),
     'logos-marketplaces/'+stem+'.png',
     'logos-marketplaces/'+stem+'.jpg',
     'logos-marketplaces/'+stem+'.jpeg'
@@ -1060,7 +1061,7 @@ function renderMarketplaceKPIs(){
 }
 function renderMarketplaceFilter(){
   document.getElementById('marketplaceFilterOptions').innerHTML=marketplacesData.map(item=>'<label class="marketplace-filter-option"><input type="checkbox" value="'+mpEscape(item.canal)+'" checked> <span>'+mpEscape(item.canal)+'</span></label>').join('');
-  document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.addEventListener('change',()=>{cb.checked?selectedMarketplaces.add(cb.value):selectedMarketplaces.delete(cb.value);renderMarketplaceCards();updateMarketplaceFilterText();}));
+  document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.addEventListener('change',()=>{cb.checked?selectedMarketplaces.add(cb.value):selectedMarketplaces.delete(cb.value);activeMarketplaceChannel='';renderMarketplaceCards();updateMarketplaceFilterText();renderMarketplaceChannelButtons();}));
 }
 function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.checked=selectedMarketplaces.has(cb.value));}
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
@@ -1084,20 +1085,49 @@ function renderMarketplaceCards(){
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>'
   ).join('');
 }
-function setAllMarketplaces(checked){selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
-function filterMercadoLivre(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/\bMELI\b|MERCADO LIVRE/i.test(x.canal)).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
-function filterShopee(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/^SHOPEE GUIMEPA(?: STORE)?$/i.test(String(x.canal).trim())).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
-function filterMagalu(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/^MAGALU-GUIMEPA(?: SHOP)?$/i.test(String(x.canal).trim())).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
+const marketplaceChannelFilters=[
+  {id:'all',label:'Exibir todas',color:'#64748b',logo:'',channels:null},
+  {id:'mercado-livre',label:'Mercado Livre',color:'#2d3277',logo:'meli.png',channels:['MELI DELTATOP','MELI GUIMEPA','MELI GUIMEPA SHOP','MELI GUIMEPA STORE']},
+  {id:'shopee',label:'Shopee',color:'#ee4d2d',logo:'shopee.png',channels:['SHOPEE GUIMEPA','SHOPEE GUIMEPA STORE']},
+  {id:'magalu',label:'Magalu',color:'#0086ff',logo:'Magalu.png',channels:['MAGALU-GUIMEPA','MAGALU-GUIMEPA SHOP']},
+  {id:'amazon',label:'Amazon',color:'#ff9900',logo:'Amazon.jpg',channels:['AMAZON GUIMEPA']},
+  {id:'leroy-merlin',label:'Leroy Merlin',color:'#78be20',logo:'Leroy.png',channels:['LEROY MERLIN']},
+  {id:'livelo',label:'Livelo',color:'#7b2cbf',logo:'LIVELO.png',channels:['LIVELO']},
+  {id:'ll-loyalty',label:'LL Loyalty',color:'#334155',logo:'LL.png',channels:['LL LOYALTY']},
+  {id:'loja-cooperado',label:'Loja do Cooperado',color:'#168f58',logo:'loja.png',channels:['LOJA DO COOPERADO - SICOOB']},
+  {id:'senff',label:'Senff',color:'#f58220',logo:'SENFF.png',channels:['SENFF']},
+  {id:'shophub',label:'Shophub',color:'#2563eb',logo:'Shophub.png',channels:['SHOPHUB']},
+  {id:'site',label:'Site',color:'#1d4ed8',logo:'site.png',channels:['SITE']},
+  {id:'tiktok',label:'TikTok Shop',color:'#111827',logo:'TIKTOK.png',channels:['TIKTOK SHOP']},
+  {id:'webcontinental',label:'Webcontinental',color:'#e11d48',logo:'Webcontinental.png',channels:['WEBCONTINENTAL GUIMEPA SHOP']}
+];
+let activeMarketplaceChannel='all';
+function renderMarketplaceChannelButtons(){
+  const root=document.getElementById('marketplaceChannelButtons');
+  root.innerHTML=marketplaceChannelFilters.map(item=>{
+    const content=item.logo?'<img src="logos-marketplaces/'+mpEscape(item.logo)+'" data-logo="'+mpEscape(item.logo)+'" data-logo-attempt="0" alt="'+mpEscape(item.label)+'" onerror="tryMarketplaceLogoPath(this)">':'<span>'+mpEscape(item.label)+'</span>';
+    return '<button class="clear-btn marketplace-logo-filter-btn'+(item.id==='all'?' marketplace-all-btn':'')+(activeMarketplaceChannel===item.id?' active':'')+'" type="button" data-channel-filter="'+mpEscape(item.id)+'" title="'+mpEscape(item.label)+'" aria-label="Filtrar '+mpEscape(item.label)+'" style="--channel-color:'+item.color+'">'+content+'</button>';
+  }).join('');
+  root.querySelectorAll('[data-channel-filter]').forEach(btn=>btn.addEventListener('click',()=>applyMarketplaceChannelFilter(btn.dataset.channelFilter)));
+}
+function setAllMarketplaces(checked){
+  activeMarketplaceChannel=checked?'all':'';
+  selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);
+  syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();renderMarketplaceChannelButtons();
+}
+function applyMarketplaceChannelFilter(id){
+  const filter=marketplaceChannelFilters.find(item=>item.id===id);
+  if(!filter)return;
+  activeMarketplaceChannel=id;
+  selectedMarketplaces=new Set(filter.channels===null?marketplacesData.map(x=>x.canal):filter.channels.filter(c=>marketplacesData.some(x=>x.canal===c)));
+  syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();renderMarketplaceChannelButtons();
+}
 function initMarketplacesDashboard(){
-  renderMarketplaceKPIs();renderMarketplaceFilter();renderMarketplaceCards();updateMarketplaceFilterText();
+  renderMarketplaceKPIs();renderMarketplaceFilter();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
   btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');});menu.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',()=>menu.classList.remove('open'));
   document.getElementById('marketplaceSelectAll').addEventListener('click',()=>setAllMarketplaces(true));
   document.getElementById('marketplaceClearAll').addEventListener('click',()=>setAllMarketplaces(false));
-  document.getElementById('clearMarketplaceFilters').addEventListener('click',()=>setAllMarketplaces(true));
-  const ml=document.getElementById('filterMercadoLivre');if(ml)ml.addEventListener('click',filterMercadoLivre);
-  const shopee=document.getElementById('filterShopee');if(shopee)shopee.addEventListener('click',filterShopee);
-  const magalu=document.getElementById('filterMagalu');if(magalu)magalu.addEventListener('click',filterMagalu);
 }
 initMarketplacesDashboard();
 </script>
@@ -1117,8 +1147,8 @@ function fillActivitySelect(id,values,label){const el=document.getElementById(id
 function filteredActivities(){const e=document.getElementById('activityFilterExecution').value,a=document.getElementById('activityFilterArea').value,s=document.getElementById('activityFilterSubarea').value,r=document.getElementById('activityFilterOwner').value;return activityRows.filter(x=>(!e||x.execucao===e)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r));}
 function activityPlatformLogo(execucao){
   const value=String(execucao||'').trim().toUpperCase();
-  if(value==='BOARD'||value==='CARD') return '<img class="activity-platform-logo" src="logo-plataformas/trello.png" data-logo-options="logo-plataformas/trello.jpg|logo-plataformas/trello.jpeg|logo-plataformas/trello.jng|logo-plataformas/Trello.png" data-logo-index="0" alt="Trello" onerror="tryActivityPlatformLogo(this)">';
-  if(value==='ERP') return '<img class="activity-platform-logo" src="logo-plataformas/erp.png" data-logo-options="logo-plataformas/ERP.png|logo-plataformas/erp.jpg|logo-plataformas/erp.jpeg" data-logo-index="0" alt="ERP" onerror="tryActivityPlatformLogo(this)">';
+  if(value==='BOARD'||value==='CARD') return '<img class="activity-platform-logo" src="logos-plataformas/trello.png" data-logo-options="logos-plataformas/Trello.jpg|logos-plataformas/trello.jpg|logos-plataformas/trello.jpeg|logos-plataformas/Trello.png" data-logo-index="0" alt="Trello" onerror="tryActivityPlatformLogo(this)">';
+  if(value==='ERP') return '<img class="activity-platform-logo" src="logos-plataformas/erp.png" data-logo-options="logos-plataformas/ERP.png|logos-plataformas/erp.jpg|logos-plataformas/erp.jpeg" data-logo-index="0" alt="ERP" onerror="tryActivityPlatformLogo(this)">';
   return '';
 }
 function tryActivityPlatformLogo(img){
