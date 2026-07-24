@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="favicon.png?v=2">
-<link rel="shortcut icon" type="image/png" href="favicon.png?v=2">
-<link rel="apple-touch-icon" href="favicon.png?v=2">
+<link rel="icon" type="image/png" href="logos-marketplaces/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -305,10 +303,6 @@
     .actions-toolbar .clear-btn { grid-column:auto; }
     .header h1 { font-size:14px; }
   }
-
-
-
-  .marketplace-channel-buttons { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
   .marketplace-logo-filter-btn { width:86px; height:54px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; background:transparent !important; border:1.5px solid var(--channel-color, var(--border)) !important; color:var(--channel-color, var(--text)) !important; transition:background .18s ease, box-shadow .18s ease, transform .18s ease; }
   .marketplace-logo-filter-btn:hover { background:color-mix(in srgb, var(--channel-color, #64748b) 7%, transparent) !important; box-shadow:0 2px 8px color-mix(in srgb, var(--channel-color, #64748b) 18%, transparent); transform:translateY(-1px); }
   .marketplace-logo-filter-btn.active { background:color-mix(in srgb, var(--channel-color, #64748b) 10%, transparent) !important; box-shadow:0 0 0 2px color-mix(in srgb, var(--channel-color, #64748b) 14%, transparent); }
@@ -320,7 +314,7 @@
 
   /* Marketplaces dashboard */
   .marketplaces-main { padding:20px 24px; max-width:1900px; margin:0 auto; }
-  .marketplaces-toolbar { display:flex; align-items:flex-end; gap:12px; padding:14px 16px; background:#f8fafc; border-bottom:1px solid var(--border-light); flex-wrap:wrap; }
+  .marketplaces-toolbar { display:flex; align-items:center; gap:20px; padding:14px 16px; background:#f8fafc; border-bottom:1px solid var(--border-light); flex-wrap:wrap; }
   .marketplace-filter { position:relative; min-width:280px; }
   .marketplace-filter-label { display:block; font-size:10px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); font-weight:700; margin-bottom:5px; }
   .marketplace-filter-button { width:100%; min-height:40px; border:1px solid var(--border); border-radius:9px; background:#fff; padding:8px 11px; display:flex; justify-content:space-between; align-items:center; gap:8px; color:var(--text); font:600 12px 'Inter',sans-serif; cursor:pointer; }
@@ -380,7 +374,7 @@
 
   /* Activities dashboard */
   .activities-main { padding:20px 24px; max-width:1900px; margin:0 auto; }
-  .activities-filters { display:grid; grid-template-columns:repeat(4,minmax(170px,1fr)) auto; gap:10px; padding:14px 16px; background:#f8fafc; border-bottom:1px solid var(--border-light); align-items:end; }
+  .activities-filters { display:grid; grid-template-columns:repeat(5,minmax(150px,1fr)) auto; gap:10px; padding:14px 16px; background:#f8fafc; border-bottom:1px solid var(--border-light); align-items:end; }
   .activities-layout { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(320px,.55fr); gap:16px; margin-top:16px; }
   .activity-grid { display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:12px; padding:14px; }
   .activity-card { background:#fff; border:1px solid var(--border); border-radius:13px; padding:14px; box-shadow:0 1px 3px rgba(15,23,42,.06); border-top:4px solid var(--activity-color,#2563eb); }
@@ -405,8 +399,8 @@
   .action-person { display:inline-flex; align-items:center; justify-content:flex-start; min-width:0; }
   .actions-table .publication-person { justify-content:flex-start; white-space:nowrap; }
   .timeline-meta .publication-person { justify-content:flex-start; }
-  @media(max-width:1100px){ .activities-layout{grid-template-columns:1fr;} .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));} }
-  @media(max-width:720px){ .activities-main{padding:10px;} .activities-filters{grid-template-columns:1fr 1fr;padding:11px;} .activities-filters .clear-btn{grid-column:1/-1;} .activity-grid{grid-template-columns:1fr;padding:10px;} }
+  @media(max-width:1100px){ .activities-layout{grid-template-columns:1fr;} .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));} .activity-routine-filter{grid-column:1/-1;} }
+  @media(max-width:720px){ .activities-main{padding:10px;} .activities-filters{grid-template-columns:1fr 1fr;padding:11px;} .activities-filters .clear-btn,.activity-routine-filter{grid-column:1/-1;} .activity-routine-filter .activity-routine-btn{flex:1;} .activity-grid{grid-template-columns:1fr;padding:10px;} }
 
 
   .marketplace-field:has(.marketplace-highlight){background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:8px 9px;margin-bottom:9px;}
@@ -420,6 +414,26 @@
     .portal-nav{scrollbar-width:none;} .portal-nav::-webkit-scrollbar{display:none;}
   }
 
+
+  .activity-routine-filter { display:flex; align-items:end; gap:8px; }
+  .activity-routine-btn { min-height:38px; padding:8px 14px; border-radius:9px; background:#fff; font:700 12px 'Inter',sans-serif; cursor:pointer; transition:.15s; }
+  .activity-routine-btn.daily { border:1px solid #2563eb; color:#2563eb; }
+  .activity-routine-btn.periodic { border:1px solid #16a34a; color:#15803d; }
+  .activity-routine-btn.daily:hover,.activity-routine-btn.daily.active { background:#dbeafe; box-shadow:0 0 0 2px rgba(37,99,235,.12); }
+  .activity-routine-btn.periodic:hover,.activity-routine-btn.periodic.active { background:#dcfce7; box-shadow:0 0 0 2px rgba(22,163,74,.12); }
+  .sector-tag { display:inline-flex; align-items:center; justify-content:center; min-width:34px; padding:2px 7px; border-radius:999px; font-size:9px; font-weight:850; letter-spacing:.45px; line-height:1.4; }
+  .sector-com { background:#dbeafe; color:#1d4ed8; border:1px solid #93c5fd; }
+  .sector-sac { background:#fce7f3; color:#be185d; border:1px solid #f9a8d4; }
+  .sector-log { background:#dcfce7; color:#15803d; border:1px solid #86efac; }
+  .sector-undefined { background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; }
+  .rank-owner-with-sector { display:flex; align-items:center; gap:7px; min-width:0; }
+  .rank-owner-with-sector .rank-owner { min-width:0; flex:1; }
+  .rank-label-with-sector { display:flex; align-items:center; gap:7px; min-width:0; }
+  .rank-label-with-sector .rank-name { min-width:0; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rank-sector-tags { display:inline-flex; align-items:center; gap:3px; flex:0 0 auto; }
+  .activity-sector-kpi-list { display:flex; gap:8px; flex-wrap:wrap; margin-top:3px; }
+  .activity-sector-kpi-item { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-weight:750; }
+
   /* Activities dashboard - table layout */
   .activities-rankings-row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:16px 0; }
   .activities-ranking-card { min-width:0; }
@@ -429,8 +443,9 @@
   .activity-table th { position:sticky; top:0; z-index:2; background:#f1f5f9; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; font-size:10px; padding:10px 12px; text-align:left; border-bottom:2px solid var(--border); white-space:nowrap; }
   .activity-table td { padding:10px 12px; border-bottom:1px solid var(--border-light); vertical-align:middle; }
   .activity-table tbody tr:hover td { background:#f8fafc; }
-  .activity-platform { display:flex; align-items:center; gap:9px; font-weight:800; white-space:nowrap; }
-  .activity-platform-logo { width:32px; height:32px; object-fit:contain; border:1px solid var(--border-light); border-radius:8px; background:#fff; padding:3px; flex:0 0 auto; }
+  .activity-platform { display:flex; align-items:center; justify-content:center; min-width:52px; white-space:nowrap; }
+  .activity-platform-logo { width:40px; height:40px; object-fit:contain; border:1px solid var(--border-light); border-radius:9px; background:#fff; padding:4px; flex:0 0 auto; }
+  .activity-platform-fallback { width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--border); border-radius:9px; background:#f1f5f9; color:var(--muted); font-size:10px; font-weight:800; }
   .activity-table-title { font-weight:700; line-height:1.4; min-width:280px; }
   .rank-owner { display:flex; align-items:center; gap:8px; min-width:0; }
   .rank-owner .team-avatar { flex:0 0 auto; }
@@ -440,7 +455,48 @@
     .activities-ranking-card .activity-ranking{height:210px;}
     .activity-table{min-width:780px;font-size:11px;}
     .activity-table th,.activity-table td{padding:8px 9px;}
-    .activity-platform-logo{width:28px;height:28px;}
+    .activity-platform-logo,.activity-platform-fallback{width:34px;height:34px;}
+  }
+
+
+  .marketplace-channel-buttons { display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
+  .marketplace-filter-wrap,.marketplace-filter { align-self:center; }
+
+  /* Activities filter layout with visual owner selector */
+  .activities-filters {
+    display:grid;
+    grid-template-columns:minmax(170px,.8fr) minmax(150px,.7fr) minmax(520px,2.5fr) minmax(120px,.55fr) minmax(135px,.65fr);
+    grid-template-areas:
+      "execution sector owners daily clear"
+      "area subarea owners periodic clear";
+    gap:10px 14px;
+    align-items:stretch;
+  }
+  .activity-filter-execution{grid-area:execution;}
+  .activity-filter-sector{grid-area:sector;}
+  .activity-filter-area{grid-area:area;}
+  .activity-filter-subarea{grid-area:subarea;}
+  .activity-owner-filter{grid-area:owners;display:flex;flex-direction:column;min-width:0;}
+  .activity-owner-filter-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;margin-bottom:6px;}
+  .activity-owner-buttons{display:flex;flex-wrap:wrap;align-content:center;gap:8px;min-height:84px;}
+  .activity-owner-btn{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:5px 10px 5px 6px;border:1px solid var(--border);border-radius:999px;background:#fff;color:var(--text);font:700 11px 'Inter',sans-serif;cursor:pointer;transition:.16s;}
+  .activity-owner-btn:hover{border-color:#93c5fd;background:#f8fbff;transform:translateY(-1px);}
+  .activity-owner-btn.active{border-color:var(--accent);background:#dbeafe;box-shadow:0 0 0 2px rgba(37,99,235,.12);color:#1d4ed8;}
+  .activity-owner-btn .team-avatar{width:27px;height:27px;flex:0 0 27px;}
+  .activity-owner-btn .team-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .activity-owner-btn .activity-owner-name{white-space:nowrap;}
+  .activity-routine-filter{display:contents;}
+  #activityRoutineDaily{grid-area:daily;align-self:stretch;}
+  #activityRoutinePeriodic{grid-area:periodic;align-self:stretch;}
+  #clearActivityFilters{grid-area:clear;align-self:stretch;min-height:86px;}
+  @media(max-width:1250px){
+    .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"execution sector" "area subarea" "owners owners" "daily periodic" "clear clear";}
+    #clearActivityFilters{min-height:40px;}
+  }
+  @media(max-width:720px){
+    .activities-filters{grid-template-columns:1fr;grid-template-areas:"execution" "sector" "area" "subarea" "owners" "daily" "periodic" "clear";}
+    .activity-owner-buttons{min-height:0;}
+    .activity-owner-btn{flex:1 1 calc(50% - 8px);justify-content:flex-start;}
   }
 
 </style>
@@ -587,15 +643,20 @@
     <div class="section">
       <div class="section-header"><span class="section-title">Painel de atividades da equipe</span><span id="activitiesResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span></div>
       <div class="activities-filters">
-        <div class="filter-field"><label>Execução</label><select id="activityFilterExecution"></select></div>
-        <div class="filter-field"><label>Área</label><select id="activityFilterArea"></select></div>
-        <div class="filter-field"><label>Sub-área</label><select id="activityFilterSubarea"></select></div>
-        <div class="filter-field"><label>Responsável</label><select id="activityFilterOwner"></select></div>
+        <div class="filter-field activity-filter-execution"><label>Execução</label><select id="activityFilterExecution"></select></div>
+        <div class="filter-field activity-filter-sector"><label>Setor</label><select id="activityFilterSector"></select></div>
+        <div class="filter-field activity-filter-area"><label>Área</label><select id="activityFilterArea"></select></div>
+        <div class="filter-field activity-filter-subarea"><label>Sub-área</label><select id="activityFilterSubarea"></select></div>
+        <div class="activity-owner-filter"><span class="activity-owner-filter-label">Responsáveis</span><div class="activity-owner-buttons" id="activityOwnerButtons"></div></div>
+        <div class="activity-routine-filter" aria-label="Filtro por rotina">
+          <button class="activity-routine-btn daily" id="activityRoutineDaily" type="button">Diário</button>
+          <button class="activity-routine-btn periodic" id="activityRoutinePeriodic" type="button">Periódico</button>
+        </div>
         <button class="clear-btn" id="clearActivityFilters">Limpar filtros</button>
       </div>
       <div class="activity-table-wrap">
         <table class="activity-table">
-          <thead><tr><th>Plataforma</th><th>Atividade</th><th>Área</th><th>Sub-área</th><th>Rotina</th><th>Responsável</th></tr></thead>
+          <thead><tr><th>Plataforma</th><th>Atividade</th><th>Setor</th><th>Área</th><th>Sub-área</th><th>Rotina</th><th>Responsável</th></tr></thead>
           <tbody id="activityTableBody"></tbody>
         </table>
       </div>
@@ -935,6 +996,7 @@ function renderActionKPIs(dataSet) {
   const items = [
     {label:'Total de Ações',value:dataSet.length,sub:'registros históricos',cls:'blue'},
     {label:'Mês mais recente',value:currentMonthCount,sub:actionMonths[latestDateObj.getMonth()]+' de '+latestDateObj.getFullYear(),cls:'green'},
+    {label:'Período coberto',value:years.length,sub:'anos na base',cls:'purple'},
     {label:'Locais',value:locals.length,sub:'origens das ações',cls:'orange'},
     {label:'Setores',value:sectors.length,sub:'áreas de atuação',cls:'red'},
     {label:'Responsáveis',value:uniq(dataSet.map(a=>a.responsavel).filter(v=>v&&v!=='Não informado')).length,sub:'pessoas ou equipes',cls:'blue'}
@@ -1139,43 +1201,112 @@ const activityPalette=['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#dc262
 const activityUnique=v=>[...new Set(v.filter(x=>x!==null&&x!==undefined&&String(x).trim()!==''))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR'));
 const activityColorMap=values=>Object.fromEntries(activityUnique(values).map((v,i)=>[v,activityPalette[i%activityPalette.length]]));
 function activityValue(item,...keys){for(const k of keys){if(item[k]!==undefined&&item[k]!==null&&String(item[k]).trim()!=='')return String(item[k]).trim();}return 'Indefinido';}
-const activityRows=activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade'),execucao:activityValue(x,'execucao','Execução'),rotina:activityValue(x,'rotina','Rotina'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','Sub-área','Sub Área'),responsavel:activityValue(x,'responsavel','Responsável')}));
+const activityRows=activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade'),execucao:activityValue(x,'execucao','Execução'),setor:activityValue(x,'setor','SETOR','Setor'),rotina:activityValue(x,'rotina','Rotina'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','Sub-área','Sub Área'),responsavel:activityValue(x,'responsavel','Responsável')}));
 const activityAreaColors=activityColorMap(activityRows.map(x=>x.area));
 const activitySubareaColors=activityColorMap(activityRows.map(x=>x.subarea));
-const activityRoutineColors=activityColorMap(activityRows.map(x=>x.rotina));
+const activityRoutineColors={'Diário':'#2563eb','Periódico':'#16a34a'};
+let activeActivityRoutine='';
+let activeActivityOwner='';
+function activitySectorClass(sector){const s=String(sector||'').trim().toUpperCase();return s==='COM'?'sector-com':s==='SAC'?'sector-sac':s==='LOG'?'sector-log':'sector-undefined';}
+function activitySectorTag(sector){return '<span class="sector-tag '+activitySectorClass(sector)+'">'+escapeHtml(sector)+'</span>';}
 function fillActivitySelect(id,values,label){const el=document.getElementById(id);el.innerHTML='<option value="">'+label+'</option>'+activityUnique(values).map(v=>'<option value="'+escapeHtml(v)+'">'+escapeHtml(v)+'</option>').join('');}
-function filteredActivities(){const e=document.getElementById('activityFilterExecution').value,a=document.getElementById('activityFilterArea').value,s=document.getElementById('activityFilterSubarea').value,r=document.getElementById('activityFilterOwner').value;return activityRows.filter(x=>(!e||x.execucao===e)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r));}
+function filteredActivities(){
+  const e=document.getElementById('activityFilterExecution').value;
+  const t=document.getElementById('activityFilterSector').value;
+  const a=document.getElementById('activityFilterArea').value;
+  const s=document.getElementById('activityFilterSubarea').value;
+  const r=activeActivityOwner;
+  return activityRows.filter(x=>(!e||x.execucao===e)&&(!t||x.setor===t)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r)&&(!activeActivityRoutine||x.rotina===activeActivityRoutine));
+}
 function activityPlatformLogo(execucao){
-  const value=String(execucao||'').trim().toUpperCase();
-  if(value==='BOARD'||value==='CARD') return '<img class="activity-platform-logo" src="logos-plataformas/trello.png" data-logo-options="logos-plataformas/Trello.jpg|logos-plataformas/trello.jpg|logos-plataformas/trello.jpeg|logos-plataformas/Trello.png" data-logo-index="0" alt="Trello" onerror="tryActivityPlatformLogo(this)">';
-  if(value==='ERP') return '<img class="activity-platform-logo" src="logos-plataformas/erp.png" data-logo-options="logos-plataformas/ERP.png|logos-plataformas/erp.jpg|logos-plataformas/erp.jpeg" data-logo-index="0" alt="ERP" onerror="tryActivityPlatformLogo(this)">';
-  return '';
+  const original=String(execucao||'').trim();
+  const value=original.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const logoMap={
+    'CANVA':'canva.png',
+    'TRELLO':'trello.png',
+    'ERP':'erp.png',
+    'MARKETPLACE':'marketplace.png',
+    'POWER BI':'powerbi.png',
+    'POWERBI':'powerbi.png',
+    'GMAIL':'gmail.png',
+    'E-MAIL':'gmail.png',
+    'EMAIL':'gmail.png',
+    'INTELIPOST':'intelipost.png'
+  };
+  const file=logoMap[value];
+  if(!file) return '<span class="activity-platform-fallback" title="'+escapeHtml(original)+'">'+escapeHtml(original.slice(0,2).toUpperCase())+'</span>';
+  const label=value==='E-MAIL'||value==='EMAIL'?'Gmail':original;
+  return '<img class="activity-platform-logo" src="logos-plataformas/'+file+'" data-logo-options="logo-plataformas/'+file+'|logos-plataformas/'+file.replace('.png','.jpg')+'|logos-plataformas/'+file.replace('.png','.jpeg')+'" data-logo-index="0" alt="'+escapeHtml(label)+'" title="'+escapeHtml(label)+'" onerror="tryActivityPlatformLogo(this)">';
 }
-function tryActivityPlatformLogo(img){
-  const options=String(img.dataset.logoOptions||'').split('|').filter(Boolean);
-  const index=Number(img.dataset.logoIndex||0);
-  if(index<options.length){img.dataset.logoIndex=String(index+1);img.src=options[index];return;}
-  img.onerror=null;img.style.display='none';
+function tryActivityPlatformLogo(img){const options=String(img.dataset.logoOptions||'').split('|').filter(Boolean);const index=Number(img.dataset.logoIndex||0);if(index<options.length){img.dataset.logoIndex=String(index+1);img.src=options[index];return;}img.onerror=null;img.style.display='none';}
+function activityOwnerOrder(name){
+  const n=String(name||'').trim().toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const order=['alexandre','bruno','jone','lucas','thays','karin','thais','igor','automatico','indefinido'];
+  const i=order.indexOf(n);return i>=0?i:50;
 }
-function rankHTML(rows,key,colors,withOwner=false){
-  const counts={};rows.forEach(x=>counts[x[key]]=(counts[x[key]]||0)+1);
-  const specialOwnerOrder=name=>{const normalized=String(name||'').trim().toLocaleLowerCase('pt-BR');if(normalized==='indefinido')return 2;if(normalized==='automático'||normalized==='automatico')return 1;return 0;};
-  const entries=Object.entries(counts).sort((a,b)=>{if(withOwner){const d=specialOwnerOrder(a[0])-specialOwnerOrder(b[0]);if(d!==0)return d;}return b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR');});
+function rankHTML(rows,key,colors,withOwner=false,withSector=false){
+  const counts={};const ownerSector={};const sectorsByValue={};
+  rows.forEach(x=>{
+    const value=x[key];
+    counts[value]=(counts[value]||0)+1;
+    if(withOwner&&!ownerSector[x.responsavel])ownerSector[x.responsavel]=x.setor;
+    if(withSector){
+      if(!sectorsByValue[value])sectorsByValue[value]=new Set();
+      sectorsByValue[value].add(x.setor);
+    }
+  });
+  const entries=Object.entries(counts).sort((a,b)=>withOwner?(activityOwnerOrder(a[0])-activityOwnerOrder(b[0])||a[0].localeCompare(b[0],'pt-BR')):(b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')));
   const max=Math.max(1,...entries.map(x=>x[1]));
-  return entries.length?entries.map(([n,q])=>'<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+(withOwner?'<span class="rank-owner">'+teamPersonHTML(n,true)+'</span>':escapeHtml(n))+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>').join(''):'<div class="empty-state">Sem dados.</div>';
+  return entries.length?entries.map(([n,q])=>{
+    let label=escapeHtml(n);
+    if(withOwner){
+      label='<span class="rank-owner-with-sector"><span class="rank-owner">'+teamPersonHTML(n,true)+'</span>'+activitySectorTag(ownerSector[n]||'Indefinido')+'</span>';
+    }else if(withSector){
+      const sectorOrder={COM:1,SAC:2,LOG:3};
+      const tags=[...(sectorsByValue[n]||[])].sort((a,b)=>(sectorOrder[a]||99)-(sectorOrder[b]||99)||String(a).localeCompare(String(b),'pt-BR')).map(activitySectorTag).join('');
+      label='<span class="rank-label-with-sector"><span class="rank-name">'+escapeHtml(n)+'</span><span class="rank-sector-tags">'+tags+'</span></span>';
+    }
+    return '<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+label+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>';
+  }).join(''):'<div class="empty-state">Sem dados.</div>';
+}
+function renderActivityOwnerButtons(){
+  const root=document.getElementById('activityOwnerButtons');
+  const owners=activityUnique(activityRows.map(x=>x.responsavel)).sort((a,b)=>activityOwnerOrder(a)-activityOwnerOrder(b)||a.localeCompare(b,'pt-BR'));
+  root.innerHTML=owners.map(name=>'<button class="activity-owner-btn'+(activeActivityOwner===name?' active':'')+'" type="button" data-owner="'+escapeHtml(name)+'" title="Filtrar por '+escapeHtml(name)+'">'+teamPersonHTML(name,true)+'</button>').join('');
+  root.querySelectorAll('[data-owner]').forEach(btn=>btn.addEventListener('click',()=>{activeActivityOwner=activeActivityOwner===btn.dataset.owner?'':btn.dataset.owner;renderActivityOwnerButtons();renderActivities();}));
 }
 function renderActivities(){
  const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.rotina)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.rotina)).length;
+ const sectorCounts={COM:0,SAC:0,LOG:0};rows.forEach(x=>{if(sectorCounts[x.setor]!==undefined)sectorCounts[x.setor]++;});
  document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';
- const k=[{label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},{label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},{label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},{label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'}];
+ const sectorSub='<span class="activity-sector-kpi-list"><span class="activity-sector-kpi-item">'+activitySectorTag('COM')+' '+sectorCounts.COM+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('SAC')+' '+sectorCounts.SAC+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('LOG')+' '+sectorCounts.LOG+'</span></span>';
+ const k=[
+  {label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},
+  {label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},
+  {label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},
+  {label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'},
+  {label:'Setores',value:new Set(rows.map(x=>x.setor)).size,sub:sectorSub,cls:'red'}
+ ];
  document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');
- document.getElementById('activityTableBody').innerHTML=rows.length?rows.map(x=>'<tr><td><div class="activity-platform">'+activityPlatformLogo(x.execucao)+'<span>'+escapeHtml(x.execucao)+'</span></div></td><td class="activity-table-title">'+escapeHtml(x.atividade)+'</td><td><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span></td><td><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></td><td><span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span></td><td>'+teamPersonHTML(x.responsavel,false)+'</td></tr>').join(''):'<tr><td colspan="6"><div class="empty-state">Nenhuma atividade encontrada.</div></td></tr>';
- document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors);
- document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors);
+ document.getElementById('activityTableBody').innerHTML=rows.length?rows.map(x=>'<tr><td><div class="activity-platform">'+activityPlatformLogo(x.execucao)+'</div></td><td class="activity-table-title">'+escapeHtml(x.atividade)+'</td><td>'+activitySectorTag(x.setor)+'</td><td><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span></td><td><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></td><td><span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span></td><td>'+teamPersonHTML(x.responsavel,false)+'</td></tr>').join(''):'<tr><td colspan="7"><div class="empty-state">Nenhuma atividade encontrada.</div></td></tr>';
+ document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors,false,true);
+ document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors,false,true);
  const ownerColors=Object.fromEntries(activityUnique(rows.map(x=>x.responsavel)).map((n,i)=>[n,activityPalette[i%activityPalette.length]]));
  document.getElementById('activitiesByOwner').innerHTML=rankHTML(rows,'responsavel',ownerColors,true);
 }
-function initActivities(){fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');fillActivitySelect('activityFilterOwner',activityRows.map(x=>x.responsavel),'Todos os responsáveis');['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).value='');renderActivities();});renderActivities();}
+function setActivityRoutine(value){activeActivityRoutine=activeActivityRoutine===value?'':value;document.getElementById('activityRoutineDaily').classList.toggle('active',activeActivityRoutine==='Diário');document.getElementById('activityRoutinePeriodic').classList.toggle('active',activeActivityRoutine==='Periódico');renderActivities();}
+function initActivities(){
+ fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');
+ fillActivitySelect('activityFilterSector',activityRows.map(x=>x.setor),'Todos os setores');
+ fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');
+ fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');
+ renderActivityOwnerButtons();
+ ['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));
+ document.getElementById('activityRoutineDaily').addEventListener('click',()=>setActivityRoutine('Diário'));
+ document.getElementById('activityRoutinePeriodic').addEventListener('click',()=>setActivityRoutine('Periódico'));
+ document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).value='');activeActivityOwner='';activeActivityRoutine='';renderActivityOwnerButtons();document.getElementById('activityRoutineDaily').classList.remove('active');document.getElementById('activityRoutinePeriodic').classList.remove('active');renderActivities();});
+ renderActivities();
+}
 initActivities();
 </script>
 

@@ -1,5 +1,6 @@
 const atividadesData = [
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "ATUALIZAÇÃO",
@@ -8,6 +9,7 @@ const atividadesData = [
     "atividade": "Atualização de Estoque Fornecedores com API"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PREÇO",
     "subarea": "ATUALIZAÇÃO",
@@ -16,6 +18,7 @@ const atividadesData = [
     "atividade": "Atualização de Preços Fornecedores com API"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -24,6 +27,7 @@ const atividadesData = [
     "atividade": "Atualizar Id Anymarket Tela de Transporte"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -32,6 +36,7 @@ const atividadesData = [
     "atividade": "Corrigir Pedidos Prazo 30 / 30 Dias"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -40,6 +45,7 @@ const atividadesData = [
     "atividade": "Corrigir Telefones E Ddd (Shopee)"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -48,6 +54,7 @@ const atividadesData = [
     "atividade": "Faturamento Automático de Pedidos Para Expedição"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -56,7 +63,8 @@ const atividadesData = [
     "atividade": "Importação de Pedidos Webhook"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "SAÚDE DAS LOJAS",
     "rotina": "Diário",
@@ -64,7 +72,8 @@ const atividadesData = [
     "atividade": "Métrica Dos Marketplaces"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Diário",
@@ -72,6 +81,7 @@ const atividadesData = [
     "atividade": "Monitoramento Transmissões Quantidades"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
@@ -80,7 +90,8 @@ const atividadesData = [
     "atividade": "Follow-Up Geral de Ocs Não Finalizadas | OC Parcial"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
     "rotina": "Diário",
@@ -88,7 +99,8 @@ const atividadesData = [
     "atividade": "Monitorar Entrada de Notas | Aba Recebida e Conferindo"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
     "rotina": "Diário",
@@ -96,6 +108,7 @@ const atividadesData = [
     "atividade": "Trello Entrada Notas | Expedição | Problemas com Recebimentos"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
@@ -104,7 +117,8 @@ const atividadesData = [
     "atividade": "Tratativa de Pedidos Sem Estoque Para Troca"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
     "rotina": "Periódico",
@@ -112,6 +126,7 @@ const atividadesData = [
     "atividade": "Retorno Verificar Pendências com Fornecedor"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "COMPRAS",
     "subarea": "FOLLOW-UP",
@@ -120,6 +135,7 @@ const atividadesData = [
     "atividade": "Verificar RMA | Todas tratativas"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "FOLLOW-UP",
@@ -128,6 +144,7 @@ const atividadesData = [
     "atividade": "Conferência de Pedidos Cancelados na Tela de Transporte"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "FOLLOW-UP",
@@ -136,7 +153,8 @@ const atividadesData = [
     "atividade": "Monitoramento Pedidos com Status Verificando"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "FOLLOW-UP",
     "rotina": "Periódico",
@@ -144,6 +162,7 @@ const atividadesData = [
     "atividade": "Verificar Pedidos Antigos Sem Compra | OC"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -152,7 +171,8 @@ const atividadesData = [
     "atividade": "Rotinas Pedidos"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "VENDAS",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -160,7 +180,8 @@ const atividadesData = [
     "atividade": "Atendimento Max Comprar Site"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "E-MAIL",
     "area": "VENDAS",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -168,7 +189,8 @@ const atividadesData = [
     "atividade": "E-Mail Cotações de Compras | B2B"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -176,7 +198,8 @@ const atividadesData = [
     "atividade": "Correção Transmissões Marketplaces"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -184,7 +207,8 @@ const atividadesData = [
     "atividade": "Atualização Bases Dados Power BI"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "CAMPANHAS",
     "rotina": "Periódico",
@@ -192,6 +216,7 @@ const atividadesData = [
     "atividade": "Campanhas Marketplaces"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
@@ -200,6 +225,7 @@ const atividadesData = [
     "atividade": "Forçar Triagem Manual em Produtos Vendidos <2 Estoque Liquido | 08H00"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
@@ -208,7 +234,8 @@ const atividadesData = [
     "atividade": "Verificar Triagem Automática ME2 ME1"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
@@ -216,7 +243,8 @@ const atividadesData = [
     "atividade": "Afiliados do Vendedor Shopee"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
@@ -224,7 +252,8 @@ const atividadesData = [
     "atividade": "Criar Disparos de Transmissões No Chat Mercado Livre Cupons"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
@@ -232,6 +261,7 @@ const atividadesData = [
     "atividade": "Criar Disparos de Transmissões No Chat Shopee Cupons"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
@@ -240,7 +270,8 @@ const atividadesData = [
     "atividade": "Monitorar Aba Any Pedidos Falha"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "PREÇO",
     "subarea": "PREÇO VENDA",
     "rotina": "Periódico",
@@ -248,6 +279,7 @@ const atividadesData = [
     "atividade": "Atualizar Markups Marketplaces"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PREÇO",
     "subarea": "PREÇO VENDA",
@@ -256,7 +288,8 @@ const atividadesData = [
     "atividade": "Verificar SKUs com Prejuízo | Dash BI Produtos Negativos | Pedidos Baixos"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "VENDAS",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -264,7 +297,8 @@ const atividadesData = [
     "atividade": "Acompanhar Mensagens Facebook | Instragram"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Diário",
@@ -272,7 +306,8 @@ const atividadesData = [
     "atividade": "Painel de Monitoramento Any"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "POWER BI",
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Periódico",
@@ -280,7 +315,8 @@ const atividadesData = [
     "atividade": "Atualizar Metas do E-Commerce"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Periódico",
@@ -288,7 +324,8 @@ const atividadesData = [
     "atividade": "Monitoramento Pedidos Pendentes Antigos Anymarket"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "VENDAS",
     "subarea": "SITE",
     "rotina": "Periódico",
@@ -296,7 +333,8 @@ const atividadesData = [
     "atividade": "Alteração de Flags Promocionais"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "VENDAS",
     "subarea": "SITE",
     "rotina": "Periódico",
@@ -304,7 +342,8 @@ const atividadesData = [
     "atividade": "Atualizar Carrossel Site"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "MELHORIA DE ANÚNCIOS",
     "rotina": "Diário",
@@ -312,7 +351,8 @@ const atividadesData = [
     "atividade": "Correção Anúncios Trello"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "MELHORIA DE ANÚNCIOS",
     "rotina": "Diário",
@@ -320,7 +360,8 @@ const atividadesData = [
     "atividade": "Mercado Livre | Catálogo Próximos à serem pausados"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "MELHORIA DE ANÚNCIOS",
     "rotina": "Periódico",
@@ -328,7 +369,8 @@ const atividadesData = [
     "atividade": "Melhoria Anúncios com 01 Imagem"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "ESTOQUE",
     "subarea": "ATUALIZAÇÃO",
     "rotina": "Periódico",
@@ -336,6 +378,7 @@ const atividadesData = [
     "atividade": "Atualizar Estoque Tabela Fornecedores"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "ATUALIZAÇÃO",
@@ -344,7 +387,8 @@ const atividadesData = [
     "atividade": "Zerar Estoques O.V.D com Datas Estoque Antiga | Maiores de 30 Dias"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "ESTOQUE",
     "subarea": "CROSS",
     "rotina": "Diário",
@@ -352,7 +396,8 @@ const atividadesData = [
     "atividade": "Atualizar Cross Docking | Prazo de Despacho"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
     "rotina": "Diário",
@@ -360,6 +405,7 @@ const atividadesData = [
     "atividade": "Atualizar Estoques Desatualizados (1x Ao Dia)"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
@@ -368,7 +414,8 @@ const atividadesData = [
     "atividade": "Atualizar Estoques E Preços Hardness > Any 8H/11H/14H/17H"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
     "rotina": "Diário",
@@ -376,6 +423,7 @@ const atividadesData = [
     "atividade": "Verificação de APIs | Data Processamento E Divergencia de Estoque"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
@@ -384,6 +432,7 @@ const atividadesData = [
     "atividade": "Conferir Bloqueio | Estoque na Tela de Any Estoque Preço | Campo Obs"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
@@ -392,6 +441,7 @@ const atividadesData = [
     "atividade": "Conferir Bloqueios Sistêmico (Campo Observação)"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "ESTOQUE",
     "subarea": "OPERAÇÃO",
@@ -400,7 +450,8 @@ const atividadesData = [
     "atividade": "Conferir Produtos Bloqueados Hard com Estoque na Any | Campo Obs"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "SAÚDE DAS LOJAS",
     "rotina": "Periódico",
@@ -408,6 +459,7 @@ const atividadesData = [
     "atividade": "Produtos em Violação Shopee"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PREÇO",
     "subarea": "ATUALIZAÇÃO",
@@ -416,6 +468,7 @@ const atividadesData = [
     "atividade": "Conferir Preços Vazios E-Com/S | Tela Unificada"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "PREÇO",
     "subarea": "ATUALIZAÇÃO",
@@ -424,7 +477,8 @@ const atividadesData = [
     "atividade": "Conferir Preços/Custo/Estoque Zero | Tela Anymarket"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "PREÇO",
     "subarea": "ATUALIZAÇÃO",
     "rotina": "Periódico",
@@ -432,7 +486,8 @@ const atividadesData = [
     "atividade": "Atualizar Preço Tabela Fornecedores"
   },
   {
-    "execucao": "BOARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -440,7 +495,8 @@ const atividadesData = [
     "atividade": "Ativar Produtos Anymarket"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -448,7 +504,8 @@ const atividadesData = [
     "atividade": "Acompanhar Desempenho IA Shopee"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -456,7 +513,8 @@ const atividadesData = [
     "atividade": "Perguntas Amazon"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -464,7 +522,8 @@ const atividadesData = [
     "atividade": "Perguntas Magalu"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -472,7 +531,8 @@ const atividadesData = [
     "atividade": "Perguntas Mercado Livre"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
@@ -480,7 +540,8 @@ const atividadesData = [
     "atividade": "Perguntas Tiktok"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "SAÚDE DAS LOJAS",
     "rotina": "Diário",
@@ -488,6 +549,7 @@ const atividadesData = [
     "atividade": "Análise de Reclamações do Meli"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "CATÁLOGO",
     "subarea": "MELHORIA DE ANÚNCIOS",
@@ -496,6 +558,7 @@ const atividadesData = [
     "atividade": "Verificar Itens em Bloqueio E com Estoque Líquido"
   },
   {
+    "setor": "COM",
     "execucao": "ERP",
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
@@ -504,7 +567,8 @@ const atividadesData = [
     "atividade": "Publicação | Etapa Atributos Anymarket E Ativação de Anúncios"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -512,7 +576,8 @@ const atividadesData = [
     "atividade": "Vincular Anúncios Catálogo Mercado Livre"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Diário",
@@ -520,7 +585,8 @@ const atividadesData = [
     "atividade": "Gestão de Estoque Full Meli"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Diário",
@@ -528,7 +594,8 @@ const atividadesData = [
     "atividade": "Métrica Estoque Full"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Diário",
@@ -536,7 +603,8 @@ const atividadesData = [
     "atividade": "Produtos Aptos Fora de Venda"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Diário",
@@ -544,7 +612,8 @@ const atividadesData = [
     "atividade": "Produtos com Mais de 30 Dias Sem Venda"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Diário",
@@ -552,7 +621,8 @@ const atividadesData = [
     "atividade": "Criar Carga de Envios E Alinhar com Todos Os Setores"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -560,7 +630,8 @@ const atividadesData = [
     "atividade": "Cadastramento Fiscal Dos Produtos com Fiscal"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -568,7 +639,8 @@ const atividadesData = [
     "atividade": "Com Tempo de Estoque"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -576,7 +648,8 @@ const atividadesData = [
     "atividade": "Compras Full"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -584,7 +657,8 @@ const atividadesData = [
     "atividade": "Conferir Pedidos Full Meli"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -592,7 +666,8 @@ const atividadesData = [
     "atividade": "Confrontar Produtos com Erro de Id Shopee X Anymarket"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -600,7 +675,8 @@ const atividadesData = [
     "atividade": "Produtos Excedem A Projeção de Venda"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -608,7 +684,8 @@ const atividadesData = [
     "atividade": "Separar Produtos Para Envio Lista Interna"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -616,7 +693,8 @@ const atividadesData = [
     "atividade": "Transmissão Anúncios Pausados Produtos Full"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "FULL",
     "rotina": "Periódico",
@@ -624,7 +702,8 @@ const atividadesData = [
     "atividade": "Triagem | Analisar Anúncios E Produtos Para Inclusão"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -632,7 +711,8 @@ const atividadesData = [
     "atividade": "Categorização Shopify"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
@@ -640,7 +720,8 @@ const atividadesData = [
     "atividade": "Preenchimento Metacampos Seo Site"
   },
   {
-    "execucao": "ATIV",
+    "setor": "COM",
+    "execucao": "MARKETPLACE",
     "area": "MARKETPLACE",
     "subarea": "SAÚDE DAS LOJAS",
     "rotina": "Diário",
@@ -648,7 +729,8 @@ const atividadesData = [
     "atividade": "Análise E Enviar Recursos de Penalizações Shopee"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
@@ -656,11 +738,678 @@ const atividadesData = [
     "atividade": "Criar Campanhas de Ofertas Relâmpago Shopee"
   },
   {
-    "execucao": "CARD",
+    "setor": "COM",
+    "execucao": "TRELLO",
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
     "responsavel": "Indefinido",
     "atividade": "Criar Campanhas de Ofertas Relâmpago Tiktok Shop"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Retenção fiscal - Verificar se há NFs retidas"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Retenção fiscal - Encaminhar para pagamento (RMA+Trello)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Retenção fiscal - Encaminhar comprovante de pagamento (E-mail)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Arquivo Recebido (Tela Transporte)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Pedido Criado (Tela Transporte)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Reenvios SAC sem arquivo na Loggi"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "AUDITORIA",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Confrontar status de pedido (Entregue Intelipost x Null/Pago/Faturado/Enviado Any)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "AUDITORIA",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Confrontar status de pedido (Despachado/Trânsito Intelipost x Pago ou Faturado Any)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "AUDITORIA",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Conferência status de pedidos Anymarket <> Marketplace"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Verificação rastreios - Tecmar"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Atualizar pedidos RETIRADA para coletado (semanal)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Endereço não localizado (Triagem + Tratativa RMA)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Destinatario ausente (Triagem + Tratativa RMA)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Retirar na agência Correios (Triagem + Tratativa RMA)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Falha na entrega - Avaria/Extravio no transporte (Tratativa com a Transp)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Atraso na entrega - Atraso transportadora (Triagem + Tratativa RMA)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Acompanhamento e cobrança de indenizações (RMA)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA GERAL",
+    "subarea": "TRANSPORTADORAS",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Prospecção de Novas transportadoras"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Pendências enviadas pela Magalog"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Pendência - Braspress"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Fechamento de Faturas Braspress (toda a semana)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Fechamento de Faturas Rodonaves (dia 01 e 16 cada mês)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Fechamento de Faturas Loggi (dia 01 e 16 cada mês)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Fechamento de Faturas Magalog (dia 01 e 16 cada mês)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA GERAL",
+    "subarea": "ENTREGAS",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Atualizar tabela de frete de transportadora"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Diário",
+    "responsavel": "Igor",
+    "atividade": "Conferir DExPARA Anymarket (1x no mês)"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Atualização regras de cotação Intelipost"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Follow UP NF's recebidas fornecedores GMK8"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Follow UP NF's recebidas fornecedores GMP"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Follow UP NF's recebidas fornecedores DELTA"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA GERAL",
+    "subarea": "AUDITORIA",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Auditoria - Custos de frete"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "AUDITORIA",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Auditoria - Tempos de expedição"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA GERAL",
+    "subarea": "ENTREGAS",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Prospecção de Novas transportadoras"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "ENTREGAS",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Fechamento - Performance de entrega - Canais"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "ERP",
+    "area": "LOGÍSTICA PÓS",
+    "subarea": "ENTREGAS",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Fechamento - Performance Transportadoras"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "POWER BI",
+    "area": "LOGÍSTICA GERAL",
+    "subarea": "ENTREGAS",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Acompanhamento - Faturamento/volumetria de transportadoras"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "INTELIPOST",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Atualizar Grupos de Produtos | Marcas"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "INTELIPOST",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Atualizar/Revisar traduções de status"
+  },
+  {
+    "setor": "LOG",
+    "execucao": "INTELIPOST",
+    "area": "LOGÍSTICA PRÉ",
+    "subarea": "TRANSPORTES",
+    "rotina": "Periódico",
+    "responsavel": "Igor",
+    "atividade": "Atualizar/Revisar combinações de status"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Magalu Guimepa"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Web Continental"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Livelo"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Leroy Merlin"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Senff"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "RMA pendentes"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Trello Expedição"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Pendências Financeiro (Trello)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Acompanhar Fluxo de Pedidos (pedido Sac com obs)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Amazon GUIMEPA"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Amazon (todas) Verificar E-mails de Contestação"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "LL Loyalty"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "E-MAIL",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "Shophub"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Thais",
+    "atividade": "RMA pendentes"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Shopee Guimepa"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Trello Expedição"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Pendências Financeiro (Trello)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "E-MAIL",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Email Site"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "RMA pendentes"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Acompanhar Fluxo de Pedidos (pedido Sac com obs)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Trello Expedição"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Pendências Financeiro (Trello)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Mercado Livre (GMk8)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "Mercado Livre (Guimepa)"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Diário",
+    "responsavel": "Karin",
+    "atividade": "CHARGEBACKS - busca no E-mail"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "POWER BI",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Supervisionar retornos RMA"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "CANVA",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Programar fechamento mensal"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "CANVA",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Revisar/Inserir materiais na Universidade Guimepa"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "INTELIPOST",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Publicação de produtos outlet"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "MARKETPLACE",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Acompanhamento de mensagens OLX"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Auditoria de reversões"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Auditoria de produtos reservados"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "CANVA",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Relatório semanal"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "ERP",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Retorno de produtos Full"
+  },
+  {
+    "setor": "SAC",
+    "execucao": "TRELLO",
+    "area": "SAC",
+    "subarea": "ATENDIMENTO",
+    "rotina": "Periódico",
+    "responsavel": "Thays",
+    "atividade": "Revisar cards no Trello"
   }
 ];
