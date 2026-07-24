@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="logos-marketplaces/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -305,8 +306,11 @@
 
 
 
-  .marketplace-meli-btn { background:#ffe600 !important; border-color:#d4bd00 !important; color:#2d3277 !important; display:inline-flex; align-items:center; justify-content:center; gap:7px; }
-  .marketplace-meli-btn img { width:24px; height:18px; object-fit:contain; }
+  .marketplace-logo-filter-btn { width:64px; height:42px; padding:5px 8px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:10px; }
+  .marketplace-logo-filter-btn img { width:100%; height:100%; max-width:48px; max-height:30px; object-fit:contain; }
+  .marketplace-meli-btn { background:#ffe600 !important; border-color:#d4bd00 !important; color:#2d3277 !important; }
+  .marketplace-shopee-btn { background:#ee4d2d !important; border-color:#d63d21 !important; color:#fff !important; }
+  .marketplace-shopee-btn:hover { background:#d94427 !important; border-color:#bd351d !important; }
   .marketplace-filter-wrap { min-width:260px; }
   .marketplace-filter-menu { min-width:300px; }
 
@@ -493,9 +497,11 @@
           </div>
         </div>
         <button class="clear-btn" id="clearMarketplaceFilters" type="button">Exibir todas</button>
-        <button class="clear-btn marketplace-meli-btn" id="filterMercadoLivre" type="button" title="Exibir somente as lojas do Mercado Livre">
+        <button class="clear-btn marketplace-logo-filter-btn marketplace-meli-btn" id="filterMercadoLivre" type="button" title="Exibir somente as lojas do Mercado Livre" aria-label="Filtrar Mercado Livre">
           <img src="logos-marketplaces/meli.png" data-logo="meli.png" data-logo-attempt="0" alt="Mercado Livre" onerror="tryMarketplaceLogoPath(this)">
-          <span>Mercado Livre</span>
+        </button>
+        <button class="clear-btn marketplace-logo-filter-btn marketplace-shopee-btn" id="filterShopee" type="button" title="Exibir somente as lojas da Shopee" aria-label="Filtrar Shopee">
+          <img src="logos-marketplaces/shopee.png" data-logo="shopee.png" data-logo-attempt="0" alt="Shopee" onerror="tryMarketplaceLogoPath(this)">
         </button>
         <span class="marketplaces-count" id="marketplacesResultCount"></span>
       </div>
@@ -891,10 +897,23 @@ const mpEscape = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&
 const mpMissing = value => value === null || value === undefined || String(value).trim()==='' || value === 'Não informado';
 const mpInitials = name => String(name).split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
 let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
+function marketplaceLogoFile(item){
+  const raw=item?.image || item?.imagem || item?.logo || '';
+  return String(raw).split(/[\\/]/).pop().trim();
+}
 function tryMarketplaceLogoPath(img){
-  const file=img.dataset.logo||'';
+  const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim();
   const attempt=Number(img.dataset.logoAttempt||0);
-  const candidates=[file,'logos-marketplaces/'+file.replace(/\.png$/i,'.PNG'),file.replace(/\.png$/i,'.PNG')];
+  const lower=file.toLowerCase();
+  const upperExt=file.replace(/\.png$/i,'.PNG');
+  const candidates=[
+    'logos-marketplaces/'+file,
+    'logos-marketplaces/'+lower,
+    'logos-marketplaces/'+upperExt,
+    file,
+    lower,
+    upperExt
+  ].filter(Boolean);
   if(attempt<candidates.length){
     img.dataset.logoAttempt=String(attempt+1);
     img.src=candidates[attempt];
@@ -931,7 +950,7 @@ function renderMarketplaceCards(){
   if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja selecionada. Use a lista acima ou clique em “Exibir todas”.</div>';return;}
   document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
     '<article class="marketplace-card"><header class="marketplace-card-header">'+
-    '<div class="marketplace-logo-box"><img src="logos-marketplaces/'+mpEscape(item.image)+'" data-logo="'+mpEscape(item.image)+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
+    '<div class="marketplace-logo-box"><img src="logos-marketplaces/'+mpEscape(marketplaceLogoFile(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
     '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store">Loja: '+mpEscape(item.nomeLoja)+' • Faturamento: '+mpEscape(item.faturamento)+'</div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
     '<div class="marketplace-card-body">'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+mpField('Cota por SKU?',item.cotaSku)+'</section>'+
@@ -942,6 +961,7 @@ function renderMarketplaceCards(){
 }
 function setAllMarketplaces(checked){selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
 function filterMercadoLivre(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/\bMELI\b|MERCADO LIVRE/i.test(x.canal)).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
+function filterShopee(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/^SHOPEE GUIMEPA(?: STORE)?$/i.test(String(x.canal).trim())).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
 function initMarketplacesDashboard(){
   renderMarketplaceKPIs();renderMarketplaceFilter();renderMarketplaceCards();updateMarketplaceFilterText();
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
@@ -950,6 +970,7 @@ function initMarketplacesDashboard(){
   document.getElementById('marketplaceClearAll').addEventListener('click',()=>setAllMarketplaces(false));
   document.getElementById('clearMarketplaceFilters').addEventListener('click',()=>setAllMarketplaces(true));
   const ml=document.getElementById('filterMercadoLivre');if(ml)ml.addEventListener('click',filterMercadoLivre);
+  const shopee=document.getElementById('filterShopee');if(shopee)shopee.addEventListener('click',filterShopee);
 }
 initMarketplacesDashboard();
 </script>
