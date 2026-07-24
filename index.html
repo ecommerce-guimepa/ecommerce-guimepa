@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<title>Portal Comercial E-commerce Guimepa</title>
+<title>Portal E-commerce Guimepa</title>
 <style>
   :root {
     --bg: #eef2f7;
@@ -306,11 +306,13 @@
 
 
 
-  .marketplace-logo-filter-btn { width:64px; height:42px; padding:5px 8px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:10px; }
-  .marketplace-logo-filter-btn img { width:100%; height:100%; max-width:48px; max-height:30px; object-fit:contain; }
+  .marketplace-logo-filter-btn { width:86px; height:54px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; }
+  .marketplace-logo-filter-btn img { width:100%; height:100%; max-width:68px; max-height:40px; object-fit:contain; }
   .marketplace-meli-btn { background:#ffe600 !important; border-color:#d4bd00 !important; color:#2d3277 !important; }
-  .marketplace-shopee-btn { background:#ee4d2d !important; border-color:#d63d21 !important; color:#fff !important; }
-  .marketplace-shopee-btn:hover { background:#d94427 !important; border-color:#bd351d !important; }
+  .marketplace-shopee-btn { background:#fff !important; border-color:#ee4d2d !important; color:#ee4d2d !important; }
+  .marketplace-shopee-btn:hover { background:#fff7f5 !important; border-color:#d63d21 !important; }
+  .marketplace-magalu-btn { background:#fff !important; border-color:#0086ff !important; color:#0086ff !important; }
+  .marketplace-magalu-btn:hover { background:#f0f8ff !important; border-color:#006ed6 !important; }
   .marketplace-filter-wrap { min-width:260px; }
   .marketplace-filter-menu { min-width:300px; }
 
@@ -374,6 +376,36 @@
     .marketplace-info-group:nth-child(-n+2) { border-bottom:1px solid var(--border-light); }
   }
 
+  /* Activities dashboard */
+  .activities-main { padding:20px 24px; max-width:1900px; margin:0 auto; }
+  .activities-filters { display:grid; grid-template-columns:repeat(4,minmax(170px,1fr)) auto; gap:10px; padding:14px 16px; background:#f8fafc; border-bottom:1px solid var(--border-light); align-items:end; }
+  .activities-layout { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(320px,.55fr); gap:16px; margin-top:16px; }
+  .activity-grid { display:grid; grid-template-columns:repeat(2,minmax(280px,1fr)); gap:12px; padding:14px; }
+  .activity-card { background:#fff; border:1px solid var(--border); border-radius:13px; padding:14px; box-shadow:0 1px 3px rgba(15,23,42,.06); border-top:4px solid var(--activity-color,#2563eb); }
+  .activity-card-title { font-size:13px; font-weight:800; line-height:1.4; margin-bottom:10px; }
+  .activity-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .activity-tag { display:inline-flex; padding:4px 8px; border-radius:999px; font-size:10px; font-weight:800; }
+  .activity-execution { margin-top:11px; display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:10px; color:var(--muted); font-weight:700; }
+  .activity-person { display:flex; align-items:center; gap:8px; min-width:0; }
+  .team-avatar { width:32px; height:32px; border-radius:50%; object-fit:cover; border:2px solid #fff; box-shadow:0 0 0 1px var(--border); background:#e2e8f0; }
+  .team-avatar.small { width:26px; height:26px; }
+  .person-special { display:inline-flex; align-items:center; padding:6px 9px; border-radius:10px; font-size:10px; font-weight:800; }
+  .person-automatic { background:#2563eb; color:#fff; }
+  .person-undefined { background:#e5e7eb; color:#6b7280; font-style:italic; }
+  .activity-ranking { padding:14px; display:flex; flex-direction:column; gap:10px; }
+  .rank-row { display:grid; grid-template-columns:minmax(120px,1fr) 3fr auto; gap:10px; align-items:center; }
+  .rank-label { font-size:11px; font-weight:750; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rank-bar { height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden; }
+  .rank-bar > span { display:block; height:100%; width:var(--pct); background:var(--bar-color,#2563eb); border-radius:999px; }
+  .rank-value { font-size:11px; font-weight:800; color:var(--muted); }
+  .activity-summary-kpi .kpi-sub strong { color:var(--text); }
+  .publication-person { display:inline-flex; align-items:center; gap:6px; justify-content:center; }
+  .action-person { display:inline-flex; align-items:center; justify-content:flex-start; min-width:0; }
+  .actions-table .publication-person { justify-content:flex-start; white-space:nowrap; }
+  .timeline-meta .publication-person { justify-content:flex-start; }
+  @media(max-width:1100px){ .activities-layout{grid-template-columns:1fr;} .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));} }
+  @media(max-width:720px){ .activities-main{padding:10px;} .activities-filters{grid-template-columns:1fr 1fr;padding:11px;} .activities-filters .clear-btn{grid-column:1/-1;} .activity-grid{grid-template-columns:1fr;padding:10px;} }
+
 </style>
 </head>
 <body>
@@ -381,7 +413,7 @@
 <div class="header">
   <div class="header-left">
     <img src="guimepa.png" alt="Guimepa">
-    <h1>Portal Comercial E-commerce Guimepa</h1>
+    <h1>Portal E-commerce Guimepa</h1>
   </div>
   <div class="header-right">
     <div class="date-badge" id="currentDate"></div>
@@ -389,9 +421,10 @@
 </div>
 
 <nav class="portal-nav" aria-label="Dashboards principais">
-  <button class="portal-tab active" data-dashboard="lotes">Lotes de Publicação</button>
+  <button class="portal-tab active" data-dashboard="lotes">Publicação</button>
   <button class="portal-tab" data-dashboard="acoes">Ações</button>
   <button class="portal-tab" data-dashboard="marketplaces">Marketplaces</button>
+  <button class="portal-tab" data-dashboard="atividades">Atividades</button>
 </nav>
 
 <section id="dashboard-lotes" class="dashboard-panel active">
@@ -503,6 +536,9 @@
         <button class="clear-btn marketplace-logo-filter-btn marketplace-shopee-btn" id="filterShopee" type="button" title="Exibir somente as lojas da Shopee" aria-label="Filtrar Shopee">
           <img src="logos-marketplaces/shopee.png" data-logo="shopee.png" data-logo-attempt="0" alt="Shopee" onerror="tryMarketplaceLogoPath(this)">
         </button>
+        <button class="clear-btn marketplace-logo-filter-btn marketplace-magalu-btn" id="filterMagalu" type="button" title="Exibir somente as lojas da Magalu" aria-label="Filtrar Magalu">
+          <img src="logos-marketplaces/magalu.png" data-logo="magalu.png" data-logo-attempt="0" alt="Magalu" onerror="tryMarketplaceLogoPath(this)">
+        </button>
         <span class="marketplaces-count" id="marketplacesResultCount"></span>
       </div>
       <div class="marketplace-list" id="marketplaceCards"></div>
@@ -510,9 +546,34 @@
   </div>
 </section>
 
+<section id="dashboard-atividades" class="dashboard-panel">
+  <div class="activities-main">
+    <div class="kpi-row activity-summary-kpi" id="activitiesKpiRow"></div>
+    <div class="section">
+      <div class="section-header"><span class="section-title">Painel de atividades da equipe</span><span id="activitiesResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span></div>
+      <div class="activities-filters">
+        <div class="filter-field"><label>Execução</label><select id="activityFilterExecution"></select></div>
+        <div class="filter-field"><label>Área</label><select id="activityFilterArea"></select></div>
+        <div class="filter-field"><label>Sub-área</label><select id="activityFilterSubarea"></select></div>
+        <div class="filter-field"><label>Responsável</label><select id="activityFilterOwner"></select></div>
+        <button class="clear-btn" id="clearActivityFilters">Limpar filtros</button>
+      </div>
+      <div class="activities-layout">
+        <div class="section"><div class="section-header"><span class="section-title">Atividades</span></div><div class="activity-grid" id="activityCards"></div></div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="section"><div class="section-header"><span class="section-title">Atividades por Área</span></div><div class="activity-ranking" id="activitiesByArea"></div></div>
+          <div class="section"><div class="section-header"><span class="section-title">Atividades por Sub-área</span></div><div class="activity-ranking" id="activitiesBySubarea"></div></div>
+          <div class="section"><div class="section-header"><span class="section-title">Atividades por Responsável</span></div><div class="activity-ranking" id="activitiesByOwner"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script src="acoes-data.js"></script>
 <script src="marketplaces-data.js"></script>
 <script src="data.js"></script>
+<script src="atividades-data.js"></script>
 <script>
 const fmt = n => n.toLocaleString('pt-BR');
 const fmtSigned = n => n < 0 ? '-' + fmt(Math.abs(n)) : fmt(n);
@@ -522,6 +583,15 @@ const now = new Date();
 const diaSemana = ['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'][now.getDay()];
 const mesNome = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'][now.getMonth()];
 document.getElementById('currentDate').textContent = 'Última atualização: ' + diaSemana + ', ' + now.getDate() + ' de ' + mesNome + ' de ' + now.getFullYear();
+
+
+const teamFileName = name => String(name||'').trim().toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function teamPersonHTML(name, small=false){
+  const clean=String(name||'Indefinido').trim();
+  if(/^autom[aá]tico$/i.test(clean)) return '<span class="person-special person-automatic">Automático</span>';
+  if(/^(indefinido|s\/ resp\.|não informado)$/i.test(clean)) return '<span class="person-special person-undefined">'+clean+'</span>';
+  return '<span class="publication-person"><img class="team-avatar'+(small?' small':'')+'" src="logos-equipe/'+teamFileName(clean)+'.png" alt="'+clean+'" onerror="this.style.display=\'none\'"> <span>'+clean+'</span></span>';
+}
 
 // KPI Cards (5 cards)
 const totalProdutos = data.reduce((s,d) => s + d.produzir, 0);
@@ -557,7 +627,8 @@ const respSorted = respOrder.filter(r => respGroups[r]);
 respSorted.forEach(name => {
   const g = respGroups[name];
   const bgP = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-  htmlResp += '<tr><td>' + name + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
+  const respVisual = teamPersonHTML(name, true);
+  htmlResp += '<tr><td>' + respVisual + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
 });
 const totResp = Object.values(respGroups).reduce((s,g) => ({ producao:s.producao+g.producao, prontos:s.prontos+g.prontos, produzir:s.produzir+g.produzir, restantes:s.restantes+g.restantes }), {producao:0,prontos:0,produzir:0,restantes:0});
 const bgPTot = totResp.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
@@ -640,7 +711,7 @@ data.forEach((d, i) => {
   html += '<td>' + d.lote + '</td>';
   html += '<td><span class="badge badge-' + d.prod + '">' + d.prod + '</span></td>';
   html += '<td><span class="rk-badge rk-' + d.rk + '">' + d.rk + '</span></td>';
-  html += '<td style="color:' + (d.resp==='s/ resp.'?'var(--muted)':'var(--text)') + ';">' + d.resp + '</td>';
+  html += '<td style="color:' + (d.resp==='s/ resp.'?'var(--muted)':'var(--text)') + ';">' + teamPersonHTML(d.resp, true) + '</td>';
   html += '<td class="num ' + (d.producao===0?'zero':'') + '" style="' + (d.producao>0?'background:var(--accent-light);border-radius:4px;padding:2px 6px;font-weight:700;':'') + '">' + fmt(d.producao) + '</td>';
   html += '<td class="num ' + (d.prontos===0?'zero':'') + '">' + fmt(d.prontos) + '</td>';
   html += '<td class="num num-bold">' + fmt(d.produzir) + '</td>';
@@ -768,11 +839,12 @@ portalTabs.forEach(tab => tab.addEventListener('click', () => {
   tab.classList.add('active');
   document.getElementById('dashboard-' + tab.dataset.dashboard).classList.add('active');
   const dashboardTitles = {
-    lotes: 'Portal Comercial E-commerce Guimepa — Lotes de Publicação',
-    acoes: 'Portal Comercial E-commerce Guimepa — Ações',
-    marketplaces: 'Portal Comercial E-commerce Guimepa — Marketplaces'
+    lotes: 'Portal E-commerce Guimepa — Publicação',
+    acoes: 'Portal E-commerce Guimepa — Ações',
+    marketplaces: 'Portal E-commerce Guimepa — Marketplaces',
+    atividades: 'Portal E-commerce Guimepa — Atividades'
   };
-  document.querySelector('.header h1').textContent = dashboardTitles[tab.dataset.dashboard] || 'Portal Comercial E-commerce Guimepa';
+  document.querySelector('.header h1').textContent = dashboardTitles[tab.dataset.dashboard] || 'Portal E-commerce Guimepa';
 }));
 
 const actionMonths = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
@@ -849,7 +921,7 @@ function renderTimeline() {
     const [y,m]=key.split('-').map(Number);
     const list=acoesData.filter(a=>a.inicio.startsWith(key));
     return '<div class="timeline-month"><div class="timeline-month-header"><span>'+actionMonths[m-1]+' '+y+'</span><span>'+list.length+' ações</span></div><div class="timeline-items">'+
-      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.inicio)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="pill responsavel">👤 '+escapeHtml(a.responsavel||'Não informado')+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
+      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.inicio)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
       '</div></div>';
   }).join('');
 }
@@ -872,7 +944,7 @@ function renderActionHistory(){
   const mostRecentYear=years[0];
   document.getElementById('actionsHistory').innerHTML=years.map(year=>{
     const open=year===mostRecentYear?' open':'';
-    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Início" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td data-label="Final" style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td><td data-label="Responsável"><span class="pill responsavel">👤 '+escapeHtml(a.responsavel||'Não informado')+'</span></td></tr>';}).join('');
+    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Início" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td data-label="Final" style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td><td data-label="Responsável"><span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></td></tr>';}).join('');
     return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>'+(year===mostRecentYear?'Expandido':'Recolhido')+'</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Início</th><th>Final</th><th>Ação</th><th>Local</th><th>Setor</th><th>Responsável</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
   }).join('');
 }
@@ -898,30 +970,35 @@ const mpMissing = value => value === null || value === undefined || String(value
 const mpInitials = name => String(name).split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
 let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
 function marketplaceLogoFile(item){
+  const canal=String(item?.canal || '').trim();
+  if(/AMAZON/i.test(canal)) return 'amazon.png';
+  if(/LOJA DO COOPERADO|SICOOB/i.test(canal)) return 'loja.png';
   const raw=item?.image || item?.imagem || item?.logo || '';
-  return String(raw).split(/[\\/]/).pop().trim();
+  return String(raw).split(/[\/]/).pop().trim();
 }
 function tryMarketplaceLogoPath(img){
   const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim();
   const attempt=Number(img.dataset.logoAttempt||0);
   const lower=file.toLowerCase();
-  const upperExt=file.replace(/\.png$/i,'.PNG');
+  const upperExt=lower.replace(/\.png$/i,'.PNG');
   const candidates=[
-    'logos-marketplaces/'+file,
     'logos-marketplaces/'+lower,
     'logos-marketplaces/'+upperExt,
-    file,
     lower,
     upperExt
-  ].filter(Boolean);
+  ].filter((value,index,array)=>value&&array.indexOf(value)===index&&value!==img.getAttribute('src'));
   if(attempt<candidates.length){
     img.dataset.logoAttempt=String(attempt+1);
     img.src=candidates[attempt];
     return;
   }
+  img.onerror=null;
   img.style.display='none';
   const fallback=img.nextElementSibling;
   if(fallback&&fallback.classList.contains('marketplace-logo-fallback')) fallback.style.display='flex';
+}
+function marketplaceLogoPath(item){
+  return 'logos-marketplaces/'+marketplaceLogoFile(item).toLowerCase();
 }
 function mpField(label,value,highlight=false){const missing=mpMissing(value);return '<div class="marketplace-field"><div class="marketplace-field-label">'+mpEscape(label)+'</div><div class="marketplace-field-value'+(missing?' missing':'')+'">'+(highlight&&!missing?'<span class="marketplace-highlight">'+mpEscape(value)+'</span>':mpEscape(value||'Não informado'))+'</div></div>';}
 function countBy(values){return values.reduce((acc,v)=>{if(!mpMissing(v))acc[v]=(acc[v]||0)+1;return acc;},{});}
@@ -950,7 +1027,7 @@ function renderMarketplaceCards(){
   if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja selecionada. Use a lista acima ou clique em “Exibir todas”.</div>';return;}
   document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
     '<article class="marketplace-card"><header class="marketplace-card-header">'+
-    '<div class="marketplace-logo-box"><img src="logos-marketplaces/'+mpEscape(marketplaceLogoFile(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
+    '<div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
     '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store">Loja: '+mpEscape(item.nomeLoja)+' • Faturamento: '+mpEscape(item.faturamento)+'</div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
     '<div class="marketplace-card-body">'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+mpField('Cota por SKU?',item.cotaSku)+'</section>'+
@@ -962,6 +1039,7 @@ function renderMarketplaceCards(){
 function setAllMarketplaces(checked){selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
 function filterMercadoLivre(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/\bMELI\b|MERCADO LIVRE/i.test(x.canal)).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
 function filterShopee(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/^SHOPEE GUIMEPA(?: STORE)?$/i.test(String(x.canal).trim())).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
+function filterMagalu(){selectedMarketplaces=new Set(marketplacesData.filter(x=>/^MAGALU-GUIMEPA(?: SHOP)?$/i.test(String(x.canal).trim())).map(x=>x.canal));syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();}
 function initMarketplacesDashboard(){
   renderMarketplaceKPIs();renderMarketplaceFilter();renderMarketplaceCards();updateMarketplaceFilterText();
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
@@ -971,8 +1049,29 @@ function initMarketplacesDashboard(){
   document.getElementById('clearMarketplaceFilters').addEventListener('click',()=>setAllMarketplaces(true));
   const ml=document.getElementById('filterMercadoLivre');if(ml)ml.addEventListener('click',filterMercadoLivre);
   const shopee=document.getElementById('filterShopee');if(shopee)shopee.addEventListener('click',filterShopee);
+  const magalu=document.getElementById('filterMagalu');if(magalu)magalu.addEventListener('click',filterMagalu);
 }
 initMarketplacesDashboard();
+</script>
+
+<script>
+// ============ ATIVIDADES ============
+const activityData = Array.isArray(window.atividadesData) ? window.atividadesData : (typeof atividadesData !== 'undefined' && Array.isArray(atividadesData) ? atividadesData : []);
+const activityPalette=['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#dc2626','#0f766e','#9333ea','#ca8a04','#0284c7'];
+const activityUnique=v=>[...new Set(v.filter(x=>x!==null&&x!==undefined&&String(x).trim()!==''))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR'));
+const activityColorMap=values=>Object.fromEntries(activityUnique(values).map((v,i)=>[v,activityPalette[i%activityPalette.length]]));
+function activityValue(item,...keys){for(const k of keys){if(item[k]!==undefined&&item[k]!==null&&String(item[k]).trim()!=='')return String(item[k]).trim();}return 'Indefinido';}
+function activityNormalized(){return activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade','rotina','Rotina','descricao','Descrição'),execucao:activityValue(x,'execucao','Execução','frequencia','Frequência'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','subArea','Sub-área','Sub Área','Subarea'),responsavel:activityValue(x,'responsavel','Responsável')}));}
+const activityRows=activityNormalized();
+const activityAreaColors=activityColorMap(activityRows.map(x=>x.area));
+const activitySubareaColors=activityColorMap(activityRows.map(x=>x.subarea));
+const activityRoutineColors=activityColorMap(activityRows.map(x=>x.atividade));
+function fillActivitySelect(id,values,label){const el=document.getElementById(id);el.innerHTML='<option value="">'+label+'</option>'+activityUnique(values).map(v=>'<option value="'+escapeHtml(v)+'">'+escapeHtml(v)+'</option>').join('');}
+function filteredActivities(){const e=document.getElementById('activityFilterExecution').value,a=document.getElementById('activityFilterArea').value,s=document.getElementById('activityFilterSubarea').value,r=document.getElementById('activityFilterOwner').value;return activityRows.filter(x=>(!e||x.execucao===e)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r));}
+function rankHTML(rows,key,colors){const counts={};rows.forEach(x=>counts[x[key]]=(counts[x[key]]||0)+1);const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR'));const max=Math.max(1,...entries.map(x=>x[1]));return entries.length?entries.map(([n,q])=>'<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+escapeHtml(n)+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>').join(''):'<div class="empty-state">Sem dados.</div>'; }
+function renderActivities(){const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.execucao)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.execucao)).length;document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';const k=[{label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},{label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},{label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},{label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'}];document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');document.getElementById('activityCards').innerHTML=rows.length?rows.map(x=>'<article class="activity-card" style="--activity-color:'+(activityRoutineColors[x.atividade]||'#2563eb')+'"><div class="activity-card-title">'+escapeHtml(x.atividade)+'</div><div class="activity-tags"><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></div><div class="activity-execution"><span>'+escapeHtml(x.execucao)+'</span><span class="activity-person">'+teamPersonHTML(x.responsavel,false)+'</span></div></article>').join(''):'<div class="empty-state" style="grid-column:1/-1">A base de atividades ainda não foi carregada em <strong>atividades-data.js</strong>.</div>';document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors);document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors);document.getElementById('activitiesByOwner').innerHTML=rankHTML(rows,'responsavel',Object.fromEntries(activityUnique(rows.map(x=>x.responsavel)).map((n,i)=>[n,activityPalette[i%activityPalette.length]])));}
+function initActivities(){fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');fillActivitySelect('activityFilterOwner',activityRows.map(x=>x.responsavel),'Todos os responsáveis');['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterArea','activityFilterSubarea','activityFilterOwner'].forEach(id=>document.getElementById(id).value='');renderActivities();});renderActivities();}
+initActivities();
 </script>
 
 </body>
