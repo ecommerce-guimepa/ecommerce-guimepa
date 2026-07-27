@@ -335,7 +335,16 @@
   .marketplace-logo-box img { max-width:120px; max-height:45px; object-fit:contain; }
   .marketplace-logo-fallback { display:none; width:42px; height:42px; border-radius:10px; align-items:center; justify-content:center; background:var(--accent-light); color:var(--accent-dark); font-size:14px; font-weight:800; }
   .marketplace-name { font-size:17px; font-weight:800; color:var(--text); letter-spacing:-.25px; }
-  .marketplace-store { margin-top:4px; color:var(--muted); font-size:11px; font-weight:600; }
+  .marketplace-store { margin-top:8px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .marketplace-store-detail { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border:1px solid #bfdbfe; border-radius:9px; background:#fff; box-shadow:0 1px 2px rgba(15,23,42,.04); }
+  .marketplace-store-label { color:var(--muted); font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.45px; }
+  .marketplace-store-value { color:var(--accent-dark); font-size:14px; font-weight:850; line-height:1; }
+  .marketplace-billing-filter { display:flex; flex-direction:column; gap:5px; }
+  .marketplace-billing-label { font-size:10px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); font-weight:700; }
+  .marketplace-billing-buttons { display:flex; gap:8px; flex-wrap:wrap; }
+  .marketplace-billing-btn { min-height:40px; padding:7px 13px; border:1px solid var(--border); border-radius:9px; background:#fff; color:#334155; font:800 11px 'Inter',sans-serif; cursor:pointer; transition:.15s; }
+  .marketplace-billing-btn:hover { border-color:#a78bfa; background:#faf5ff; }
+  .marketplace-billing-btn.active { border-color:#7c3aed; background:#f5f3ff; color:#6d28d9; box-shadow:0 0 0 2px rgba(124,58,237,.12); }
   .marketplace-order { border-radius:999px; background:#fff; border:1px solid var(--border); padding:5px 9px; color:var(--muted); font-size:10px; font-weight:800; }
   .marketplace-card-body { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; }
   .marketplace-info-group { padding:14px 16px; min-width:0; border-right:1px solid var(--border-light); }
@@ -365,6 +374,9 @@
     .marketplace-logo-box { width:82px; height:50px; }
     .marketplace-logo-box img { max-width:72px; max-height:38px; }
     .marketplace-name { font-size:14px; }
+    .marketplace-store { gap:6px; }
+    .marketplace-store-detail { padding:5px 8px; }
+    .marketplace-store-value { font-size:12px; }
     .marketplace-order { display:none; }
     .marketplace-card-body { grid-template-columns:1fr; }
     .marketplace-info-group { border-right:0; border-bottom:1px solid var(--border-light); padding:12px; }
@@ -664,6 +676,7 @@
       <div class="marketplaces-toolbar">
         <div class="marketplace-channel-buttons" id="marketplaceChannelButtons"></div>
         <div class="marketplace-sac-filter"><span class="marketplace-sac-label">Responsáveis SAC</span><div class="marketplace-sac-buttons" id="marketplaceSacButtons"></div></div>
+        <div class="marketplace-billing-filter"><span class="marketplace-billing-label">Faturamento</span><div class="marketplace-billing-buttons" id="marketplaceBillingButtons"></div></div>
         <span class="marketplaces-count" id="marketplacesResultCount"></span>
         <div class="marketplace-filter" id="marketplaceFilter">
           <span class="marketplace-filter-label">Filtrar lojas</span>
@@ -1198,10 +1211,17 @@ function renderMarketplaceKPIs(){
 }
 const marketplaceSacOptions=[{name:'Thais',photo:'thais.png'},{name:'Karin',photo:'karin.png'}];
 const selectedMarketplaceSac=new Set(marketplaceSacOptions.map(x=>x.name));
+const marketplaceBillingOptions=[...new Set(marketplacesData.map(x=>String(x.faturamento||'Não informado').trim()))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+const selectedMarketplaceBilling=new Set(marketplaceBillingOptions);
 function renderMarketplaceSacButtons(){
   const host=document.getElementById('marketplaceSacButtons');if(!host)return;
   host.innerHTML=marketplaceSacOptions.map(x=>'<button type="button" class="marketplace-sac-btn '+(selectedMarketplaceSac.has(x.name)?'active':'')+'" data-sac="'+x.name+'"><img src="logos-equipe/'+x.photo+'" alt="'+x.name+'"><span>'+x.name+'</span></button>').join('');
   host.querySelectorAll('[data-sac]').forEach(btn=>btn.addEventListener('click',()=>{const n=btn.dataset.sac;selectedMarketplaceSac.has(n)?selectedMarketplaceSac.delete(n):selectedMarketplaceSac.add(n);renderMarketplaceSacButtons();renderMarketplaceCards();}));
+}
+function renderMarketplaceBillingButtons(){
+  const host=document.getElementById('marketplaceBillingButtons');if(!host)return;
+  host.innerHTML=marketplaceBillingOptions.map(value=>'<button type="button" class="marketplace-billing-btn '+(selectedMarketplaceBilling.has(value)?'active':'')+'" data-billing="'+mpEscape(value)+'">'+mpEscape(value)+'</button>').join('');
+  host.querySelectorAll('[data-billing]').forEach(btn=>btn.addEventListener('click',()=>{const value=btn.dataset.billing;selectedMarketplaceBilling.has(value)?selectedMarketplaceBilling.delete(value):selectedMarketplaceBilling.add(value);renderMarketplaceBillingButtons();renderMarketplaceCards();}));
 }
 function renderMarketplaceFilter(){
   document.getElementById('marketplaceFilterOptions').innerHTML=marketplacesData.map(item=>'<label class="marketplace-filter-option"><input type="checkbox" value="'+mpEscape(item.canal)+'" checked> <span>'+mpEscape(item.canal)+'</span></label>').join('');
@@ -1211,7 +1231,7 @@ function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOp
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
 function renderMarketplaceCards(){
   const orderPriority={'MELI GUIMEPA':1,'MELI GUIMEPA SHOP':2,'MELI GUIMEPA STORE':3,'MELI DELTATOP':4};
-  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)&&selectedMarketplaceSac.has(String(item.sac||'').trim())).sort((a,b)=>{
+  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)&&selectedMarketplaceSac.has(String(item.sac||'').trim())&&selectedMarketplaceBilling.has(String(item.faturamento||'Não informado').trim())).sort((a,b)=>{
     const am=/^MELI /.test(a.canal), bm=/^MELI /.test(b.canal);
     if(am&&bm) return (orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);
     return (a.ordem||999)-(b.ordem||999);
@@ -1221,7 +1241,7 @@ function renderMarketplaceCards(){
   document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
     '<article class="marketplace-card"><header class="marketplace-card-header">'+
     '<div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
-    '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store">Loja: '+mpEscape(item.nomeLoja)+' • Faturamento: '+mpEscape(item.faturamento)+'</div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
+    '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store"><span class="marketplace-store-detail"><span class="marketplace-store-label">Loja</span><strong class="marketplace-store-value">'+mpEscape(item.nomeLoja)+'</strong></span><span class="marketplace-store-detail"><span class="marketplace-store-label">Faturamento</span><strong class="marketplace-store-value">'+mpEscape(item.faturamento)+'</strong></span></div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
     '<div class="marketplace-card-body">'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section>'+
     '<section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section>'+
@@ -1268,7 +1288,7 @@ function applyMarketplaceChannelFilter(id){
 }
 function initMarketplacesDashboard(){
   renderMarketplaceKPIs();renderMarketplaceFilter();
-renderMarketplaceSacButtons();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
+renderMarketplaceSacButtons();renderMarketplaceBillingButtons();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
   btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');});menu.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',()=>menu.classList.remove('open'));
   document.getElementById('marketplaceSelectAll').addEventListener('click',()=>setAllMarketplaces(true));
@@ -1401,12 +1421,12 @@ const campaignTypes=['PRAZO_A_VISTA_COPARTICIPADO','PRAZO_A_VISTA_INTEGRAL','PRA
 const campaignDiscountTypes=['REDUCAO','REBATE'];
 let activeCampaignChannel='';
 const campaignChannelGroups=[
-  {id:'B2W',label:'B2W',logo:'',channels:['B2W DELTATOP','B2W GMK8','B2W GUIMEPA']},
   {id:'MAGALU',label:'Magalu',logo:'Magalu.png',channels:['MAGAZINE LUIZA GMK8','MAGAZINE LUIZA GUIMEPA STORE','MAGAZINE LUIZA GUIMEPA','MAGAZINE LUIZA DELTATOP']},
   {id:'MELI',label:'Mercado Livre',logo:'meli.png',channels:['MELI GUIMEPA','MELI DELTATOP','SAC MELI GUIMEPA']},
   {id:'WEB_CONTINENTAL',label:'Web Continental',logo:'Webcontinental.png',channels:['WEB CONTINENTAL GUIMEPA SHOP','WEB CONTINENTAL']},
   {id:'AMAZON GUIMEPA',label:'Amazon',logo:'amazon.png',channels:['AMAZON GUIMEPA']},
   {id:'LEROY MERLIN',label:'Leroy Merlin',logo:'Leroy.png',channels:['LEROY MERLIN']},
+  {id:'B2W',label:'B2W',logo:'',channels:['B2W DELTATOP','B2W GMK8','B2W GUIMEPA']},
   {id:'MADEIRA MADEIRA',label:'Madeira Madeira',logo:'',channels:['MADEIRA MADEIRA']}
 ];
 let activeCampaignType='';
