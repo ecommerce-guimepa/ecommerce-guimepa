@@ -499,6 +499,53 @@
     .activity-owner-btn{flex:1 1 calc(50% - 8px);justify-content:flex-start;}
   }
 
+
+  /* Campaigns dashboard */
+  .campaigns-main{max-width:1500px;margin:0 auto;padding:18px 20px 40px;}
+  .campaign-kpi-grid{display:grid;grid-template-columns:1.1fr 2fr 1.2fr;gap:14px;margin-bottom:16px;}
+  .campaign-summary-card{--card-accent:var(--accent);background:#fff;border:1px solid var(--border);border-top:4px solid var(--card-accent);border-radius:10px;padding:14px 16px 16px;box-shadow:0 1px 2px rgba(15,23,42,.04);}
+  .campaign-summary-card:nth-child(1){--card-accent:#2563eb}.campaign-summary-card:nth-child(2){--card-accent:#16a34a}.campaign-summary-card:nth-child(3){--card-accent:#f59e0b}
+  .sac-photo-list{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:4px}.sac-person{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#475569;white-space:nowrap}.sac-person img{width:25px;height:25px;border-radius:50%;object-fit:cover;border:2px solid #dcfce7}
+  .marketplace-sac-filter{display:flex;flex-direction:column;gap:5px}.marketplace-sac-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700}.marketplace-sac-buttons{display:flex;gap:8px;flex-wrap:wrap}.marketplace-sac-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:5px 10px 5px 6px;border:1px solid var(--border);border-radius:9px;background:#fff;color:#334155;font:700 11px 'Inter',sans-serif;cursor:pointer}.marketplace-sac-btn img{width:28px;height:28px;border-radius:50%;object-fit:cover}.marketplace-sac-btn:hover{border-color:#86efac;background:#f0fdf4}.marketplace-sac-btn.active{border-color:#16a34a;background:#f0fdf4;box-shadow:0 0 0 2px rgba(22,163,74,.12)}
+  .campaign-summary-title{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.65px;color:var(--muted);margin-bottom:12px;}
+  .campaign-total-value{font-size:34px;font-weight:800;color:var(--accent-dark);line-height:1;}
+  .campaign-total-sub{font-size:11px;color:var(--muted);margin-top:7px;font-weight:600;}
+  .campaign-count-list{display:grid;gap:8px;}
+  .campaign-count-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 9px;border-radius:7px;background:#f8fafc;border:1px solid var(--border-light);}
+  .campaign-count-label{font-size:10px;font-weight:750;color:#334155;overflow-wrap:anywhere;}
+  .campaign-count-value{font-size:15px;font-weight:800;color:#0f172a;min-width:28px;text-align:right;}
+  .campaign-toolbar{display:grid;grid-template-columns:150px 170px minmax(360px,1fr) 255px 185px auto;gap:14px;align-items:start;padding:14px 16px;border-bottom:1px solid var(--border);background:#f8fafc;}
+  .campaign-channel-filter,.campaign-button-column{display:flex;flex-direction:column;gap:7px;}
+  .campaign-filter-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.55px;color:var(--muted);}
+  .campaign-channel-buttons{display:flex;flex-wrap:wrap;gap:9px;align-items:center;}
+  .campaign-channel-btn{height:46px;min-width:68px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s;}
+  .campaign-channel-btn:hover{border-color:#93c5fd;transform:translateY(-1px);}
+  .campaign-channel-btn.active{border-color:var(--accent);background:#eff6ff;box-shadow:0 0 0 2px rgba(37,99,235,.12);}
+  .campaign-channel-btn img{max-width:82px;max-height:29px;object-fit:contain;}
+  .campaign-channel-btn span{font-size:9px;font-weight:800;color:#334155;max-width:110px;line-height:1.1;text-align:center;}
+  .campaign-toggle-btn{width:100%;padding:8px 9px;border:1px solid var(--border);border-radius:7px;background:#fff;color:#475569;font-size:10px;font-weight:750;line-height:1.15;text-align:left;cursor:pointer;transition:.15s;overflow-wrap:anywhere;}
+  .campaign-toggle-btn:hover{border-color:#93c5fd;background:#f8fafc;}
+  .campaign-toggle-btn.active{background:#dbeafe;border-color:#60a5fa;color:#1d4ed8;}
+  .campaign-toggle-btn.discount.active{background:#dcfce7;border-color:#4ade80;color:#15803d;}
+  .campaign-clear{align-self:end;min-height:38px;white-space:nowrap;}
+  .campaign-result-count{font-size:11px;color:var(--muted);font-weight:700;}
+  .campaign-year-group{border-bottom:1px solid var(--border-light);}
+  .campaign-year-toggle{width:100%;border:0;background:#f8fafc;padding:11px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:#334155;font-weight:800;}
+  .campaign-year-left{display:flex;align-items:center;gap:10px;}.campaign-year-arrow{transition:.18s}.campaign-year-group.open .campaign-year-arrow{transform:rotate(90deg)}
+  .campaign-year-content{display:none;padding:10px 14px 16px}.campaign-year-group.open .campaign-year-content{display:block}
+  .campaign-month-title{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800;margin:13px 0 8px;}
+  .campaign-timeline{position:relative;padding-left:24px;display:grid;gap:10px;}
+  .campaign-timeline:before{content:'';position:absolute;left:7px;top:5px;bottom:5px;width:2px;background:#dbeafe;}
+  .campaign-item{position:relative;background:#fff;border:1px solid var(--border);border-radius:9px;padding:11px 13px;box-shadow:0 1px 2px rgba(15,23,42,.03);}
+  .campaign-item:before{content:'';position:absolute;left:-22px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px #dbeafe;}
+  .campaign-item-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .campaign-period{font-size:11px;font-weight:800;color:#334155;}.campaign-discount{font-size:12px;font-weight:800;color:#15803d;background:#dcfce7;border:1px solid #86efac;border-radius:999px;padding:3px 8px;}
+  .campaign-mainline{display:flex;align-items:center;gap:12px;margin-bottom:9px;}.campaign-logo{width:84px;min-width:84px;height:34px;display:flex;align-items:center;justify-content:center;}.campaign-logo img{max-width:80px;max-height:30px;object-fit:contain;}.campaign-logo-fallback{font-size:9px;font-weight:800;color:#475569;text-align:center;line-height:1.15;}
+  .campaign-title{font-size:13px;font-weight:750;color:#0f172a;line-height:1.35;}
+  .campaign-tags{display:flex;flex-wrap:wrap;gap:7px;}.campaign-tag{font-size:9px;font-weight:800;border-radius:999px;padding:4px 8px;border:1px solid;overflow-wrap:anywhere;}.campaign-tag.type{background:#eef2ff;color:#4338ca;border-color:#c7d2fe}.campaign-tag.discount{background:#fff7ed;color:#c2410c;border-color:#fed7aa}
+  @media(max-width:1050px){.campaign-kpi-grid{grid-template-columns:1fr}.campaign-toolbar{grid-template-columns:1fr 1fr}.campaign-channel-filter{grid-column:1/-1}.campaign-clear{align-self:stretch}.campaign-button-column{min-width:0}}
+  @media(max-width:640px){.campaigns-main{padding:12px 10px 28px}.campaign-toolbar{grid-template-columns:1fr}.campaign-channel-filter{grid-column:auto}.campaign-item-top{align-items:flex-start;flex-direction:column}.campaign-mainline{align-items:flex-start}.campaign-logo{width:68px;min-width:68px}.campaign-count-label{font-size:9px}}
+
 </style>
 </head>
 <body>
@@ -514,13 +561,14 @@
 </div>
 
 <nav class="portal-nav" aria-label="Dashboards principais">
-  <button class="portal-tab active" data-dashboard="lotes">Publicação</button>
-  <button class="portal-tab" data-dashboard="acoes">Ações</button>
-  <button class="portal-tab" data-dashboard="marketplaces">Marketplaces</button>
+  <button class="portal-tab active" data-dashboard="marketplaces">Marketplaces</button>
   <button class="portal-tab" data-dashboard="atividades">Atividades</button>
+  <button class="portal-tab" data-dashboard="acoes">Ações</button>
+  <button class="portal-tab" data-dashboard="lotes">Publicações</button>
+  <button class="portal-tab" data-dashboard="campanhas">Campanhas</button>
 </nav>
 
-<section id="dashboard-lotes" class="dashboard-panel active">
+<section id="dashboard-lotes" class="dashboard-panel">
 <div class="main">
   <div class="kpi-row" id="kpiRow"></div>
   <div class="summary-row">
@@ -605,7 +653,7 @@
 </section>
 
 
-<section id="dashboard-marketplaces" class="dashboard-panel">
+<section id="dashboard-marketplaces" class="dashboard-panel active">
   <div class="marketplaces-main">
     <div class="kpi-row" id="marketplacesKpiRow"></div>
     <div class="section">
@@ -615,6 +663,7 @@
       </div>
       <div class="marketplaces-toolbar">
         <div class="marketplace-channel-buttons" id="marketplaceChannelButtons"></div>
+        <div class="marketplace-sac-filter"><span class="marketplace-sac-label">Responsáveis SAC</span><div class="marketplace-sac-buttons" id="marketplaceSacButtons"></div></div>
         <span class="marketplaces-count" id="marketplacesResultCount"></span>
         <div class="marketplace-filter" id="marketplaceFilter">
           <span class="marketplace-filter-label">Filtrar lojas</span>
@@ -664,10 +713,34 @@
   </div>
 </section>
 
+
+<section id="dashboard-campanhas" class="dashboard-panel">
+  <div class="campaigns-main">
+    <div class="campaign-kpi-grid">
+      <div class="campaign-summary-card"><div class="campaign-summary-title">Total de Campanhas Coparticipadas</div><div class="campaign-total-value" id="campaignTotal">0</div><div class="campaign-total-sub">Somente campanhas que contem com subsídio de desconto pelo marketplace.</div></div>
+      <div class="campaign-summary-card"><div class="campaign-summary-title">Tipo da Campanha</div><div class="campaign-count-list" id="campaignTypeTotals"></div></div>
+      <div class="campaign-summary-card"><div class="campaign-summary-title">Tipo de Desconto</div><div class="campaign-count-list" id="campaignDiscountTotals"></div></div>
+    </div>
+    <div class="section">
+      <div class="section-header"><span class="section-title">Linha do tempo de campanhas</span><span class="campaign-result-count" id="campaignResultCount"></span></div>
+      <div class="campaign-toolbar">
+        <div class="filter-field"><label>Ano</label><select id="campaignFilterYear"></select></div>
+        <div class="filter-field"><label>Mês</label><select id="campaignFilterMonth"></select></div>
+        <div class="campaign-channel-filter"><span class="campaign-filter-label">Canal</span><div class="campaign-channel-buttons" id="campaignChannelButtons"></div></div>
+        <div class="campaign-button-column"><span class="campaign-filter-label">Tipo da Campanha</span><div id="campaignTypeButtons" class="campaign-button-column"></div></div>
+        <div class="campaign-button-column"><span class="campaign-filter-label">Tipo de Desconto</span><div id="campaignDiscountButtons" class="campaign-button-column"></div></div>
+        <button class="clear-btn campaign-clear" id="clearCampaignFilters">Limpar filtros</button>
+      </div>
+      <div id="campaignHistory"></div>
+    </div>
+  </div>
+</section>
+
 <script src="acoes-data.js"></script>
 <script src="marketplaces-data.js"></script>
 <script src="data.js"></script>
 <script src="atividades-data.js"></script>
+<script src="campanhas-data.js"></script>
 <script>
 const fmt = n => n.toLocaleString('pt-BR');
 const fmtSigned = n => n < 0 ? '-' + fmt(Math.abs(n)) : fmt(n);
@@ -938,7 +1011,8 @@ portalTabs.forEach(tab => tab.addEventListener('click', () => {
     lotes: 'Portal E-commerce Guimepa — Publicação',
     acoes: 'Portal E-commerce Guimepa — Ações',
     marketplaces: 'Portal E-commerce Guimepa — Marketplaces',
-    atividades: 'Portal E-commerce Guimepa — Atividades'
+    atividades: 'Portal E-commerce Guimepa — Atividades',
+    campanhas: 'Portal E-commerce Guimepa — Campanhas'
   };
   document.querySelector('.header h1').textContent = dashboardTitles[tab.dataset.dashboard] || 'Portal E-commerce Guimepa';
 }));
@@ -1110,7 +1184,8 @@ function mpField(label,value,highlight=false){const missing=mpMissing(value);ret
 function countBy(values){return values.reduce((acc,v)=>{if(!mpMissing(v))acc[v]=(acc[v]||0)+1;return acc;},{});}
 function renderMarketplaceKPIs(){
   const sacCounts=countBy(marketplacesData.map(x=>x.sac));
-  const sacText=Object.entries(sacCounts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')).map(([n,q])=>n+' ('+q+')').join(' • ');
+  const sacPhotoMap={Thais:'thais.png',Karin:'karin.png'};
+  const sacText=Object.entries(sacCounts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')).map(([n,q])=>'<span class="sac-person"><img src="logos-equipe/'+(sacPhotoMap[n]||'')+'" alt="'+mpEscape(n)+'"><span>'+mpEscape(n)+' ('+q+')</span></span>').join('');
   const stockOrder=['GUIMEPA','ESTOQUE SC','ESTOQUE PR','ESTOQUE OVD GMK8','ESTOQUE LIQ SC'];
   const stockCounts=countBy(marketplacesData.map(x=>x.localEstoque));
   const stockText=stockOrder.map(n=>n+' ('+(stockCounts[n]||0)+')').join(' • ');
@@ -1119,7 +1194,14 @@ function renderMarketplaceKPIs(){
     {label:'Responsáveis SAC',value:Object.keys(sacCounts).length,sub:sacText,cls:'green'},
     {label:'Locais de Estoque',value:Object.keys(stockCounts).length,sub:stockText,cls:'orange'}
   ];
-  document.getElementById('marketplacesKpiRow').innerHTML=items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+mpEscape(k.sub)+'</div></div>').join('');
+  document.getElementById('marketplacesKpiRow').innerHTML=items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+(k.label==='Responsáveis SAC'?'<span class="sac-photo-list">'+k.sub+'</span>':mpEscape(k.sub))+'</div></div>').join('');
+}
+const marketplaceSacOptions=[{name:'Thais',photo:'thais.png'},{name:'Karin',photo:'karin.png'}];
+const selectedMarketplaceSac=new Set(marketplaceSacOptions.map(x=>x.name));
+function renderMarketplaceSacButtons(){
+  const host=document.getElementById('marketplaceSacButtons');if(!host)return;
+  host.innerHTML=marketplaceSacOptions.map(x=>'<button type="button" class="marketplace-sac-btn '+(selectedMarketplaceSac.has(x.name)?'active':'')+'" data-sac="'+x.name+'"><img src="logos-equipe/'+x.photo+'" alt="'+x.name+'"><span>'+x.name+'</span></button>').join('');
+  host.querySelectorAll('[data-sac]').forEach(btn=>btn.addEventListener('click',()=>{const n=btn.dataset.sac;selectedMarketplaceSac.has(n)?selectedMarketplaceSac.delete(n):selectedMarketplaceSac.add(n);renderMarketplaceSacButtons();renderMarketplaceCards();}));
 }
 function renderMarketplaceFilter(){
   document.getElementById('marketplaceFilterOptions').innerHTML=marketplacesData.map(item=>'<label class="marketplace-filter-option"><input type="checkbox" value="'+mpEscape(item.canal)+'" checked> <span>'+mpEscape(item.canal)+'</span></label>').join('');
@@ -1129,7 +1211,7 @@ function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOp
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
 function renderMarketplaceCards(){
   const orderPriority={'MELI GUIMEPA':1,'MELI GUIMEPA SHOP':2,'MELI GUIMEPA STORE':3,'MELI DELTATOP':4};
-  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)).sort((a,b)=>{
+  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)&&selectedMarketplaceSac.has(String(item.sac||'').trim())).sort((a,b)=>{
     const am=/^MELI /.test(a.canal), bm=/^MELI /.test(b.canal);
     if(am&&bm) return (orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);
     return (a.ordem||999)-(b.ordem||999);
@@ -1185,7 +1267,8 @@ function applyMarketplaceChannelFilter(id){
   syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();renderMarketplaceChannelButtons();
 }
 function initMarketplacesDashboard(){
-  renderMarketplaceKPIs();renderMarketplaceFilter();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
+  renderMarketplaceKPIs();renderMarketplaceFilter();
+renderMarketplaceSacButtons();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
   btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');});menu.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',()=>menu.classList.remove('open'));
   document.getElementById('marketplaceSelectAll').addEventListener('click',()=>setAllMarketplaces(true));
@@ -1308,6 +1391,87 @@ function initActivities(){
  renderActivities();
 }
 initActivities();
+</script>
+
+
+<script>
+// ============ CAMPANHAS ============
+const campaignMonths=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const campaignTypes=['PRAZO_A_VISTA_COPARTICIPADO','PRAZO_A_VISTA_INTEGRAL','PRAZO_COPARTICIPADO','PRAZO_INTEGRADO'];
+const campaignDiscountTypes=['REDUCAO','REBATE'];
+let activeCampaignChannel='';
+const campaignChannelGroups=[
+  {id:'B2W',label:'B2W',logo:'',channels:['B2W DELTATOP','B2W GMK8','B2W GUIMEPA']},
+  {id:'MAGALU',label:'Magalu',logo:'Magalu.png',channels:['MAGAZINE LUIZA GMK8','MAGAZINE LUIZA GUIMEPA STORE','MAGAZINE LUIZA GUIMEPA','MAGAZINE LUIZA DELTATOP']},
+  {id:'MELI',label:'Mercado Livre',logo:'meli.png',channels:['MELI GUIMEPA','MELI DELTATOP','SAC MELI GUIMEPA']},
+  {id:'WEB_CONTINENTAL',label:'Web Continental',logo:'Webcontinental.png',channels:['WEB CONTINENTAL GUIMEPA SHOP','WEB CONTINENTAL']},
+  {id:'AMAZON GUIMEPA',label:'Amazon',logo:'amazon.png',channels:['AMAZON GUIMEPA']},
+  {id:'LEROY MERLIN',label:'Leroy Merlin',logo:'Leroy.png',channels:['LEROY MERLIN']},
+  {id:'MADEIRA MADEIRA',label:'Madeira Madeira',logo:'',channels:['MADEIRA MADEIRA']}
+];
+let activeCampaignType='';
+let activeCampaignDiscount='';
+const campaignEscape=v=>String(v??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+function campaignLogoFile(canal){
+  const map={
+    'AMAZON GUIMEPA':'amazon.png','LEROY MERLIN':'Leroy.png',
+    'MAGAZINE LUIZA GMK8':'Magalu.png','MAGAZINE LUIZA GUIMEPA STORE':'Magalu.png','MAGAZINE LUIZA GUIMEPA':'Magalu.png','MAGAZINE LUIZA DELTATOP':'Magalu.png',
+    'MELI GUIMEPA':'meli.png','MELI DELTATOP':'meli.png',
+    'WEB CONTINENTAL GUIMEPA SHOP':'Webcontinental.png','WEB CONTINENTAL':'Webcontinental.png'
+  };
+  return map[String(canal||'').trim()]||'';
+}
+function campaignLogoHTML(canal,button=false){
+  const file=campaignLogoFile(canal);
+  if(!file) return '<span class="campaign-logo-fallback">'+campaignEscape(canal)+'</span>';
+  return '<img src="logos-marketplaces/'+file+'" alt="'+campaignEscape(canal)+'" title="'+campaignEscape(canal)+'" onerror="this.outerHTML=\'<span class=&quot;campaign-logo-fallback&quot;>'+campaignEscape(canal).replace(/'/g,'&#039;')+'</span>\'">';
+}
+function campaignFmtDate(iso){if(!iso)return '—';const [y,m,d]=String(iso).split('-');return d+'/'+m+'/'+y;}
+function campaignDiscountValue(v){if(v===null||v===undefined||String(v).trim()==='')return '—';if(typeof v==='number')return v.toLocaleString('pt-BR',{maximumFractionDigits:2})+'%';return campaignEscape(v);}
+function filteredCampaigns(){
+  const year=document.getElementById('campaignFilterYear').value;
+  const month=document.getElementById('campaignFilterMonth').value;
+  const group=campaignChannelGroups.find(g=>g.id===activeCampaignChannel);
+  return campanhasData.filter(c=>(!year||c.inicio.slice(0,4)===year)&&(!month||String(Number(c.inicio.slice(5,7)))===month)&&(!activeCampaignChannel||(group?group.channels.includes(c.canal):c.canal===activeCampaignChannel))&&(!activeCampaignType||c.tipoCampanha===activeCampaignType)&&(!activeCampaignDiscount||c.tipoDesconto===activeCampaignDiscount));
+}
+function renderCampaignButtons(){
+  const present=new Set(campanhasData.map(c=>c.canal));
+  const groups=campaignChannelGroups.filter(g=>g.channels.some(c=>present.has(c)));
+  document.getElementById('campaignChannelButtons').innerHTML='<button class="campaign-channel-btn '+(!activeCampaignChannel?'active':'')+'" data-channel="" type="button"><span>Exibir todos</span></button>'+groups.map(g=>'<button class="campaign-channel-btn '+(activeCampaignChannel===g.id?'active':'')+'" data-channel="'+campaignEscape(g.id)+'" type="button">'+(g.logo?'<img src="logos-marketplaces/'+g.logo+'" alt="'+campaignEscape(g.label)+'" title="'+campaignEscape(g.label)+'">':'<span>'+campaignEscape(g.label)+'</span>')+'</button>').join('');
+  document.querySelectorAll('#campaignChannelButtons [data-channel]').forEach(btn=>btn.addEventListener('click',()=>{activeCampaignChannel=btn.dataset.channel;renderCampaignButtons();renderCampaigns();}));
+  document.getElementById('campaignTypeButtons').innerHTML=campaignTypes.map(t=>'<button type="button" class="campaign-toggle-btn '+(activeCampaignType===t?'active':'')+'" data-campaign-type="'+t+'">'+t+'</button>').join('');
+  document.querySelectorAll('[data-campaign-type]').forEach(btn=>btn.addEventListener('click',()=>{activeCampaignType=activeCampaignType===btn.dataset.campaignType?'':btn.dataset.campaignType;renderCampaignButtons();renderCampaigns();}));
+  document.getElementById('campaignDiscountButtons').innerHTML=campaignDiscountTypes.map(t=>'<button type="button" class="campaign-toggle-btn discount '+(activeCampaignDiscount===t?'active':'')+'" data-campaign-discount="'+t+'">'+t+'</button>').join('');
+  document.querySelectorAll('[data-campaign-discount]').forEach(btn=>btn.addEventListener('click',()=>{activeCampaignDiscount=activeCampaignDiscount===btn.dataset.campaignDiscount?'':btn.dataset.campaignDiscount;renderCampaignButtons();renderCampaigns();}));
+}
+function renderCampaignTotals(rows){
+  document.getElementById('campaignTotal').textContent=rows.length.toLocaleString('pt-BR');
+  document.getElementById('campaignTypeTotals').innerHTML=campaignTypes.map(t=>'<div class="campaign-count-item"><span class="campaign-count-label">'+t+'</span><span class="campaign-count-value">'+rows.filter(c=>c.tipoCampanha===t).length.toLocaleString('pt-BR')+'</span></div>').join('');
+  document.getElementById('campaignDiscountTotals').innerHTML=campaignDiscountTypes.map(t=>'<div class="campaign-count-item"><span class="campaign-count-label">'+t+'</span><span class="campaign-count-value">'+rows.filter(c=>c.tipoDesconto===t).length.toLocaleString('pt-BR')+'</span></div>').join('');
+}
+function renderCampaigns(){
+  const rows=filteredCampaigns().slice().sort((a,b)=>b.inicio.localeCompare(a.inicio)||b.final.localeCompare(a.final));
+  renderCampaignTotals(rows);
+  document.getElementById('campaignResultCount').textContent=rows.length.toLocaleString('pt-BR')+' campanhas encontradas';
+  const years={};rows.forEach(c=>{const y=c.inicio.slice(0,4);(years[y]??=[]).push(c)});
+  const yearKeys=Object.keys(years).sort((a,b)=>b-a);
+  if(!yearKeys.length){document.getElementById('campaignHistory').innerHTML='<div class="empty-state">Nenhuma campanha encontrada para os filtros selecionados.</div>';return;}
+  document.getElementById('campaignHistory').innerHTML=yearKeys.map((year,yi)=>{
+    const byMonth={};years[year].forEach(c=>{const m=c.inicio.slice(5,7);(byMonth[m]??=[]).push(c)});
+    const months=Object.keys(byMonth).sort((a,b)=>b-a);
+    const body=months.map(m=>'<div class="campaign-month-title">'+campaignMonths[Number(m)-1]+' '+year+'</div><div class="campaign-timeline">'+byMonth[m].map(c=>'<div class="campaign-item"><div class="campaign-item-top"><span class="campaign-period">'+campaignFmtDate(c.inicio)+' — '+campaignFmtDate(c.final)+'</span><span class="campaign-discount">Desconto Marketplace: '+campaignDiscountValue(c.descontoMarketplace)+'</span></div><div class="campaign-mainline"><div class="campaign-logo">'+campaignLogoHTML(c.canal)+'</div><div class="campaign-title">'+campaignEscape(c.campanha)+'</div></div><div class="campaign-tags"><span class="campaign-tag type">'+campaignEscape(c.tipoCampanha)+'</span><span class="campaign-tag discount">'+campaignEscape(c.tipoDesconto)+'</span></div></div>').join('')+'</div>').join('');
+    return '<div class="campaign-year-group '+(yi===0?'open':'')+'"><button class="campaign-year-toggle" type="button" onclick="this.parentElement.classList.toggle(\'open\')"><span class="campaign-year-left"><span class="campaign-year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+years[year].length+' campanhas</span></span><span>Expandir/recolher</span></button><div class="campaign-year-content">'+body+'</div></div>';
+  }).join('');
+}
+function initCampaigns(){
+  const years=[...new Set(campanhasData.map(c=>c.inicio.slice(0,4)))].sort((a,b)=>b-a);
+  document.getElementById('campaignFilterYear').innerHTML='<option value="">Todos os anos</option>'+years.map(y=>'<option value="'+y+'">'+y+'</option>').join('');
+  document.getElementById('campaignFilterMonth').innerHTML='<option value="">Todos os meses</option>'+campaignMonths.map((m,i)=>'<option value="'+(i+1)+'">'+m+'</option>').join('');
+  ['campaignFilterYear','campaignFilterMonth'].forEach(id=>document.getElementById(id).addEventListener('change',renderCampaigns));
+  document.getElementById('clearCampaignFilters').addEventListener('click',()=>{document.getElementById('campaignFilterYear').value='';document.getElementById('campaignFilterMonth').value='';activeCampaignChannel='';activeCampaignType='';activeCampaignDiscount='';renderCampaignButtons();renderCampaigns();});
+  renderCampaignButtons();renderCampaigns();
+}
+initCampaigns();
 </script>
 
 </body>
