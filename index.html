@@ -350,6 +350,26 @@
   .marketplace-billing-btn { min-height:40px; padding:7px 13px; border:1px solid var(--border); border-radius:9px; background:#fff; color:#334155; font:800 11px 'Inter',sans-serif; cursor:pointer; transition:.15s; }
   .marketplace-billing-btn:hover { border-color:#a78bfa; background:#faf5ff; }
   .marketplace-billing-btn.active { border-color:#7c3aed; background:#f5f3ff; color:#6d28d9; box-shadow:0 0 0 2px rgba(124,58,237,.12); }
+
+  .marketplace-header-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;}
+  .marketplace-important-links-btn{border:1px solid #93c5fd;border-radius:999px;background:#eff6ff;color:#1d4ed8;padding:6px 10px;font:800 10px 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:.16s ease;}
+  .marketplace-important-links-btn:hover{background:#dbeafe;border-color:#60a5fa;transform:translateY(-1px);box-shadow:0 4px 10px rgba(37,99,235,.15);}
+  .marketplace-links-modal{position:fixed;inset:0;z-index:560;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,23,42,.58);backdrop-filter:blur(4px);}
+  .marketplace-links-modal.open{display:flex;}
+  .marketplace-links-card{width:min(760px,96vw);max-height:86vh;overflow:auto;background:#fff;border:1px solid #cbd5e1;border-radius:17px;box-shadow:0 26px 75px rgba(15,23,42,.34);}
+  .marketplace-links-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid #dbeafe;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-top:5px solid #2563eb;}
+  .marketplace-links-title{font-size:18px;font-weight:850;color:#0f172a;}
+  .marketplace-links-subtitle{margin-top:3px;font-size:11px;font-weight:650;color:#64748b;}
+  .marketplace-links-close{flex:0 0 auto;width:35px;height:35px;border:1px solid #93c5fd;border-radius:9px;background:#fff;color:#1d4ed8;cursor:pointer;font-size:19px;font-weight:800;}
+  .marketplace-links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:20px;}
+  .marketplace-link-item{display:flex;flex-direction:column;gap:7px;min-height:95px;padding:14px;border:1px solid #dbe3ee;border-radius:12px;background:#f8fafc;}
+  .marketplace-link-item.available{background:#eff6ff;border-color:#bfdbfe;}
+  .marketplace-link-name{font-size:13px;font-weight:850;color:#1e293b;line-height:1.35;}
+  .marketplace-link-anchor{display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;padding:7px 10px;border-radius:8px;background:#2563eb;color:#fff;text-decoration:none;font-size:11px;font-weight:850;}
+  .marketplace-link-anchor:hover{background:#1d4ed8;}
+  .marketplace-link-production{font-size:11px;line-height:1.45;color:#64748b;font-style:italic;}
+  @media(max-width:720px){.marketplace-header-actions{grid-column:1/-1;justify-content:flex-start}.marketplace-order{display:inline-flex}.marketplace-links-grid{grid-template-columns:1fr;padding:14px}.marketplace-links-modal{padding:10px}}
+
   .marketplace-order { border-radius:999px; background:#fff; border:1px solid var(--border); padding:5px 9px; color:var(--muted); font-size:10px; font-weight:800; }
   .marketplace-card-body { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0; }
   .marketplace-info-group { padding:14px 16px; min-width:0; border-right:1px solid var(--border-light); }
@@ -890,6 +910,17 @@
   </div>
 </section>
 
+
+<div class="marketplace-links-modal" id="marketplaceLinksModal" role="dialog" aria-modal="true" aria-labelledby="marketplaceLinksTitle">
+  <div class="marketplace-links-card">
+    <div class="marketplace-links-header">
+      <div><div class="marketplace-links-title" id="marketplaceLinksTitle">Links Importantes</div><div class="marketplace-links-subtitle" id="marketplaceLinksSubtitle"></div></div>
+      <button class="marketplace-links-close" id="marketplaceLinksClose" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div class="marketplace-links-grid" id="marketplaceLinksGrid"></div>
+  </div>
+</div>
+
 <div class="activity-modal" id="activityModal" role="dialog" aria-modal="true" aria-labelledby="activityModalTitle">
   <div class="activity-modal-card" id="activityModalCard">
     <div class="activity-modal-header"><div class="activity-modal-title" id="activityModalTitle"></div><button class="activity-modal-close" id="activityModalClose" type="button" aria-label="Fechar">×</button></div>
@@ -1413,12 +1444,33 @@ function renderMarketplaceFilter(){
 function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.checked=selectedMarketplaces.has(cb.value));}
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
 
+
+const marketplaceImportantLinks={
+  'LL LOYALTY':[
+    {title:'Abrir Painel de Chamados',url:'https://nx-ticket.smartnx.io/tickets'}
+  ]
+};
+function marketplaceLinksFor(canal){
+  return marketplaceImportantLinks[canal]||[];
+}
+function openMarketplaceLinks(canal){
+  const links=marketplaceLinksFor(canal);
+  document.getElementById('marketplaceLinksTitle').textContent='Links Importantes';
+  document.getElementById('marketplaceLinksSubtitle').textContent=canal;
+  document.getElementById('marketplaceLinksGrid').innerHTML=links.length
+    ? links.map(link=>'<div class="marketplace-link-item available"><div class="marketplace-link-name">'+mpEscape(link.title)+'</div><a class="marketplace-link-anchor" href="'+mpEscape(link.url)+'" target="_blank" rel="noopener noreferrer">Abrir link ↗</a></div>').join('')
+    : '<div class="marketplace-link-item"><div class="marketplace-link-name">Links de apoio</div><div class="marketplace-link-production">Em produção, aqui será armazenado links importantes deste Marketplace.</div></div>';
+  document.getElementById('marketplaceLinksModal').classList.add('open');
+}
+function closeMarketplaceLinks(){document.getElementById('marketplaceLinksModal').classList.remove('open');}
+
 function renderMarketplaceCards(rows=getVisibleMarketplaces()){
   const orderPriority={'MELI GUIMEPA':1,'MELI GUIMEPA SHOP':2,'MELI GUIMEPA STORE':3,'MELI DELTATOP':4};
   const visible=[...rows].sort((a,b)=>{const am=/^MELI /.test(a.canal),bm=/^MELI /.test(b.canal);if(am&&bm)return(orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);return(a.ordem||999)-(b.ordem||999);});
   document.getElementById('marketplacesResultCount').textContent=visible.length+' de '+marketplacesData.length+' lojas exibidas';
   if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja corresponde à combinação de filtros. Remova um filtro para ampliar os resultados.</div>';return;}
-  document.getElementById('marketplaceCards').innerHTML=visible.map(item=>'<article class="marketplace-card"><header class="marketplace-card-header"><div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div><div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store"><span class="marketplace-store-detail"><span class="marketplace-store-label">Loja</span><strong class="marketplace-store-value">'+mpEscape(item.nomeLoja)+'</strong></span><span class="marketplace-store-detail"><span class="marketplace-store-label">Faturamento</span><strong class="marketplace-store-value">'+mpEscape(item.faturamento)+'</strong></span></div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header><div class="marketplace-card-body"><section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('CNPJ',item.cnpj,true)+mpField('Política de cancelamento',item.politicaCancelamento,true)+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>').join('');
+  document.getElementById('marketplaceCards').innerHTML=visible.map(item=>'<article class="marketplace-card"><header class="marketplace-card-header"><div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div><div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store"><span class="marketplace-store-detail"><span class="marketplace-store-label">Loja</span><strong class="marketplace-store-value">'+mpEscape(item.nomeLoja)+'</strong></span><span class="marketplace-store-detail"><span class="marketplace-store-label">Faturamento</span><strong class="marketplace-store-value">'+mpEscape(item.faturamento)+'</strong></span></div></div><div class="marketplace-header-actions"><button class="marketplace-important-links-btn" type="button" data-marketplace-links="'+mpEscape(item.canal)+'">Links Importantes</button><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></div></header><div class="marketplace-card-body"><section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('CNPJ',item.cnpj,true)+mpField('Política de cancelamento',item.politicaCancelamento,true)+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>').join('');
+  document.querySelectorAll('[data-marketplace-links]').forEach(btn=>btn.addEventListener('click',()=>openMarketplaceLinks(btn.dataset.marketplaceLinks)));
 }
 
 const marketplaceChannelFilters=[
@@ -1457,6 +1509,9 @@ function clearMarketplaceFilters(){
 }
 function refreshMarketplaceDashboard(){const rows=getVisibleMarketplaces();renderMarketplaceKPIs(rows);renderMarketplaceSacButtons();renderMarketplaceBillingButtons();renderMarketplaceStockFilter();renderMarketplaceFilter();renderMarketplaceChannelButtons();renderMarketplaceCards(rows);updateMarketplaceFilterText();const clearBtn=document.getElementById('clearMarketplaceFilters');if(clearBtn){const allStoresSelected=selectedMarketplaces.size===marketplacesData.length&&marketplacesData.every(item=>selectedMarketplaces.has(item.canal));clearBtn.disabled=allStoresSelected&&!selectedMarketplaceSac.size&&!selectedMarketplaceBilling.size&&!activeMarketplaceStock;}}
 function initMarketplacesDashboard(){
+  document.getElementById('marketplaceLinksClose').addEventListener('click',closeMarketplaceLinks);
+  document.getElementById('marketplaceLinksModal').addEventListener('click',event=>{if(event.target.id==='marketplaceLinksModal')closeMarketplaceLinks();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMarketplaceLinks();});
   const stockSelect=document.getElementById('marketplaceStockFilter');stockSelect.addEventListener('change',()=>{activeMarketplaceStock=stockSelect.value;refreshMarketplaceDashboard();});
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
   btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');});menu.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',()=>menu.classList.remove('open'));
