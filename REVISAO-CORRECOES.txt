@@ -1,0 +1,26 @@
+REVISAO DO PORTAL E-COMMERCE GUIMEPA
+
+Correcoes aplicadas:
+1. Logos de Marketplaces
+   - Corrigidos nomes de arquivos respeitando maiusculas e minusculas do GitHub Pages.
+   - Adicionado mapa de nomes canonicos para Amazon, Magalu, Leroy, Livelo, LL, Senff, TikTok, Shophub e Webcontinental.
+   - Corrigida a imagem da Loja do Cooperado: o arquivo tinha extensao JPG, mas conteudo PNG. Foi renomeado para loja.png.
+   - Corrigido o atalho visual do Magalu no topo da aba.
+
+2. Aba Acoes
+   - Removido o totalizador "Periodo coberto".
+
+3. Favicon
+   - Corrigido o caminho para favicon.png na raiz.
+   - Adicionados rel icon, shortcut icon e apple-touch-icon.
+   - Adicionado parametro de versao para evitar cache antigo do navegador.
+
+4. Revisao adicional
+   - Corrigidos os caminhos das logos de Trello e ERP: a pasta real e logos-plataformas.
+   - Verificados os arquivos JavaScript com validacao de sintaxe.
+   - Verificados os caminhos locais estaticos usados pelo index.html.
+
+Publicacao:
+- Substitua os arquivos do repositorio pelo conteudo deste pacote.
+- Aguarde a conclusao do workflow do GitHub Pages.
+- Caso o favicon antigo continue aparecendo, atualize com Ctrl+F5 ou limpe o cache do navegador.

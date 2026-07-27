@@ -184,6 +184,11 @@
   .timeline-item { --timeline-color:var(--accent); position:relative; margin-left:12px; padding:8px 10px 9px 14px; border-left:3px solid var(--timeline-color); border-bottom:1px solid var(--border-light); }
   .timeline-item:last-child { border-bottom:0; }
   .timeline-item::before { content:''; position:absolute; left:-7px; top:13px; width:9px; height:9px; border-radius:50%; background:var(--timeline-color); border:2px solid #fff; box-shadow:0 0 0 1px var(--timeline-color); }
+  .timeline-item.latest-action { border-radius:9px; background:linear-gradient(90deg,rgba(219,234,254,.58),rgba(255,255,255,.96)); box-shadow:0 0 0 1px rgba(37,99,235,.16); animation:latestActionPulse 2.6s ease-in-out infinite; }
+  .timeline-item.latest-action::before { animation:latestActionDot 2.6s ease-in-out infinite; }
+  @keyframes latestActionPulse { 0%,100% { box-shadow:0 0 0 1px rgba(37,99,235,.14),0 1px 2px rgba(15,23,42,.03); } 50% { box-shadow:0 0 0 3px rgba(37,99,235,.10),0 3px 10px rgba(37,99,235,.10); } }
+  @keyframes latestActionDot { 0%,100% { transform:scale(1); opacity:.82; } 50% { transform:scale(1.18); opacity:1; } }
+  @media (prefers-reduced-motion: reduce) { .timeline-item.latest-action,.timeline-item.latest-action::before { animation:none; } }
   .timeline-date { font-size:10px; color:var(--muted); font-weight:700; }
   .timeline-action { font-size:12px; font-weight:650; margin-top:2px; line-height:1.35; }
   .timeline-meta { font-size:10px; color:var(--muted); margin-top:3px; }
@@ -303,7 +308,7 @@
     .actions-toolbar .clear-btn { grid-column:auto; }
     .header h1 { font-size:14px; }
   }
-  .marketplace-logo-filter-btn { width:86px; height:54px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; background:transparent !important; border:1.5px solid var(--channel-color, var(--border)) !important; color:var(--channel-color, var(--text)) !important; transition:background .18s ease, box-shadow .18s ease, transform .18s ease; }
+  .marketplace-logo-filter-btn { width:98px; height:60px; padding:6px 10px !important; display:inline-flex; align-items:center; justify-content:center; border-radius:11px; flex:0 0 auto; background:transparent !important; border:1.5px solid var(--channel-color, var(--border)) !important; color:var(--channel-color, var(--text)) !important; transition:background .18s ease, box-shadow .18s ease, transform .18s ease; }
   .marketplace-logo-filter-btn:hover { background:color-mix(in srgb, var(--channel-color, #64748b) 7%, transparent) !important; box-shadow:0 2px 8px color-mix(in srgb, var(--channel-color, #64748b) 18%, transparent); transform:translateY(-1px); }
   .marketplace-logo-filter-btn.active { background:color-mix(in srgb, var(--channel-color, #64748b) 10%, transparent) !important; box-shadow:0 0 0 2px color-mix(in srgb, var(--channel-color, #64748b) 14%, transparent); }
   .marketplace-logo-filter-btn img { width:100%; height:100%; max-width:68px; max-height:40px; object-fit:contain; }
@@ -558,6 +563,136 @@
   @media(max-width:1050px){.campaign-kpi-grid{grid-template-columns:1fr}.campaign-toolbar{grid-template-columns:1fr 1fr}.campaign-channel-filter{grid-column:1/-1}.campaign-clear{align-self:stretch}.campaign-button-column{min-width:0}}
   @media(max-width:640px){.campaigns-main{padding:12px 10px 28px}.campaign-toolbar{grid-template-columns:1fr}.campaign-channel-filter{grid-column:auto}.campaign-item-top{align-items:flex-start;flex-direction:column}.campaign-mainline{align-items:flex-start}.campaign-logo{width:68px;min-width:68px}.campaign-count-label{font-size:9px}}
 
+  /* Actions local and sector doughnuts */
+  .actions-chart-grid{grid-column:2 / 6;grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:14px;min-width:0;}
+  .actions-chart-card{background:#fff;border:1px solid var(--border);border-radius:14px;min-height:146px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+  .actions-chart-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:700;margin-bottom:8px;}
+  .actions-chart-body{display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:12px;min-height:100px;}
+  .actions-donut-wrap{position:relative;width:120px;height:120px;margin:auto;}
+  .actions-donut-svg{width:120px;height:120px;display:block;transform:rotate(-90deg);overflow:visible;}
+  .actions-donut-track{fill:none;stroke:#e2e8f0;stroke-width:17;}
+  .actions-donut-segment{fill:none;stroke-width:17;stroke-linecap:butt;transition:opacity .15s,stroke-width .15s,filter .15s;cursor:pointer;animation:actionsDonutReveal .9s ease-out both;}
+  .actions-donut-segment:hover,.actions-donut-segment.active{opacity:.86;stroke-width:20;filter:drop-shadow(0 1px 2px rgba(15,23,42,.18));}
+  @keyframes actionsDonutReveal{from{stroke-dasharray:0 999;opacity:.35}to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){.actions-donut-segment{animation:none}}
+  .actions-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;}
+  .actions-donut-center-label{font-size:9px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);font-weight:800;}
+  .actions-donut-center-value{font-size:21px;color:var(--text);font-weight:850;line-height:1.1;margin-top:2px;}
+  .actions-chart-legend{display:grid;grid-template-columns:1fr;gap:6px;align-content:center;min-width:0;}
+  .actions-chart-legend-item{display:grid;grid-template-columns:9px minmax(0,1fr) auto;gap:7px;align-items:center;font-size:10px;color:#475569;min-width:0;border:0;background:transparent;text-align:left;padding:2px 3px;border-radius:6px;cursor:pointer;font-family:inherit;}
+  .actions-chart-legend-item:hover,.actions-chart-legend-item.active{background:#eff6ff;color:#1d4ed8;}
+  .actions-chart-legend-rank{font-size:11px;line-height:1;}
+  .actions-chart-hint{font-size:9px;color:var(--muted);font-weight:650;margin-top:6px;}
+  .actions-chart-legend-dot{width:9px;height:9px;border-radius:50%;}
+  .actions-chart-legend-name{font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .actions-chart-legend-value{font-weight:850;color:var(--text);font-variant-numeric:tabular-nums;}
+  @media(max-width:1250px){.actions-chart-grid{grid-column:1/-1;grid-row:auto}.actions-chart-body{grid-template-columns:135px 1fr}}
+  @media(max-width:820px){.actions-chart-grid{grid-template-columns:1fr}.actions-chart-card{padding:13px}.actions-chart-body{grid-template-columns:130px 1fr}}
+  @media(max-width:520px){.actions-chart-body{grid-template-columns:1fr;gap:10px}.actions-donut-wrap,.actions-donut-svg{width:112px;height:112px}.actions-chart-legend{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:390px){.actions-chart-legend{grid-template-columns:1fr}}
+
+
+  /* Activities interactive review */
+  .activities-overview-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0;align-items:stretch;}
+  .activity-chart-card{min-width:0;}
+  .activity-chart-body{display:grid;grid-template-columns:minmax(120px,.8fr) minmax(130px,1.2fr);gap:8px;align-items:center;padding:10px 12px;min-height:210px;}
+  .activity-donut-wrap{position:relative;width:100%;max-width:175px;aspect-ratio:1;margin:auto;}
+  .activity-donut{width:100%;height:100%;display:block;cursor:pointer;}
+  .activity-donut-center{position:absolute;left:50%;top:50%;width:57%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none;background:#fff;box-shadow:0 0 0 1px #e2e8f0;line-height:1;}
+  .activity-donut-center strong{font-size:25px;line-height:1;color:#0f172a;letter-spacing:-.6px;}
+  .activity-donut-center span{margin-top:5px;color:var(--muted);font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.8px;}
+  .activity-chart-legend{display:flex;flex-direction:column;gap:4px;max-height:185px;overflow:auto;padding-right:3px;scrollbar-width:thin;}
+  .activity-chart-legend-btn{width:100%;display:grid;grid-template-columns:9px minmax(0,1fr) auto;align-items:center;gap:6px;border:1px solid transparent;border-radius:8px;background:transparent;padding:4px 5px;text-align:left;cursor:pointer;color:#334155;transition:.15s;}
+  .activity-chart-legend-btn:hover{background:#f8fafc;border-color:#e2e8f0;}
+  .activity-chart-legend-btn.active{background:#eff6ff;border-color:#93c5fd;box-shadow:0 0 0 2px rgba(37,99,235,.08);}
+  .activity-chart-dot{width:9px;height:9px;border-radius:50%;}
+  .activity-chart-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;font-weight:750;}
+  .activity-chart-value{font-size:9px;font-weight:850;color:#64748b;}
+
+  .activities-overview-row .section{margin:0;min-width:0;}
+  .activities-overview-row .section-header{padding:10px 12px;}
+  .activity-subarea-card .activity-ranking{height:210px;overflow-y:auto;scrollbar-width:thin;padding:8px;}
+  .activity-owner-chart-card .activity-chart-name .publication-person{justify-content:flex-start;gap:5px;}
+  .activity-owner-chart-card .activity-chart-name .team-avatar{width:22px;height:22px;}
+  @media(max-width:1250px){.activities-overview-row{grid-template-columns:1fr 1fr;}.activity-subarea-card{grid-column:1/-1;}.activity-subarea-card .activity-ranking{height:190px;}}
+  @media(max-width:760px){.activities-overview-row{grid-template-columns:1fr;gap:10px;margin:10px 0;}.activity-subarea-card{grid-column:auto;}.activity-chart-body{grid-template-columns:125px minmax(0,1fr);min-height:190px;}.activity-subarea-card .activity-ranking{height:200px;}}
+  .activity-search-panel{padding:12px 16px;background:#fff;border-bottom:1px solid var(--border-light);}
+  .activity-search-wrap{position:relative;max-width:680px;}
+  .activity-search-wrap input{width:100%;min-height:42px;border:1px solid var(--border);border-radius:10px;background:#f8fafc;padding:9px 40px 9px 38px;color:var(--text);font:600 12px 'Inter',sans-serif;outline:none;transition:.15s;}
+  .activity-search-wrap input:focus{background:#fff;border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12);}
+  .activity-search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:15px;color:#64748b;pointer-events:none;}
+  .activity-search-clear{display:none;position:absolute;right:9px;top:50%;transform:translateY(-50%);width:26px;height:26px;border:0;border-radius:50%;background:#e2e8f0;color:#475569;cursor:pointer;font-weight:800;}
+  .activity-search-clear.visible{display:block;}
+  .activity-filter-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px;background:#fff;border-bottom:1px solid var(--border-light);}
+  .activity-filter-chips:empty{display:none;}
+  .activity-filter-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;padding:5px 8px 5px 10px;font-size:10px;font-weight:800;}
+  .activity-filter-chip button{border:0;background:transparent;color:inherit;cursor:pointer;font-size:13px;line-height:1;font-weight:900;padding:0 1px;}
+  .rank-row.activity-rank-filter{border:1px solid transparent;border-radius:9px;padding:5px 6px;background:transparent;cursor:pointer;transition:.15s;text-align:left;width:100%;font-family:inherit;}
+  .rank-row.activity-rank-filter:hover{background:#f8fafc;border-color:#e2e8f0;transform:translateX(2px);}
+  .rank-row.activity-rank-filter.active{background:#eff6ff;border-color:#93c5fd;box-shadow:0 0 0 2px rgba(37,99,235,.08);}
+  .activity-kpi-smart{font-size:10px;color:#64748b;font-weight:750;margin-left:5px;}
+  .activity-table tbody tr.activity-clickable{cursor:pointer;}
+  .activity-table tbody tr.activity-clickable:hover td{background:#eff6ff;}
+  .activity-table tbody tr.activity-clickable td:first-child{border-left:3px solid transparent;}
+  .activity-table tbody tr.activity-clickable:hover td:first-child{border-left-color:var(--accent);}
+  .activity-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,23,42,.55);backdrop-filter:blur(4px);}
+  .activity-modal.open{display:flex;}
+  .activity-modal-card{width:min(680px,96vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid #cbd5e1;border-radius:16px;box-shadow:0 24px 70px rgba(15,23,42,.3);}
+  .activity-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border-light);background:linear-gradient(135deg,#eff6ff,#dbeafe);}
+  .activity-modal-title{font-size:17px;font-weight:850;line-height:1.4;color:#0f172a;}
+  .activity-modal-close{flex:0 0 auto;width:34px;height:34px;border:1px solid #bfdbfe;border-radius:9px;background:#fff;color:#1d4ed8;cursor:pointer;font-size:18px;font-weight:800;}
+  .activity-modal-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px 20px 22px;}
+  .activity-modal-field{padding:11px 12px;border:1px solid var(--border-light);border-radius:10px;background:#f8fafc;}
+  .activity-modal-field.full{grid-column:1/-1;}
+  .activity-modal-label{font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.55px;color:#64748b;margin-bottom:5px;}
+  .activity-modal-value{font-size:12px;font-weight:700;color:#1e293b;line-height:1.45;overflow-wrap:anywhere;}
+  .activity-modal-card.sector-com .activity-modal-header{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-top:5px solid #2563eb;}
+  .activity-modal-card.sector-sac .activity-modal-header{background:linear-gradient(135deg,#fef2f2,#fee2e2);border-top:5px solid #dc2626;}
+  .activity-modal-card.sector-log .activity-modal-header{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-top:5px solid #16a34a;}
+  .activity-modal-card.sector-undefined .activity-modal-header{border-top:5px solid #64748b;}
+  .activity-modal-person .team-avatar{width:42px;height:42px;border-width:2px;}
+  .activity-modal-person .publication-person{gap:10px;font-size:13px;}
+  .activity-modal-description{background:#fff;border-left:4px solid #94a3b8;}
+  .activity-modal-open-link{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:5px 9px;border:1px solid #bfdbfe;border-radius:7px;background:#eff6ff;color:#1d4ed8;font-size:11px;font-weight:850;cursor:default;}
+  .activity-modal-platform{display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+  @media(max-width:1050px){.activities-distribution-row{grid-template-columns:1fr;}.activity-chart-body{grid-template-columns:minmax(180px,.7fr) minmax(220px,1.3fr);}}
+  @media(max-width:720px){
+    .activity-chart-body{grid-template-columns:1fr;}.activity-chart-legend{max-height:170px;}.activity-donut-wrap{max-width:205px;}
+    .activity-search-panel{padding:10px;}.activity-filter-chips{padding:0 10px 10px;}
+    .activity-modal-body{grid-template-columns:1fr;}.activity-modal-field.full{grid-column:auto;}.activity-modal{padding:10px;}
+  }
+
+
+  /* Ajustes finais: Publicacoes, Campanhas e Marketplaces */
+  #summaryResponsavel .publication-summary-row{cursor:pointer;transition:.15s;}
+  #summaryResponsavel .publication-summary-row:hover td{background:#eff6ff;}
+  #summaryResponsavel .publication-summary-row.active td{background:#dbeafe;color:#1d4ed8;box-shadow:inset 0 1px 0 #93c5fd,inset 0 -1px 0 #93c5fd;}
+  .campaign-summary-card{transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;}
+  .campaign-summary-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(15,23,42,.10);border-color:#cbd5e1;}
+  .campaign-count-item{transition:transform .15s ease,background .15s ease,border-color .15s ease,box-shadow .15s ease;}
+  .campaign-count-item:hover{transform:translateX(3px);background:#fff;border-color:#cbd5e1;box-shadow:0 3px 10px rgba(15,23,42,.06);}
+  .marketplaces-toolbar{display:block;padding:0;background:#f8fafc;}
+  .marketplace-toolbar-channels{padding:14px 16px 12px;border-bottom:1px solid var(--border-light);}
+  .marketplace-toolbar-filters{display:grid;grid-template-columns:minmax(280px,1.5fr) minmax(190px,.8fr) minmax(170px,.7fr) minmax(230px,1fr) auto;gap:14px;align-items:end;padding:12px 16px 14px;}
+  .marketplace-stock-filter{display:flex;flex-direction:column;gap:5px;}
+  .marketplace-clear-filters{min-height:40px;align-self:end;white-space:nowrap;border-color:#cbd5e1;background:#fff;color:#334155;}
+  .marketplace-clear-filters:hover{border-color:#dc2626;background:#fef2f2;color:#b91c1c;transform:translateY(-1px);box-shadow:0 5px 12px rgba(220,38,38,.12);}
+  .marketplace-clear-filters:active{transform:translateY(0);}
+  .marketplace-clear-filters:disabled{opacity:.45;cursor:default;transform:none;box-shadow:none;}
+  .marketplace-stock-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;}
+  .marketplace-stock-select{min-height:40px;border:1px solid var(--border);border-radius:9px;background:#fff;padding:8px 34px 8px 11px;color:#334155;font:750 11px 'Inter',sans-serif;outline:none;}
+  .marketplace-stock-select:focus{border-color:#f59e0b;box-shadow:0 0 0 3px rgba(245,158,11,.12);}
+  .stock-kpi-list{display:grid;gap:5px;margin-top:5px;}
+  .stock-kpi-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 7px;border-radius:7px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:10px;font-weight:750;}
+  .stock-kpi-item strong{font-size:11px;color:#7c2d12;}
+  @media(max-width:1200px){.marketplace-toolbar-filters{grid-template-columns:repeat(2,minmax(0,1fr));}.marketplaces-count{margin-left:0;align-self:end;}}
+  @media(max-width:720px){.marketplace-toolbar-channels{padding:11px}.marketplace-toolbar-filters{grid-template-columns:1fr;padding:11px}.marketplace-filter{width:100%}.marketplaces-count{width:100%}}
+
+
+  .mp-filter-count{margin-left:auto;min-width:22px;padding:2px 6px;border-radius:999px;background:#e2e8f0;color:#475569;font-size:9px;font-weight:850;text-align:center;}
+  .marketplace-sac-btn.active .mp-filter-count,.marketplace-billing-btn.active .mp-filter-count{background:rgba(255,255,255,.85);}
+  .marketplace-logo-filter-btn{position:relative;}
+  .mp-channel-count{position:absolute;right:-5px;top:-6px;min-width:18px;height:18px;padding:0 4px;border-radius:999px;background:var(--channel-color,#64748b);color:#fff;border:2px solid #fff;font-size:8px;font-weight:900;line-height:14px;text-align:center;}
 </style>
 </head>
 <body>
@@ -671,20 +806,24 @@
     <div class="section">
       <div class="section-header">
         <span class="section-title">Informações consolidadas por marketplace</span>
-        <span style="font-size:11px;color:var(--muted);font-weight:600;">Ordem original da planilha</span>
+        
       </div>
       <div class="marketplaces-toolbar">
-        <div class="marketplace-channel-buttons" id="marketplaceChannelButtons"></div>
-        <div class="marketplace-sac-filter"><span class="marketplace-sac-label">Responsáveis SAC</span><div class="marketplace-sac-buttons" id="marketplaceSacButtons"></div></div>
-        <div class="marketplace-billing-filter"><span class="marketplace-billing-label">Faturamento</span><div class="marketplace-billing-buttons" id="marketplaceBillingButtons"></div></div>
-        <span class="marketplaces-count" id="marketplacesResultCount"></span>
-        <div class="marketplace-filter" id="marketplaceFilter">
-          <span class="marketplace-filter-label">Filtrar lojas</span>
-          <button class="marketplace-filter-button" id="marketplaceFilterButton" type="button"><span id="marketplaceFilterText">Todas as lojas</span><span>▼</span></button>
-          <div class="marketplace-filter-menu" id="marketplaceFilterMenu">
-            <div class="marketplace-filter-actions"><button type="button" id="marketplaceSelectAll">Selecionar todas</button><button type="button" id="marketplaceClearAll">Limpar</button></div>
-            <div id="marketplaceFilterOptions"></div>
+        <div class="marketplace-toolbar-channels"><div class="marketplace-channel-buttons" id="marketplaceChannelButtons"></div></div>
+        <div class="marketplace-toolbar-filters">
+          <div class="marketplace-sac-filter"><span class="marketplace-sac-label">Responsáveis SAC</span><div class="marketplace-sac-buttons" id="marketplaceSacButtons"></div></div>
+          <div class="marketplace-billing-filter"><span class="marketplace-billing-label">Faturamento</span><div class="marketplace-billing-buttons" id="marketplaceBillingButtons"></div></div>
+          <div class="marketplace-stock-filter"><label class="marketplace-stock-label" for="marketplaceStockFilter">Locais de Estoque</label><select class="marketplace-stock-select" id="marketplaceStockFilter"></select></div>
+          <div class="marketplace-filter" id="marketplaceFilter">
+            <span class="marketplace-filter-label">Filtrar lojas</span>
+            <button class="marketplace-filter-button" id="marketplaceFilterButton" type="button"><span id="marketplaceFilterText">Todas as lojas</span><span>▼</span></button>
+            <div class="marketplace-filter-menu" id="marketplaceFilterMenu">
+              <div class="marketplace-filter-actions"><button type="button" id="marketplaceSelectAll">Selecionar todas</button><button type="button" id="marketplaceClearAll">Limpar</button></div>
+              <div id="marketplaceFilterOptions"></div>
+            </div>
           </div>
+          <button class="clear-btn marketplace-clear-filters" id="clearMarketplaceFilters" type="button">Limpar filtros</button>
+          <span class="marketplaces-count" id="marketplacesResultCount"></span>
         </div>
       </div>
       <div class="marketplace-list" id="marketplaceCards"></div>
@@ -696,14 +835,16 @@
   <div class="activities-main">
     <div class="kpi-row activity-summary-kpi" id="activitiesKpiRow"></div>
 
-    <div class="activities-rankings-row">
-      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Área</span></div><div class="activity-ranking" id="activitiesByArea"></div></div>
-      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Sub-área</span></div><div class="activity-ranking" id="activitiesBySubarea"></div></div>
-      <div class="section activities-ranking-card"><div class="section-header"><span class="section-title">Atividades por Responsável</span></div><div class="activity-ranking" id="activitiesByOwner"></div></div>
+    <div class="activities-overview-row">
+      <div class="section activity-chart-card"><div class="section-header"><span class="section-title">Distribuição por Área</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="activityAreaChart"></canvas><div class="activity-donut-center"><strong id="activityAreaChartTotal">0</strong><span>Atividades</span></div></div><div class="activity-chart-legend" id="activityAreaLegend"></div></div></div>
+      <div class="section activities-ranking-card activity-subarea-card"><div class="section-header"><span class="section-title">Atividades por Sub-área</span></div><div class="activity-ranking" id="activitiesBySubarea"></div></div>
+      <div class="section activity-chart-card activity-owner-chart-card"><div class="section-header"><span class="section-title">Distribuição por Responsável</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="activityOwnerChart"></canvas><div class="activity-donut-center"><strong id="activityOwnerChartTotal">0</strong><span>Atividades</span></div></div><div class="activity-chart-legend" id="activityOwnerLegend"></div></div></div>
     </div>
 
     <div class="section">
       <div class="section-header"><span class="section-title">Painel de atividades da equipe</span><span id="activitiesResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span></div>
+      <div class="activity-search-panel"><div class="activity-search-wrap"><span class="activity-search-icon">⌕</span><input id="activitySearch" type="search" autocomplete="off" placeholder="Pesquisar por atividade, área, sub-área, setor, responsável ou plataforma..."><button class="activity-search-clear" id="activitySearchClear" type="button" aria-label="Limpar pesquisa">×</button></div></div>
+      <div class="activity-filter-chips" id="activityFilterChips"></div>
       <div class="activities-filters">
         <div class="filter-field activity-filter-execution"><label>Execução</label><select id="activityFilterExecution"></select></div>
         <div class="filter-field activity-filter-sector"><label>Setor</label><select id="activityFilterSector"></select></div>
@@ -748,6 +889,13 @@
     </div>
   </div>
 </section>
+
+<div class="activity-modal" id="activityModal" role="dialog" aria-modal="true" aria-labelledby="activityModalTitle">
+  <div class="activity-modal-card" id="activityModalCard">
+    <div class="activity-modal-header"><div class="activity-modal-title" id="activityModalTitle"></div><button class="activity-modal-close" id="activityModalClose" type="button" aria-label="Fechar">×</button></div>
+    <div class="activity-modal-body" id="activityModalBody"></div>
+  </div>
+</div>
 
 <script src="acoes-data.js"></script>
 <script src="marketplaces-data.js"></script>
@@ -808,7 +956,7 @@ respSorted.forEach(name => {
   const g = respGroups[name];
   const bgP = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
   const respVisual = teamPersonHTML(name, true);
-  htmlResp += '<tr><td>' + respVisual + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
+  htmlResp += '<tr class="publication-summary-row" data-summary-resp="' + name.replace(/"/g,'&quot;') + '" onclick="togglePublicationResponsibleFilter(this.dataset.summaryResp)"><td>' + respVisual + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
 });
 const totResp = Object.values(respGroups).reduce((s,g) => ({ producao:s.producao+g.producao, prontos:s.prontos+g.prontos, produzir:s.produzir+g.produzir, restantes:s.restantes+g.restantes }), {producao:0,prontos:0,produzir:0,restantes:0});
 const bgPTot = totResp.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
@@ -887,7 +1035,7 @@ publicationRows.forEach((d) => {
     ? '<img src="logos-marcas/' + logoArquivo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
     : '<span class="forn-name">' + d.fornecedor + '</span>';
 
-  html += '<tr' + rowCls + ' data-prod="' + d.prod + '">';
+  html += '<tr' + rowCls + ' data-prod="' + d.prod + '" data-resp="' + String(d.resp||'').replace(/"/g,'&quot;') + '">';
   html += '<td><div class="logo-cell">' + logoHTML + '</div></td>';
   html += '<td><span class="badge badge-' + statusCls + '">' + d.status + '</span></td>';
   html += '<td>' + d.lote + '</td>';
@@ -939,66 +1087,49 @@ document.getElementById('combinedContainer').innerHTML = html;
 
 // ============ FILTERS ============
 let activeBtnFilter = null;
+let activePublicationResp = null;
+let activePublicationStatuses = ['sim','próximo','espera'];
 
+function updatePublicationSummarySelection(){
+  document.querySelectorAll('#summaryResponsavel .publication-summary-row').forEach(row=>row.classList.toggle('active',activePublicationResp===row.dataset.summaryResp));
+}
+function togglePublicationResponsibleFilter(name){
+  activePublicationResp=activePublicationResp===name?null:name;
+  applyPublicationFilters();
+}
+function applyPublicationFilters(){
+  const statuses=activePublicationStatuses;
+  document.querySelectorAll('#combinedContainer tbody tr:not(.totals-row)').forEach(row=>{
+    const statusOk=!statuses||statuses.includes(row.getAttribute('data-prod'));
+    const respOk=!activePublicationResp||row.getAttribute('data-resp')===activePublicationResp;
+    row.classList.toggle('row-hidden',!(statusOk&&respOk));
+  });
+  updatePublicationSummarySelection();
+}
 function toggleFilter(btn) {
   const filter = btn.getAttribute('data-filter');
   if (activeBtnFilter === filter) {
-    activeBtnFilter = null;
-    btn.classList.remove('active');
-    showAllRows();
+    activeBtnFilter = null; activePublicationStatuses=null; btn.classList.remove('active');
   } else {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    activeBtnFilter = filter;
-    btn.classList.add('active');
-    filterRows([filter]);
+    activeBtnFilter = filter; activePublicationStatuses=[filter]; btn.classList.add('active');
   }
-  resetMultiSelectCheckboxes(activeBtnFilter ? [activeBtnFilter] : ['sim','próximo','espera']);
+  resetMultiSelectCheckboxes(activePublicationStatuses || ['sim','próximo','espera','indefinido']);
+  applyPublicationFilters();
 }
-
-function filterRows(statusList) {
-  const rows = document.querySelectorAll('#combinedContainer tbody tr:not(.totals-row)');
-  rows.forEach(row => {
-    const prod = row.getAttribute('data-prod');
-    if (statusList.includes(prod)) {
-      row.classList.remove('row-hidden');
-    } else {
-      row.classList.add('row-hidden');
-    }
-  });
-}
-
-function showAllRows() {
-  document.querySelectorAll('#combinedContainer tbody tr').forEach(row => {
-    row.classList.remove('row-hidden');
-  });
-  resetMultiSelectCheckboxes(['sim','próximo','espera','indefinido']);
-}
-
-function toggleMultiSelect() {
-  const dd = document.getElementById('msDropdown');
-  dd.classList.toggle('open');
-}
-
+function filterRows(statusList) {activePublicationStatuses=statusList&&statusList.length<4?statusList:null;applyPublicationFilters();}
+function showAllRows() {activePublicationStatuses=null;applyPublicationFilters();resetMultiSelectCheckboxes(['sim','próximo','espera','indefinido']);}
+function toggleMultiSelect() {document.getElementById('msDropdown').classList.toggle('open');}
 function updateMultiSelect() {
-  const checkboxes = document.querySelectorAll('#msDropdown input[type="checkbox"]');
-  const selected = [];
-  checkboxes.forEach(cb => { if (cb.checked) selected.push(cb.value); });
-  document.getElementById('msCount').textContent = selected.length;
-
-  activeBtnFilter = null;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-
-  if (selected.length === 4 || selected.length === 0) {
-    showAllRows();
-  } else {
-    filterRows(selected);
-  }
+  const selected=[...document.querySelectorAll('#msDropdown input[type="checkbox"]')].filter(cb=>cb.checked).map(cb=>cb.value);
+  document.getElementById('msCount').textContent=selected.length;
+  activeBtnFilter=null;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  activePublicationStatuses=(selected.length===0||selected.length===4)?null:selected;
+  applyPublicationFilters();
 }
-
 function resetMultiSelectCheckboxes(values) {
-  const checkboxes = document.querySelectorAll('#msDropdown input[type="checkbox"]');
-  checkboxes.forEach(cb => { cb.checked = values.includes(cb.value); });
-  document.getElementById('msCount').textContent = values.length;
+  document.querySelectorAll('#msDropdown input[type="checkbox"]').forEach(cb=>{cb.checked=values.includes(cb.value);});
+  document.getElementById('msCount').textContent=values.length;
 }
 
 document.addEventListener('click', function(e) {
@@ -1088,7 +1219,45 @@ function renderActionKPIs(dataSet) {
     {label:'Setores',value:sectors.length,sub:'áreas de atuação',cls:'red'},
     {label:'Responsáveis',value:uniq(dataSet.map(a=>a.responsavel).filter(v=>v&&v!=='Não informado')).length,sub:'pessoas ou equipes',cls:'blue'}
   ];
-  document.getElementById('acoesKpiRow').innerHTML = items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value.toLocaleString('pt-BR')+'</div><div class="kpi-sub">'+k.sub+'</div></div>').join('');
+  document.getElementById('acoesKpiRow').innerHTML = items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value.toLocaleString('pt-BR')+'</div><div class="kpi-sub">'+k.sub+'</div></div>').join('')+'<div class="actions-chart-grid"><div class="actions-chart-card" id="actionsLocalChart"></div><div class="actions-chart-card" id="actionsSectorChart"></div></div>';
+  renderActionsDistributionCharts();
+}
+
+let activeActionsChartFilter=null;
+const ACTION_CATEGORY_COLORS={
+  HARDNESS:'#2563eb',ANYMARKET:'#16a34a',MARKETPLACES:'#f59e0b',INTELIPOST:'#7c3aed',FORNECEDORES:'#e11d48',EQUIPE:'#0891b2',PLATAFORMAS:'#ea580c',
+  Campanhas:'#7c3aed',Marketplaces:'#2563eb',Melhorias:'#0891b2','Operações':'#16a34a','Preços':'#f59e0b',Transportadoras:'#0f766e',Vendas:'#e11d48','Não informado':'#94a3b8',Outros:'#64748b'
+};
+function actionCategoryColor(name,index){return ACTION_CATEGORY_COLORS[name]||['#2563eb','#16a34a','#f59e0b','#7c3aed','#0891b2','#e11d48','#0f766e','#9333ea','#ca8a04','#64748b','#ec4899','#14b8a6'][index%12];}
+function applyActionsChartFilter(field,name,values){
+  const same=activeActionsChartFilter&&activeActionsChartFilter.field===field&&activeActionsChartFilter.name===name;
+  activeActionsChartFilter=same?null:{field,name,values};
+  if(!same&&name!=='Outros'){
+    const id=field==='local'?'filterLocal':'filterSetor';
+    document.getElementById(id).value=name;
+  }else if(same||name==='Outros'){
+    const id=field==='local'?'filterLocal':'filterSetor';
+    document.getElementById(id).value='';
+  }
+  renderActionsDistributionCharts();renderTimeline();renderActionHistory();
+}
+function buildActionsDonut(hostId,field,title,ariaLabel){
+  const host=document.getElementById(hostId);if(!host)return;
+  const counts={};acoesData.forEach(item=>{const name=String(item[field]||'Não informado').trim()||'Não informado';counts[name]=(counts[name]||0)+1;});
+  let outros=0;const outrosValues=[];const entries=[];
+  Object.entries(counts).forEach(([name,value])=>{if(value<10){outros+=value;outrosValues.push(name)}else entries.push({name,value,values:[name]});});
+  entries.sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,'pt-BR'));
+  if(outros>0)entries.push({name:'Outros',value:outros,values:outrosValues});
+  const total=entries.reduce((sum,item)=>sum+item.value,0),radius=45,circumference=2*Math.PI*radius;let offset=0;
+  const segments=entries.map((item,index)=>{const length=total?item.value/total*circumference:0;const percent=total?item.value/total*100:0;const active=activeActionsChartFilter&&activeActionsChartFilter.field===field&&activeActionsChartFilter.name===item.name;const values=encodeURIComponent(JSON.stringify(item.values));const svg='<circle class="actions-donut-segment'+(active?' active':'')+'" data-chart-field="'+field+'" data-chart-name="'+escapeHtml(item.name)+'" data-chart-values="'+values+'" cx="60" cy="60" r="'+radius+'" stroke="'+actionCategoryColor(item.name,index)+'" stroke-dasharray="'+length+' '+(circumference-length)+'" stroke-dashoffset="-'+offset+'"><title>'+escapeHtml(item.name)+': '+item.value.toLocaleString('pt-BR')+' ações ('+percent.toLocaleString('pt-BR',{maximumFractionDigits:1})+'%)</title></circle>';offset+=length;return svg;}).join('');
+  const medals=['🥇','🥈','🥉'];
+  const legend=entries.map((item,index)=>{const active=activeActionsChartFilter&&activeActionsChartFilter.field===field&&activeActionsChartFilter.name===item.name;const values=encodeURIComponent(JSON.stringify(item.values));return '<button type="button" class="actions-chart-legend-item'+(active?' active':'')+'" data-chart-field="'+field+'" data-chart-name="'+escapeHtml(item.name)+'" data-chart-values="'+values+'" title="Filtrar por '+escapeHtml(item.name)+'"><span class="actions-chart-legend-dot" style="background:'+actionCategoryColor(item.name,index)+'"></span><span class="actions-chart-legend-name">'+(index<3?'<span class="actions-chart-legend-rank">'+medals[index]+'</span> ':'')+escapeHtml(item.name)+'</span><span class="actions-chart-legend-value">'+item.value.toLocaleString('pt-BR')+'</span></button>';}).join('');
+  host.innerHTML='<div class="actions-chart-title">'+title+'</div><div class="actions-chart-body"><div class="actions-donut-wrap"><svg class="actions-donut-svg" viewBox="0 0 120 120" role="img" aria-label="'+ariaLabel+'"><circle class="actions-donut-track" cx="60" cy="60" r="'+radius+'"></circle>'+segments+'</svg><div class="actions-donut-center"><span class="actions-donut-center-label">Ações</span><strong class="actions-donut-center-value">'+acoesData.length.toLocaleString('pt-BR')+'</strong></div></div><div><div class="actions-chart-legend">'+legend+'</div><div class="actions-chart-hint">Clique em uma fatia ou categoria para filtrar a linha do tempo.</div></div></div>';
+  host.querySelectorAll('[data-chart-field]').forEach(el=>el.addEventListener('click',()=>applyActionsChartFilter(el.dataset.chartField,el.dataset.chartName,JSON.parse(decodeURIComponent(el.dataset.chartValues)))));
+}
+function renderActionsDistributionCharts(){
+  buildActionsDonut('actionsLocalChart','local','Distribuição das ações por local','Distribuição das ações por local');
+  buildActionsDonut('actionsSectorChart','setor','Distribuição das ações por setor','Distribuição das ações por setor');
 }
 
 function renderLocalLegend(){
@@ -1097,14 +1266,20 @@ function renderLocalLegend(){
 }
 
 function renderTimeline() {
+  const filteredBase=getFilteredActions();
+  const timelineActions=filteredBase.map(action=>({...action,_timelineIndex:acoesData.indexOf(action)})).sort((a,b)=>
+    b.inicio.localeCompare(a.inicio)||b.final.localeCompare(a.final)||b._timelineIndex-a._timelineIndex
+  );
+  const latestTimelineActions=new Set(timelineActions.slice(0,2).map(a=>a._timelineIndex));
+  const refDate=timelineActions.length?parseLocalDate(timelineActions[0].inicio):latestDateObj;
   const monthKeys=[];
-  for(let i=0;i<=2;i++){ const d=new Date(latestDateObj.getFullYear(),latestDateObj.getMonth()-i,1); monthKeys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')); }
+  for(let i=0;i<=2;i++){ const d=new Date(refDate.getFullYear(),refDate.getMonth()-i,1); monthKeys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')); }
   document.getElementById('timelineReference').textContent='Base atualizada até '+actionFmtDate(latestActionDate);
   document.getElementById('actionsTimeline').innerHTML=monthKeys.map(key=>{
     const [y,m]=key.split('-').map(Number);
-    const list=acoesData.filter(a=>a.inicio.startsWith(key));
+    const list=timelineActions.filter(a=>a.inicio.startsWith(key));
     return '<div class="timeline-month"><div class="timeline-month-header"><span>'+actionMonths[m-1]+' '+y+'</span><span>'+list.length+' ações</span></div><div class="timeline-items">'+
-      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.inicio)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
+      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item'+(latestTimelineActions.has(a._timelineIndex)?' latest-action':'')+'" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.inicio)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
       '</div></div>';
   }).join('');
 }
@@ -1115,7 +1290,7 @@ function getFilteredActions(){
   const local=document.getElementById('filterLocal').value;
   const setor=document.getElementById('filterSetor').value;
   const responsavel=document.getElementById('filterResponsavel').value;
-  return acoesData.filter(a=>(!year||a.inicio.slice(0,4)===year)&&(!month||String(parseLocalDate(a.inicio).getMonth()+1)===month)&&(!local||a.local===local)&&(!setor||a.setor===setor)&&(!responsavel||(a.responsavel||'Não informado')===responsavel));
+  return acoesData.filter(a=>(!year||a.inicio.slice(0,4)===year)&&(!month||String(parseLocalDate(a.inicio).getMonth()+1)===month)&&(!local||a.local===local)&&(!setor||a.setor===setor)&&(!responsavel||(a.responsavel||'Não informado')===responsavel)&&(!activeActionsChartFilter||activeActionsChartFilter.values.includes(String(a[activeActionsChartFilter.field]||'Não informado').trim()||'Não informado')));
 }
 
 function renderActionHistory(){
@@ -1137,8 +1312,8 @@ function initActionsDashboard(){
   addOptions(document.getElementById('filterLocal'),uniq(acoesData.map(a=>a.local)),'Todos os locais');
   addOptions(document.getElementById('filterSetor'),uniq(acoesData.map(a=>a.setor)),'Todos os setores');
   addOptions(document.getElementById('filterResponsavel'),uniq(acoesData.map(a=>a.responsavel||'Não informado')),'Todos os responsáveis');
-  ['filterYear','filterMonth','filterLocal','filterSetor','filterResponsavel'].forEach(id=>document.getElementById(id).addEventListener('change',renderActionHistory));
-  document.getElementById('clearActionFilters').addEventListener('click',()=>{['filterYear','filterMonth','filterLocal','filterSetor','filterResponsavel'].forEach(id=>document.getElementById(id).value='');renderActionHistory();});
+  ['filterYear','filterMonth','filterLocal','filterSetor','filterResponsavel'].forEach(id=>document.getElementById(id).addEventListener('change',()=>{if((id==='filterLocal'&&activeActionsChartFilter?.field==='local')||(id==='filterSetor'&&activeActionsChartFilter?.field==='setor'))activeActionsChartFilter=null;renderActionsDistributionCharts();renderTimeline();renderActionHistory();}));
+  document.getElementById('clearActionFilters').addEventListener('click',()=>{['filterYear','filterMonth','filterLocal','filterSetor','filterResponsavel'].forEach(id=>document.getElementById(id).value='');activeActionsChartFilter=null;renderActionsDistributionCharts();renderTimeline();renderActionHistory();});
   renderActionKPIs(acoesData); renderLocalLegend(); renderTimeline(); renderActionHistory();
 }
 initActionsDashboard();
@@ -1147,152 +1322,147 @@ initActionsDashboard();
 
 <script>
 // ============ MARKETPLACES ============
-const mpEscape = value => String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
-const mpMissing = value => value === null || value === undefined || String(value).trim()==='' || value === 'Não informado';
-const mpInitials = name => String(name).split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
-let selectedMarketplaces = new Set(marketplacesData.map(item=>item.canal));
+const mpEscape=value=>String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+const mpMissing=value=>value===null||value===undefined||String(value).trim()===''||value==='Não informado';
+const mpInitials=name=>String(name).split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+const mpNorm=value=>String(value||'Não informado').trim()||'Não informado';
+const mpUnique=values=>[...new Set(values.map(mpNorm))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+
+let selectedMarketplaces=new Set(marketplacesData.map(item=>item.canal));
+let selectedMarketplaceSac=new Set();       // vazio = todos
+let selectedMarketplaceBilling=new Set();   // vazio = todos
+let activeMarketplaceStock='';              // vazio = todos
+let activeMarketplaceChannel='all';
+
 function marketplaceLogoFile(item){
-  const canal=String(item?.canal || '').trim();
-  const explicit={
-    'AMAZON GUIMEPA':'amazon.png',
-    'LEROY MERLIN':'Leroy.png',
-    'LL LOYALTY':'LL.png',
-    'LIVELO':'LIVELO.png',
-    'LOJA DO COOPERADO - SICOOB':'loja.png',
-    'TIKTOK SHOP':'TIKTOK.png',
-    'SHOPHUB':'Shophub.png',
-    'MAGALU-GUIMEPA':'Magalu.png',
-    'MAGALU-GUIMEPA SHOP':'Magalu.png',
-    'SENFF':'SENFF.png'
-  };
-  if(explicit[canal]) return explicit[canal];
-  const raw=item?.image || item?.imagem || item?.logo || '';
-  return String(raw).split(/[\\/]/).pop().trim();
+  const canal=String(item?.canal||'').trim();
+  const explicit={'AMAZON GUIMEPA':'amazon.png','LEROY MERLIN':'Leroy.png','LL LOYALTY':'LL.png','LIVELO':'LIVELO.png','LOJA DO COOPERADO - SICOOB':'loja.png','TIKTOK SHOP':'TIKTOK.png','SHOPHUB':'Shophub.png','MAGALU-GUIMEPA':'Magalu.png','MAGALU-GUIMEPA SHOP':'Magalu.png','SENFF':'SENFF.png'};
+  if(explicit[canal])return explicit[canal];
+  return String(item?.image||item?.imagem||item?.logo||'').split(/[\\/]/).pop().trim();
 }
 function tryMarketplaceLogoPath(img){
-  const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim();
-  const attempt=Number(img.dataset.logoAttempt||0);
-  const stem=file.replace(/\.[^.]+$/,'');
-  const ext=(file.match(/\.[^.]+$/)||[''])[0];
-  const knownFiles={
-    'amazon.ppg':'amazon.png','magalu.png':'Magalu.png','shophub.png':'Shophub.png',
-    'tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png',
-    'livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png',
-    'senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.jpg':'TEMU.jpg',
-    'guimepa.png':'guimepa.png'
-  };
-  const canonical=knownFiles[file.toLowerCase()] || file;
-  const candidates=[
-    'logos-marketplaces/'+canonical,
-    'logos-marketplaces/'+file,
-    'logos-marketplaces/'+stem+'.png',
-    'logos-marketplaces/'+stem+'.jpg',
-    'logos-marketplaces/'+stem+'.jpeg'
-  ].filter((value,index,array)=>value&&array.indexOf(value)===index&&value!==img.getAttribute('src'));
+  const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim(),attempt=Number(img.dataset.logoAttempt||0),stem=file.replace(/\.[^.]+$/,'');
+  const knownFiles={'amazon.ppg':'amazon.png','magalu.png':'Magalu.png','shophub.png':'Shophub.png','tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png','livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png','senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.jpg':'TEMU.jpg','guimepa.png':'guimepa.png'};
+  const canonical=knownFiles[file.toLowerCase()]||file;
+  const candidates=['logos-marketplaces/'+canonical,'logos-marketplaces/'+file,'logos-marketplaces/'+stem+'.png','logos-marketplaces/'+stem+'.jpg','logos-marketplaces/'+stem+'.jpeg'].filter((v,i,a)=>v&&a.indexOf(v)===i&&v!==img.getAttribute('src'));
   if(attempt<candidates.length){img.dataset.logoAttempt=String(attempt+1);img.src=candidates[attempt];return;}
-  img.onerror=null;img.style.display='none';const fallback=img.nextElementSibling;if(fallback&&fallback.classList.contains('marketplace-logo-fallback')) fallback.style.display='flex';
+  img.onerror=null;img.style.display='none';const fallback=img.nextElementSibling;if(fallback?.classList.contains('marketplace-logo-fallback'))fallback.style.display='flex';
 }
 function marketplaceLogoPath(item){return 'logos-marketplaces/'+marketplaceLogoFile(item);}
 function mpField(label,value,highlight=false){const missing=mpMissing(value);return '<div class="marketplace-field"><div class="marketplace-field-label">'+mpEscape(label)+'</div><div class="marketplace-field-value'+(missing?' missing':'')+'">'+(highlight&&!missing?'<span class="marketplace-highlight">'+mpEscape(value)+'</span>':mpEscape(value||'Não informado'))+'</div></div>';}
-function countBy(values){return values.reduce((acc,v)=>{if(!mpMissing(v))acc[v]=(acc[v]||0)+1;return acc;},{});}
-function renderMarketplaceKPIs(){
-  const sacCounts=countBy(marketplacesData.map(x=>x.sac));
+function countBy(values){return values.reduce((acc,v)=>{v=mpNorm(v);acc[v]=(acc[v]||0)+1;return acc;},{});}
+function mpMatches(item,exclude=''){
+  if(exclude!=='store'&&!selectedMarketplaces.has(item.canal))return false;
+  if(exclude!=='sac'&&selectedMarketplaceSac.size&&!selectedMarketplaceSac.has(mpNorm(item.sac)))return false;
+  if(exclude!=='billing'&&selectedMarketplaceBilling.size&&!selectedMarketplaceBilling.has(mpNorm(item.faturamento)))return false;
+  if(exclude!=='stock'&&activeMarketplaceStock&&mpNorm(item.localEstoque)!==activeMarketplaceStock)return false;
+  return true;
+}
+function getVisibleMarketplaces(){return marketplacesData.filter(item=>mpMatches(item));}
+function facetCounts(field,exclude){return countBy(marketplacesData.filter(item=>mpMatches(item,exclude)).map(item=>item[field]));}
+function mpCountLabel(count){return '<span class="mp-filter-count">'+count+'</span>';}
+
+function renderMarketplaceKPIs(rows=getVisibleMarketplaces()){
+  const sacCounts=countBy(rows.map(x=>x.sac)),stockCounts=countBy(rows.map(x=>x.localEstoque)),billingCounts=countBy(rows.map(x=>x.faturamento));
   const sacPhotoMap={Thais:'thais.png',Karin:'karin.png'};
   const sacText=Object.entries(sacCounts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')).map(([n,q])=>'<span class="sac-person"><img src="logos-equipe/'+(sacPhotoMap[n]||'')+'" alt="'+mpEscape(n)+'"><span>'+mpEscape(n)+' ('+q+')</span></span>').join('');
-  const stockOrder=['GUIMEPA','ESTOQUE SC','ESTOQUE PR','ESTOQUE OVD GMK8','ESTOQUE LIQ SC'];
-  const stockCounts=countBy(marketplacesData.map(x=>x.localEstoque));
-  const stockText=stockOrder.map(n=>n+' ('+(stockCounts[n]||0)+')').join(' • ');
+  const stockText=Object.entries(stockCounts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')).map(([n,q])=>'<span class="stock-kpi-item"><span>'+mpEscape(n)+'</span><strong>'+q+'</strong></span>').join('');
+  const billingOrder=['GMK8','GMP','TODAS'];
+  const billingText=billingOrder.map(n=>'<span class="stock-kpi-item"><span>'+n+'</span><strong>'+(billingCounts[n]||0)+'</strong></span>').join('');
+  const channelGroups=marketplaceChannelFilters.filter(x=>x.id!=='all');
+  const visibleChannels=channelGroups.filter(g=>rows.some(r=>g.channels.includes(r.canal)));
+  const total=marketplacesData.length;
   const items=[
-    {label:'Lojas Ativas',value:marketplacesData.length,sub:'canais ativos na base',cls:'blue'},
-    {label:'Responsáveis SAC',value:Object.keys(sacCounts).length,sub:sacText,cls:'green'},
-    {label:'Locais de Estoque',value:Object.keys(stockCounts).length,sub:stockText,cls:'orange'}
+    {label:'Lojas Ativas',value:rows.length,sub:'<span style="display:block">'+(rows.length===total?'Todas as '+total+' lojas':rows.length+' de '+total+' lojas')+' • <strong>'+visibleChannels.length+' de 13 canais ativos</strong></span>',cls:'blue',raw:true},
+    {label:'Responsáveis SAC',value:Object.keys(sacCounts).length,sub:'<span class="sac-photo-list">'+(sacText||'Nenhum responsável')+'</span>',cls:'green',raw:true},
+    {label:'Locais de Estoque',value:Object.keys(stockCounts).length,sub:'<span class="stock-kpi-list">'+(stockText||'Nenhum local')+'</span>',cls:'orange',raw:true},
+    {label:'Faturamento',value:Object.keys(billingCounts).length,sub:'<span class="stock-kpi-list">'+billingText+'</span>',cls:'purple',raw:true}
   ];
-  document.getElementById('marketplacesKpiRow').innerHTML=items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+(k.label==='Responsáveis SAC'?'<span class="sac-photo-list">'+k.sub+'</span>':mpEscape(k.sub))+'</div></div>').join('');
+  document.getElementById('marketplacesKpiRow').innerHTML=items.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+(k.raw?k.sub:mpEscape(k.sub))+'</div></div>').join('');
 }
-const marketplaceSacOptions=[{name:'Thais',photo:'thais.png'},{name:'Karin',photo:'karin.png'}];
-const selectedMarketplaceSac=new Set(marketplaceSacOptions.map(x=>x.name));
-const marketplaceBillingOptions=[...new Set(marketplacesData.map(x=>String(x.faturamento||'Não informado').trim()))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
-const selectedMarketplaceBilling=new Set(marketplaceBillingOptions);
+
+const marketplaceSacOptions=mpUnique(marketplacesData.map(x=>x.sac));
+const marketplaceBillingOptions=mpUnique(marketplacesData.map(x=>x.faturamento));
+const marketplaceStockOptions=mpUnique(marketplacesData.map(x=>x.localEstoque));
+const sacPhotoMap={Thais:'thais.png',Karin:'karin.png'};
+
 function renderMarketplaceSacButtons(){
   const host=document.getElementById('marketplaceSacButtons');if(!host)return;
-  host.innerHTML=marketplaceSacOptions.map(x=>'<button type="button" class="marketplace-sac-btn '+(selectedMarketplaceSac.has(x.name)?'active':'')+'" data-sac="'+x.name+'"><img src="logos-equipe/'+x.photo+'" alt="'+x.name+'"><span>'+x.name+'</span></button>').join('');
-  host.querySelectorAll('[data-sac]').forEach(btn=>btn.addEventListener('click',()=>{const n=btn.dataset.sac;selectedMarketplaceSac.has(n)?selectedMarketplaceSac.delete(n):selectedMarketplaceSac.add(n);renderMarketplaceSacButtons();renderMarketplaceCards();}));
+  const counts=facetCounts('sac','sac');
+  host.innerHTML=marketplaceSacOptions.map(name=>'<button type="button" class="marketplace-sac-btn '+(selectedMarketplaceSac.has(name)?'active':'')+'" data-sac="'+mpEscape(name)+'" aria-pressed="'+selectedMarketplaceSac.has(name)+'"><img src="logos-equipe/'+(sacPhotoMap[name]||'')+'" alt="'+mpEscape(name)+'" onerror="this.style.display=\'none\'"><span>'+mpEscape(name)+'</span>'+mpCountLabel(counts[name]||0)+'</button>').join('');
+  host.querySelectorAll('[data-sac]').forEach(btn=>btn.addEventListener('click',()=>{const n=btn.dataset.sac;if(selectedMarketplaceSac.size===1&&selectedMarketplaceSac.has(n))selectedMarketplaceSac.clear();else selectedMarketplaceSac=new Set([n]);refreshMarketplaceDashboard();}));
 }
 function renderMarketplaceBillingButtons(){
   const host=document.getElementById('marketplaceBillingButtons');if(!host)return;
-  host.innerHTML=marketplaceBillingOptions.map(value=>'<button type="button" class="marketplace-billing-btn '+(selectedMarketplaceBilling.has(value)?'active':'')+'" data-billing="'+mpEscape(value)+'">'+mpEscape(value)+'</button>').join('');
-  host.querySelectorAll('[data-billing]').forEach(btn=>btn.addEventListener('click',()=>{const value=btn.dataset.billing;selectedMarketplaceBilling.has(value)?selectedMarketplaceBilling.delete(value):selectedMarketplaceBilling.add(value);renderMarketplaceBillingButtons();renderMarketplaceCards();}));
+  const counts=facetCounts('faturamento','billing');
+  host.innerHTML=marketplaceBillingOptions.map(value=>'<button type="button" class="marketplace-billing-btn '+(selectedMarketplaceBilling.has(value)?'active':'')+'" data-billing="'+mpEscape(value)+'" aria-pressed="'+selectedMarketplaceBilling.has(value)+'"><span>'+mpEscape(value)+'</span>'+mpCountLabel(counts[value]||0)+'</button>').join('');
+  host.querySelectorAll('[data-billing]').forEach(btn=>btn.addEventListener('click',()=>{const value=btn.dataset.billing;if(selectedMarketplaceBilling.size===1&&selectedMarketplaceBilling.has(value))selectedMarketplaceBilling.clear();else selectedMarketplaceBilling=new Set([value]);refreshMarketplaceDashboard();}));
+}
+function renderMarketplaceStockFilter(){
+  const select=document.getElementById('marketplaceStockFilter');if(!select)return;
+  const counts=facetCounts('localEstoque','stock'),current=activeMarketplaceStock;
+  select.innerHTML='<option value="">Todos os locais ('+Object.values(counts).reduce((a,b)=>a+b,0)+')</option>'+marketplaceStockOptions.map(v=>'<option value="'+mpEscape(v)+'">'+mpEscape(v)+' ('+(counts[v]||0)+')</option>').join('');
+  select.value=current;
 }
 function renderMarketplaceFilter(){
-  document.getElementById('marketplaceFilterOptions').innerHTML=marketplacesData.map(item=>'<label class="marketplace-filter-option"><input type="checkbox" value="'+mpEscape(item.canal)+'" checked> <span>'+mpEscape(item.canal)+'</span></label>').join('');
-  document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.addEventListener('change',()=>{cb.checked?selectedMarketplaces.add(cb.value):selectedMarketplaces.delete(cb.value);activeMarketplaceChannel='';renderMarketplaceCards();updateMarketplaceFilterText();renderMarketplaceChannelButtons();}));
+  const counts=facetCounts('canal','store');
+  const options=[...marketplacesData].sort((a,b)=>(a.ordem||999)-(b.ordem||999));
+  document.getElementById('marketplaceFilterOptions').innerHTML=options.map(item=>'<label class="marketplace-filter-option"><input type="checkbox" value="'+mpEscape(item.canal)+'" '+(selectedMarketplaces.has(item.canal)?'checked':'')+'> <span>'+mpEscape(item.canal)+'</span>'+mpCountLabel(counts[item.canal]||0)+'</label>').join('');
+  document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.addEventListener('change',()=>{cb.checked?selectedMarketplaces.add(cb.value):selectedMarketplaces.delete(cb.value);activeMarketplaceChannel='';refreshMarketplaceDashboard();}));
 }
 function syncMarketplaceChecks(){document.querySelectorAll('#marketplaceFilterOptions input').forEach(cb=>cb.checked=selectedMarketplaces.has(cb.value));}
 function updateMarketplaceFilterText(){const total=marketplacesData.length,count=selectedMarketplaces.size;document.getElementById('marketplaceFilterText').textContent=count===total?'Todas as lojas':count===0?'Nenhuma loja selecionada':count+' lojas selecionadas';}
-function renderMarketplaceCards(){
+
+function renderMarketplaceCards(rows=getVisibleMarketplaces()){
   const orderPriority={'MELI GUIMEPA':1,'MELI GUIMEPA SHOP':2,'MELI GUIMEPA STORE':3,'MELI DELTATOP':4};
-  const visible=marketplacesData.filter(item=>selectedMarketplaces.has(item.canal)&&selectedMarketplaceSac.has(String(item.sac||'').trim())&&selectedMarketplaceBilling.has(String(item.faturamento||'Não informado').trim())).sort((a,b)=>{
-    const am=/^MELI /.test(a.canal), bm=/^MELI /.test(b.canal);
-    if(am&&bm) return (orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);
-    return (a.ordem||999)-(b.ordem||999);
-  });
+  const visible=[...rows].sort((a,b)=>{const am=/^MELI /.test(a.canal),bm=/^MELI /.test(b.canal);if(am&&bm)return(orderPriority[a.canal]||99)-(orderPriority[b.canal]||99);return(a.ordem||999)-(b.ordem||999);});
   document.getElementById('marketplacesResultCount').textContent=visible.length+' de '+marketplacesData.length+' lojas exibidas';
-  if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja selecionada. Use a lista acima ou clique em “Exibir todas”.</div>';return;}
-  document.getElementById('marketplaceCards').innerHTML=visible.map(item=>
-    '<article class="marketplace-card"><header class="marketplace-card-header">'+
-    '<div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div>'+
-    '<div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store"><span class="marketplace-store-detail"><span class="marketplace-store-label">Loja</span><strong class="marketplace-store-value">'+mpEscape(item.nomeLoja)+'</strong></span><span class="marketplace-store-detail"><span class="marketplace-store-label">Faturamento</span><strong class="marketplace-store-value">'+mpEscape(item.faturamento)+'</strong></span></div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header>'+
-    '<div class="marketplace-card-body">'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section>'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section>'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('CNPJ',item.cnpj,true)+mpField('Política de cancelamento',item.politicaCancelamento,true)+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+'</section>'+
-    '<section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>'
-  ).join('');
+  if(!visible.length){document.getElementById('marketplaceCards').innerHTML='<div class="marketplace-empty">Nenhuma loja corresponde à combinação de filtros. Remova um filtro para ampliar os resultados.</div>';return;}
+  document.getElementById('marketplaceCards').innerHTML=visible.map(item=>'<article class="marketplace-card"><header class="marketplace-card-header"><div class="marketplace-logo-box"><img src="'+mpEscape(marketplaceLogoPath(item))+'" data-logo="'+mpEscape(marketplaceLogoFile(item))+'" data-logo-attempt="0" alt="Logo '+mpEscape(item.canal)+'" onerror="tryMarketplaceLogoPath(this)"><span class="marketplace-logo-fallback">'+mpInitials(item.canal)+'</span></div><div><div class="marketplace-name">'+mpEscape(item.canal)+'</div><div class="marketplace-store"><span class="marketplace-store-detail"><span class="marketplace-store-label">Loja</span><strong class="marketplace-store-value">'+mpEscape(item.nomeLoja)+'</strong></span><span class="marketplace-store-detail"><span class="marketplace-store-label">Faturamento</span><strong class="marketplace-store-value">'+mpEscape(item.faturamento)+'</strong></span></div></div><span class="marketplace-order">#'+String(item.ordem).padStart(2,'0')+'</span></header><div class="marketplace-card-body"><section class="marketplace-info-group"><div class="marketplace-group-title">Operação e estoque</div>'+mpField('Comissão base',item.comissaoBase,true)+mpField('Local do estoque',item.localEstoque,true)+mpField('Funcionamento do estoque',item.funcionamentoEstoque)+mpField('Política de frete',item.politicaFrete)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Atendimento</div>'+mpField('Responsável SAC',item.sac,true)+mpField('SLA SAC',item.slaSac)+mpField('Atendimento SAC',item.atendimentoSac)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Financeiro</div>'+mpField('CNPJ',item.cnpj,true)+mpField('Política de cancelamento',item.politicaCancelamento,true)+mpField('Portador',item.portador)+mpField('Comissão sobre frete?',item.comissaoFrete)+mpField('Política de repasse',item.politicaRepasse)+mpField('Disparo do repasse',item.disparoRepasse)+'</section><section class="marketplace-info-group"><div class="marketplace-group-title">Integrações</div>'+mpField('ID da loja',item.idLoja,true)+mpField('Cota por SKU?',item.cotaSku)+mpField('Plataforma de cotação',item.plataformaCotacao)+mpField('Canal na Intelipost',item.canalIntelipost)+mpField('Valida XML sistêmico?',item.validaXml)+'</section></div></article>').join('');
 }
+
 const marketplaceChannelFilters=[
-  {id:'all',label:'Exibir todas',color:'#64748b',logo:'',channels:null},
-  {id:'mercado-livre',label:'Mercado Livre',color:'#2d3277',logo:'meli.png',channels:['MELI DELTATOP','MELI GUIMEPA','MELI GUIMEPA SHOP','MELI GUIMEPA STORE']},
-  {id:'shopee',label:'Shopee',color:'#ee4d2d',logo:'shopee.png',channels:['SHOPEE GUIMEPA','SHOPEE GUIMEPA STORE']},
-  {id:'magalu',label:'Magalu',color:'#0086ff',logo:'Magalu.png',channels:['MAGALU-GUIMEPA','MAGALU-GUIMEPA SHOP']},
-  {id:'amazon',label:'Amazon',color:'#ff9900',logo:'amazon.png',channels:['AMAZON GUIMEPA']},
-  {id:'leroy-merlin',label:'Leroy Merlin',color:'#78be20',logo:'Leroy.png',channels:['LEROY MERLIN']},
-  {id:'livelo',label:'Livelo',color:'#7b2cbf',logo:'LIVELO.png',channels:['LIVELO']},
-  {id:'ll-loyalty',label:'LL Loyalty',color:'#334155',logo:'LL.png',channels:['LL LOYALTY']},
-  {id:'loja-cooperado',label:'Loja do Cooperado',color:'#168f58',logo:'loja.png',channels:['LOJA DO COOPERADO - SICOOB']},
-  {id:'senff',label:'Senff',color:'#f58220',logo:'SENFF.png',channels:['SENFF']},
-  {id:'shophub',label:'Shophub',color:'#2563eb',logo:'Shophub.png',channels:['SHOPHUB']},
-  {id:'site',label:'Site',color:'#1d4ed8',logo:'site.png',channels:['SITE']},
-  {id:'tiktok',label:'TikTok Shop',color:'#111827',logo:'TIKTOK.png',channels:['TIKTOK SHOP']},
-  {id:'webcontinental',label:'Webcontinental',color:'#e11d48',logo:'Webcontinental.png',channels:['WEBCONTINENTAL GUIMEPA SHOP']}
+{id:'all',label:'Exibir todas',color:'#64748b',logo:'',channels:null},
+{id:'mercado-livre',label:'Mercado Livre',color:'#2d3277',logo:'meli.png',channels:['MELI DELTATOP','MELI GUIMEPA','MELI GUIMEPA SHOP','MELI GUIMEPA STORE']},
+{id:'shopee',label:'Shopee',color:'#ee4d2d',logo:'shopee.png',channels:['SHOPEE GUIMEPA','SHOPEE GUIMEPA STORE']},
+{id:'magalu',label:'Magalu',color:'#0086ff',logo:'Magalu.png',channels:['MAGALU-GUIMEPA','MAGALU-GUIMEPA SHOP']},
+{id:'amazon',label:'Amazon',color:'#ff9900',logo:'amazon.png',channels:['AMAZON GUIMEPA']},
+{id:'ll-loyalty',label:'LL Loyalty',color:'#334155',logo:'LL.png',channels:['LL LOYALTY']},
+{id:'shophub',label:'Shophub',color:'#2563eb',logo:'Shophub.png',channels:['SHOPHUB']},
+{id:'webcontinental',label:'Web Continental',color:'#2563eb',logo:'Webcontinental.png',channels:['WEBCONTINENTAL GUIMEPA SHOP']},
+{id:'livelo',label:'Livelo',color:'#ec4899',logo:'LIVELO.png',channels:['LIVELO']},
+{id:'leroy-merlin',label:'Leroy Merlin',color:'#78be20',logo:'Leroy.png',channels:['LEROY MERLIN']},
+{id:'senff',label:'Senff',color:'#1e3a8a',logo:'SENFF.png',channels:['SENFF']},
+{id:'loja-cooperado',label:'Coopera',color:'#168f58',logo:'loja.png',channels:['LOJA DO COOPERADO - SICOOB']},
+{id:'tiktok',label:'TikTok',color:'#111827',logo:'TIKTOK.png',channels:['TIKTOK SHOP']},
+{id:'site',label:'Site',color:'#1d4ed8',logo:'site.png',channels:['SITE']}
 ];
-let activeMarketplaceChannel='all';
 function renderMarketplaceChannelButtons(){
   const root=document.getElementById('marketplaceChannelButtons');
-  root.innerHTML=marketplaceChannelFilters.map(item=>{
-    const content=item.logo?'<img src="logos-marketplaces/'+mpEscape(item.logo)+'" data-logo="'+mpEscape(item.logo)+'" data-logo-attempt="0" alt="'+mpEscape(item.label)+'" onerror="tryMarketplaceLogoPath(this)">':'<span>'+mpEscape(item.label)+'</span>';
-    return '<button class="clear-btn marketplace-logo-filter-btn'+(item.id==='all'?' marketplace-all-btn':'')+(activeMarketplaceChannel===item.id?' active':'')+'" type="button" data-channel-filter="'+mpEscape(item.id)+'" title="'+mpEscape(item.label)+'" aria-label="Filtrar '+mpEscape(item.label)+'" style="--channel-color:'+item.color+'">'+content+'</button>';
-  }).join('');
+  const candidateRows=marketplacesData.filter(item=>mpMatches(item,'store'));
+  root.innerHTML=marketplaceChannelFilters.map(item=>{const count=item.channels===null?candidateRows.length:candidateRows.filter(row=>item.channels.includes(row.canal)).length;const content=item.logo?'<img src="logos-marketplaces/'+mpEscape(item.logo)+'" data-logo="'+mpEscape(item.logo)+'" data-logo-attempt="0" alt="'+mpEscape(item.label)+'" onerror="tryMarketplaceLogoPath(this)">':'<span>'+mpEscape(item.label)+'</span>';return '<button class="clear-btn marketplace-logo-filter-btn'+(item.id==='all'?' marketplace-all-btn':'')+(activeMarketplaceChannel===item.id?' active':'')+'" type="button" data-channel-filter="'+mpEscape(item.id)+'" title="'+mpEscape(item.label)+' — '+count+'" aria-label="Filtrar '+mpEscape(item.label)+'" style="--channel-color:'+item.color+'">'+content+'<span class="mp-channel-count">'+count+'</span></button>';}).join('');
   root.querySelectorAll('[data-channel-filter]').forEach(btn=>btn.addEventListener('click',()=>applyMarketplaceChannelFilter(btn.dataset.channelFilter)));
 }
-function setAllMarketplaces(checked){
-  activeMarketplaceChannel=checked?'all':'';
-  selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);
-  syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();renderMarketplaceChannelButtons();
+function setAllMarketplaces(checked){activeMarketplaceChannel=checked?'all':'';selectedMarketplaces=new Set(checked?marketplacesData.map(x=>x.canal):[]);refreshMarketplaceDashboard();}
+function applyMarketplaceChannelFilter(id){const filter=marketplaceChannelFilters.find(item=>item.id===id);if(!filter)return;activeMarketplaceChannel=id;selectedMarketplaces=new Set(filter.channels===null?marketplacesData.map(x=>x.canal):filter.channels.filter(c=>marketplacesData.some(x=>x.canal===c)));refreshMarketplaceDashboard();}
+function clearMarketplaceFilters(){
+  selectedMarketplaces=new Set(marketplacesData.map(item=>item.canal));
+  selectedMarketplaceSac.clear();
+  selectedMarketplaceBilling.clear();
+  activeMarketplaceStock='';
+  activeMarketplaceChannel='all';
+  const menu=document.getElementById('marketplaceFilterMenu');
+  if(menu)menu.classList.remove('open');
+  refreshMarketplaceDashboard();
 }
-function applyMarketplaceChannelFilter(id){
-  const filter=marketplaceChannelFilters.find(item=>item.id===id);
-  if(!filter)return;
-  activeMarketplaceChannel=id;
-  selectedMarketplaces=new Set(filter.channels===null?marketplacesData.map(x=>x.canal):filter.channels.filter(c=>marketplacesData.some(x=>x.canal===c)));
-  syncMarketplaceChecks();updateMarketplaceFilterText();renderMarketplaceCards();renderMarketplaceChannelButtons();
-}
+function refreshMarketplaceDashboard(){const rows=getVisibleMarketplaces();renderMarketplaceKPIs(rows);renderMarketplaceSacButtons();renderMarketplaceBillingButtons();renderMarketplaceStockFilter();renderMarketplaceFilter();renderMarketplaceChannelButtons();renderMarketplaceCards(rows);updateMarketplaceFilterText();const clearBtn=document.getElementById('clearMarketplaceFilters');if(clearBtn){const allStoresSelected=selectedMarketplaces.size===marketplacesData.length&&marketplacesData.every(item=>selectedMarketplaces.has(item.canal));clearBtn.disabled=allStoresSelected&&!selectedMarketplaceSac.size&&!selectedMarketplaceBilling.size&&!activeMarketplaceStock;}}
 function initMarketplacesDashboard(){
-  renderMarketplaceKPIs();renderMarketplaceFilter();
-renderMarketplaceSacButtons();renderMarketplaceBillingButtons();renderMarketplaceChannelButtons();renderMarketplaceCards();updateMarketplaceFilterText();
+  const stockSelect=document.getElementById('marketplaceStockFilter');stockSelect.addEventListener('change',()=>{activeMarketplaceStock=stockSelect.value;refreshMarketplaceDashboard();});
   const btn=document.getElementById('marketplaceFilterButton'),menu=document.getElementById('marketplaceFilterMenu');
   btn.addEventListener('click',e=>{e.stopPropagation();menu.classList.toggle('open');});menu.addEventListener('click',e=>e.stopPropagation());document.addEventListener('click',()=>menu.classList.remove('open'));
-  document.getElementById('marketplaceSelectAll').addEventListener('click',()=>setAllMarketplaces(true));
-  document.getElementById('marketplaceClearAll').addEventListener('click',()=>setAllMarketplaces(false));
+  document.getElementById('marketplaceSelectAll').addEventListener('click',()=>setAllMarketplaces(true));document.getElementById('marketplaceClearAll').addEventListener('click',()=>setAllMarketplaces(false));
+  document.getElementById('clearMarketplaceFilters').addEventListener('click',clearMarketplaceFilters);
+  refreshMarketplaceDashboard();
 }
 initMarketplacesDashboard();
 </script>
@@ -1300,115 +1470,108 @@ initMarketplacesDashboard();
 <script>
 // ============ ATIVIDADES ============
 const activityData = (typeof atividadesData !== 'undefined' && Array.isArray(atividadesData)) ? atividadesData : [];
-const activityPalette=['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#dc2626','#0f766e','#9333ea','#ca8a04','#0284c7'];
+const activityPalette=['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2','#dc2626','#0f766e','#9333ea','#ca8a04','#0284c7','#be185d','#4f46e5','#65a30d','#c2410c'];
 const activityUnique=v=>[...new Set(v.filter(x=>x!==null&&x!==undefined&&String(x).trim()!==''))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR'));
 const activityColorMap=values=>Object.fromEntries(activityUnique(values).map((v,i)=>[v,activityPalette[i%activityPalette.length]]));
 function activityValue(item,...keys){for(const k of keys){if(item[k]!==undefined&&item[k]!==null&&String(item[k]).trim()!=='')return String(item[k]).trim();}return 'Indefinido';}
 const activityRows=activityData.map((x,i)=>({id:i,atividade:activityValue(x,'atividade','Atividade'),execucao:activityValue(x,'execucao','Execução'),setor:activityValue(x,'setor','SETOR','Setor'),rotina:activityValue(x,'rotina','Rotina'),area:activityValue(x,'area','Área'),subarea:activityValue(x,'subarea','Sub-área','Sub Área'),responsavel:activityValue(x,'responsavel','Responsável')}));
 const activityAreaColors=activityColorMap(activityRows.map(x=>x.area));
 const activitySubareaColors=activityColorMap(activityRows.map(x=>x.subarea));
+const activityOwnerColors=activityColorMap(activityRows.map(x=>x.responsavel));
 const activityRoutineColors={'Diário':'#2563eb','Periódico':'#16a34a'};
 let activeActivityRoutine='';
 let activeActivityOwner='';
+let activitySearchQuery='';
+const activityChartState={area:[],responsavel:[]};
 function activitySectorClass(sector){const s=String(sector||'').trim().toUpperCase();return s==='COM'?'sector-com':s==='SAC'?'sector-sac':s==='LOG'?'sector-log':'sector-undefined';}
 function activitySectorTag(sector){return '<span class="sector-tag '+activitySectorClass(sector)+'">'+escapeHtml(sector)+'</span>';}
 function fillActivitySelect(id,values,label){const el=document.getElementById(id);el.innerHTML='<option value="">'+label+'</option>'+activityUnique(values).map(v=>'<option value="'+escapeHtml(v)+'">'+escapeHtml(v)+'</option>').join('');}
-function filteredActivities(){
+function activityMatchesSearch(x){if(!activitySearchQuery)return true;const hay=[x.atividade,x.execucao,x.setor,x.rotina,x.area,x.subarea,x.responsavel].join(' ').toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');const needle=activitySearchQuery.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');return hay.includes(needle);}
+function filteredActivities(options={}){
+  const exclude=options.exclude||'';
   const e=document.getElementById('activityFilterExecution').value;
   const t=document.getElementById('activityFilterSector').value;
   const a=document.getElementById('activityFilterArea').value;
   const s=document.getElementById('activityFilterSubarea').value;
   const r=activeActivityOwner;
-  return activityRows.filter(x=>(!e||x.execucao===e)&&(!t||x.setor===t)&&(!a||x.area===a)&&(!s||x.subarea===s)&&(!r||x.responsavel===r)&&(!activeActivityRoutine||x.rotina===activeActivityRoutine));
+  return activityRows.filter(x=>(exclude==='execucao'||!e||x.execucao===e)&&(exclude==='setor'||!t||x.setor===t)&&(exclude==='area'||!a||x.area===a)&&(exclude==='subarea'||!s||x.subarea===s)&&(exclude==='responsavel'||!r||x.responsavel===r)&&(exclude==='rotina'||!activeActivityRoutine||x.rotina===activeActivityRoutine)&&activityMatchesSearch(x));
 }
 function activityPlatformLogo(execucao){
   const original=String(execucao||'').trim();
   const value=original.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  const logoMap={
-    'CANVA':'canva.png',
-    'TRELLO':'trello.png',
-    'ERP':'erp.png',
-    'MARKETPLACE':'marketplace.png',
-    'POWER BI':'powerbi.png',
-    'POWERBI':'powerbi.png',
-    'GMAIL':'gmail.png',
-    'E-MAIL':'gmail.png',
-    'EMAIL':'gmail.png',
-    'INTELIPOST':'intelipost.png'
-  };
+  const logoMap={'CANVA':'canva.png','TRELLO':'trello.png','ERP':'erp.png','MARKETPLACE':'marketplace.png','POWER BI':'powerbi.png','POWERBI':'powerbi.png','GMAIL':'gmail.png','E-MAIL':'gmail.png','EMAIL':'gmail.png','INTELIPOST':'intelipost.png'};
   const file=logoMap[value];
   if(!file) return '<span class="activity-platform-fallback" title="'+escapeHtml(original)+'">'+escapeHtml(original.slice(0,2).toUpperCase())+'</span>';
   const label=value==='E-MAIL'||value==='EMAIL'?'Gmail':original;
   return '<img class="activity-platform-logo" src="logos-plataformas/'+file+'" data-logo-options="logo-plataformas/'+file+'|logos-plataformas/'+file.replace('.png','.jpg')+'|logos-plataformas/'+file.replace('.png','.jpeg')+'" data-logo-index="0" alt="'+escapeHtml(label)+'" title="'+escapeHtml(label)+'" onerror="tryActivityPlatformLogo(this)">';
 }
 function tryActivityPlatformLogo(img){const options=String(img.dataset.logoOptions||'').split('|').filter(Boolean);const index=Number(img.dataset.logoIndex||0);if(index<options.length){img.dataset.logoIndex=String(index+1);img.src=options[index];return;}img.onerror=null;img.style.display='none';}
-function activityOwnerOrder(name){
-  const n=String(name||'').trim().toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  const order=['alexandre','bruno','jone','lucas','thays','karin','thais','igor','automatico','indefinido'];
-  const i=order.indexOf(n);return i>=0?i:50;
-}
+function activityOwnerOrder(name){const n=String(name||'').trim().toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');if(n==='automatico')return 998;if(n==='indefinido'||n==='s/ resp.'||n==='nao informado')return 999;const order=['alexandre','bruno','jone','lucas','thays','karin','thais','igor','jean'];const i=order.indexOf(n);return i>=0?i:100;}
 function rankHTML(rows,key,colors,withOwner=false,withSector=false){
   const counts={};const ownerSector={};const sectorsByValue={};
-  rows.forEach(x=>{
-    const value=x[key];
-    counts[value]=(counts[value]||0)+1;
-    if(withOwner&&!ownerSector[x.responsavel])ownerSector[x.responsavel]=x.setor;
-    if(withSector){
-      if(!sectorsByValue[value])sectorsByValue[value]=new Set();
-      sectorsByValue[value].add(x.setor);
-    }
-  });
+  rows.forEach(x=>{const value=x[key];counts[value]=(counts[value]||0)+1;if(withOwner&&!ownerSector[x.responsavel])ownerSector[x.responsavel]=x.setor;if(withSector){if(!sectorsByValue[value])sectorsByValue[value]=new Set();sectorsByValue[value].add(x.setor);}});
   const entries=Object.entries(counts).sort((a,b)=>withOwner?(activityOwnerOrder(a[0])-activityOwnerOrder(b[0])||a[0].localeCompare(b[0],'pt-BR')):(b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')));
   const max=Math.max(1,...entries.map(x=>x[1]));
-  return entries.length?entries.map(([n,q])=>{
-    let label=escapeHtml(n);
-    if(withOwner){
-      label='<span class="rank-owner-with-sector"><span class="rank-owner">'+teamPersonHTML(n,true)+'</span>'+activitySectorTag(ownerSector[n]||'Indefinido')+'</span>';
-    }else if(withSector){
-      const sectorOrder={COM:1,SAC:2,LOG:3};
-      const tags=[...(sectorsByValue[n]||[])].sort((a,b)=>(sectorOrder[a]||99)-(sectorOrder[b]||99)||String(a).localeCompare(String(b),'pt-BR')).map(activitySectorTag).join('');
-      label='<span class="rank-label-with-sector"><span class="rank-name">'+escapeHtml(n)+'</span><span class="rank-sector-tags">'+tags+'</span></span>';
-    }
-    return '<div class="rank-row"><div class="rank-label" title="'+escapeHtml(n)+'">'+label+'</div><div class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></div><div class="rank-value">'+q+'</div></div>';
+  const activeValue=key==='area'?document.getElementById('activityFilterArea').value:key==='subarea'?document.getElementById('activityFilterSubarea').value:key==='responsavel'?activeActivityOwner:'';
+  return entries.length?entries.map(([n,q])=>{let label=escapeHtml(n);if(withOwner){label='<span class="rank-owner-with-sector"><span class="rank-owner">'+teamPersonHTML(n,true)+'</span>'+activitySectorTag(ownerSector[n]||'Indefinido')+'</span>';}else if(withSector){const sectorOrder={COM:1,SAC:2,LOG:3};const tags=[...(sectorsByValue[n]||[])].sort((a,b)=>(sectorOrder[a]||99)-(sectorOrder[b]||99)||String(a).localeCompare(String(b),'pt-BR')).map(activitySectorTag).join('');label='<span class="rank-label-with-sector"><span class="rank-name">'+escapeHtml(n)+'</span><span class="rank-sector-tags">'+tags+'</span></span>';}
+    return '<button type="button" class="rank-row activity-rank-filter '+(activeValue===n?'active':'')+'" data-rank-key="'+key+'" data-rank-value="'+escapeHtml(n)+'"><span class="rank-label" title="'+escapeHtml(n)+'">'+label+'</span><span class="rank-bar"><span style="--pct:'+((q/max)*100)+'%;--bar-color:'+(colors[n]||'#2563eb')+'"></span></span><span class="rank-value">'+q+'</span></button>';
   }).join(''):'<div class="empty-state">Sem dados.</div>';
 }
-function renderActivityOwnerButtons(){
-  const root=document.getElementById('activityOwnerButtons');
-  const owners=activityUnique(activityRows.map(x=>x.responsavel)).sort((a,b)=>activityOwnerOrder(a)-activityOwnerOrder(b)||a.localeCompare(b,'pt-BR'));
-  root.innerHTML=owners.map(name=>'<button class="activity-owner-btn'+(activeActivityOwner===name?' active':'')+'" type="button" data-owner="'+escapeHtml(name)+'" title="Filtrar por '+escapeHtml(name)+'">'+teamPersonHTML(name,true)+'</button>').join('');
-  root.querySelectorAll('[data-owner]').forEach(btn=>btn.addEventListener('click',()=>{activeActivityOwner=activeActivityOwner===btn.dataset.owner?'':btn.dataset.owner;renderActivityOwnerButtons();renderActivities();}));
+function bindActivityRankFilters(){document.querySelectorAll('.activity-rank-filter').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.rankKey,value=btn.dataset.rankValue;if(key==='area'){const el=document.getElementById('activityFilterArea');el.value=el.value===value?'':value;}else if(key==='subarea'){const el=document.getElementById('activityFilterSubarea');el.value=el.value===value?'':value;}else if(key==='responsavel'){activeActivityOwner=activeActivityOwner===value?'':value;}renderActivityOwnerButtons();renderActivities();}));}
+function renderActivityOwnerButtons(){const root=document.getElementById('activityOwnerButtons');const available=new Set(filteredActivities({exclude:'responsavel'}).map(x=>x.responsavel));const owners=activityUnique(activityRows.map(x=>x.responsavel)).sort((a,b)=>activityOwnerOrder(a)-activityOwnerOrder(b)||a.localeCompare(b,'pt-BR'));root.innerHTML=owners.map(name=>'<button class="activity-owner-btn'+(activeActivityOwner===name?' active':'')+'" type="button" data-owner="'+escapeHtml(name)+'" title="Filtrar por '+escapeHtml(name)+'" '+(available.has(name)?'':'style="opacity:.42"')+'>'+teamPersonHTML(name,true)+'</button>').join('');root.querySelectorAll('[data-owner]').forEach(btn=>btn.addEventListener('click',()=>{activeActivityOwner=activeActivityOwner===btn.dataset.owner?'':btn.dataset.owner;renderActivityOwnerButtons();renderActivities();}));}
+function activityCounts(rows,key){const counts={};rows.forEach(x=>counts[x[key]]=(counts[x[key]]||0)+1);return Object.entries(counts).sort((a,b)=>key==='responsavel'?(activityOwnerOrder(a[0])-activityOwnerOrder(b[0])||a[0].localeCompare(b[0],'pt-BR')):(b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR')));}
+function drawActivityDonut(canvasId,legendId,totalId,entries,colors,key){
+  const canvas=document.getElementById(canvasId),legend=document.getElementById(legendId);if(!canvas||!legend)return;
+  const dpr=window.devicePixelRatio||1;const rect=canvas.getBoundingClientRect();const wrap=canvas.parentElement;const available=rect.width||wrap.clientWidth||175;const size=Math.max(100,Math.min(available,230));canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);canvas.style.width='100%';canvas.style.height='100%';const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,size,size);
+  const total=entries.reduce((s,x)=>s+x[1],0);document.getElementById(totalId).textContent=total.toLocaleString('pt-BR');const cx=size/2,cy=size/2,r=size*.43,inner=size*.285;let start=-Math.PI/2;const slices=[];
+  entries.forEach(([name,value])=>{const end=start+(total?value/total*Math.PI*2:0);ctx.beginPath();ctx.arc(cx,cy,r,start,end);ctx.arc(cx,cy,inner,end,start,true);ctx.closePath();ctx.fillStyle=colors[name]||'#64748b';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();slices.push({name,value,start,end});start=end;});activityChartState[key]=slices;
+  const active=key==='area'?document.getElementById('activityFilterArea').value:activeActivityOwner;
+  legend.innerHTML=entries.map(([name,value])=>{const displayName=key==='responsavel'?teamPersonHTML(name,true):escapeHtml(name);return '<button type="button" class="activity-chart-legend-btn '+(active===name?'active':'')+'" data-chart-key="'+key+'" data-chart-value="'+escapeHtml(name)+'"><span class="activity-chart-dot" style="background:'+(colors[name]||'#64748b')+'"></span><span class="activity-chart-name" title="'+escapeHtml(name)+'">'+displayName+'</span><span class="activity-chart-value">'+value+' · '+(total?Math.round(value/total*100):0)+'%</span></button>';}).join('');
+  legend.querySelectorAll('[data-chart-key]').forEach(btn=>btn.addEventListener('click',()=>applyActivityChartFilter(btn.dataset.chartKey,btn.dataset.chartValue)));
+  canvas.onclick=e=>{const b=canvas.getBoundingClientRect(),x=e.clientX-b.left-b.width/2,y=e.clientY-b.top-b.height/2,dist=Math.hypot(x,y);if(dist<inner||dist>r)return;let angle=Math.atan2(y,x);if(angle< -Math.PI/2)angle+=Math.PI*2;const slice=slices.find(s=>angle>=s.start&&angle<s.end);if(slice)applyActivityChartFilter(key,slice.name);};
 }
-function renderActivities(){
- const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.rotina)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.rotina)).length;
- const sectorCounts={COM:0,SAC:0,LOG:0};rows.forEach(x=>{if(sectorCounts[x.setor]!==undefined)sectorCounts[x.setor]++;});
- document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';
- const sectorSub='<span class="activity-sector-kpi-list"><span class="activity-sector-kpi-item">'+activitySectorTag('COM')+' '+sectorCounts.COM+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('SAC')+' '+sectorCounts.SAC+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('LOG')+' '+sectorCounts.LOG+'</span></span>';
- const k=[
-  {label:'Total de Atividades',value:rows.length,sub:'<strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},
-  {label:'Áreas',value:new Set(rows.map(x=>x.area)).size,sub:'áreas com atividades',cls:'green'},
-  {label:'Sub-áreas',value:new Set(rows.map(x=>x.subarea)).size,sub:'sub-áreas mapeadas',cls:'orange'},
-  {label:'Responsáveis',value:new Set(rows.map(x=>x.responsavel)).size,sub:'responsáveis envolvidos',cls:'purple'},
-  {label:'Setores',value:new Set(rows.map(x=>x.setor)).size,sub:sectorSub,cls:'red'}
+function applyActivityChartFilter(key,value){if(key==='area'){const el=document.getElementById('activityFilterArea');el.value=el.value===value?'':value;}else{activeActivityOwner=activeActivityOwner===value?'':value;}renderActivityOwnerButtons();renderActivities();}
+function renderActivityCharts(){drawActivityDonut('activityAreaChart','activityAreaLegend','activityAreaChartTotal',activityCounts(filteredActivities({exclude:'area'}),'area'),activityAreaColors,'area');drawActivityDonut('activityOwnerChart','activityOwnerLegend','activityOwnerChartTotal',activityCounts(filteredActivities({exclude:'responsavel'}),'responsavel'),activityOwnerColors,'responsavel');}
+function renderActivityChips(){const chips=[];const push=(key,label,value)=>{if(value)chips.push({key,label,value});};push('execucao','Execução',document.getElementById('activityFilterExecution').value);push('setor','Setor',document.getElementById('activityFilterSector').value);push('area','Área',document.getElementById('activityFilterArea').value);push('subarea','Sub-área',document.getElementById('activityFilterSubarea').value);push('responsavel','Responsável',activeActivityOwner);push('rotina','Rotina',activeActivityRoutine);push('search','Pesquisa',activitySearchQuery);document.getElementById('activityFilterChips').innerHTML=chips.map(c=>'<span class="activity-filter-chip"><span>'+escapeHtml(c.label)+': '+escapeHtml(c.value)+'</span><button type="button" data-remove-activity-filter="'+c.key+'" aria-label="Remover filtro">×</button></span>').join('');document.querySelectorAll('[data-remove-activity-filter]').forEach(btn=>btn.addEventListener('click',()=>clearSingleActivityFilter(btn.dataset.removeActivityFilter)));}
+function clearSingleActivityFilter(key){const map={execucao:'activityFilterExecution',setor:'activityFilterSector',area:'activityFilterArea',subarea:'activityFilterSubarea'};if(map[key])document.getElementById(map[key]).value='';else if(key==='responsavel')activeActivityOwner='';else if(key==='rotina')activeActivityRoutine='';else if(key==='search'){activitySearchQuery='';document.getElementById('activitySearch').value='';}renderActivityOwnerButtons();renderActivities();}
+function smartCount(current,total,label){return current===total?label:current+' de '+total+' '+label;}
+function showActivityModal(id){
+ const x=activityRows.find(r=>r.id===Number(id));if(!x)return;
+ const card=document.getElementById('activityModalCard');card.className='activity-modal-card '+activitySectorClass(x.setor);
+ document.getElementById('activityModalTitle').innerHTML=activitySectorTag(x.setor)+' <span style="margin-left:8px">'+escapeHtml(x.atividade)+'</span>';
+ const platform='<div class="activity-modal-platform"><span>'+escapeHtml(x.execucao)+'</span><span class="activity-modal-open-link" title="O direcionamento será incluído futuramente">Abra aqui ↗</span></div>';
+ const owner='<div class="activity-modal-person">'+teamPersonHTML(x.responsavel,false)+'</div>';
+ const fields=[
+  {l:'Plataforma de execução',v:platform,raw:true,cls:'full'},
+  {l:'Setor',v:activitySectorTag(x.setor),raw:true},
+  {l:'Área',v:'<span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span>',raw:true},
+  {l:'Sub-área',v:'<span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span>',raw:true},
+  {l:'Rotina',v:'<span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span>',raw:true},
+  {l:'Responsável',v:owner,raw:true},
+  {l:'Descrição da Atividade',v:'Em breve todas as atividades terão breves resumos do que é executado',raw:false,cls:'full activity-modal-description'}
  ];
- document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');
- document.getElementById('activityTableBody').innerHTML=rows.length?rows.map(x=>'<tr><td><div class="activity-platform">'+activityPlatformLogo(x.execucao)+'</div></td><td class="activity-table-title">'+escapeHtml(x.atividade)+'</td><td>'+activitySectorTag(x.setor)+'</td><td><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span></td><td><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></td><td><span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span></td><td>'+teamPersonHTML(x.responsavel,false)+'</td></tr>').join(''):'<tr><td colspan="7"><div class="empty-state">Nenhuma atividade encontrada.</div></td></tr>';
- document.getElementById('activitiesByArea').innerHTML=rankHTML(rows,'area',activityAreaColors,false,true);
- document.getElementById('activitiesBySubarea').innerHTML=rankHTML(rows,'subarea',activitySubareaColors,false,true);
- const ownerColors=Object.fromEntries(activityUnique(rows.map(x=>x.responsavel)).map((n,i)=>[n,activityPalette[i%activityPalette.length]]));
- document.getElementById('activitiesByOwner').innerHTML=rankHTML(rows,'responsavel',ownerColors,true);
+ document.getElementById('activityModalBody').innerHTML=fields.map(f=>'<div class="activity-modal-field '+(f.cls||'')+'"><div class="activity-modal-label">'+escapeHtml(f.l)+'</div><div class="activity-modal-value">'+(f.raw?f.v:escapeHtml(f.v))+'</div></div>').join('');
+ document.getElementById('activityModal').classList.add('open');document.body.style.overflow='hidden';
 }
-function setActivityRoutine(value){activeActivityRoutine=activeActivityRoutine===value?'':value;document.getElementById('activityRoutineDaily').classList.toggle('active',activeActivityRoutine==='Diário');document.getElementById('activityRoutinePeriodic').classList.toggle('active',activeActivityRoutine==='Periódico');renderActivities();}
+function closeActivityModal(){document.getElementById('activityModal').classList.remove('open');document.body.style.overflow='';}
+function renderActivities(){
+ const rows=filteredActivities();const daily=rows.filter(x=>/di[aá]ri/i.test(x.rotina)).length;const periodic=rows.filter(x=>/peri[oó]dic/i.test(x.rotina)).length;const sectorCounts={COM:0,SAC:0,LOG:0};rows.forEach(x=>{if(sectorCounts[x.setor]!==undefined)sectorCounts[x.setor]++;});document.getElementById('activitiesResultCount').textContent=rows.length+' de '+activityRows.length+' atividades exibidas';
+ const totalAreas=new Set(activityRows.map(x=>x.area)).size,totalSubs=new Set(activityRows.map(x=>x.subarea)).size,totalOwners=new Set(activityRows.map(x=>x.responsavel)).size,totalSectors=new Set(activityRows.map(x=>x.setor)).size;
+ const currentAreas=new Set(rows.map(x=>x.area)).size,currentSubs=new Set(rows.map(x=>x.subarea)).size,currentOwners=new Set(rows.map(x=>x.responsavel)).size,currentSectors=new Set(rows.map(x=>x.setor)).size;
+ const sectorSub='<span class="activity-sector-kpi-list"><span class="activity-sector-kpi-item">'+activitySectorTag('COM')+' '+sectorCounts.COM+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('SAC')+' '+sectorCounts.SAC+'</span><span class="activity-sector-kpi-item">'+activitySectorTag('LOG')+' '+sectorCounts.LOG+'</span></span>';
+ const k=[{label:'Total de Atividades',value:rows.length,sub:(rows.length===activityRows.length?'base completa':rows.length+' de '+activityRows.length+' atividades')+' • <strong>'+daily+'</strong> diárias • <strong>'+periodic+'</strong> periódicas',cls:'blue'},{label:'Áreas',value:currentAreas,sub:smartCount(currentAreas,totalAreas,'áreas'),cls:'green'},{label:'Sub-áreas',value:currentSubs,sub:smartCount(currentSubs,totalSubs,'sub-áreas'),cls:'orange'},{label:'Responsáveis',value:currentOwners,sub:smartCount(currentOwners,totalOwners,'responsáveis'),cls:'purple'},{label:'Setores',value:currentSectors,sub:(currentSectors===totalSectors?'Todos os setores':'Setores filtrados')+sectorSub,cls:'red'}];
+ document.getElementById('activitiesKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x.cls+'"><div class="kpi-label">'+x.label+'</div><div class="kpi-value">'+x.value+'</div><div class="kpi-sub">'+x.sub+'</div></div>').join('');
+ document.getElementById('activityTableBody').innerHTML=rows.length?rows.map(x=>'<tr class="activity-clickable" data-activity-id="'+x.id+'" title="Clique para ver os detalhes"><td><div class="activity-platform">'+activityPlatformLogo(x.execucao)+'</div></td><td class="activity-table-title">'+escapeHtml(x.atividade)+'</td><td>'+activitySectorTag(x.setor)+'</td><td><span class="activity-tag" style="background:'+(activityAreaColors[x.area]||'#2563eb')+'20;color:'+(activityAreaColors[x.area]||'#2563eb')+'">'+escapeHtml(x.area)+'</span></td><td><span class="activity-tag" style="background:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'20;color:'+(activitySubareaColors[x.subarea]||'#7c3aed')+'">'+escapeHtml(x.subarea)+'</span></td><td><span class="activity-tag" style="background:'+(activityRoutineColors[x.rotina]||'#0891b2')+'20;color:'+(activityRoutineColors[x.rotina]||'#0891b2')+'">'+escapeHtml(x.rotina)+'</span></td><td>'+teamPersonHTML(x.responsavel,false)+'</td></tr>').join(''):'<tr><td colspan="7"><div class="empty-state">Nenhuma atividade encontrada.</div></td></tr>';
+ document.querySelectorAll('[data-activity-id]').forEach(row=>row.addEventListener('click',()=>showActivityModal(row.dataset.activityId)));
+ document.getElementById('activitiesBySubarea').innerHTML=rankHTML(filteredActivities({exclude:'subarea'}),'subarea',activitySubareaColors,false,true);bindActivityRankFilters();renderActivityCharts();renderActivityChips();renderActivityOwnerButtons();document.getElementById('activityRoutineDaily').classList.toggle('active',activeActivityRoutine==='Diário');document.getElementById('activityRoutinePeriodic').classList.toggle('active',activeActivityRoutine==='Periódico');document.getElementById('activitySearchClear').classList.toggle('visible',!!activitySearchQuery);
+}
+function setActivityRoutine(value){activeActivityRoutine=activeActivityRoutine===value?'':value;renderActivities();}
 function initActivities(){
- fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');
- fillActivitySelect('activityFilterSector',activityRows.map(x=>x.setor),'Todos os setores');
- fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');
- fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');
- renderActivityOwnerButtons();
- ['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));
- document.getElementById('activityRoutineDaily').addEventListener('click',()=>setActivityRoutine('Diário'));
- document.getElementById('activityRoutinePeriodic').addEventListener('click',()=>setActivityRoutine('Periódico'));
- document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).value='');activeActivityOwner='';activeActivityRoutine='';renderActivityOwnerButtons();document.getElementById('activityRoutineDaily').classList.remove('active');document.getElementById('activityRoutinePeriodic').classList.remove('active');renderActivities();});
- renderActivities();
+ fillActivitySelect('activityFilterExecution',activityRows.map(x=>x.execucao),'Todas as execuções');fillActivitySelect('activityFilterSector',activityRows.map(x=>x.setor),'Todos os setores');fillActivitySelect('activityFilterArea',activityRows.map(x=>x.area),'Todas as áreas');fillActivitySelect('activityFilterSubarea',activityRows.map(x=>x.subarea),'Todas as sub-áreas');renderActivityOwnerButtons();
+ ['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).addEventListener('change',renderActivities));document.getElementById('activityRoutineDaily').addEventListener('click',()=>setActivityRoutine('Diário'));document.getElementById('activityRoutinePeriodic').addEventListener('click',()=>setActivityRoutine('Periódico'));
+ let searchTimer;document.getElementById('activitySearch').addEventListener('input',e=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{activitySearchQuery=e.target.value.trim();renderActivities();},120);});document.getElementById('activitySearchClear').addEventListener('click',()=>{activitySearchQuery='';document.getElementById('activitySearch').value='';renderActivities();});
+ document.getElementById('clearActivityFilters').addEventListener('click',()=>{['activityFilterExecution','activityFilterSector','activityFilterArea','activityFilterSubarea'].forEach(id=>document.getElementById(id).value='');activeActivityOwner='';activeActivityRoutine='';activitySearchQuery='';document.getElementById('activitySearch').value='';renderActivities();});
+ document.getElementById('activityModalClose').addEventListener('click',closeActivityModal);document.getElementById('activityModal').addEventListener('click',e=>{if(e.target.id==='activityModal')closeActivityModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeActivityModal();});window.addEventListener('resize',()=>{clearTimeout(window.activityChartResizeTimer);window.activityChartResizeTimer=setTimeout(renderActivityCharts,120);});renderActivities();
 }
 initActivities();
 </script>
