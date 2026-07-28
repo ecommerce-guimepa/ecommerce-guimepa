@@ -816,6 +816,43 @@
 
   @media(max-width:760px){.header{padding:11px 12px;gap:8px}.header-right{gap:6px}.header .date-badge{display:none}.header-tool-btn{width:38px;padding:0;justify-content:center}.header-tool-btn .tool-label{display:none}.skeleton-layer{top:95px;padding:14px 10px}.skeleton-grid{grid-template-columns:repeat(2,1fr)}.skeleton-block{height:90px}.global-search-overlay{padding:3vh 8px 8px}.global-search-panel{max-height:94vh;border-radius:14px}.global-search-item{flex-direction:column;gap:5px}}
 
+  /* Parceiros */
+  .partners-main{max-width:1480px;margin:0 auto;padding:22px 24px 40px}
+  .partners-hero{padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;box-shadow:0 12px 30px rgba(15,23,42,.14);margin-bottom:16px}
+  .partners-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#93c5fd;margin-bottom:6px}
+  .partners-hero h2{font-size:28px;line-height:1.1;margin:0 0 6px}.partners-hero p{margin:0;color:#cbd5e1;font-size:13px}
+  .partners-tabs{display:flex;gap:8px;padding:8px;background:#fff;border:1px solid var(--border);border-radius:13px;margin-bottom:14px;box-shadow:0 3px 12px rgba(15,23,42,.05)}
+  .partners-subtab{flex:0 0 auto;min-height:40px;padding:8px 16px;border:1px solid transparent;border-radius:9px;background:transparent;color:var(--muted);font:800 12px 'Inter',sans-serif;cursor:pointer}
+  .partners-subtab:hover{background:#f8fafc;color:var(--accent-dark)}.partners-subtab.active{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8}
+  .partners-subpanel{display:none}.partners-subpanel.active{display:block;animation:panelReveal .22s ease both}
+  .carrier-filter-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding:12px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:15px;box-shadow:0 4px 14px rgba(15,23,42,.05)}
+  .carrier-filter-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;flex:1;min-width:0}
+  .carrier-logo-filter{height:58px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;padding:7px;cursor:pointer;transition:.18s}
+  .carrier-logo-filter:hover{border-color:#93c5fd;box-shadow:0 5px 14px rgba(37,99,235,.10);transform:translateY(-1px)}
+  .carrier-logo-filter.active{border:2px solid #2563eb;background:#eff6ff;box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+  .carrier-logo-filter img{max-width:100%;max-height:40px;object-fit:contain}.carrier-filter-clear{white-space:nowrap}
+  .carrier-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+  .carrier-card{height:100%;display:flex;flex-direction:column;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(15,23,42,.06);transition:.18s}
+  .carrier-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.10);border-color:#bfdbfe}
+  .carrier-card-head{min-height:106px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #eef2f7;background:linear-gradient(180deg,#fff,#f8fafc)}
+  .carrier-logo-box{height:72px;flex:1;display:flex;align-items:center;justify-content:flex-start;min-width:0}.carrier-logo-box img{max-width:190px;max-height:62px;object-fit:contain;object-position:left center}
+  .carrier-name{font-size:11px;font-weight:850;color:#64748b;text-transform:uppercase;letter-spacing:.07em;text-align:right;max-width:125px;line-height:1.3}
+  .carrier-card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .carrier-highlight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .carrier-highlight{padding:9px 10px;border-radius:10px;background:#eff6ff;border:1px solid #dbeafe;min-width:0}
+  .carrier-highlight span,.carrier-field-label{display:block;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:#64748b;margin-bottom:4px}
+  .carrier-highlight strong{display:block;font-size:12px;color:#1e3a8a;overflow-wrap:anywhere}
+  .carrier-section{padding-top:10px;border-top:1px solid #eef2f7}.carrier-section-title{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:#1d4ed8;margin-bottom:8px}
+  .carrier-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 12px}.carrier-field{min-width:0}.carrier-field-value{font-size:11px;line-height:1.42;color:#334155;overflow-wrap:anywhere}.carrier-field-value.missing{color:#94a3b8;font-style:italic}
+  .carrier-important{padding:10px 11px;border-radius:10px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:11px;line-height:1.45}.carrier-important strong{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .partners-placeholder{padding:50px 24px;text-align:center;background:#fff;border:1px dashed #cbd5e1;border-radius:15px;color:#64748b}.partners-placeholder strong{display:block;color:#334155;font-size:16px;margin-bottom:7px}
+  .carrier-empty{padding:40px;text-align:center;color:var(--muted);background:#fff;border:1px solid var(--border);border-radius:14px;grid-column:1/-1}
+  @media(max-width:1150px){.carrier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.carrier-filter-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  @media(max-width:720px){.partners-main{padding:14px 10px 28px}.partners-hero{padding:18px}.partners-hero h2{font-size:23px}.partners-tabs{overflow-x:auto}.carrier-filter-bar{align-items:stretch;flex-direction:column}.carrier-filter-grid{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}.carrier-logo-filter{height:52px}.carrier-filter-clear{width:100%;min-height:42px}.carrier-grid{grid-template-columns:1fr}.carrier-card-head{min-height:94px}.carrier-logo-box img{max-width:165px;max-height:55px}.carrier-fields{grid-template-columns:1fr}.carrier-highlight-grid{grid-template-columns:1fr 1fr}}
+
+  .carrier-logo-fallback,.carrier-filter-fallback{display:none;align-items:center;justify-content:center;text-align:center;font-size:10px;font-weight:850;color:#334155;line-height:1.15;padding:4px;}
+  .carrier-logo-fallback{width:100%;height:100%;font-size:14px;color:#1e3a5f;}
+
 </style>
 </head>
 <body>
@@ -838,6 +875,7 @@
   <button class="portal-tab" data-dashboard="lotes">Publicações</button>
   <button class="portal-tab" data-dashboard="campanhas">Campanhas</button>
   <button class="portal-tab" data-dashboard="crossdocking">Cross Docking</button>
+  <button class="portal-tab" data-dashboard="parceiros">Parceiros</button>
 </nav>
 
 <section id="dashboard-lotes" class="dashboard-panel">
@@ -1036,6 +1074,24 @@
   </div>
 </section>
 
+
+<section id="dashboard-parceiros" class="dashboard-panel">
+  <div class="partners-main">
+    <div class="partners-hero"><div class="partners-eyebrow">Rede operacional</div><h2>Parceiros</h2><p>Informações consolidadas de fornecedores e transportadoras.</p></div>
+    <div class="partners-tabs" role="tablist" aria-label="Tipos de parceiros">
+      <button class="partners-subtab active" type="button" data-partners-tab="transportadoras" role="tab" aria-selected="true">Transportadoras</button>
+      <button class="partners-subtab" type="button" data-partners-tab="fornecedores" role="tab" aria-selected="false">Fornecedores</button>
+    </div>
+    <div class="partners-subpanel active" id="partners-panel-transportadoras" role="tabpanel">
+      <div class="carrier-filter-bar"><div class="carrier-filter-grid" id="carrierFilters" aria-label="Filtrar transportadoras pela logo"></div><button class="clear-btn carrier-filter-clear" id="clearCarrierFilters" type="button">Limpar filtros</button></div>
+      <div class="carrier-grid" id="carrierGrid"></div>
+    </div>
+    <div class="partners-subpanel" id="partners-panel-fornecedores" role="tabpanel">
+      <div class="partners-placeholder"><strong>Fornecedores</strong>Esta área está preparada para receber as informações dos fornecedores na próxima etapa.</div>
+    </div>
+  </div>
+</section>
+
 <div class="marketplace-links-modal" id="marketplaceLinksModal" role="dialog" aria-modal="true" aria-labelledby="marketplaceLinksTitle">
   <div class="marketplace-links-card">
     <div class="marketplace-links-header">
@@ -1053,6 +1109,35 @@
   </div>
 </div>
 
+
+
+<script src="transportadoras-data.js"></script>
+<script>
+(function(){
+  const dataSet=(typeof transportadorasData!=='undefined'&&Array.isArray(transportadorasData))?transportadorasData:[];
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const value=v=>v===null||v===undefined||String(v).trim()===''?'Não informado':String(v).trim();
+  let activeCarrier='';
+  const logoPath=item=>'logos-transportes/'+encodeURI(String(item.image||'').split(/[\\/]/).pop());
+  function field(label,val){const missing=val===null||val===undefined||String(val).trim()==='';return '<div class="carrier-field"><span class="carrier-field-label">'+esc(label)+'</span><div class="carrier-field-value'+(missing?' missing':'')+'">'+esc(missing?'Não informado':val)+'</div></div>';}
+  function carrierCard(item){
+    const important=item.importante?'<div class="carrier-important"><strong>Importante</strong>'+esc(item.importante)+'</div>':'';
+    return '<article class="carrier-card"><div class="carrier-card-head"><div class="carrier-logo-box"><img loading="lazy" decoding="async" src="'+logoPath(item)+'" alt="'+esc(item.transportadora)+'" onerror="this.style.display=\'none\'"></div><div class="carrier-name">'+esc(item.transportadora)+'</div></div><div class="carrier-card-body"><div class="carrier-highlight-grid"><div class="carrier-highlight"><span>Regiões atendidas</span><strong>'+esc(value(item.regioesAtendidas))+'</strong></div><div class="carrier-highlight"><span>Perfil de transporte</span><strong>'+esc(value(item.perfilTransporte))+'</strong></div><div class="carrier-highlight"><span>Fator de cubagem</span><strong>'+esc(value(item.fatorCubagem))+'</strong></div><div class="carrier-highlight"><span>ID Hardness</span><strong>'+esc(value(item.idHardness))+'</strong></div></div>'+important+'<section class="carrier-section"><div class="carrier-section-title">Operação</div><div class="carrier-fields">'+field('Envia XML',item.enviaXml)+field('Soma dos lados',item.somaLados)+field('Acréscimo Intelipost',item.acrescimoIntelipost)+field('Reentrega',item.reentrega)+'</div></section><section class="carrier-section"><div class="carrier-section-title">Contatos</div><div class="carrier-fields">'+field('Executivo da conta',item.executivoConta)+field('Celular',item.celular)+field('E-mail comercial',item.emailComercial)+field('Atendimento auxiliar',item.atendimentoAuxiliar)+field('E-mail auxiliar',item.emailAuxiliar)+'</div></section><section class="carrier-section"><div class="carrier-section-title">Reversa e ressarcimento</div><div class="carrier-fields">'+field('Regras de reversa',item.regrasReversa)+field('Política de ressarcimento',item.politicaRessarcimento)+'</div></section></div></article>';
+  }
+  function carrierGroupKey(item){return String(item.image||'').trim().toLocaleLowerCase('pt-BR')||String(item.transportadora||'').trim().toLocaleLowerCase('pt-BR');}
+  function renderFilters(){
+    const host=document.getElementById('carrierFilters');if(!host)return;
+    const groups=[];const seen=new Set();
+    dataSet.forEach(item=>{const key=carrierGroupKey(item);if(seen.has(key))return;seen.add(key);groups.push({key,item,members:dataSet.filter(x=>carrierGroupKey(x)===key)});});
+    host.innerHTML=groups.map(group=>{const names=group.members.map(x=>x.transportadora).join(' / ');return '<button class="carrier-logo-filter'+(activeCarrier===group.key?' active':'')+'" type="button" data-carrier-group="'+esc(group.key)+'" title="'+esc(names)+'" aria-label="Filtrar por '+esc(names)+'"><img loading="lazy" decoding="async" src="'+logoPath(group.item)+'" alt="'+esc(names)+'" onerror="this.closest(\'button\').style.display=\'none\'"></button>';}).join('');
+    host.querySelectorAll('[data-carrier-group]').forEach(btn=>btn.addEventListener('click',()=>{activeCarrier=activeCarrier===btn.dataset.carrierGroup?'':btn.dataset.carrierGroup;render();}));
+  }
+  function equalize(){const cards=[...document.querySelectorAll('#carrierGrid .carrier-card')];cards.forEach(c=>c.style.minHeight='0');if(cards.length<2||window.innerWidth<720)return;const max=Math.max(...cards.map(c=>c.offsetHeight));cards.forEach(c=>c.style.minHeight=max+'px');}
+  function render(){const rows=activeCarrier?dataSet.filter(x=>carrierGroupKey(x)===activeCarrier):dataSet;const grid=document.getElementById('carrierGrid');if(!grid)return;grid.innerHTML=rows.length?rows.map(carrierCard).join(''):'<div class="carrier-empty">Nenhuma transportadora encontrada.</div>';renderFilters();requestAnimationFrame(equalize);}
+  function init(){document.querySelectorAll('[data-partners-tab]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-partners-tab]').forEach(x=>{x.classList.toggle('active',x===btn);x.setAttribute('aria-selected',x===btn?'true':'false')});document.querySelectorAll('.partners-subpanel').forEach(p=>p.classList.toggle('active',p.id==='partners-panel-'+btn.dataset.partnersTab));}));const clear=document.getElementById('clearCarrierFilters');if(clear)clear.addEventListener('click',()=>{activeCarrier='';render()});render();let timer;window.addEventListener('resize',()=>{clearTimeout(timer);timer=setTimeout(equalize,120)});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 
 <div class="global-search-overlay" id="globalSearchOverlay" role="dialog" aria-modal="true" aria-labelledby="globalSearchTitle">
   <div class="global-search-panel">
@@ -1378,7 +1463,8 @@ portalTabs.forEach(tab => tab.addEventListener('click', () => {
     marketplaces: 'Portal E-commerce Guimepa — Marketplaces',
     atividades: 'Portal E-commerce Guimepa — Atividades',
     campanhas: 'Portal E-commerce Guimepa — Campanhas',
-    crossdocking: 'Portal E-commerce Guimepa — Cross Docking'
+    crossdocking: 'Portal E-commerce Guimepa — Cross Docking',
+    parceiros: 'Portal E-commerce Guimepa — Parceiros'
   };
   document.querySelector('.header h1').textContent = dashboardTitles[tab.dataset.dashboard] || 'Portal E-commerce Guimepa';
 }));
@@ -2011,6 +2097,7 @@ initCampaigns();
     try{(window.data||data||[]).forEach(x=>add(out,'Publicações',x.forn||x.fornecedor||x.nome,[x.resp,x.prod,x.prioridade].filter(Boolean).join(' • '),'lotes',Object.values(x).join(' ')))}catch(e){}
     try{(window.campanhasData||campanhasData||[]).forEach(x=>add(out,'Campanhas',x.nome||x.campanha||x.titulo,[x.marketplace,x.tipo,x.desconto].filter(Boolean).join(' • '),'campanhas',Object.values(x).join(' ')))}catch(e){}
     try{(window.crossDockingData||crossDockingData||[]).forEach(x=>add(out,'Cross Docking',x.fornecedor||x.nome||x.supplier,'Fornecedor e regras de postagem','crossdocking',JSON.stringify(x)))}catch(e){}
+    try{(window.transportadorasData||transportadorasData||[]).forEach(x=>add(out,'Parceiros · Transportadoras',x.transportadora,'Transportadora • '+(x.regioesAtendidas||''),'parceiros',JSON.stringify(x)))}catch(e){}
     return out.filter(x=>x.title);
   }
   let searchIndex=null;
