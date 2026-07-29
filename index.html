@@ -123,6 +123,8 @@
   /* Gantt */
   .gantt-cell-active { background: var(--green); border-radius: 4px; display: inline-block; width: 22px; height: 22px; }
   .gantt-cell-waiting { background: var(--orange); border-radius: 4px; display: inline-block; width: 22px; height: 22px; }
+  .gantt-cell-survey { background: #eab308; border-radius: 4px; display: inline-block; width: 22px; height: 22px; }
+  .supplier-detail-tag { display:inline-flex; align-items:center; justify-content:center; max-width:116px; margin-top:3px; padding:2px 7px; border-radius:999px; background:#f1f5f9; color:#64748b; border:1px solid #e2e8f0; font-size:9px; font-weight:700; line-height:1.15; white-space:normal; text-align:center; }
   table.combined .gantt-col { text-align: center; min-width: 32px; max-width: 38px; padding: 5px 2px !important; }
 
   .month-header { font-size: 11px !important; letter-spacing: 0.8px; border-bottom: 2px solid var(--accent) !important; font-weight: 700 !important; color: var(--accent-dark) !important; }
@@ -266,7 +268,7 @@
     table.combined thead th { padding:7px 5px; font-size:9px; }
     table.combined tbody td { padding:5px 4px; }
     .logo-cell img { height:24px; width:64px; }
-    .gantt-cell-active,.gantt-cell-waiting { width:18px; height:18px; }
+    .gantt-cell-active,.gantt-cell-waiting,.gantt-cell-survey { width:18px; height:18px; }
 
     .actions-toolbar { grid-template-columns:1fr 1fr; gap:8px; padding:11px; }
     .filter-field label { font-size:9px; }
@@ -973,6 +975,7 @@
       <div class="legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div><span class="legend-label">Em Produção</span></div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div><span class="legend-label">Próximo</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#eab308;"></div><span class="legend-label">Levantamento</span></div>
       </div>
     </div>
     <div class="gantt-toolbar">
@@ -1395,8 +1398,8 @@ htmlRK += '</table>';
 document.getElementById('summaryRK').innerHTML = htmlRK;
 
 // Combined Table + Gantt
-const publicationStatusOrder = { 'sim':1, 'próximo':2, 'espera':3, 'indefinido':4 };
-const publicationRows = data.map((item,index)=>({...item,_originalIndex:index})).sort((a,b)=>(publicationStatusOrder[a.prod]||99)-(publicationStatusOrder[b.prod]||99)||a.rk-b.rk||String(a.fornecedor).localeCompare(String(b.fornecedor),'pt-BR'));
+// A ordem do Gantt segue exatamente a sequência da planilha.
+const publicationRows = data.map((item,index)=>({...item,_originalIndex:index}));
 let html = '<table class="combined"><thead>';
 html += '<tr>';
 html += '<th colspan="10" style="text-align:left;padding-left:14px;">Dados do Fornecedor</th>';
@@ -1431,7 +1434,8 @@ publicationRows.forEach((d) => {
     : '<span class="forn-name">' + d.fornecedor + '</span>';
 
   html += '<tr' + rowCls + ' data-prod="' + d.prod + '" data-resp="' + String(d.resp||'').replace(/"/g,'&quot;') + '">';
-  html += '<td><div class="logo-cell">' + logoHTML + '</div></td>';
+  const detailTag = d.detalhe ? '<span class="supplier-detail-tag">' + String(d.detalhe).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#039;"}[ch])) + '</span>' : '';
+  html += '<td><div class="logo-cell">' + logoHTML + detailTag + '</div></td>';
   html += '<td><span class="badge badge-' + statusCls + '">' + d.status + '</span></td>';
   html += '<td>' + d.lote + '</td>';
   html += '<td><span class="badge badge-' + d.prod + '">' + d.prod + '</span></td>';
@@ -1448,7 +1452,7 @@ publicationRows.forEach((d) => {
       const cell = schedule ? schedule.cells.find(c => c.w === key) : null;
       const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
       if (cell) {
-        const cls = cell.t === 'active' ? 'gantt-cell-active' : 'gantt-cell-waiting';
+        const cls = cell.t === 'active' ? 'gantt-cell-active' : cell.t === 'survey' ? 'gantt-cell-survey' : 'gantt-cell-waiting';
         html += '<td class="gantt-col' + sep + '"><div class="' + cls + '"></div></td>';
       } else {
         html += '<td class="gantt-col' + sep + '"></td>';
