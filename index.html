@@ -1320,7 +1320,7 @@ function teamPersonHTML(name, small=false){
 const totalProdutos = data.reduce((s,d) => s + d.produzir, 0);
 const totalProduzindo = data.filter(d => d.prod === 'sim').length;
 const totalEspera = data.filter(d => d.prod === 'próximo' || d.prod === 'espera').length;
-const totalIndefinido = data.filter(d => d.prod === 'indefinido').length;
+const totalUnidadesProducao = data.reduce((s,d) => s + (Number(d.producao) || 0), 0);
 const totalFornecedores = data.length;
 const totalComResp = data.filter(d => d.resp !== 's/ resp.').length;
 
@@ -1328,7 +1328,7 @@ const kpis = [
   { label: 'Total de Fornecedores', value: totalFornecedores, sub: totalComResp + ' com responsável designado', cls: 'blue' },
   { label: 'Em Produção', value: totalProduzindo, sub: 'publicando agora', cls: 'green' },
   { label: 'Próximo / Espera', value: totalEspera, sub: 'aguardando publicar', cls: 'orange' },
-  { label: 'Indefinido', value: totalIndefinido, sub: 'sem cronograma', cls: 'red' },
+  { label: 'Unidades em Produção', value: fmt(totalUnidadesProducao), sub: 'unidades em produção', cls: 'red' },
   { label: 'Total a Produzir', value: fmt(totalProdutos), sub: 'unidades', cls: 'purple' },
 ];
 document.getElementById('kpiRow').innerHTML = kpis.map(k =>
@@ -1496,13 +1496,13 @@ function renderPublicationKpis(rows){
   const totalProdutos=rows.reduce((s,d)=>s+d.produzir,0);
   const totalProduzindo=rows.filter(d=>d.prod==='sim').length;
   const totalEspera=rows.filter(d=>d.prod==='próximo'||d.prod==='espera').length;
-  const totalIndefinido=rows.filter(d=>d.prod==='indefinido').length;
+  const totalUnidadesProducao=rows.reduce((s,d)=>s+(Number(d.producao)||0),0);
   const totalComResp=rows.filter(d=>d.resp!=='s/ resp.').length;
   const cards=[
     {label:'Total de Fornecedores',value:rows.length,sub:totalComResp+' com responsável designado',cls:'blue'},
     {label:'Em Produção',value:totalProduzindo,sub:'publicando agora',cls:'green'},
     {label:'Próximo / Espera',value:totalEspera,sub:'aguardando publicar',cls:'orange'},
-    {label:'Indefinido',value:totalIndefinido,sub:'sem cronograma',cls:'red'},
+    {label:'Unidades em Produção',value:fmt(totalUnidadesProducao),sub:'unidades no recorte atual',cls:'red'},
     {label:'Total a Produzir',value:fmt(totalProdutos),sub:'unidades no recorte atual',cls:'purple'}
   ];
   document.getElementById('kpiRow').innerHTML=cards.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+k.sub+'</div></div>').join('');
