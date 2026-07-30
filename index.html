@@ -566,6 +566,30 @@
   }
 
 
+
+  /* Suporte TI: filtros compactos em uma unica linha */
+  #activities-panel-suporte-ti .activities-filters{
+    display:grid;
+    grid-template-columns:minmax(190px,.9fr) minmax(190px,.9fr) minmax(560px,2.7fr) auto;
+    grid-template-areas:"supportType supportSector supportOwners supportClear";
+    align-items:end;
+    gap:12px 14px;
+  }
+  #activities-panel-suporte-ti .activities-filters > .filter-field:nth-child(1){grid-area:supportType;}
+  #activities-panel-suporte-ti .activities-filters > .filter-field:nth-child(2){grid-area:supportSector;}
+  #activities-panel-suporte-ti .support-ti-owner-filter{grid-area:supportOwners;display:flex;flex-direction:column;min-width:0;}
+  #activities-panel-suporte-ti #clearSupportTiFilters{grid-area:supportClear;align-self:end;min-height:40px;padding:8px 16px;white-space:nowrap;}
+  #activities-panel-suporte-ti .support-ti-owner-filter .activity-owner-buttons{min-height:40px;align-content:center;}
+  .support-ti-person.no-avatar{gap:0;}
+  .support-ti-person-btn.no-avatar{padding-left:12px;}
+  @media(max-width:1250px){
+    #activities-panel-suporte-ti .activities-filters{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"supportType supportSector" "supportOwners supportOwners" "supportClear supportClear";}
+    #activities-panel-suporte-ti #clearSupportTiFilters{justify-self:start;}
+  }
+  @media(max-width:720px){
+    #activities-panel-suporte-ti .activities-filters{grid-template-columns:1fr;grid-template-areas:"supportType" "supportSector" "supportOwners" "supportClear";}
+  }
+
   /* Campaigns dashboard */
   .campaigns-main{max-width:1500px;margin:0 auto;padding:18px 20px 40px;}
   .campaign-kpi-grid{display:grid;grid-template-columns:1.1fr 2fr 1.2fr;gap:14px;margin-bottom:16px;}
@@ -927,6 +951,28 @@
   /* Intelipost como terceira aba de Parceiros */
   #partners-panel-intelipost .intelipost-main{padding:0;max-width:none;margin:0;}
   #partners-panel-intelipost .intelipost-hero{margin-top:0;}
+
+.activities-subtabs{display:flex;gap:8px;margin:0 0 16px;padding:6px;background:#eef4fb;border:1px solid #dbe7f4;border-radius:14px;width:max-content}.activities-subtab{border:0;background:transparent;color:#52677d;font-weight:800;padding:10px 18px;border-radius:10px;cursor:pointer}.activities-subtab.active{background:#fff;color:#0f5fa8;box-shadow:0 2px 10px rgba(28,78,121,.12)}.activities-subpanel{display:none}.activities-subpanel.active{display:block}.support-ti-hero{background:linear-gradient(135deg,#3f78a7,#5f91b8);color:#fff;border-radius:16px;padding:20px 24px;margin-bottom:16px;box-shadow:0 8px 24px rgba(45,91,128,.14)}.support-ti-eyebrow{text-transform:uppercase;letter-spacing:.11em;font-size:11px;font-weight:800;opacity:.78}.support-ti-hero h2{margin:5px 0 3px;font-size:26px}.support-ti-hero p{margin:0;opacity:.9}.support-ti-badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:#eaf4ff;color:#0f5fa8;font-size:11px;font-weight:800}.support-ti-person{display:flex;align-items:center;gap:8px;font-weight:700}.support-ti-avatar{width:28px;height:28px;border-radius:50%;background:#e8eef5;color:#35546e;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}.support-ti-observation{white-space:pre-wrap}.support-ti-overview .activity-ranking{max-height:260px;overflow:auto}@media(max-width:900px){.activities-subtabs{width:100%}.activities-subtab{flex:1}.support-ti-overview{grid-template-columns:1fr!important}}
+
+/* Suporte TI alinhado ao layout de Atividades */
+.support-ti-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+.support-ti-owner-filter{grid-column:span 2;min-width:0}
+.support-ti-owner-filter .activity-owner-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.support-ti-person-btn{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:5px 11px 5px 6px;border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#334155;font:800 11px 'Inter',sans-serif;cursor:pointer;transition:.16s}
+.support-ti-person-btn:hover{border-color:#60a5fa;background:#f8fbff;transform:translateY(-1px)}
+.support-ti-person-btn.active{border-color:#2563eb;background:#eff6ff;color:#1d4ed8;box-shadow:0 0 0 3px rgba(37,99,235,.09)}
+.support-ti-person-btn img,.support-ti-person-img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid #dbeafe;background:#fff}
+.support-ti-person-btn .support-ti-avatar{width:28px;height:28px;flex:0 0 28px}
+.support-ti-filter-label{display:block;font-size:9px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:#64748b;margin-bottom:7px}
+.support-ti-backup-filter{grid-column:span 2;min-width:0}
+.support-ti-filter-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px}
+.support-ti-overview .activity-chart-legend{max-height:185px;overflow:auto}
+#activities-panel-suporte-ti .activity-chart-body{grid-template-columns:minmax(120px,.8fr) minmax(130px,1.2fr);gap:8px;align-items:center;padding:10px 12px;min-height:210px}
+#activities-panel-suporte-ti .activity-donut-wrap{max-width:175px}
+#activities-panel-suporte-ti #clearSupportTiFilters{justify-self:start;align-self:end;width:auto;min-width:118px;min-height:40px;padding:8px 14px;grid-column:auto}
+@media(max-width:1100px){.support-ti-owner-filter,.support-ti-backup-filter{grid-column:1/-1}#activities-panel-suporte-ti #clearSupportTiFilters{grid-column:auto}}
+@media(max-width:900px){.support-ti-overview{grid-template-columns:1fr}.support-ti-owner-filter,.support-ti-backup-filter{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -1073,6 +1119,11 @@
 
 <section id="dashboard-atividades" class="dashboard-panel">
   <div class="activities-main">
+    <div class="activities-subtabs" role="tablist" aria-label="Áreas de atividades">
+      <button class="activities-subtab active" type="button" data-activities-tab="ecommerce">E-commerce</button>
+      <button class="activities-subtab" type="button" data-activities-tab="suporte-ti">Suporte TI</button>
+    </div>
+    <div class="activities-subpanel active" id="activities-panel-ecommerce">
     <div class="kpi-row activity-summary-kpi" id="activitiesKpiRow"></div>
 
     <div class="activities-overview-row">
@@ -1104,9 +1155,34 @@
         </table>
       </div>
     </div>
+    </div>
+
+    <div class="activities-subpanel" id="activities-panel-suporte-ti">
+      <div class="kpi-row activity-summary-kpi" id="supportTiKpiRow"></div>
+      <div class="activities-overview-row support-ti-overview">
+        <div class="section activity-chart-card"><div class="section-header"><span class="section-title">Distribuição por Melhoria</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="supportTiTypeChart"></canvas><div class="activity-donut-center"><strong id="supportTiTypeTotal">0</strong><span>Itens</span></div></div><div class="activity-chart-legend" id="supportTiTypeLegend"></div></div></div>
+        <div class="section activity-chart-card"><div class="section-header"><span class="section-title">Distribuição por Responsável TI</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="supportTiOwnerChart"></canvas><div class="activity-donut-center"><strong id="supportTiOwnerTotal">0</strong><span>Itens</span></div></div><div class="activity-chart-legend" id="supportTiOwnerLegend"></div></div></div>
+        <div class="section activity-chart-card"><div class="section-header"><span class="section-title">Distribuição por Backup TI</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="supportTiBackupChart"></canvas><div class="activity-donut-center"><strong id="supportTiBackupTotal">0</strong><span>Itens</span></div></div><div class="activity-chart-legend" id="supportTiBackupLegend"></div></div></div>
+      </div>
+      <div class="section">
+        <div class="section-header"><span class="section-title">Painel de responsabilidades de TI</span><span id="supportTiResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span></div>
+        <div class="activity-search-panel"><div class="activity-search-wrap"><span class="activity-search-icon">⌕</span><input id="supportTiSearch" type="search" autocomplete="off" placeholder="Pesquisar por módulo, melhoria, responsável, backup ou observação..."><button class="activity-search-clear" id="supportTiSearchClear" type="button">×</button></div></div>
+        <div class="support-ti-filter-chips" id="supportTiFilterChips"></div>
+        <div class="activities-filters">
+          <div class="filter-field"><label>Melhoria</label><select id="supportTiFilterType"></select></div>
+          <div class="filter-field"><label>Responsável Setor</label><select id="supportTiFilterSectorOwner"></select></div>
+          <div class="support-ti-owner-filter"><span class="support-ti-filter-label">Responsáveis TI</span><div class="activity-owner-buttons" id="supportTiOwnerButtons"></div></div>
+          <button class="clear-btn" id="clearSupportTiFilters">Limpar filtros</button>
+        </div>
+        <div class="activity-table-wrap"><table class="activity-table"><thead><tr><th>Melhoria</th><th>Módulo / Setor</th><th>Responsável TI</th><th>Backup TI</th><th>Responsável Setor</th><th>Backup Setor</th></tr></thead><tbody id="supportTiTableBody"></tbody></table></div>
+      </div>
+    </div>
   </div>
 </section>
 
+<div class="activity-modal" id="supportTiModal" role="dialog" aria-modal="true">
+  <div class="activity-modal-card"><div class="activity-modal-header"><div class="activity-modal-title" id="supportTiModalTitle"></div><button class="activity-modal-close" id="supportTiModalClose" type="button">×</button></div><div class="activity-modal-body" id="supportTiModalBody"></div></div>
+</div>
 
 <section id="dashboard-campanhas" class="dashboard-panel">
   <div class="campaigns-main">
@@ -1298,6 +1374,7 @@
 <script src="marketplaces-data.js"></script>
 <script src="data.js"></script>
 <script src="atividades-data.js"></script>
+<script src="suporte-ti-data.js"></script>
 <script src="campanhas-data.js"></script>
 <script src="crossdocking-data.js"></script>
 <script>
@@ -2070,6 +2147,35 @@ function initActivities(){
 initActivities();
 </script>
 
+
+<script>
+// ============ SUB-ABAS ATIVIDADES E SUPORTE TI ============
+(function(){
+ const tabs=[...document.querySelectorAll('.activities-subtab')];
+ tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('.activities-subpanel').forEach(p=>p.classList.toggle('active',p.id==='activities-panel-'+btn.dataset.activitiesTab));if(btn.dataset.activitiesTab==='suporte-ti')renderSupportTi();}));
+})();
+const supportTiRows=(typeof suporteTiData!=='undefined'&&Array.isArray(suporteTiData)?suporteTiData:[]).map((x,i)=>({...x,id:i}));
+let supportTiSearch='',supportTiOwner='',supportTiBackup='';
+const supportColors=['#2563eb','#16a34a','#f59e0b','#7c3aed','#dc2626','#0891b2','#9333ea','#4f46e5','#0f766e','#be123c'];
+const supportTiPhotos={'LÉO':'logos-equipe/leo.png','LEO':'logos-equipe/leo.png','MATEUS':'logos-equipe/mateus.png','TARCÍSIO':'logos-equipe/tarcisio.png','TARCISIO':'logos-equipe/tarcisio.png','LUANA':'logos-equipe/luana.png','NILSA':'logos-equipe/nilsa.png','FERNANDO':'logos-equipe/fernando.png','GISLAINE':'logos-equipe/gislaine.png','EDUARDO':'logos-equipe/eduardo.png','BRUNO':'logos-equipe/bruno.png','JEAN':'logos-equipe/jean.png','LUCAS':'logos-equipe/lucas.png'};
+function supportEsc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function supportNorm(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();}
+function supportInitials(v){return String(v||'?').split(/\s+/).map(s=>s[0]).join('').slice(0,2).toUpperCase();}
+function supportFill(id,vals,label){const el=document.getElementById(id);if(!el)return;const current=el.value;el.innerHTML='<option value="">'+label+'</option>'+[...new Set(vals.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR')).map(v=>'<option>'+supportEsc(v)+'</option>').join('');el.value=current;}
+function supportFiltered(){const t=document.getElementById('supportTiFilterType')?.value||'',sector=document.getElementById('supportTiFilterSectorOwner')?.value||'';const q=supportNorm(supportTiSearch);return supportTiRows.filter(x=>(!t||x.melhoria===t)&&(!supportTiOwner||x.responsavelTi===supportTiOwner)&&(!supportTiBackup||x.backupTi===supportTiBackup)&&(!sector||x.responsavelSetor===sector)&&(!q||supportNorm(Object.values(x).join(' ')).includes(q)));}
+function supportCounts(rows,key){const m={};rows.forEach(x=>{const v=x[key]||'Não informado';m[v]=(m[v]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'pt-BR'));}
+function supportDrawDonut(canvasId,legendId,totalId,entries,filterKind){const canvas=document.getElementById(canvasId);if(!canvas)return;const dpr=window.devicePixelRatio||1,rect=canvas.getBoundingClientRect(),wrap=canvas.parentElement,available=rect.width||wrap.clientWidth||175,size=Math.max(100,Math.min(available,230));canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);canvas.style.width='100%';canvas.style.height='100%';const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,size,size);const total=entries.reduce((sum,x)=>sum+x[1],0),cx=size/2,cy=size/2,r=size*.43,inner=size*.255;let a=-Math.PI/2;entries.forEach((e,i)=>{const next=a+(e[1]/Math.max(total,1))*Math.PI*2;ctx.beginPath();ctx.arc(cx,cy,r,a,next);ctx.arc(cx,cy,inner,next,a,true);ctx.closePath();ctx.fillStyle=supportColors[i%supportColors.length];ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();a=next});document.getElementById(totalId).textContent=total;const active=filterKind==='type'?(document.getElementById('supportTiFilterType')?.value||''):filterKind==='owner'?supportTiOwner:supportTiBackup;document.getElementById(legendId).innerHTML=entries.map((e,i)=>{const person=(filterKind==='owner'||filterKind==='backup')?supportPerson(e[0]):supportEsc(e[0]);return '<button type="button" class="activity-chart-legend-btn '+(active===e[0]?'active':'')+'" data-support-kind="'+filterKind+'" data-support-value="'+supportEsc(e[0])+'"><span class="activity-chart-dot" style="background:'+supportColors[i%supportColors.length]+'"></span><span class="activity-chart-name" title="'+supportEsc(e[0])+'">'+person+'</span><span class="activity-chart-value">'+e[1]+' · '+(total?Math.round(e[1]/total*100):0)+'%</span></button>'}).join('');}
+function supportIsGenericOwner(v){return supportNorm(v)==='RESPONSAVEL DO SETOR';}
+function supportPhoto(v){if(supportIsGenericOwner(v))return '';const src=supportTiPhotos[String(v||'').toUpperCase()]||supportTiPhotos[supportNorm(v)];return src?'<img class="support-ti-person-img" src="'+src+'" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline-flex\'">':'';}
+function supportPerson(v){const generic=supportIsGenericOwner(v),has=!generic&&!!(supportTiPhotos[String(v||'').toUpperCase()]||supportTiPhotos[supportNorm(v)]);return '<div class="support-ti-person '+(generic?'no-avatar':'')+'">'+supportPhoto(v)+(generic?'':'<span class="support-ti-avatar" style="'+(has?'display:none':'')+'">'+supportInitials(v)+'</span>')+'<span>'+supportEsc(v||'Não informado')+'</span></div>';}
+function supportOwnerOrder(values){const preferred=['LÉO','LEO','MATEUS','RESPONSÁVEL DO SETOR','RESPONSAVEL DO SETOR','TARCÍSIO','TARCISIO'];return [...values].sort((a,b)=>{const na=supportNorm(a),nb=supportNorm(b);const ia=preferred.map(supportNorm).indexOf(na),ib=preferred.map(supportNorm).indexOf(nb);if(ia!==-1||ib!==-1)return (ia===-1?999:ia)-(ib===-1?999:ib);return a.localeCompare(b,'pt-BR')});}
+function supportPersonButtons(id,values,selected,kind){const el=document.getElementById(id);if(!el)return;el.innerHTML=values.map(v=>{const generic=supportIsGenericOwner(v),has=!generic&&!!(supportTiPhotos[String(v||'').toUpperCase()]||supportTiPhotos[supportNorm(v)]);return '<button type="button" class="support-ti-person-btn '+(generic?'no-avatar ':'')+(selected===v?'active':'')+'" data-support-person-kind="'+kind+'" data-support-person="'+supportEsc(v)+'">'+supportPhoto(v)+(generic?'':'<span class="support-ti-avatar" style="'+(has?'display:none':'')+'">'+supportInitials(v)+'</span>')+'<span>'+supportEsc(v)+'</span></button>'}).join('');}
+function supportShowModal(id){const x=supportTiRows.find(r=>r.id===Number(id));if(!x)return;document.getElementById('supportTiModalTitle').innerHTML='<span class="support-ti-badge">'+supportEsc(x.melhoria||'TI')+'</span> <span style="margin-left:8px">'+supportEsc(x.modulo)+'</span>';const f=[['Responsável TI',supportPerson(x.responsavelTi)],['Backup TI',supportPerson(x.backupTi)],['Responsável do Setor',supportPerson(x.responsavelSetor)],['Backup do Setor',supportPerson(x.backupSetor)],['Observações',supportEsc(x.observacoes||'Sem observações cadastradas')]];document.getElementById('supportTiModalBody').innerHTML=f.map((a,i)=>'<div class="activity-modal-field '+(i===4?'full support-ti-observation':'')+'"><div class="activity-modal-label">'+a[0]+'</div><div class="activity-modal-value">'+a[1]+'</div></div>').join('');document.getElementById('supportTiModal').classList.add('open');document.body.style.overflow='hidden';}
+function supportApply(kind,value){if(kind==='type'){const el=document.getElementById('supportTiFilterType');el.value=el.value===value?'':value}else if(kind==='owner'){supportTiOwner=supportTiOwner===value?'':value}else if(kind==='backup'){supportTiBackup=supportTiBackup===value?'':value}renderSupportTi();}
+function renderSupportTi(){const rows=supportFiltered(),types=supportCounts(rows,'melhoria'),owners=supportCounts(rows,'responsavelTi'),backupEntries=supportCounts(rows,'backupTi'),allOwners=supportOwnerOrder([...new Set(supportTiRows.map(x=>x.responsavelTi).filter(Boolean))]);document.getElementById('supportTiResultCount').textContent=rows.length+' de '+supportTiRows.length+' itens exibidos';const k=[['Total de Itens',rows.length,'base de responsabilidades','blue'],['Tipos de Melhoria',types.length,'categorias','green'],['Responsáveis TI',new Set(rows.map(x=>x.responsavelTi).filter(Boolean)).size,'responsáveis principais','purple'],['Backups TI',new Set(rows.map(x=>x.backupTi).filter(Boolean)).size,'backups cadastrados','orange'],['Responsáveis Setor',new Set(rows.map(x=>x.responsavelSetor).filter(Boolean)).size,'pontos de contato','red']];document.getElementById('supportTiKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x[3]+'"><div class="kpi-label">'+x[0]+'</div><div class="kpi-value">'+x[1]+'</div><div class="kpi-sub">'+x[2]+'</div></div>').join('');supportDrawDonut('supportTiTypeChart','supportTiTypeLegend','supportTiTypeTotal',types,'type');supportDrawDonut('supportTiOwnerChart','supportTiOwnerLegend','supportTiOwnerTotal',owners,'owner');supportDrawDonut('supportTiBackupChart','supportTiBackupLegend','supportTiBackupTotal',backupEntries,'backup');supportPersonButtons('supportTiOwnerButtons',allOwners,supportTiOwner,'owner');const chips=[];if(document.getElementById('supportTiFilterType')?.value)chips.push(['type',document.getElementById('supportTiFilterType').value]);if(supportTiOwner)chips.push(['owner','Responsável: '+supportTiOwner]);if(supportTiBackup)chips.push(['backup','Backup: '+supportTiBackup]);if(document.getElementById('supportTiFilterSectorOwner')?.value)chips.push(['sector','Setor: '+document.getElementById('supportTiFilterSectorOwner').value]);document.getElementById('supportTiFilterChips').innerHTML=chips.map(c=>'<button class="activity-filter-chip" type="button" data-support-remove="'+c[0]+'">'+supportEsc(c[1])+' ×</button>').join('');document.getElementById('supportTiTableBody').innerHTML=rows.length?rows.map(x=>'<tr class="activity-clickable" data-support-id="'+x.id+'"><td><span class="support-ti-badge">'+supportEsc(x.melhoria||'—')+'</span></td><td class="activity-table-title">'+supportEsc(x.modulo)+'</td><td>'+supportPerson(x.responsavelTi)+'</td><td>'+supportPerson(x.backupTi)+'</td><td>'+supportPerson(x.responsavelSetor)+'</td><td>'+supportPerson(x.backupSetor)+'</td></tr>').join(''):'<tr><td colspan="6"><div class="empty-state">Nenhum item encontrado.</div></td></tr>';document.querySelectorAll('[data-support-id]').forEach(r=>r.onclick=()=>supportShowModal(r.dataset.supportId));document.querySelectorAll('[data-support-kind]').forEach(b=>b.onclick=()=>supportApply(b.dataset.supportKind,b.dataset.supportValue));document.querySelectorAll('[data-support-person-kind]').forEach(b=>b.onclick=()=>supportApply(b.dataset.supportPersonKind,b.dataset.supportPerson));document.querySelectorAll('[data-support-remove]').forEach(b=>b.onclick=()=>{const k=b.dataset.supportRemove;if(k==='type')document.getElementById('supportTiFilterType').value='';if(k==='owner')supportTiOwner='';if(k==='backup')supportTiBackup='';if(k==='sector')document.getElementById('supportTiFilterSectorOwner').value='';renderSupportTi()});document.getElementById('supportTiSearchClear').classList.toggle('visible',!!supportTiSearch);}
+function initSupportTi(){supportFill('supportTiFilterType',supportTiRows.map(x=>x.melhoria),'Todos os tipos');supportFill('supportTiFilterSectorOwner',supportTiRows.map(x=>x.responsavelSetor),'Todos do setor');['supportTiFilterType','supportTiFilterSectorOwner'].forEach(id=>document.getElementById(id).addEventListener('change',renderSupportTi));let timer;document.getElementById('supportTiSearch').addEventListener('input',e=>{clearTimeout(timer);timer=setTimeout(()=>{supportTiSearch=e.target.value.trim();renderSupportTi()},120)});document.getElementById('supportTiSearchClear').onclick=()=>{supportTiSearch='';document.getElementById('supportTiSearch').value='';renderSupportTi()};document.getElementById('clearSupportTiFilters').onclick=()=>{document.getElementById('supportTiFilterType').value='';document.getElementById('supportTiFilterSectorOwner').value='';supportTiOwner='';supportTiBackup='';supportTiSearch='';document.getElementById('supportTiSearch').value='';renderSupportTi()};document.getElementById('supportTiModalClose').onclick=()=>{document.getElementById('supportTiModal').classList.remove('open');document.body.style.overflow=''};document.getElementById('supportTiModal').onclick=e=>{if(e.target.id==='supportTiModal')document.getElementById('supportTiModalClose').click()};window.addEventListener('resize',()=>{if(document.getElementById('activities-panel-suporte-ti').classList.contains('active'))renderSupportTi()});renderSupportTi();}
+initSupportTi();
+</script>
 
 <script>
 // ============ CAMPANHAS ============
