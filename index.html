@@ -1974,13 +1974,13 @@ let activeMarketplaceChannel='all';
 
 function marketplaceLogoFile(item){
   const canal=String(item?.canal||'').trim();
-  const explicit={'AMAZON GUIMEPA':'amazon.png','LEROY MERLIN':'Leroy.png','LL LOYALTY':'LL.png','LIVELO':'LIVELO.png','LOJA DO COOPERADO - SICOOB':'loja.png','TIKTOK SHOP':'TIKTOK.png','SHOPHUB':'Shophub.png','MAGALU-GUIMEPA':'Magalu.png','MAGALU-GUIMEPA SHOP':'Magalu.png','SENFF':'SENFF.png'};
+  const explicit={'AMAZON GUIMEPA':'amazon.png','LEROY MERLIN':'Leroy.png','LL LOYALTY':'LL.png','LIVELO':'LIVELO.png','LOJA DO COOPERADO - SICOOB':'loja.png','TIKTOK SHOP':'TIKTOK.png','SHOPHUB':'Shophub.png','MAGALU-GUIMEPA':'Magalu.png','MAGALU-GUIMEPA SHOP':'Magalu.png','SENFF':'SENFF.png','TEMU':'temu.png'};
   if(explicit[canal])return explicit[canal];
   return String(item?.image||item?.imagem||item?.logo||'').split(/[\\/]/).pop().trim();
 }
 function tryMarketplaceLogoPath(img){
   const file=String(img.dataset.logo||'').split(/[\\/]/).pop().trim(),attempt=Number(img.dataset.logoAttempt||0),stem=file.replace(/\.[^.]+$/,'');
-  const knownFiles={'amazon.ppg':'amazon.png','magalu.png':'Magalu.png','shophub.png':'Shophub.png','tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png','livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png','senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.jpg':'TEMU.jpg','guimepa.png':'guimepa.png'};
+  const knownFiles={'amazon.ppg':'amazon.png','magalu.png':'Magalu.png','shophub.png':'Shophub.png','tiktok.png':'TIKTOK.png','webcontinental.png':'Webcontinental.png','leroy.png':'Leroy.png','livelo.png':'LIVELO.png','ll.png':'LL.png','loja.png':'loja.png','loja.jpg':'loja.png','meli.png':'meli.png','senff.png':'SENFF.png','shopee.png':'shopee.png','site.png':'site.png','temu.png':'temu.png','temu.jpg':'TEMU.jpg','guimepa.png':'guimepa.png'};
   const canonical=knownFiles[file.toLowerCase()]||file;
   const candidates=['logos-marketplaces/'+canonical,'logos-marketplaces/'+file,'logos-marketplaces/'+stem+'.png','logos-marketplaces/'+stem+'.jpg','logos-marketplaces/'+stem+'.jpeg'].filter((v,i,a)=>v&&a.indexOf(v)===i&&v!==img.getAttribute('src'));
   if(attempt<candidates.length){img.dataset.logoAttempt=String(attempt+1);img.src=candidates[attempt];return;}
@@ -2011,7 +2011,7 @@ function renderMarketplaceKPIs(rows=getVisibleMarketplaces()){
   const visibleChannels=channelGroups.filter(g=>rows.some(r=>g.channels.includes(r.canal)));
   const total=marketplacesData.length;
   const items=[
-    {label:'Lojas Ativas',value:rows.length,sub:'<span style="display:block">'+(rows.length===total?'Todas as '+total+' lojas':rows.length+' de '+total+' lojas')+' • <strong>'+visibleChannels.length+' de 13 canais ativos</strong></span>',cls:'blue',raw:true},
+    {label:'Lojas Ativas',value:rows.length,sub:'<span style="display:block">'+(rows.length===total?'Todas as '+total+' lojas':rows.length+' de '+total+' lojas')+' • <strong>'+visibleChannels.length+' de '+channelGroups.length+' canais ativos</strong></span>',cls:'blue',raw:true},
     {label:'Responsáveis SAC',value:Object.keys(sacCounts).length,sub:'<span class="sac-photo-list">'+(sacText||'Nenhum responsável')+'</span>',cls:'green',raw:true},
     {label:'Faturamento',value:Object.keys(billingCounts).length,sub:'<span class="stock-kpi-list">'+billingText+'</span>',cls:'purple',raw:true}
   ];
@@ -2108,6 +2108,7 @@ const marketplaceChannelFilters=[
 {id:'senff',label:'Senff',color:'#1e3a8a',logo:'SENFF.png',channels:['SENFF']},
 {id:'loja-cooperado',label:'Coopera',color:'#168f58',logo:'loja.png',channels:['LOJA DO COOPERADO - SICOOB']},
 {id:'tiktok',label:'TikTok',color:'#111827',logo:'TIKTOK.png',channels:['TIKTOK SHOP']},
+{id:'temu',label:'Temu',color:'#16a34a',logo:'temu.png',channels:['TEMU']},
 {id:'site',label:'Site',color:'#1d4ed8',logo:'site.png',channels:['SITE']}
 ];
 function renderMarketplaceChannelButtons(){

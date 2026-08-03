@@ -8094,5 +8094,53 @@ const acoesData = [
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-07-16",
+    "final": "2026-07-27",
+    "acao": "ATUALIZAÇÃO TABELA MAGALOG SC",
+    "local": "INTELIPOST",
+    "setor": "Transportadoras",
+    "responsavel": "Igor"
+  },
+  {
+    "inicio": "2026-07-24",
+    "final": "2026-07-24",
+    "acao": "CROSS MTX 2 > 3 DIAS",
+    "local": "FORNECEDORES",
+    "setor": "Campanhas",
+    "responsavel": "Jone"
+  },
+  {
+    "inicio": "2026-07-29",
+    "final": "2026-07-29",
+    "acao": "ADS MERCADO LIVRE DESLIGADOS",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-08-03",
+    "final": "2026-08-03",
+    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS SHOPEE",
+    "local": "MARKETPLACES",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-08-03",
+    "final": "2026-08-03",
+    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS MERCADO LIVRE",
+    "local": "MARKETPLACES",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-08-03",
+    "final": "2026-08-03",
+    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS TIKTOK",
+    "local": "MARKETPLACES",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
   }
 ];

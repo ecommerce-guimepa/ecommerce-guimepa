@@ -1,7 +1,7 @@
 const marketplacesData = [
   {
     "ordem": 1,
-    "image": "Amazon.jpg",
+    "image": "amazon.png",
     "canal": "AMAZON GUIMEPA",
     "comissaoBase": "11% a 14%",
     "faturamento": "TODAS",
@@ -126,7 +126,7 @@ const marketplacesData = [
   },
   {
     "ordem": 6,
-    "image": "Magalu.png",
+    "image": "magalu.png",
     "canal": "MAGALU-GUIMEPA",
     "comissaoBase": "13%",
     "faturamento": "GMP",
@@ -151,7 +151,7 @@ const marketplacesData = [
   },
   {
     "ordem": 7,
-    "image": "Magalu.png",
+    "image": "magalu.png",
     "canal": "MAGALU-GUIMEPA SHOP",
     "comissaoBase": "13%",
     "faturamento": "GMK8",
@@ -175,7 +175,7 @@ const marketplacesData = [
     "validaXml": "Status Altera Por Xml"
   },
   {
-    "ordem": 11,
+    "ordem": 8,
     "image": "meli.png",
     "canal": "MELI DELTATOP",
     "comissaoBase": "12% Clá 17% Pre",
@@ -200,7 +200,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 8,
+    "ordem": 9,
     "image": "meli.png",
     "canal": "MELI GUIMEPA",
     "comissaoBase": "12% Clá 17% Pre",
@@ -225,7 +225,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 9,
+    "ordem": 10,
     "image": "meli.png",
     "canal": "MELI GUIMEPA SHOP",
     "comissaoBase": "12% Clá 17% Pre",
@@ -250,7 +250,7 @@ const marketplacesData = [
     "validaXml": "Quando Mercado Envios"
   },
   {
-    "ordem": 10,
+    "ordem": 11,
     "image": "meli.png",
     "canal": "MELI GUIMEPA STORE",
     "comissaoBase": "12% Clá 17% Pre",
@@ -351,7 +351,7 @@ const marketplacesData = [
   },
   {
     "ordem": 15,
-    "image": "Shophub.png",
+    "image": "shophub.png",
     "canal": "SHOPHUB",
     "comissaoBase": "15%",
     "faturamento": "TODAS",
@@ -401,7 +401,7 @@ const marketplacesData = [
   },
   {
     "ordem": 17,
-    "image": "TIKTOK.png",
+    "image": "tiktok.png",
     "canal": "TIKTOK SHOP",
     "comissaoBase": "6% + 8% Afiliado",
     "faturamento": "GMK8",
@@ -416,7 +416,7 @@ const marketplacesData = [
     "comissaoFrete": "NÃO",
     "portador": "TIKTOK SHOP",
     "slaSac": "24 horas úteis",
-    "atendimentoSac": "PAINEL",
+    "atendimentoSac": "Painel",
     "cnpj": "39.590.561/0001-23 - GMK8",
     "cotaSku": "NÃO",
     "plataformaCotacao": "X",
@@ -426,7 +426,7 @@ const marketplacesData = [
   },
   {
     "ordem": 18,
-    "image": "Webcontinental.png",
+    "image": "webcontinental.png",
     "canal": "WEBCONTINENTAL GUIMEPA SHOP",
     "comissaoBase": "19%",
     "faturamento": "GMK8",
@@ -448,5 +448,30 @@ const marketplacesData = [
     "canalIntelipost": "Vazio",
     "idLoja": "2721",
     "validaXml": "Não Validam"
+  },
+  {
+    "ordem": 19,
+    "image": "temu.png",
+    "canal": "TEMU",
+    "comissaoBase": "0%",
+    "faturamento": "GMK8",
+    "nomeLoja": "Guimepa",
+    "localEstoque": "ESTOQUE LIQ SC",
+    "funcionamentoEstoque": "LIQ SC",
+    "sac": "Thais",
+    "politicaCancelamento": "Não cobra taxas",
+    "politicaFrete": "TEMU",
+    "politicaRepasse": "Saque",
+    "disparoRepasse": "Saque",
+    "comissaoFrete": "NÃO",
+    "portador": "TEMU",
+    "slaSac": "24 horas úteis",
+    "atendimentoSac": "Painel",
+    "cnpj": "39.590.561/0001-23 - GMK8",
+    "cotaSku": "NÃO",
+    "plataformaCotacao": "X",
+    "canalIntelipost": "X",
+    "idLoja": "635517740347822",
+    "validaXml": "Status Altera Por Xml"
   }
 ];
