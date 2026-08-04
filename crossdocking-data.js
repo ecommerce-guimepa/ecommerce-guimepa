@@ -263,7 +263,7 @@ const crossDockingData = [
   {
     "ordem": 30,
     "fornecedor": "BUFFALO",
-    "image": "buffalo.png",
+    "image": "Buffalo.png",
     "prazo": 5,
     "operador": "ABAIXO",
     "preco": 500,
@@ -272,7 +272,7 @@ const crossDockingData = [
   {
     "ordem": 31,
     "fornecedor": "BUFFALO",
-    "image": "buffalo.png",
+    "image": "Buffalo.png",
     "prazo": 4,
     "operador": "ACIMA",
     "preco": 500,
@@ -281,7 +281,7 @@ const crossDockingData = [
   {
     "ordem": 32,
     "fornecedor": "BUFFALO",
-    "image": "buffalo.png",
+    "image": "Buffalo.png",
     "prazo": 2,
     "operador": "ACIMA",
     "preco": 1000,
