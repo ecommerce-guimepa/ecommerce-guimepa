@@ -164,6 +164,58 @@
   }
 
 
+
+
+  /* Publicação: cronograma expandido por fornecedor */
+  .publication-row-clickable{cursor:pointer;}
+  .publication-row-clickable:hover{background:#eef6ff!important;}
+  .publication-row-clickable:focus{outline:2px solid var(--accent);outline-offset:-2px;}
+  .pub-project-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;padding:32px;text-align:center;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:14px;color:#475569;}
+  .pub-project-empty strong{display:block;margin-bottom:8px;color:#0f172a;font-size:16px;}
+  .pub-project-empty span{max-width:620px;font-size:12px;line-height:1.6;}
+
+  .pub-project-modal{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(15,23,42,.58);backdrop-filter:blur(3px);}
+  .pub-project-modal.open{display:flex;}
+  .pub-project-dialog{width:min(1760px,98vw);height:min(900px,94vh);background:#fff;border-radius:16px;box-shadow:0 28px 80px rgba(15,23,42,.3);display:flex;flex-direction:column;overflow:hidden;}
+  .pub-project-topbar{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--border);background:#fff;}
+  .pub-project-brand{width:150px;height:54px;object-fit:contain;object-position:left center;}
+  .pub-project-heading{min-width:0;flex:1;}
+  .pub-project-heading h2{margin:0;color:#0b4f86;font-size:24px;line-height:1.1;}
+  .pub-project-heading p{margin:4px 0 0;color:var(--muted);font-size:12px;}
+  .pub-project-close{width:38px;height:38px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);font-size:22px;cursor:pointer;}
+  .pub-project-close:hover{background:#f1f5f9;}
+  .pub-project-meta{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:12px;padding:12px 20px;border-bottom:1px solid var(--border-light);background:#f8fafc;}
+  .pub-project-meta-item{background:#fff;border:1px solid var(--border-light);border-radius:10px;padding:9px 11px;min-width:0;}
+  .pub-project-meta-label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.65px;color:var(--muted);font-weight:700;margin-bottom:3px;}
+  .pub-project-meta-value{display:block;font-size:12px;color:var(--text);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pub-project-scroll{overflow:auto;flex:1;background:#fff;}
+  .pub-detail-table{border-collapse:collapse;width:max-content;min-width:1500px;font-size:11px;color:#334155;}
+  .pub-detail-table th,.pub-detail-table td{border-right:1px solid #d7dee8;border-bottom:1px dotted #cbd5e1;padding:5px 7px;white-space:nowrap;text-align:center;}
+  .pub-detail-table th{position:sticky;top:0;z-index:4;background:#eef2f7;font-size:9px;text-transform:uppercase;letter-spacing:.25px;color:#27364a;font-weight:700;}
+  .pub-detail-table .pub-left{text-align:left;}
+  .pub-detail-table .pub-fixed{position:sticky;z-index:3;background:#fff;}
+  .pub-detail-table thead .pub-fixed{z-index:6;background:#eef2f7;}
+  .pub-detail-table .pub-col-stage{left:0;width:52px;min-width:52px;}
+  .pub-detail-table .pub-col-task{left:52px;width:280px;min-width:280px;}
+  .pub-detail-table .pub-col-owner{left:332px;width:112px;min-width:112px;}
+  .pub-detail-table .pub-col-start{left:444px;width:82px;min-width:82px;}
+  .pub-detail-table .pub-col-end{left:526px;width:82px;min-width:82px;}
+  .pub-detail-table .pub-col-duration{left:608px;width:58px;min-width:58px;}
+  .pub-detail-table .pub-col-progress{left:666px;width:78px;min-width:78px;border-right:2px solid #94a3b8;}
+  .pub-detail-phase td{background:#d1d5db!important;color:#111827;font-weight:800;border-bottom:1px solid #aeb6c2;}
+  .pub-detail-phase .pub-fixed{background:#d1d5db!important;}
+  .pub-phase-head{color:#fff!important;font-size:10px!important;text-align:center!important;}
+  .pub-phase-1{background:#0b5a96!important;}.pub-phase-2{background:#5a919c!important;}.pub-phase-3{background:#97400d!important;}
+  .pub-week-head{color:#fff!important;font-size:9px!important;}.pub-week-1{background:#337ab7!important;}.pub-week-2{background:#8bb8c0!important;}.pub-week-3{background:#cc5a18!important;}
+  .pub-day-head{padding:3px 4px!important;background:#dbeaf6!important;font-size:8px!important;min-width:25px;}
+  .pub-day-head.phase2{background:#d7e8e9!important}.pub-day-head.phase3{background:#f6d8c6!important}
+  .pub-task-bar{height:18px;border-radius:2px;margin:auto;min-width:22px;}
+  .pub-task-blue{background:#5aa0d6}.pub-task-orange{background:#f6ae5b}.pub-task-darkorange{background:#d86005}
+  .pub-progress-track{width:58px;height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:auto;}
+  .pub-progress-fill{height:100%;background:#4fb98b;}
+  .pub-project-foot{padding:9px 20px;border-top:1px solid var(--border);background:#f8fafc;color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:10px;}
+  @media(max-width:900px){.pub-project-modal{padding:0}.pub-project-dialog{width:100vw;height:100vh;border-radius:0}.pub-project-meta{grid-template-columns:1fr 1fr}.pub-project-brand{width:100px}.pub-project-heading h2{font-size:19px}}
+
   /* Portal navigation */
   .portal-nav { background:#fff; border-bottom:1px solid var(--border); padding:0 24px; display:flex; gap:8px; position:sticky; top:0; z-index:50; box-shadow:0 1px 4px rgba(15,23,42,.06); }
   .portal-tab { border:0; background:transparent; padding:14px 18px 12px; font:600 13px 'Roboto',sans-serif; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; transition:.15s; }
@@ -1153,6 +1205,21 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 </section>
 
 
+
+<div class="pub-project-modal" id="publicationProjectModal" aria-hidden="true">
+  <div class="pub-project-dialog" role="dialog" aria-modal="true" aria-labelledby="publicationProjectTitle">
+    <div class="pub-project-topbar">
+      <img class="pub-project-brand" id="publicationProjectLogo" alt="Logo do fornecedor">
+      <div class="pub-project-heading"><h2 id="publicationProjectTitle">Cronograma de Publicação</h2><p id="publicationProjectSubtitle"></p></div>
+      <button class="pub-project-close" id="publicationProjectClose" type="button" aria-label="Fechar">×</button>
+    </div>
+    <div class="pub-project-meta" id="publicationProjectMeta"></div>
+    <div class="pub-project-scroll" id="publicationProjectContent"></div>
+    <div class="pub-project-foot"><span>Clique fora ou pressione Esc para fechar.</span><span>Modelo operacional inspirado no cronograma detalhado da Foxlux/Famastil.</span></div>
+  </div>
+</div>
+
+
 <section id="dashboard-acoes" class="dashboard-panel">
   <div class="actions-main">
     <div class="kpi-row" id="acoesKpiRow"></div>
@@ -1463,6 +1530,7 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 <script src="acoes-data.js"></script>
 <script src="marketplaces-data.js"></script>
 <script src="data.js"></script>
+<script src="cronogramas-publicacao-data.js"></script>
 <script src="atividades-data.js"></script>
 <script src="suporte-ti-data.js"></script>
 <script src="campanhas-data.js"></script>
@@ -1594,13 +1662,15 @@ html += '</tr></thead><tbody>';
 publicationRows.forEach((d) => {
   const schedule = ganttSchedule.find(g => g.idx === d._originalIndex);
   const statusCls = d.status === 'Ativo' ? 'ativo' : d.status === 'Novo' ? 'novo' : 'reativando';
-  const rowCls = d.prod === 'sim' ? ' class="row-sim"' : '';
+  const rowCls = d.prod === 'sim' ? ' row-sim' : '';
   const logoArquivo = d.logo ? String(d.logo).split('/').pop().split('\\').pop() : '';
   const logoHTML = logoArquivo
     ? '<img src="logos-marcas/' + logoArquivo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
     : '<span class="forn-name">' + d.fornecedor + '</span>';
 
-  html += '<tr' + rowCls + ' data-prod="' + d.prod + '" data-resp="' + String(d.resp||'').replace(/"/g,'&quot;') + '">';
+  const isProduction = d.prod === 'sim';
+  const interactiveAttrs = isProduction ? ' tabindex="0" role="button" aria-label="Abrir cronograma detalhado de ' + String(d.fornecedor||'').replace(/"/g,'&quot;') + '" data-publication-index="' + d._originalIndex + '"' : '';
+  html += '<tr class="' + (isProduction ? 'publication-row-clickable' : '') + rowCls + '"' + interactiveAttrs + ' data-prod="' + d.prod + '" data-resp="' + String(d.resp||'').replace(/"/g,'&quot;') + '">';
   const detailTag = d.detalhe ? '<span class="supplier-detail-tag">' + String(d.detalhe).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#039;"}[ch])) + '</span>' : '';
   html += '<td><div class="logo-cell">' + logoHTML + detailTag + '</div></td>';
   html += '<td><span class="badge badge-' + statusCls + '">' + d.status + '</span></td>';
@@ -1650,6 +1720,82 @@ months.forEach((m, mi) => {
 html += '</tr>';
 html += '</tbody></table>';
 document.getElementById('combinedContainer').innerHTML = html;
+
+
+
+// ============ CRONOGRAMA EXPANDIDO DE PUBLICAÇÃO ============
+function pubEsc(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));}
+function pubNormalizeKey(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim();}
+function publicationProjectFor(item){
+  const base=(typeof cronogramasPublicacaoData==='object'&&cronogramasPublicacaoData)||{};
+  const wanted=pubNormalizeKey(item.fornecedor);
+  const key=Object.keys(base).find(k=>pubNormalizeKey(k)===wanted);
+  return key?base[key]:null;
+}
+function publicationBaseDate(item,project){
+  if(project&&project.startDate){const p=String(project.startDate).split('-').map(Number);if(p.length===3)return new Date(p[0],p[1]-1,p[2]);}
+  const schedule=ganttSchedule.find(g=>g.idx===item._originalIndex);
+  const first=schedule&&schedule.cells&&schedule.cells[0]?schedule.cells[0].w:null;
+  const monthMap={Jul:6,Ago:7,Set:8,Out:9,Nov:10,Dez:11};
+  if(first){const [m,w]=first.split('-');return new Date(2026,monthMap[m]??6,1+(Number(w)-1)*7);}
+  return new Date();
+}
+function addDays(date,n){const d=new Date(date);d.setDate(d.getDate()+n);return d;}
+function brDate(date){return String(date.getDate()).padStart(2,'0')+'/'+String(date.getMonth()+1).padStart(2,'0')+'/'+String(date.getFullYear()).slice(-2);}
+function openPublicationProject(index){
+  const item=publicationRows.find(x=>x._originalIndex===Number(index));
+  if(!item||item.prod!=='sim')return;
+  const project=publicationProjectFor(item);
+  const modal=document.getElementById('publicationProjectModal');
+  const logo=document.getElementById('publicationProjectLogo');
+  const logoFile=item.logo?String(item.logo).split('/').pop().split('\\').pop():'';
+  logo.src=logoFile?'logos-marcas/'+logoFile:'guimepa.png';logo.style.display='block';logo.onerror=()=>{logo.src='guimepa.png'};
+  document.getElementById('publicationProjectTitle').textContent=(project&&project.title)||('Publicação '+item.fornecedor+(item.detalhe?' — '+item.detalhe:''));
+  document.getElementById('publicationProjectSubtitle').textContent='Cronograma detalhado do lote '+(item.lote||'não informado');
+  const start=publicationBaseDate(item,project);
+  const phases=project&&Array.isArray(project.phases)?project.phases:[];
+  const maxEnd=phases.flatMap(g=>g.tasks||[]).reduce((max,t)=>Math.max(max,(Number(t.startOffset)||0)+(Number(t.duration)||0)),0);
+  const end=addDays(start,Math.max(1,maxEnd||1)-1);
+  document.getElementById('publicationProjectMeta').innerHTML=[
+    ['Título do projeto',(project&&project.title)||('Publicação '+item.fornecedor+(item.detalhe?' '+item.detalhe:''))],
+    ['Gerente do projeto',(project&&project.manager)||item.resp||'Não informado'],
+    ['Empresa',item.fornecedor],
+    ['Período',project&&phases.length?brDate(start)+' a '+brDate(end):'A cadastrar']
+  ].map(x=>'<div class="pub-project-meta-item"><span class="pub-project-meta-label">'+pubEsc(x[0])+'</span><span class="pub-project-meta-value">'+pubEsc(x[1])+'</span></div>').join('');
+  document.getElementById('publicationProjectContent').innerHTML=phases.length?buildPublicationProjectTable(item,start,project):'<div class="pub-project-empty"><strong>Cronograma detalhado ainda não cadastrado</strong><span>Esta marca está em produção e já possui acesso ao painel ampliado. Preencha o arquivo <b>cronogramas-publicacao-data.js</b> para exibir etapas, responsáveis, datas, duração e percentual concluído.</span></div>';
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('publicationProjectClose').focus();
+}
+function buildPublicationProjectTable(item,start,project){
+  const phases=project.phases||[];
+  const totalDays=Math.max(1,phases.flatMap(g=>g.tasks||[]).reduce((max,t)=>Math.max(max,(Number(t.startOffset)||0)+(Number(t.duration)||0)),0));
+  const daysPerWeek=5,weekCount=Math.ceil(totalDays/daysPerWeek);
+  const phaseCount=Math.max(1,new Set(phases.map(x=>String(x.phase||''))).size);
+  let h='<table class="pub-detail-table"><thead>';
+  h+='<tr><th class="pub-fixed pub-col-stage" rowspan="3">Etapa</th><th class="pub-fixed pub-col-task pub-left" rowspan="3">Atividade</th><th class="pub-fixed pub-col-owner" rowspan="3">Responsável</th><th class="pub-fixed pub-col-start" rowspan="3">Data de início</th><th class="pub-fixed pub-col-end" rowspan="3">Data de conclusão</th><th class="pub-fixed pub-col-duration" rowspan="3">Duração</th><th class="pub-fixed pub-col-progress" rowspan="3">% concluída</th>';
+  const phaseGroups=[];phases.forEach(g=>{let p=phaseGroups.find(x=>x.phase===String(g.phase));if(!p){p={phase:String(g.phase),days:0};phaseGroups.push(p);}p.days=Math.max(p.days,...(g.tasks||[]).map(t=>(Number(t.startOffset)||0)+(Number(t.duration)||0)));});
+  let phaseStart=0;phaseGroups.forEach((p,i)=>{const next=phaseGroups[i+1];const span=Math.max(1,(next?Math.max(phaseStart+1,next.days):totalDays)-phaseStart);h+='<th class="pub-phase-head pub-phase-'+((i%3)+1)+'" colspan="'+span+'">Fase '+pubEsc(p.phase)+'</th>';phaseStart+=span;});
+  if(phaseStart<totalDays)h+='<th class="pub-phase-head pub-phase-3" colspan="'+(totalDays-phaseStart)+'">Cronograma</th>';
+  h+='</tr><tr>';for(let w=1;w<=weekCount;w++){h+='<th class="pub-week-head pub-week-'+(((w-1)%3)+1)+'" colspan="'+Math.min(daysPerWeek,totalDays-(w-1)*daysPerWeek)+'">Semana '+w+'</th>';}h+='</tr><tr>';
+  for(let d=0;d<totalDays;d++)h+='<th class="pub-day-head" title="'+brDate(addDays(start,d))+'">'+addDays(start,d).getDate()+'</th>';
+  h+='</tr></thead><tbody>';
+  phases.forEach(group=>{
+    h+='<tr class="pub-detail-phase"><td class="pub-fixed pub-col-stage">'+pubEsc(group.phase)+'</td><td class="pub-fixed pub-col-task pub-left" colspan="6">'+pubEsc(group.group)+'</td>'+Array(totalDays).fill('<td></td>').join('')+'</tr>';
+    (group.tasks||[]).forEach(t=>{
+      const offset=Number(t.startOffset)||0,duration=Math.max(1,Number(t.duration)||1),progress=Math.max(0,Math.min(100,Number(t.progress)||0));
+      const ts=addDays(start,offset),te=addDays(ts,duration-1),owner=t.owner==='Guimepa'?(item.resp||'Guimepa'):(t.owner||'Não informado');
+      h+='<tr><td class="pub-fixed pub-col-stage">'+pubEsc(t.code)+'</td><td class="pub-fixed pub-col-task pub-left">'+pubEsc(t.activity)+'</td><td class="pub-fixed pub-col-owner">'+pubEsc(owner)+'</td><td class="pub-fixed pub-col-start">'+brDate(ts)+'</td><td class="pub-fixed pub-col-end">'+brDate(te)+'</td><td class="pub-fixed pub-col-duration">'+duration+'</td><td class="pub-fixed pub-col-progress"><div class="pub-progress-track"><div class="pub-progress-fill" style="width:'+progress+'%"></div></div><div style="font-size:9px;margin-top:2px">'+progress+'%</div></td>';
+      for(let d=0;d<totalDays;d++){const active=d>=offset&&d<offset+duration;h+='<td>'+(active?'<div class="pub-task-bar pub-task-'+pubEsc(t.color||'blue')+'"></div>':'')+'</td>';}
+      h+='</tr>';
+    });
+  });
+  return h+'</tbody></table>';
+}
+function closePublicationProject(){const m=document.getElementById('publicationProjectModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+document.getElementById('combinedContainer').addEventListener('click',e=>{const row=e.target.closest('tr[data-publication-index]');if(row&&row.dataset.prod==='sim')openPublicationProject(row.dataset.publicationIndex);});
+document.getElementById('combinedContainer').addEventListener('keydown',e=>{const row=e.target.closest('tr[data-publication-index]');if(row&&row.dataset.prod==='sim'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPublicationProject(row.dataset.publicationIndex);}});
+document.getElementById('publicationProjectClose').addEventListener('click',closePublicationProject);
+document.getElementById('publicationProjectModal').addEventListener('click',e=>{if(e.target.id==='publicationProjectModal')closePublicationProject();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('publicationProjectModal').classList.contains('open'))closePublicationProject();});
 
 // ============ FILTERS ============
 let activeBtnFilter = null;
