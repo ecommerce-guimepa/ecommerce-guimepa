@@ -47,33 +47,6 @@ const campanhasData = [
   {
     "campanha": "PRAZO COPARTICIPADO  REDUCAO",
     "inicio": "2026-05-24",
-    "final": "2026-06-07",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-05-24",
-    "final": "2026-06-20",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-05-24",
-    "final": "2026-06-07",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-05-24",
     "final": "2026-06-20",
     "canal": "MELI GUIMEPA",
     "tipoCampanha": "PRAZO_COPARTICIPADO",
@@ -93,15 +66,6 @@ const campanhasData = [
     "campanha": "PRAZO COPARTICIPADO  REDUCAO",
     "inicio": "2026-05-15",
     "final": "2026-05-22",
-    "canal": "MELI DELTATOP",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-05-15",
-    "final": "2026-05-23",
     "canal": "MELI DELTATOP",
     "tipoCampanha": "PRAZO_COPARTICIPADO",
     "tipoDesconto": "REDUCAO",
@@ -183,24 +147,6 @@ const campanhasData = [
     "campanha": "PRAZO COPARTICIPADO  REDUCAO",
     "inicio": "2026-02-09",
     "final": "2026-02-19",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-02-09",
-    "final": "2026-03-04",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": "por sku"
-  },
-  {
-    "campanha": "PRAZO COPARTICIPADO  REDUCAO",
-    "inicio": "2026-02-09",
-    "final": "2026-03-04",
     "canal": "MELI GUIMEPA",
     "tipoCampanha": "PRAZO_COPARTICIPADO",
     "tipoDesconto": "REDUCAO",
@@ -313,15 +259,6 @@ const campanhasData = [
     "tipoCampanha": "PRAZO_COPARTICIPADO",
     "tipoDesconto": "REDUCAO",
     "descontoMarketplace": 4
-  },
-  {
-    "campanha": "PRAZO A VISTA COPARTICIPADO 2 REDUCAO",
-    "inicio": "2025-05-01",
-    "final": "2025-05-31",
-    "canal": "MELI GUIMEPA",
-    "tipoCampanha": "PRAZO_A_VISTA_COPARTICIPADO",
-    "tipoDesconto": "REDUCAO",
-    "descontoMarketplace": 2
   },
   {
     "campanha": "PRAZO A VISTA COPARTICIPADO 2 REDUCAO",
@@ -589,15 +526,6 @@ const campanhasData = [
     "inicio": "2025-01-01",
     "final": "2025-02-03",
     "canal": "MAGAZINE LUIZA GUIMEPA",
-    "tipoCampanha": "PRAZO_A_VISTA_COPARTICIPADO",
-    "tipoDesconto": "REBATE",
-    "descontoMarketplace": 7
-  },
-  {
-    "campanha": "PRAZO A VISTA COPARTICIPADO 7 REBATE",
-    "inicio": "2025-01-01",
-    "final": "2025-02-03",
-    "canal": "MAGAZINE LUIZA GMK8",
     "tipoCampanha": "PRAZO_A_VISTA_COPARTICIPADO",
     "tipoDesconto": "REBATE",
     "descontoMarketplace": 7

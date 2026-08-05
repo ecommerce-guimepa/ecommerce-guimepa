@@ -1279,24 +1279,6 @@ const atividadesData = [
   },
   {
     "setor": "SAC",
-    "execucao": "TRELLO",
-    "area": "SAC",
-    "subarea": "ATENDIMENTO",
-    "rotina": "Diário",
-    "responsavel": "Karin",
-    "atividade": "Trello Expedição"
-  },
-  {
-    "setor": "SAC",
-    "execucao": "TRELLO",
-    "area": "SAC",
-    "subarea": "ATENDIMENTO",
-    "rotina": "Diário",
-    "responsavel": "Karin",
-    "atividade": "Pendências Financeiro (Trello)"
-  },
-  {
-    "setor": "SAC",
     "execucao": "MARKETPLACE",
     "area": "SAC",
     "subarea": "ATENDIMENTO",

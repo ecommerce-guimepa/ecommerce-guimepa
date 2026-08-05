@@ -657,7 +657,7 @@ const acoesData = [
   },
   {
     "inicio": "2023-07-06",
-    "final": "2023-07-04",
+    "final": "2023-07-06",
     "acao": "Primeira Etapa do BI RMA",
     "local": "HARDNESS",
     "setor": "Melhorias",
@@ -1745,7 +1745,7 @@ const acoesData = [
   },
   {
     "inicio": "2023-11-29",
-    "final": "29/11/20023",
+    "final": "2023-11-29",
     "acao": "ENTRADA GUSTAVO EQUIPE TI",
     "local": "EQUIPE",
     "setor": "Operações",
@@ -5435,14 +5435,6 @@ const acoesData = [
     "inicio": "2025-03-12",
     "final": "2025-03-12",
     "acao": "AJUSTE CROSS BUFFALO 7 > 6 DIAS",
-    "local": "HARDNESS",
-    "setor": "Operações",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2025-03-12",
-    "final": "2025-03-12",
-    "acao": "AJUSTE CROSS TOYAMA 7 > 5 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
