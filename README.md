@@ -28,6 +28,7 @@ Atalhos:
 | `acoes-data.js` | Histórico de ações. |
 | `campanhas-data.js` | Campanhas coparticipadas. |
 | `crossdocking-data.js` | Regras de cross docking por fornecedor. |
+| `foco-comercial-data.js` | Rotinas semanais de foco comercial (agenda + resumo por rotina). |
 | `fornecedores-data.js` | Condições comerciais dos fornecedores. |
 | `transportadoras-data.js` | Transportadoras e cobertura. |
 | `intelipost-data.js` | Regras do Intelipost. |

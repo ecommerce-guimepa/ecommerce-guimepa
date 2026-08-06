@@ -1087,13 +1087,13 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 .portal-nav{display:none!important}
 .dashboard-panel{margin-left:var(--sidebar-width);padding-top:var(--topbar-height);min-height:100vh;transition:margin-left .22s ease}
 .dashboard-panel>div{max-width:none!important}
-.main,.actions-main,.marketplaces-main,.activities-main,.campaigns-main,.crossdocking-main,.partners-main{padding:24px 28px 40px!important}
+.main,.actions-main,.marketplaces-main,.activities-main,.campaigns-main,.crossdocking-main,.partners-main,.foco-main{padding:24px 28px 40px!important}
 .section,.kpi-card,.summary-card,.marketplace-card,.activity-card,.campaign-summary-card,.crossdocking-card,.partners-tabs{border-color:var(--app-line)!important;border-radius:var(--app-radius)!important;box-shadow:var(--app-shadow)!important}
 .section-header{min-height:48px;padding:12px 16px!important;border-bottom-color:#edf1f6!important}.section-title{font-size:12px!important;color:#28364b!important;letter-spacing:.01em}.kpi-card{background:var(--app-surface)!important;overflow:hidden}.kpi-label{color:#718096!important}.kpi-value{color:#172033!important}.filter-field select,.filter-field input,.activity-search-wrap,.marketplace-filter-button{border-color:var(--app-line)!important;border-radius:9px!important;background:#fff!important}.clear-btn{border-radius:9px!important}.activity-table th,.actions-table th,table.combined thead th{background:#f6f8fb!important;color:#6a7890!important}
 .activities-subtabs{background:#fff;border:1px solid var(--app-line);box-shadow:var(--app-shadow);border-radius:12px;padding:5px!important;margin-bottom:16px!important;width:max-content}.activities-subtab{border-radius:8px!important}
 .portal-sidebar.collapsed{width:74px}.portal-sidebar.collapsed .portal-brand{padding:0 17px}.portal-sidebar.collapsed .portal-brand-copy,.portal-sidebar.collapsed .sidebar-label,.portal-sidebar.collapsed .sidebar-section-title,.portal-sidebar.collapsed .sidebar-footer{display:none}.portal-sidebar.collapsed .sidebar-collapse{position:absolute;right:-14px;top:23px;background:#fff;color:#52647c;border-color:var(--app-line);box-shadow:0 3px 12px rgba(15,23,42,.12)}.portal-sidebar.collapsed .portal-tab.sidebar-link{justify-content:center;padding:9px}.portal-sidebar.collapsed~.header{left:74px}.portal-sidebar.collapsed~.header~.dashboard-panel{margin-left:74px}
 .mobile-menu-btn{display:none;width:38px;height:38px;border:1px solid var(--app-line);background:#fff;border-radius:10px;margin-right:12px;color:#334155;cursor:pointer}
-@media(max-width:900px){.portal-sidebar{transform:translateX(-100%);width:248px!important}.portal-sidebar.mobile-open{transform:translateX(0)}.portal-sidebar.mobile-open .portal-brand-copy,.portal-sidebar.mobile-open .sidebar-label,.portal-sidebar.mobile-open .sidebar-section-title,.portal-sidebar.mobile-open .sidebar-footer{display:block}.portal-sidebar.mobile-open .portal-tab.sidebar-link{justify-content:flex-start}.header,.portal-sidebar.collapsed~.header{left:0}.dashboard-panel,.portal-sidebar.collapsed~.header~.dashboard-panel{margin-left:0}.mobile-menu-btn{display:inline-grid;place-items:center}.header{padding:0 14px!important}.header-left{display:flex!important;align-items:center}.main,.actions-main,.marketplaces-main,.activities-main,.campaigns-main,.crossdocking-main,.partners-main{padding:16px 12px 30px!important}}
+@media(max-width:900px){.portal-sidebar{transform:translateX(-100%);width:248px!important}.portal-sidebar.mobile-open{transform:translateX(0)}.portal-sidebar.mobile-open .portal-brand-copy,.portal-sidebar.mobile-open .sidebar-label,.portal-sidebar.mobile-open .sidebar-section-title,.portal-sidebar.mobile-open .sidebar-footer{display:block}.portal-sidebar.mobile-open .portal-tab.sidebar-link{justify-content:flex-start}.header,.portal-sidebar.collapsed~.header{left:0}.dashboard-panel,.portal-sidebar.collapsed~.header~.dashboard-panel{margin-left:0}.mobile-menu-btn{display:inline-grid;place-items:center}.header{padding:0 14px!important}.header-left{display:flex!important;align-items:center}.main,.actions-main,.marketplaces-main,.activities-main,.campaigns-main,.crossdocking-main,.partners-main,.foco-main{padding:16px 12px 30px!important}}
 @media(max-width:560px){.header h1{font-size:16px!important}.portal-breadcrumb{display:none}.header-tool-btn .tool-label,.date-badge{display:none!important}}
 
 /* Navegacao otimizada: troca imediata entre modulos, sem animar paginas inteiras */
@@ -1129,6 +1129,36 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 .intelipost-mark{height:20px;width:20px;min-width:20px;border:1px solid currentColor;border-radius:5px;font:700 9px/1 Arial,sans-serif;letter-spacing:-.08em;opacity:.9}
 .portal-sidebar.collapsed .intelipost-mark{margin:auto}
 
+  /* Foco Comercial */
+  .foco-main{max-width:1500px;margin:0 auto;padding:24px 28px 40px}
+  .foco-legend{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;padding:12px 16px;background:#fff;border-bottom:1px solid var(--border-light)}
+  .foco-legend-item{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:750;color:#334155;white-space:nowrap}
+  .foco-legend-dot{width:11px;height:11px;border-radius:4px}
+  .foco-filters{display:grid;grid-template-columns:repeat(3,minmax(160px,1fr)) auto;gap:10px;align-items:end;padding:12px 16px;background:#f8fafc;border-bottom:1px solid var(--border-light)}
+  .foco-filters .filter-field select,.foco-filters .filter-field input{width:100%;border:1px solid var(--border);border-radius:9px;padding:8px 10px;background:#fff;color:var(--text);font:500 12px Roboto,sans-serif;outline:none}
+  .foco-filters .filter-field select:focus,.foco-filters .filter-field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  .foco-clear-btn{min-height:40px;white-space:nowrap}
+  .foco-result{font-size:11px;color:var(--muted);font-weight:700}
+  .foco-schedule-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .foco-table{border-collapse:collapse;width:100%;min-width:880px;font-size:12px}
+  .foco-table th{background:#f1f5f9;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.5px;padding:10px 12px;border:1px solid var(--border-light);border-bottom:2px solid var(--border);white-space:nowrap}
+  .foco-table td{border:1px solid var(--border-light);padding:7px;text-align:center}
+  .foco-week-cell{font-weight:850;color:#334155;white-space:nowrap;background:#f8fafc;font-size:11px}
+  .foco-period-cell{color:var(--muted);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap;background:#fff}
+  .foco-cell{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:30px;width:100%;padding:4px 9px;border-radius:9px;font-size:10px;font-weight:800;letter-spacing:.2px;line-height:1.2;white-space:nowrap}
+  .foco-cell .foco-mini-dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+  .foco-routines-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:16px}
+  .foco-routine-card{border:1px solid var(--border-light);border-radius:12px;padding:13px 15px;background:#fff;border-left:4px solid var(--foco-color);box-shadow:0 1px 3px rgba(15,23,42,.05);transition:transform .16s ease,box-shadow .16s ease}
+  .foco-routine-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(15,23,42,.08)}
+  .foco-routine-name{font-size:13px;font-weight:850;color:#172033;display:flex;align-items:center;gap:8px}
+  .foco-routine-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;color:#fff;font-size:11px;font-weight:900;flex:0 0 auto}
+  .foco-routine-subarea{margin-top:9px}
+  .foco-routine-subarea span{display:inline-block;padding:3px 8px;border-radius:999px;background:var(--foco-bg);color:var(--foco-color);font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.5px}
+  .foco-routine-resumo{margin-top:8px;font-size:11px;line-height:1.5;color:var(--muted)}
+  .foco-count-pill{margin-left:auto;min-width:26px;height:22px;padding:0 7px;border-radius:999px;background:#f1f5f9;color:#334155;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:850}
+  @media(max-width:1100px){.foco-routines-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foco-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:720px){.foco-main{padding:16px 12px 30px}.foco-routines-grid{grid-template-columns:1fr}.foco-filters{grid-template-columns:1fr}.foco-clear-btn{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -1144,6 +1174,7 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
       <div class="sidebar-section-title">Operação</div>
       <button class="portal-tab sidebar-link active" data-dashboard="marketplaces"><span class="sidebar-icon">▦</span><span class="sidebar-label">Marketplaces</span></button>
       <button class="portal-tab sidebar-link" data-dashboard="atividades" data-activities-target="ecommerce"><span class="sidebar-icon">✓</span><span class="sidebar-label">Atividades</span></button>
+      <button class="portal-tab sidebar-link" data-dashboard="foco-comercial"><span class="sidebar-icon">◈</span><span class="sidebar-label">Foco Comercial</span></button>
       <button class="portal-tab sidebar-link" data-dashboard="acoes"><span class="sidebar-icon">↗</span><span class="sidebar-label">Ações</span></button>
       <button class="portal-tab sidebar-link" data-dashboard="lotes"><span class="sidebar-icon">▤</span><span class="sidebar-label">Publicações</span></button>
       <button class="portal-tab sidebar-link" data-dashboard="campanhas"><span class="sidebar-icon icon-price" aria-hidden="true">⌑</span><span class="sidebar-label">Campanhas</span></button>
@@ -1370,6 +1401,32 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
   <div class="activity-modal-card"><div class="activity-modal-header"><div class="activity-modal-title" id="supportTiModalTitle"></div><button class="activity-modal-close" id="supportTiModalClose" type="button">×</button></div><div class="activity-modal-body" id="supportTiModalBody"></div></div>
 </div>
 
+<section id="dashboard-foco-comercial" class="dashboard-panel">
+  <div class="foco-main">
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Rotina mensal de Foco Comercial</span>
+        <span class="foco-result" id="focoResult"></span>
+      </div>
+      <div class="foco-legend" id="focoLegend"></div>
+      <div class="foco-filters">
+        <div class="filter-field"><label>Semana</label><select id="focoFilterSemana"></select></div>
+        <div class="filter-field"><label>Período</label><select id="focoFilterPeriodo"></select></div>
+        <div class="filter-field"><label>Dia da semana</label><select id="focoFilterDia"></select></div>
+        <button class="clear-btn foco-clear-btn" id="clearFocoFilters" type="button">Limpar filtros</button>
+      </div>
+      <div class="foco-schedule-wrap"><div id="focoSchedule"></div></div>
+    </div>
+    <div class="section" style="margin-top:16px;">
+      <div class="section-header">
+        <span class="section-title">Foco de Rotinas</span>
+        <span class="foco-result">Sub-área e resumo das principais atividades</span>
+      </div>
+      <div class="foco-routines-grid" id="focoRoutines"></div>
+    </div>
+  </div>
+</section>
+
 <section id="dashboard-campanhas" class="dashboard-panel">
   <div class="campaigns-main">
     <div class="campaign-kpi-grid">
@@ -1555,6 +1612,97 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 <script src="suporte-ti-data.js"></script>
 <script src="campanhas-data.js"></script>
 <script src="crossdocking-data.js"></script>
+<script src="foco-comercial-data.js"></script>
+<script>
+// ============ FOCO COMERCIAL ============
+(function(){
+  const fc=(typeof focoComercialData!=='undefined'&&focoComercialData)||{dias:[],semanas:[],rotinas:[]};
+  const fcEsc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const FC_COLORS={
+    'ANÁLISE VENDAS':'#2563eb','PUBLICAÇÃO':'#16a34a','CATALOGAÇÃO':'#7c3aed',
+    'ATIVAÇÃO':'#d97706','CAMPANHAS':'#dc2626','PROSPECÇÃO':'#0891b2'
+  };
+  const fcColor=n=>FC_COLORS[n]||'#64748b';
+  let focoFilterSemana='', focoFilterPeriodo='', focoFilterDia='';
+  function fcBadge(name){
+    const c=fcColor(name);
+    return '<span class="foco-cell" style="background:color-mix(in srgb,'+c+' 12%,#fff);color:'+c+';border:1px solid color-mix(in srgb,'+c+' 30%,transparent)"><span class="foco-mini-dot" style="background:'+c+'"></span>'+fcEsc(name)+'</span>';
+  }
+  function focoRows(){
+    const rows=[];
+    fc.semanas.forEach(s=>{
+      if(focoFilterSemana&&s.semana!==focoFilterSemana)return;
+      s.periodos.forEach(p=>{
+        if(focoFilterPeriodo&&p.periodo!==focoFilterPeriodo)return;
+        (p.agenda||[]).forEach((a,i)=>{
+          if(focoFilterDia&&fc.dias[i]!==focoFilterDia)return;
+          rows.push({semana:s.semana,periodo:p.periodo,dia:fc.dias[i],rotina:a});
+        });
+      });
+    });
+    return rows;
+  }
+  function renderLegend(){
+    const host=document.getElementById('focoLegend');if(!host)return;
+    host.innerHTML=Object.entries(FC_COLORS).map(([n,c])=>'<span class="foco-legend-item"><span class="foco-legend-dot" style="background:'+c+'"></span>'+fcEsc(n)+'</span>').join('');
+  }
+  function renderSchedule(){
+    const host=document.getElementById('focoSchedule');if(!host)return;
+    const semanas=fc.semanas.filter(s=>!focoFilterSemana||s.semana===focoFilterSemana);
+    const dias=focoFilterDia?fc.dias.filter(d=>d===focoFilterDia):fc.dias;
+    const periodos=focoFilterPeriodo?['manhã','tarde'].filter(p=>p===focoFilterPeriodo):['manhã','tarde'];
+    const totalRows=focoRows().length;
+    if(!totalRows){host.innerHTML='<div class="empty-state">Nenhuma rotina para os filtros selecionados.</div>';return;}
+    let h='<table class="foco-table"><thead><tr><th>Semana</th><th>Período</th>'+dias.map(d=>'<th>'+fcEsc(d)+'</th>').join('')+'</tr></thead><tbody>';
+    semanas.forEach(sem=>{
+      const rows=sem.periodos.filter(p=>periodos.includes(p.periodo));
+      if(!rows.length)return;
+      rows.forEach((p,pi)=>{
+        h+='<tr>';
+        if(pi===0)h+='<td class="foco-week-cell" rowspan="'+rows.length+'">'+fcEsc(sem.semana)+'</td>';
+        h+='<td class="foco-period-cell">'+fcEsc(p.periodo)+'</td>';
+        dias.forEach(d=>{
+          const idx=fc.dias.indexOf(d);
+          const val=p.agenda[idx];
+          h+='<td>'+(val?fcBadge(val):'')+'</td>';
+        });
+        h+='</tr>';
+      });
+    });
+    h+='</tbody></table>';
+    host.innerHTML=h;
+  }
+  function renderRoutines(){
+    const host=document.getElementById('focoRoutines');if(!host)return;
+    const counts={};
+    focoRows().forEach(r=>counts[r.rotina]=(counts[r.rotina]||0)+1);
+    const order=['PUBLICAÇÃO','ATIVAÇÃO','CATALOGAÇÃO','PROSPECÇÃO','ANÁLISE VENDAS','CAMPANHAS'];
+    const sorted=[...(fc.rotinas||[])].sort((a,b)=>{const ia=order.indexOf(a.nome),ib=order.indexOf(b.nome);return (ia===-1?99:ia)-(ib===-1?99:ib)||String(a.nome).localeCompare(String(b.nome),'pt-BR');});
+    host.innerHTML=sorted.map(r=>{
+      const c=fcColor(r.nome),n=counts[r.nome]||0;
+      return '<article class="foco-routine-card" style="--foco-color:'+c+';--foco-bg:color-mix(in srgb,'+c+' 12%,#fff)"><div class="foco-routine-name"><span class="foco-routine-badge" style="background:'+c+'">'+fcEsc(String(r.nome).slice(0,2))+'</span>'+fcEsc(r.nome)+'<span class="foco-count-pill">'+n+'x</span></div><div class="foco-routine-subarea"><span>'+fcEsc(r.subarea)+'</span></div><div class="foco-routine-resumo">'+fcEsc(r.resumo)+'</div></article>';
+    }).join('');
+  }
+  function renderResult(){
+    const el=document.getElementById('focoResult');if(!el)return;
+    const rows=focoRows();
+    el.textContent=fc.dias.length+' dias · '+fc.semanas.length+' semanas · '+rows.length+' horários'+(focoFilterSemana||focoFilterPeriodo||focoFilterDia?' no recorte':'');
+  }
+  function render(){renderLegend();renderSchedule();renderRoutines();renderResult();}
+  function fillSelect(id,values,allLabel){const el=document.getElementById(id);if(!el)return;el.innerHTML='<option value="">'+allLabel+'</option>'+values.map(v=>'<option value="'+fcEsc(v)+'">'+fcEsc(v)+'</option>').join('');}
+  function initFoco(){
+    fillSelect('focoFilterSemana',fc.semanas.map(s=>s.semana),'Todas as semanas');
+    const pEl=document.getElementById('focoFilterPeriodo');
+    if(pEl)pEl.innerHTML='<option value="">Todos os períodos</option><option value="manhã">Manhã</option><option value="tarde">Tarde</option>';
+    fillSelect('focoFilterDia',fc.dias,'Todos os dias');
+    ['focoFilterSemana','focoFilterPeriodo','focoFilterDia'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('change',()=>{if(id==='focoFilterSemana')focoFilterSemana=el.value;if(id==='focoFilterPeriodo')focoFilterPeriodo=el.value;if(id==='focoFilterDia')focoFilterDia=el.value;render();});});
+    const clear=document.getElementById('clearFocoFilters');
+    if(clear)clear.addEventListener('click',()=>{focoFilterSemana='';focoFilterPeriodo='';focoFilterDia='';['focoFilterSemana','focoFilterPeriodo','focoFilterDia'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});render();});
+    render();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initFoco);else initFoco();
+})();
+</script>
 <script>
 const fmt = n => n.toLocaleString('pt-BR');
 const fmtSigned = n => n < 0 ? '-' + fmt(Math.abs(n)) : fmt(n);
@@ -1942,6 +2090,7 @@ const portalTabs = document.querySelectorAll('.portal-tab');
 const portalPageMeta = {
   marketplaces:['Marketplaces','Operação'],
   atividades:['Atividades','Operação'],
+  'foco-comercial':['Foco Comercial','Operação'],
   acoes:['Ações','Operação'],
   lotes:['Publicações','Operação'],
   campanhas:['Campanhas','Operação'],
@@ -2613,6 +2762,7 @@ initCampaigns();
     try{(window.acoesData||acoesData||[]).forEach(x=>add(out,'Ações',x.titulo||x.acao||x.nome,[x.local,x.setor,x.responsavel].filter(Boolean).join(' • '),'acoes',Object.values(x).join(' ')))}catch(e){}
     try{(window.data||data||[]).forEach(x=>add(out,'Publicações',x.forn||x.fornecedor||x.nome,[x.resp,x.prod,x.prioridade].filter(Boolean).join(' • '),'lotes',Object.values(x).join(' ')))}catch(e){}
     try{(window.campanhasData||campanhasData||[]).forEach(x=>add(out,'Campanhas',x.nome||x.campanha||x.titulo,[x.marketplace,x.tipo,x.desconto].filter(Boolean).join(' • '),'campanhas',Object.values(x).join(' ')))}catch(e){}
+    try{((window.focoComercialData||focoComercialData||{}).rotinas||[]).forEach(x=>add(out,'Foco Comercial',x.nome,x.subarea,'foco-comercial',x.resumo))}catch(e){}
     try{(window.crossDockingData||crossDockingData||[]).forEach(x=>add(out,'Cross Docking',x.fornecedor||x.nome||x.supplier,'Fornecedor e regras de postagem','crossdocking',JSON.stringify(x)))}catch(e){}
     try{(window.fornecedoresData||fornecedoresData||[]).forEach(x=>add(out,'Parceiros · Fornecedores',x.fornecedor,'Fornecedor','parceiros',JSON.stringify(x)))}catch(e){}
     try{(window.intelipostData||intelipostData||[]).forEach(x=>add(out,'Parceiros · Intelipost',x.nome,x.parceiro+' • '+x.acoes,'parceiros',JSON.stringify(x),'intelipost'))}catch(e){}
