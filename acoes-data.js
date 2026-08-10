@@ -25,14 +25,6 @@ const acoesData = [
   },
   {
     "inicio": "2023-05-01",
-    "final": "2023-05-21",
-    "acao": "Geral à vista 10% LU GMK8",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-05-01",
     "final": "2023-05-31",
     "acao": "6000 skus 11% BL",
     "local": "MARKETPLACES",
@@ -48,9 +40,9 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
-    "inicio": "2023-05-02",
-    "final": "2023-06-07",
-    "acao": "Desconto à vista | 10% OFF | MÓVEIS E DECORAÇÃO | americanas. s.a. | Todos os Canais | 4% AMER + 6% Seller - Maio 10% B2W 3 LOJAS",
+    "inicio": "2023-05-01",
+    "final": "2023-05-21",
+    "acao": "Geral à vista 10% LU GMK8",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -58,7 +50,39 @@ const acoesData = [
   {
     "inicio": "2023-05-02",
     "final": "2023-06-07",
-    "acao": "Desconto à vista | 10% OFF | ELETROPORTÁTEIS | americanas s.a | Todos os canais | 4% AMER + 6% Seller - Maio 10% B2W 3 LOJAS",
+    "acao": "Especial | Desconto à vista | PIX | 15% OFF",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-05-02",
+    "final": "2023-06-07",
+    "acao": "Desconto à vista | 10% OFF | UTILIDADES DOMÉSTICAS",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-05-02",
+    "final": "2023-06-07",
+    "acao": "Especial | Desconto à vista | 15% OFF | AGRO, INDÚSTRIA E COMÉRCIO",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-05-02",
+    "final": "2023-06-07",
+    "acao": "Desconto à vista | 10% OFF | MÓVEIS E DECORAÇÃO",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-05-02",
+    "final": "2023-06-07",
+    "acao": "Desconto à vista | 10% OFF | ELETROPORTÁTEIS | americanas s.a | Todos os canais",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -67,30 +91,6 @@ const acoesData = [
     "inicio": "2023-05-02",
     "final": "2023-06-06",
     "acao": "Especial | Desconto à vista | 10% OFF | Automotivo | Todos os Canais | 4% AMER + 6% Seller - MAIO 10% B2W 3 LOJAS",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-05-02",
-    "final": "2023-06-07",
-    "acao": "Especial | Desconto à vista | PIX | 15% OFF B2W 3 LOJAS",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-05-02",
-    "final": "2023-06-07",
-    "acao": "Especial | Desconto à vista | 15%  B2W 3 LOJAS",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-05-02",
-    "final": "2023-06-07",
-    "acao": "Desconto à vista | 10% OFF B2W 3 LOJAS",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -178,8 +178,24 @@ const acoesData = [
   {
     "inicio": "2023-05-09",
     "final": "2023-05-09",
+    "acao": "Criado Acesso Udemy para Equipe",
+    "local": "PLATAFORMAS",
+    "setor": "Operações",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-05-09",
+    "final": "2023-05-09",
     "acao": "Saída da Kelly",
     "local": "EQUIPE",
+    "setor": "Operações",
+    "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-11",
+    "final": "2023-05-11",
+    "acao": "Pausa estrela 10",
+    "local": "MARKETPLACES",
     "setor": "Operações",
     "responsavel": "Jean"
   },
@@ -198,6 +214,14 @@ const acoesData = [
     "local": "ANYMARKET",
     "setor": "Vendas",
     "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-12",
+    "final": "2023-05-12",
+    "acao": "Melhorado botões de marcas cabeçalho Site",
+    "local": "PLATAFORMAS",
+    "setor": "Melhorias",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2023-05-12",
@@ -266,10 +290,18 @@ const acoesData = [
   {
     "inicio": "2023-05-17",
     "final": "2023-05-17",
-    "acao": "Transferência Est. Fisico Vonder GUIMEPA > DELTATOP",
+    "acao": "Transferência Est. Fisico Vonder GUIMEPA \u003e DELTATOP",
     "local": "HARDNESS",
     "setor": "Vendas",
     "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-18",
+    "final": "2023-05-18",
+    "acao": "Implantação Quadro Trello GUIMEPA \u003c\u003e ANYMARKET",
+    "local": "ANYMARKET",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2023-05-22",
@@ -312,6 +344,14 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2023-05-24",
+    "final": "2023-05-24",
+    "acao": "Reunião de Aproximação com a Intelipost",
+    "local": "INTELIPOST",
+    "setor": "Integradores",
+    "responsavel": "Thays"
+  },
+  {
     "inicio": "2023-05-26",
     "final": "2023-05-31",
     "acao": "Geral à vista 10% LU GMK8",
@@ -336,20 +376,44 @@ const acoesData = [
     "responsavel": "Jean"
   },
   {
+    "inicio": "2023-05-29",
+    "final": "2023-05-29",
+    "acao": "Ativação Lançamentos GMEG",
+    "local": "MARKETPLACES",
+    "setor": "Publicações",
+    "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-29",
+    "final": "2023-05-29",
+    "acao": "Ativação Lançamentos Wap",
+    "local": "MARKETPLACES",
+    "setor": "Publicações",
+    "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-29",
+    "final": "2023-05-29",
+    "acao": "Ativação marca Trapp",
+    "local": "MARKETPLACES",
+    "setor": "Publicações",
+    "responsavel": "Jean"
+  },
+  {
+    "inicio": "2023-05-29",
+    "final": "2023-05-29",
+    "acao": "Ativação CSM",
+    "local": "MARKETPLACES",
+    "setor": "Publicações",
+    "responsavel": "Jean"
+  },
+  {
     "inicio": "2023-06-01",
     "final": "2023-06-15",
     "acao": "MAGALU Selecionados Feirão Ferramentas GUIMEPA 5%",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-06-02",
-    "final": "2023-06-02",
-    "acao": "ENTREGA MELHORIA ABERTURA RMA POR PEDIDOS E NOTAS",
-    "local": "HARDNESS",
-    "setor": "Melhorias",
-    "responsavel": "Jean"
   },
   {
     "inicio": "2023-06-02",
@@ -382,6 +446,14 @@ const acoesData = [
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-06-02",
+    "final": "2023-06-02",
+    "acao": "ENTREGA MELHORIA ABERTURA RMA POR PEDIDOS E NOTAS",
+    "local": "HARDNESS",
+    "setor": "Melhorias",
+    "responsavel": "Jean"
   },
   {
     "inicio": "2023-06-05",
@@ -441,18 +513,18 @@ const acoesData = [
   },
   {
     "inicio": "2023-06-09",
-    "final": "2023-06-09",
-    "acao": "Regras Preços Anymarket 5% Desconto Marcas Ativas LDM",
-    "local": "PLATAFORMAS",
-    "setor": "Preços",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-06-09",
     "final": "2023-07-10",
     "acao": "VIA Desconto Ferramentas 15% (8% Seller)",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-06-09",
+    "final": "2023-06-09",
+    "acao": "Regras Preços Anymarket 5% Desconto Marcas Ativas LDM",
+    "local": "PLATAFORMAS",
+    "setor": "Preços",
     "responsavel": "Bruno"
   },
   {
@@ -529,6 +601,14 @@ const acoesData = [
   },
   {
     "inicio": "2023-06-27",
+    "final": "2023-07-11",
+    "acao": "Campanha Loja Nova Guimepa SC - 10% à vista",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-06-27",
     "final": "2023-06-27",
     "acao": "Retirado linha da BLACK DECKER da fábrica, somente estoque",
     "local": "MARKETPLACES",
@@ -553,14 +633,6 @@ const acoesData = [
   },
   {
     "inicio": "2023-06-27",
-    "final": "2023-07-11",
-    "acao": "Campanha Loja Nova Guimepa SC - 10% à vista",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-06-27",
     "final": "2023-06-27",
     "acao": "Ativação da Loja Mercado Livre SC",
     "local": "MARKETPLACES",
@@ -581,7 +653,7 @@ const acoesData = [
     "acao": "Reajuste da taxa de combustivel Jadlog de 5,31 para 0,41",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-07-01",
@@ -641,19 +713,19 @@ const acoesData = [
   },
   {
     "inicio": "2023-07-03",
-    "final": "2023-07-03",
-    "acao": "Flag Conferência Pedidos (Aguardando e Pronto)",
-    "local": "HARDNESS",
-    "setor": "Melhorias",
-    "responsavel": "Jean"
-  },
-  {
-    "inicio": "2023-07-03",
     "final": "2023-07-12",
     "acao": "MAGALU DELTATOP 10% (Seller 5%) Geral à vista",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-07-03",
+    "final": "2023-07-03",
+    "acao": "Flag Conferência Pedidos (Aguardando e Pronto)",
+    "local": "HARDNESS",
+    "setor": "Melhorias",
+    "responsavel": "Jean"
   },
   {
     "inicio": "2023-07-06",
@@ -669,7 +741,7 @@ const acoesData = [
     "acao": "Criado regras de cotação na Intelipost para compensação de frete JADLOG para os estados RS,SC,MS,MT,RO,DF,AM,SE,AC,RR",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-07-10",
@@ -713,14 +785,6 @@ const acoesData = [
   },
   {
     "inicio": "2023-07-17",
-    "final": "2023-07-31",
-    "acao": "MAGALU DELTATOP 10% (Seller 7%) Geral à vista",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-07-17",
     "final": "2023-08-02",
     "acao": "MAGALU GUIMEPA 10% (Seller 7%) Geral à vista",
     "local": "MARKETPLACES",
@@ -731,6 +795,14 @@ const acoesData = [
     "inicio": "2023-07-17",
     "final": "2023-08-02",
     "acao": "MAGALU GMK8 10% (Seller 7%) Geral à vista",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-07-17",
+    "final": "2023-07-31",
+    "acao": "MAGALU DELTATOP 10% (Seller 7%) Geral à vista",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -757,7 +829,15 @@ const acoesData = [
     "acao": "Atualizado tabelas de frete Total Express origens PR e SC na Intelipost",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2023-07-25",
+    "final": "2023-07-25",
+    "acao": "Configurado Regra de Estoque Mínimo para enviar 0 quando chegar em 1. Duas Lojas AMAZON",
+    "local": "ANYMARKET",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2023-07-27",
@@ -765,15 +845,7 @@ const acoesData = [
     "acao": "Acréscimo geral de 10% fretes TNT via regra na Intelipost",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2023-07-31",
-    "final": "2023-07-31",
-    "acao": "Acréscimo de 5 dias no prazo de entrega para pedidos da Loja do Mecanico",
-    "local": "INTELIPOST",
-    "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-07-31",
@@ -784,33 +856,41 @@ const acoesData = [
     "responsavel": "Equipe"
   },
   {
-    "inicio": "2023-08-01",
-    "final": "2023-08-01",
-    "acao": "AUMENTO 4% Markup - Tickets Acima de R$ 20,00 - 40% Tickets R$ 0 a R$ 20,00 - LEROY MERLIN",
-    "local": "MARKETPLACES",
-    "setor": "Preços",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-08-01",
-    "final": "2023-08-01",
-    "acao": "AUMENTO 5% Markup - Selecionados Ticket A baixo de 30,00 - MERCADO LIVRE",
-    "local": "MARKETPLACES",
-    "setor": "Preços",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-08-01",
-    "final": "2023-08-01",
-    "acao": "Acréscimo 40% Regra ANYMARKET e INATIVAÇÃO BLACK+DECKER LEROY MERLIN",
-    "local": "PLATAFORMAS",
-    "setor": "Preços",
-    "responsavel": "Bruno"
+    "inicio": "2023-07-31",
+    "final": "2023-07-31",
+    "acao": "Acréscimo de 5 dias no prazo de entrega para pedidos da Loja do Mecanico",
+    "local": "INTELIPOST",
+    "setor": "Marketplaces",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-08-01",
     "final": "2023-08-31",
     "acao": "BALAROTI 12% (Seller 9%) Itens Selecionados com IPV e Markups altos",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-01",
+    "final": "2023-08-31",
+    "acao": "AMAZON DUAS LOJAS 5% ACIMA DE R$ 50,00",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-01",
+    "final": "2023-08-31",
+    "acao": "MM GUIMEPA - 5% Geral à vista",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-01",
+    "final": "2023-08-15",
+    "acao": "SHOPHUB - 5% Geral (5% Seller)",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -841,10 +921,26 @@ const acoesData = [
   },
   {
     "inicio": "2023-08-01",
-    "final": "2023-08-31",
-    "acao": "AMAZON DUAS LOJAS 5% ACIMA DE R$ 50,00",
+    "final": "2023-08-01",
+    "acao": "AUMENTO 4% Markup - Tickets Acima de R$ 20,00 - 40% Tickets R$ 0 a R$ 20,00 - LEROY MERLIN",
     "local": "MARKETPLACES",
-    "setor": "Campanhas",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-01",
+    "final": "2023-08-01",
+    "acao": "AUMENTO 5% Markup - Selecionados Ticket A baixo de 30,00 - MERCADO LIVRE",
+    "local": "MARKETPLACES",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-01",
+    "final": "2023-08-01",
+    "acao": "Acréscimo 40% Regra ANYMARKET e INATIVAÇÃO BLACK+DECKER LEROY MERLIN",
+    "local": "PLATAFORMAS",
+    "setor": "Preços",
     "responsavel": "Bruno"
   },
   {
@@ -881,22 +977,6 @@ const acoesData = [
   },
   {
     "inicio": "2023-08-01",
-    "final": "2023-08-15",
-    "acao": "SHOPHUB - 5% Geral (5% Seller)",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-08-01",
-    "final": "2023-08-31",
-    "acao": "MM GUIMEPA - 5% Geral à vista",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-08-01",
     "final": "2023-08-01",
     "acao": "AUMENTO 3% Markup - BALAROTI",
     "local": "MARKETPLACES",
@@ -921,14 +1001,6 @@ const acoesData = [
   },
   {
     "inicio": "2023-08-09",
-    "final": "2023-08-09",
-    "acao": "Novo Formato de Check-List de Dados Comerciais",
-    "local": "FORNECEDORES",
-    "setor": "Operações",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-08-09",
     "final": "2023-08-20",
     "acao": "5% MAGALU GUIMEPA SUBSIDIADO PELO CANAL",
     "local": "MARKETPLACES",
@@ -944,6 +1016,22 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2023-08-09",
+    "final": "2023-08-09",
+    "acao": "Novo Formato de Check-List de Dados Comerciais",
+    "local": "FORNECEDORES",
+    "setor": "Operações",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-08-11",
+    "final": "2023-08-11",
+    "acao": "Flag Decrementação de estoque físico Anymarket pedidos pendentes ATIVA",
+    "local": "PLATAFORMAS",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
     "inicio": "2023-08-11",
     "final": "2023-08-11",
     "acao": "Nova Tela de Notas de todas as lojas acompanhadas",
@@ -952,12 +1040,20 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2023-08-14",
+    "final": "2023-08-14",
+    "acao": "Alteração do modo de exibição das transportadoras cotadas no Site",
+    "local": "INTELIPOST",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
     "inicio": "2023-08-16",
     "final": "2023-08-16",
     "acao": "Inclusão das paleteiras no grupo de produtos que a TNT não carrega",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-08-16",
@@ -965,7 +1061,15 @@ const acoesData = [
     "acao": "Criado regra de acréscimo de 20% no frete para produtos grandes",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2023-08-17",
+    "final": "2023-08-17",
+    "acao": "Criado grupo de itens grandes na Intelipost",
+    "local": "INTELIPOST",
+    "setor": "Integradores",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-08-21",
@@ -997,7 +1101,7 @@ const acoesData = [
     "acao": "Ajustado prioridade nas regras de cotação na Intelipost para envios TNT/RTE",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-08-25",
@@ -1025,6 +1129,14 @@ const acoesData = [
   },
   {
     "inicio": "2023-09-01",
+    "final": "2023-10-06",
+    "acao": "B2W 3 Lojas 10% (3% MKP) Construção à vista",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-09-01",
     "final": "2023-09-30",
     "acao": "6% AM DELTATOP DESCONTO ACIMA DE R$ 100 (6% SELLER)",
     "local": "MARKETPLACES",
@@ -1041,16 +1153,16 @@ const acoesData = [
   },
   {
     "inicio": "2023-09-01",
-    "final": "2023-09-05",
-    "acao": "5% MAGALU GUIMEPA DESCONTO À VISTA (5% MKP)",
+    "final": "2023-09-30",
+    "acao": "5% MM DESCONTO À VISTA (5% SELLER)",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2023-09-01",
-    "final": "2023-10-06",
-    "acao": "B2W 3 Lojas 10% (3% MKP) Construção à vista",
+    "final": "2023-09-05",
+    "acao": "5% MAGALU GUIMEPA DESCONTO À VISTA (5% MKP)",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -1069,14 +1181,6 @@ const acoesData = [
     "acao": "Aumento Acréscimo Correios 30% para 40%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-09-01",
-    "final": "2023-09-30",
-    "acao": "5% MM DESCONTO À VISTA (5% SELLER)",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
     "responsavel": "Bruno"
   },
   {
@@ -1141,7 +1245,15 @@ const acoesData = [
     "acao": "Excluida modo de retorno na cotação onde estava configurado para exibir somente o frete mais barato",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2023-09-15",
+    "final": "2023-09-15",
+    "acao": "Atualizado e criado todos os grupos de marcas PR para remover das tabelas de transportadoras origem SC",
+    "local": "INTELIPOST",
+    "setor": "Transportadoras",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-15",
@@ -1150,14 +1262,6 @@ const acoesData = [
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-09-15",
-    "final": "2023-09-15",
-    "acao": "Atualizado e criado todos os grupos de marcas PR para remover das tabelas de transportadoras origem SC",
-    "local": "INTELIPOST",
-    "setor": "Transportadoras",
-    "responsavel": "Logística"
   },
   {
     "inicio": "2023-09-15",
@@ -1173,15 +1277,15 @@ const acoesData = [
     "acao": "Ajustado nome de exibição das transportadoras no momento da cotação",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-20",
     "final": "2023-09-20",
-    "acao": "Criado grupos de produtos e regras de cotação restringindo os embarques de acordo com o perfil de carga de cada transportadora",
+    "acao": "Criado grupos de produtos e regras de cotação restringindo os embarques",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-26",
@@ -1189,7 +1293,7 @@ const acoesData = [
     "acao": "Reduzido o prazo de manueio de todas as transportadora de 2 dias uteis para 1 dia util",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-26",
@@ -1197,7 +1301,7 @@ const acoesData = [
     "acao": "Acréscimo de frete RTE +5% para os estados RJ,RS,DF,MT,ES",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-26",
@@ -1205,7 +1309,7 @@ const acoesData = [
     "acao": "Acréscimo de 20% fretes Total Express destino ES e PA",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-26",
@@ -1213,7 +1317,7 @@ const acoesData = [
     "acao": "Ajuste no acréscimo de frete RTE de 38% para 43%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-26",
@@ -1221,7 +1325,7 @@ const acoesData = [
     "acao": "Ativação da tabela Braspress",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-09-28",
@@ -1309,7 +1413,7 @@ const acoesData = [
     "acao": "Criada regra com prazo adicional de 2 dias aos produtos OVD nas lojas Magalu GMP/DELTA",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-04",
@@ -1389,7 +1493,7 @@ const acoesData = [
     "acao": "Ajustado acréscimo de frete Braspress de 15% para 30%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-06",
@@ -1402,7 +1506,7 @@ const acoesData = [
   {
     "inicio": "2023-10-06",
     "final": "2023-10-06",
-    "acao": "AUMENTO MARKUP AMAZON GMK8 - 30% ITENS <R$100, TAXA 20 MAIORES",
+    "acao": "AUMENTO MARKUP AMAZON GMK8 - 30% ITENS \u003cR$100, TAXA 20 MAIORES",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -1421,7 +1525,7 @@ const acoesData = [
     "acao": "BALAROTI ATIVAÇÃO DE FRETE GRATIS PARA PEDIDOS ACIMA DE 300,00 NO ESTADO DO PR",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-10",
@@ -1441,11 +1545,27 @@ const acoesData = [
   },
   {
     "inicio": "2023-10-11",
+    "final": "2023-10-31",
+    "acao": "20% VIA VAREJO 7133 SKUS (10% SELLER)",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-10-11",
+    "final": "2023-10-31",
+    "acao": "AMERICANAS 10% (6% SELLER) À VISTA",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-10-11",
     "final": "2023-10-11",
     "acao": "ATIVADO ACRÉSCIMO DE FRETE +15% JET EXPRESS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-11",
@@ -1461,23 +1581,7 @@ const acoesData = [
     "acao": "ATIVAÇÃO DA TABELA JET EXPRESS ORIGEM PR",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2023-10-11",
-    "final": "2023-10-31",
-    "acao": "20% VIA VAREJO 7133 SKUS (10% SELLER)",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2023-10-11",
-    "final": "2023-10-31",
-    "acao": "AMERICANAS 10% (6% SELLER) À VISTA",
-    "local": "MARKETPLACES",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-12",
@@ -1522,10 +1626,10 @@ const acoesData = [
   {
     "inicio": "2023-10-17",
     "final": "2023-10-17",
-    "acao": "AJUSTE DE ACRESCIMO J&T EXPRESS DE 15% PARA 30%",
+    "acao": "AJUSTE DE ACRESCIMO J\u0026T EXPRESS DE 15% PARA 30%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-18",
@@ -1533,7 +1637,7 @@ const acoesData = [
     "acao": "ACRÉSCIMO FIXO DE R$ 180,00 PARA TDA/TDE CONFORME FAIXA DE CEPS INFORMADOS PELA TRANSPORTADORA",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-18",
@@ -1549,7 +1653,7 @@ const acoesData = [
     "acao": "ATIVAÇÃO DE TABELA TRANSPORTADORA MOVVI",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-18",
@@ -1589,7 +1693,7 @@ const acoesData = [
     "acao": "ACRÉSCIMO DE 15% FRETES MOVVI",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-19",
@@ -1597,7 +1701,7 @@ const acoesData = [
     "acao": "CRIADOS GRUPOS DE PRODUTOS COM ID WEBCONTINENTAL PARA CORREÇÃO DAS COTAÇÕES",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-24",
@@ -1605,7 +1709,7 @@ const acoesData = [
     "acao": "CRIADAS REGRAS DE ACRÉSCIMO SOBRE TDA CONFORME FAIXA DE CEPS INFORMADOS PELA ATUAL CARGAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-24",
@@ -1613,7 +1717,7 @@ const acoesData = [
     "acao": "ATIVAÇÃO DE TABELA TRANSPORTADORA ATUAL CARGAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-24",
@@ -1621,7 +1725,7 @@ const acoesData = [
     "acao": "ACRÉSCIMO DE 15% FRETES ATUAL CARGAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-30",
@@ -1629,7 +1733,7 @@ const acoesData = [
     "acao": "CRIADO REGRA PARA FRETE GRATIS ACIMA DE R$ 400,00 PR E SC ANGELONI",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-10-30",
@@ -1669,7 +1773,7 @@ const acoesData = [
     "acao": "CRIADO REGRA PARA FRETE GRATIS ACIMA DE R$ 300,00 PR,SC E RS WEBCONTINENTAL",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-11-08",
@@ -1738,26 +1842,34 @@ const acoesData = [
   {
     "inicio": "2023-11-29",
     "final": "2023-11-29",
-    "acao": "Primeira Entrada de materiais CD Novo SC",
-    "local": "EQUIPE",
-    "setor": "Operações",
-    "responsavel": "Equipe"
-  },
-  {
-    "inicio": "2023-11-29",
-    "final": "2023-11-29",
     "acao": "ENTRADA GUSTAVO EQUIPE TI",
     "local": "EQUIPE",
     "setor": "Operações",
     "responsavel": "Jean"
   },
   {
+    "inicio": "2023-11-29",
+    "final": "2023-11-29",
+    "acao": "Primeira Entrada de materiais CD Novo SC",
+    "local": "EQUIPE",
+    "setor": "Operações",
+    "responsavel": "Equipe"
+  },
+  {
     "inicio": "2023-11-30",
     "final": "2023-11-30",
-    "acao": "Acrescimo de +30% fretes J&T Express",
+    "acao": "Desabilitado Flag Controle MS por ANY",
+    "local": "ANYMARKET",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2023-11-30",
+    "final": "2023-11-30",
+    "acao": "Acrescimo de +30% fretes J\u0026T Express",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-01",
@@ -1765,7 +1877,7 @@ const acoesData = [
     "acao": "Frete gratís pedidos acima de R$ 300,00 PR,SC e RS - ANGELONI",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-07",
@@ -1773,7 +1885,7 @@ const acoesData = [
     "acao": "Frete gratís sul e sudeste itens pequenos e com boa frequencia de venda",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-07",
@@ -1781,7 +1893,7 @@ const acoesData = [
     "acao": "Desativado tabela JET EXPRESS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-08",
@@ -1789,7 +1901,7 @@ const acoesData = [
     "acao": "Acréscimo de 2 dias no prazo de entrega Magalu GMP/DELTATOP",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-13",
@@ -1829,7 +1941,7 @@ const acoesData = [
     "acao": "AUMENTO DE 2 DIAS NO PRAZO ADICIONAL DAS TRANSPORTADORAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2023-12-27",
@@ -1853,7 +1965,7 @@ const acoesData = [
     "acao": "REDUÇÃO DO PRAZO DE MANUSEIO DAS TRANSPORTADORAS DE 2 PARA 1 DIA",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-08",
@@ -1885,7 +1997,7 @@ const acoesData = [
     "acao": "CAMPANHA FRETE GRATIS SUL/SUDESTE ACIMA DE 300 OI PLACE",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-11",
@@ -1909,7 +2021,7 @@ const acoesData = [
     "acao": "Acréscimo de 2 dias no prazo de entrega Magalu GMP/DELTATOP (REGRA EM 6 DIAS)",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-15",
@@ -1946,6 +2058,30 @@ const acoesData = [
   {
     "inicio": "2024-01-16",
     "final": "2024-01-16",
+    "acao": "Redução de preços de Produtos com estoque acima de 30 dias (44 produtos)",
+    "local": "MARKETPLACES",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-01-16",
+    "final": "2024-01-16",
+    "acao": "Redução de preços de Produtos com estoque execedente (8 produtos)",
+    "local": "MARKETPLACES",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-01-16",
+    "final": "2024-01-16",
+    "acao": "Remoção de Itens que não serão repostos (25 produtos)",
+    "local": "MARKETPLACES",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-01-16",
+    "final": "2024-01-16",
     "acao": "RETOMADA MELHORIA EXPEDIÇÃO",
     "local": "HARDNESS",
     "setor": "Melhorias",
@@ -1957,7 +2093,7 @@ const acoesData = [
     "acao": "Configurado grupo de produtos \"iscas\" na Intelipost",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-17",
@@ -1965,7 +2101,7 @@ const acoesData = [
     "acao": "Acrescimo de +10% frete canal Shopee",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-20",
@@ -1988,7 +2124,7 @@ const acoesData = [
     "final": "2024-01-24",
     "acao": "AUMENTO CROSSDOCKING OVD produtos abaixo de 100,00 de 6 para 8 dias",
     "local": "HARDNESS",
-    "setor": "Vendas",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
@@ -2013,7 +2149,7 @@ const acoesData = [
     "acao": "REAJUSTE MARKUP LOJA DELTATOP MAGALU",
     "local": "ANYMARKET",
     "setor": "Marketplaces",
-    "responsavel": "Jennifer"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-27",
@@ -2021,7 +2157,7 @@ const acoesData = [
     "acao": "Ativação de 10 mil produtos no Angeloni",
     "local": "MARKETPLACES",
     "setor": "Marketplaces",
-    "responsavel": "Leandro"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-29",
@@ -2037,7 +2173,7 @@ const acoesData = [
     "acao": "AJUSTE NO PRAZO ADICIONAL MAGALU 3 LOJAS DE 6 DIAS PARA 8 DIAS",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-01-30",
@@ -2053,7 +2189,7 @@ const acoesData = [
     "acao": "FRETE GRATIS SUL/SUDESTE ACIMA DE 400 BALAROTI",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-02",
@@ -2068,7 +2204,7 @@ const acoesData = [
     "final": "2024-02-08",
     "acao": "AUMENTO CROSSDOCKING OVD DE 5 PARA 6 - FAIXA ACIMA DE R$ 100",
     "local": "HARDNESS",
-    "setor": "Vendas",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
@@ -2109,7 +2245,7 @@ const acoesData = [
     "acao": "PAUSA NA CAMPANHA DE FRETE GRATIS SUL/SUDESTE",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-16",
@@ -2117,7 +2253,7 @@ const acoesData = [
     "acao": "AUMENTO NO PRAZO ADICIONAL DE ENTREGA 3 LOJAS MAGALU DE 8 PARA 9 DIAS",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-16",
@@ -2131,7 +2267,7 @@ const acoesData = [
     "inicio": "2024-02-19",
     "final": "2024-02-19",
     "acao": "AJUSTE CROSS TUDO COM 3 DIAS OVD MERCADO LIVRE",
-    "local": "INTELIPOST",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
@@ -2141,7 +2277,7 @@ const acoesData = [
     "acao": "REDUÇÃO NO PRAZO DE ENTREGA -3 DIAS MELI",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-22",
@@ -2149,7 +2285,7 @@ const acoesData = [
     "acao": "DESATIVADA REGRA NA REDUÇÃO DO PRAZO MELI",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-23",
@@ -2157,7 +2293,7 @@ const acoesData = [
     "acao": "FRETE GRATIS SAO PAULO MADEIRA MADEIRA ACIMA DE R$150 ATÉ 5KG",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-02-27",
@@ -2173,7 +2309,15 @@ const acoesData = [
     "acao": "AJUSTE DE MARKUP MM REDUÇÃO DE 3% DE MARKUP",
     "local": "MARKETPLACES",
     "setor": "Preços",
-    "responsavel": "Leandro"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-02-29",
+    "final": "2024-03-04",
+    "acao": "OVD CROSS 2 DIAS FINAL DE SEMANA",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2024-02-29",
@@ -2192,20 +2336,12 @@ const acoesData = [
     "responsavel": "Jean"
   },
   {
-    "inicio": "2024-02-29",
-    "final": "2024-03-04",
-    "acao": "OVD CROSS 2 DIAS FINAL DE SEMANA",
-    "local": "HARDNESS",
-    "setor": "Operações",
-    "responsavel": "Bruno"
-  },
-  {
     "inicio": "2024-03-01",
     "final": "2024-03-01",
     "acao": "REAJUSTE ACRESCIMO DE FRETE ATUALCARGAS 15% NORDESTE",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-01",
@@ -2213,7 +2349,7 @@ const acoesData = [
     "acao": "REAJUSTE ACRESCIMO DE FRETE TOTAL EXPRESS 50%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-01",
@@ -2221,7 +2357,7 @@ const acoesData = [
     "acao": "REAJUSTE ACRESCIMO DE FRETE RODONAVES 60%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-01",
@@ -2229,7 +2365,7 @@ const acoesData = [
     "acao": "REAJUSTE ACRESCIMO DE FRETE JADLOG 40%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-01",
@@ -2237,7 +2373,7 @@ const acoesData = [
     "acao": "REAJUSTE ACRESCIMO DE FRETE TNT 70%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-05",
@@ -2298,18 +2434,18 @@ const acoesData = [
   {
     "inicio": "2024-03-06",
     "final": "2024-03-06",
-    "acao": "AUMENTO IPV OUTRAS MARCAS 100 a 300 - 2%",
+    "acao": "REDUÇÃO NO PRAZO CROSS DOCKING TEKNA 6-3",
     "local": "HARDNESS",
-    "setor": "Preços",
-    "responsavel": "Bruno"
+    "setor": "Operações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-06",
     "final": "2024-03-06",
-    "acao": "REDUÇÃO NO PRAZO CROSS DOCKING TEKNA 6-3",
+    "acao": "AUMENTO IPV OUTRAS MARCAS 100 a 300 - 2%",
     "local": "HARDNESS",
-    "setor": "Operações",
-    "responsavel": "Logística"
+    "setor": "Preços",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2024-03-06",
@@ -2378,7 +2514,7 @@ const acoesData = [
   {
     "inicio": "2024-03-07",
     "final": "2024-03-07",
-    "acao": "REDUÇÃO DE DESCONTO NOS NÍVEIS DE ESTOQUE PARADO | ESTOQUE LIQ ACIMA 150 de 30%>25%",
+    "acao": "REDUÇÃO DE DESCONTO NOS NÍVEIS DE ESTOQUE PARADO | ESTOQUE LIQ ACIMA 150 de 30%\u003e25%",
     "local": "HARDNESS",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -2400,12 +2536,36 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2024-03-07",
+    "final": "2024-03-07",
+    "acao": "CROSS DOCKING OVD 2\u003e4 DIAS ITENS ABAIXO DE 100",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-03-07",
+    "final": "2024-03-07",
+    "acao": "CROSS DOCKING OVD 2\u003e3 DIAS ITENS ACIMA DE 100",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
+  },
+  {
     "inicio": "2024-03-12",
     "final": "2024-03-12",
     "acao": "AUMENTO OLIST MARKUP 10%",
     "local": "ANYMARKET",
     "setor": "Preços",
-    "responsavel": "Leandro"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-03-14",
+    "final": "2024-03-14",
+    "acao": "REDUÇÃO CROSS DOCKING BEL PRODUZIDOS 14\u003e8 DIAS",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-14",
@@ -2421,7 +2581,23 @@ const acoesData = [
     "acao": "REDUÇÃO -2 PRAZO DE ENTREGA MELI SP CAPITAL PRODUTOS SELECIONADOS",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-03-15",
+    "final": "2024-03-15",
+    "acao": "REDUÇÃO CROSS DOCKING MENEGOTTI 8\u003e7 DIAS",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-03-15",
+    "final": "2024-03-15",
+    "acao": "REDUÇÃO CROSS DOCKING LYNUS 6\u003e5 DIAS",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-19",
@@ -2434,10 +2610,10 @@ const acoesData = [
   {
     "inicio": "2024-03-19",
     "final": "2024-03-19",
-    "acao": "REDUÇÃO NO PRAZO ADC MAGALU 9>7",
+    "acao": "REDUÇÃO NO PRAZO ADC MAGALU 9\u003e7",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-27",
@@ -2445,7 +2621,7 @@ const acoesData = [
     "acao": "DESATIVADO - REDUÇÃO -2 PRAZO DE ENTREGA MELI SP CAPITAL PRODUTOS SELECIONADOS",
     "local": "INTELIPOST",
     "setor": "Marketplaces",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-03-27",
@@ -2466,7 +2642,7 @@ const acoesData = [
   {
     "inicio": "2024-04-01",
     "final": "2024-04-01",
-    "acao": "BRANCO | AJUSTE CROSSDOCKING 10>4 DIAS",
+    "acao": "BRANCO | AJUSTE CROSSDOCKING 10\u003e4 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -2514,7 +2690,7 @@ const acoesData = [
   {
     "inicio": "2024-04-09",
     "final": "2024-04-09",
-    "acao": "AUMENTO IPV OVD FAIXA 1000 a 2000 | 1,58 > 1,60",
+    "acao": "AUMENTO IPV OVD FAIXA 1000 a 2000 | 1,58 \u003e 1,60",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -2522,7 +2698,7 @@ const acoesData = [
   {
     "inicio": "2024-04-09",
     "final": "2024-04-09",
-    "acao": "AUMENTO IPV OVD FAIXA 500 a 1000 | 1,64 > 1,65",
+    "acao": "AUMENTO IPV OVD FAIXA 500 a 1000 | 1,64 \u003e 1,65",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -2530,7 +2706,7 @@ const acoesData = [
   {
     "inicio": "2024-04-09",
     "final": "2024-04-09",
-    "acao": "AUMENTO IPV OVD FAIXA 100 a 200 | 1,75 > 1,80",
+    "acao": "AUMENTO IPV OVD FAIXA 100 a 200 | 1,75 \u003e 1,80",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -2538,7 +2714,7 @@ const acoesData = [
   {
     "inicio": "2024-04-09",
     "final": "2024-04-09",
-    "acao": "AUMENTO IPV OVD FAIXA 200 a 500 | 1,65 > 1,68",
+    "acao": "AUMENTO IPV OVD FAIXA 200 a 500 | 1,65 \u003e 1,68",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -2546,7 +2722,7 @@ const acoesData = [
   {
     "inicio": "2024-04-09",
     "final": "2024-04-09",
-    "acao": "AUMENTO IPV OVD FAIXA 0 a 100 | 1,85 > 1,95",
+    "acao": "AUMENTO IPV OVD FAIXA 0 a 100 | 1,85 \u003e 1,95",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -2565,7 +2741,7 @@ const acoesData = [
     "acao": "REAJUSTE ACRÉSCIMO DE FRETE RODONAVES",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-04-15",
@@ -2666,7 +2842,7 @@ const acoesData = [
   {
     "inicio": "2024-04-24",
     "final": "2024-04-24",
-    "acao": "REAJUSTE CROSS OVD ACIMA DE 30,00 4>3",
+    "acao": "REAJUSTE CROSS OVD ACIMA DE 30,00 4\u003e3",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -2674,7 +2850,7 @@ const acoesData = [
   {
     "inicio": "2024-04-24",
     "final": "2024-04-24",
-    "acao": "REAJUSTE CROSS OVD ACIMA DE 30,00 5>4",
+    "acao": "REAJUSTE CROSS OVD ACIMA DE 30,00 5\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -2717,15 +2893,7 @@ const acoesData = [
     "acao": "ACRESCIMO +7 DIAS NO PRAZO DE ENTREGA PARA RS (ALAGAMENTOS)",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2024-05-06",
-    "final": "2024-05-06",
-    "acao": "ENTRADA DA JOCELI",
-    "local": "EQUIPE",
-    "setor": "Operações",
-    "responsavel": "Thays"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-05-06",
@@ -2736,12 +2904,28 @@ const acoesData = [
     "responsavel": "Jean"
   },
   {
+    "inicio": "2024-05-06",
+    "final": "2024-05-06",
+    "acao": "ENTRADA DA JOCELI",
+    "local": "EQUIPE",
+    "setor": "Operações",
+    "responsavel": "Thays"
+  },
+  {
     "inicio": "2024-05-08",
     "final": "2024-05-08",
-    "acao": "REDUÇÃO CROSS OVD 3 > 2 / ABAIXO DE R$ 40 4 > 3",
+    "acao": "REDUÇÃO CROSS OVD 3 \u003e 2 / ABAIXO DE R$ 40 4 \u003e 3",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-05-08",
+    "final": "2024-05-08",
+    "acao": "ENCONTRADO ERRO NO SITE DELTATOP NO CADASTRO",
+    "local": "PLATAFORMAS",
+    "setor": "Vendas",
+    "responsavel": "Jean"
   },
   {
     "inicio": "2024-05-20",
@@ -2786,10 +2970,10 @@ const acoesData = [
   {
     "inicio": "2024-05-28",
     "final": "2024-05-28",
-    "acao": "REDUÇÃO PRAZO DE CROSS CSM 7>4",
+    "acao": "REDUÇÃO PRAZO DE CROSS CSM 7\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-05-31",
@@ -2813,23 +2997,23 @@ const acoesData = [
     "acao": "REMOÇÃO PRAZO DE 1 DIA MANUZEIO TRANSPORTADORAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-04",
     "final": "2024-06-04",
-    "acao": "ALTERAÇÃO PRAZO DE CROSS OVD 2>3 DIAS",
+    "acao": "ALTERAÇÃO PRAZO DE CROSS OVD 2\u003e3 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-05",
     "final": "2024-06-05",
-    "acao": "REDUÇÃO NO PRAZO DE CROSS MENEGOTTI 7>4",
+    "acao": "REDUÇÃO NO PRAZO DE CROSS MENEGOTTI 7\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-05",
@@ -2841,9 +3025,17 @@ const acoesData = [
   },
   {
     "inicio": "2024-06-06",
-    "final": "2024-06-06",
-    "acao": "CAMPANHAS EMB MASTER REDIRECIONADAS PARA CAMPANHAS HARDNESS",
-    "local": "HARDNESS",
+    "final": "2024-06-28",
+    "acao": "Campanha Reanimar B2W 3 Lojas 5% 100 a 3000",
+    "local": "ANYMARKET",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-06-06",
+    "final": "2024-06-28",
+    "acao": "Campanha Reanimar B2W 3 Lojas 10% 0 a 100",
+    "local": "ANYMARKET",
     "setor": "Campanhas",
     "responsavel": "Bruno"
   },
@@ -2865,17 +3057,9 @@ const acoesData = [
   },
   {
     "inicio": "2024-06-06",
-    "final": "2024-06-28",
-    "acao": "Campanha Reanimar B2W 3 Lojas 5% 100 a 3000",
-    "local": "ANYMARKET",
-    "setor": "Campanhas",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2024-06-06",
-    "final": "2024-06-28",
-    "acao": "Campanha Reanimar B2W 3 Lojas 10% 0 a 100",
-    "local": "ANYMARKET",
+    "final": "2024-06-06",
+    "acao": "CAMPANHAS EMB MASTER REDIRECIONADAS PARA CAMPANHAS HARDNESS",
+    "local": "HARDNESS",
     "setor": "Campanhas",
     "responsavel": "Bruno"
   },
@@ -2898,90 +3082,90 @@ const acoesData = [
   {
     "inicio": "2024-06-11",
     "final": "2024-06-11",
-    "acao": "REDUÇÃO PRAZO DE CROSS MAKITA 10>6",
+    "acao": "REDUÇÃO PRAZO DE CROSS MAKITA 10\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-11",
     "final": "2024-06-11",
-    "acao": "REDUÇÃO PRAZO DE CROSS BUFFALO 8>6",
+    "acao": "REDUÇÃO PRAZO DE CROSS BUFFALO 8\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-11",
     "final": "2024-06-11",
-    "acao": "REDUÇÃO PRAZO DE CROSS PRESTO 10>6",
+    "acao": "REDUÇÃO PRAZO DE CROSS PRESTO 10\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-11",
     "final": "2024-06-11",
-    "acao": "REDUÇÃO PRAZO DE CROSS TRAPP 14>7",
+    "acao": "REDUÇÃO PRAZO DE CROSS TRAPP 14\u003e7",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-11",
     "final": "2024-06-11",
-    "acao": "REDUÇÃO PRAZO DE CROSS CCM 6>4",
+    "acao": "REDUÇÃO PRAZO DE CROSS CCM 6\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS NOVA MOTORES 5>3",
+    "acao": "REDUÇÃO PRAZO DE CROSS NOVA MOTORES 5\u003e3",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS MODULATTO 8>5",
+    "acao": "REDUÇÃO PRAZO DE CROSS MODULATTO 8\u003e5",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS BOXER 5>3",
+    "acao": "REDUÇÃO PRAZO DE CROSS BOXER 5\u003e3",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS LYNUS 5>4",
+    "acao": "REDUÇÃO PRAZO DE CROSS LYNUS 5\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS PUMA 8>5",
+    "acao": "REDUÇÃO PRAZO DE CROSS PUMA 8\u003e5",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
     "final": "2024-06-12",
-    "acao": "REDUÇÃO PRAZO DE CROSS PDR 8>3",
+    "acao": "REDUÇÃO PRAZO DE CROSS PDR 8\u003e3",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-12",
@@ -3026,18 +3210,18 @@ const acoesData = [
   {
     "inicio": "2024-06-14",
     "final": "2024-06-14",
-    "acao": "REDUÇÃO DE MARKUP TODAS LOJAS B2W",
-    "local": "ANYMARKET",
-    "setor": "Preços",
-    "responsavel": "Leandro"
+    "acao": "REDUÇÃO PRAZO DE CROSS MAKITA 6\u003e4",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-14",
     "final": "2024-06-14",
-    "acao": "REDUÇÃO PRAZO DE CROSS MAKITA 6>4",
-    "local": "HARDNESS",
-    "setor": "Operações",
-    "responsavel": "Logística"
+    "acao": "REDUÇÃO DE MARKUP TODAS LOJAS B2W",
+    "local": "ANYMARKET",
+    "setor": "Preços",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-14",
@@ -3050,7 +3234,7 @@ const acoesData = [
   {
     "inicio": "2024-06-17",
     "final": "2024-06-17",
-    "acao": "AJUSTE IPV NEGRÃO 1,60 > 1,55 ACIMA DE 30 a 1000",
+    "acao": "AJUSTE IPV NEGRÃO 1,60 \u003e 1,55 ACIMA DE 30 a 1000",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3058,7 +3242,7 @@ const acoesData = [
   {
     "inicio": "2024-06-17",
     "final": "2024-06-17",
-    "acao": "AJUSTE IPV NEGRÃO 1,60 > 1,65 ACIMA DE 0 a 30",
+    "acao": "AJUSTE IPV NEGRÃO 1,60 \u003e 1,65 ACIMA DE 0 a 30",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3066,7 +3250,7 @@ const acoesData = [
   {
     "inicio": "2024-06-17",
     "final": "2024-06-17",
-    "acao": "AJUSTE IPV NEGRÃO 1,60 > 1,53 ACIMA DE 1000",
+    "acao": "AJUSTE IPV NEGRÃO 1,60 \u003e 1,53 ACIMA DE 1000",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3074,10 +3258,18 @@ const acoesData = [
   {
     "inicio": "2024-06-17",
     "final": "2024-06-17",
-    "acao": "AJUSTE PRAZO DE CROSS PRESTO 6>10",
+    "acao": "LIMPEZA DE ANÚNCIOS QUE NÃO IREMOS REPOR",
+    "local": "MARKETPLACES",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-06-17",
+    "final": "2024-06-17",
+    "acao": "AJUSTE PRAZO DE CROSS PRESTO 6\u003e10",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-17",
@@ -3117,7 +3309,7 @@ const acoesData = [
     "acao": "ACRESCIMO DE FRETE +30% NATIVA TRANSPORTES",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-24",
@@ -3125,7 +3317,15 @@ const acoesData = [
     "acao": "ATIVAÇÃO DE TABELA NATIVA TRANSPORTES",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-06-26",
+    "final": "2024-06-26",
+    "acao": "ATIVAÇÃO PRODUTOS MARCA FLACH",
+    "local": "MARKETPLACES",
+    "setor": "Publicações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-06-27",
@@ -3213,7 +3413,7 @@ const acoesData = [
     "acao": "INICIO STYVE NO TRANSPORTE",
     "local": "EQUIPE",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-02",
@@ -3290,7 +3490,7 @@ const acoesData = [
   {
     "inicio": "2024-07-09",
     "final": "2024-07-09",
-    "acao": "AUMENTO CROSS OVD PRECO ESPECIAL ABAIXO DE 100,00 3>4",
+    "acao": "AUMENTO CROSS OVD PRECO ESPECIAL ABAIXO DE 100,00 3\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -3298,7 +3498,7 @@ const acoesData = [
   {
     "inicio": "2024-07-09",
     "final": "2024-07-09",
-    "acao": "AJUSTE CROSS TRAPP DE 7>5 | ALINHADO COM FORNECEDOR",
+    "acao": "AJUSTE CROSS TRAPP DE 7\u003e5 | ALINHADO COM FORNECEDOR",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -3317,15 +3517,15 @@ const acoesData = [
     "acao": "REMOÇÃO ACRESCIMO FRETE ATUAL +45% NORDESTE",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-09",
     "final": "2024-07-09",
-    "acao": "REDUÇÃO ACRESCIMO FRETE ATUAL CARGAS 30>20%",
+    "acao": "REDUÇÃO ACRESCIMO FRETE ATUAL CARGAS 30\u003e20%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-09",
@@ -3338,18 +3538,18 @@ const acoesData = [
   {
     "inicio": "2024-07-10",
     "final": "2024-07-10",
-    "acao": "IPV AUMENTO AMAZON GLOBAL API-GUIMEPA 2%",
-    "local": "ANYMARKET",
-    "setor": "Preços",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2024-07-10",
-    "final": "2024-07-10",
     "acao": "LIBERAÇÃO DO IMPERMEABILIZANTE 18 LITROS",
     "local": "HARDNESS",
     "setor": "Vendas",
     "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-07-10",
+    "final": "2024-07-10",
+    "acao": "IPV AUMENTO AMAZON GLOBAL API-GUIMEPA 2%",
+    "local": "ANYMARKET",
+    "setor": "Preços",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-10",
@@ -3370,6 +3570,14 @@ const acoesData = [
   {
     "inicio": "2024-07-10",
     "final": "2024-07-10",
+    "acao": "ATUALIZAÇÃO CAMPANHAS SC VULCAN",
+    "local": "HARDNESS",
+    "setor": "Preços",
+    "responsavel": "Lucas"
+  },
+  {
+    "inicio": "2024-07-10",
+    "final": "2024-07-10",
     "acao": "IPV AUMENTO ANGELONI-GUIMEPA 3%",
     "local": "ANYMARKET",
     "setor": "Preços",
@@ -3386,18 +3594,10 @@ const acoesData = [
   {
     "inicio": "2024-07-10",
     "final": "2024-07-10",
-    "acao": "ATUALIZAÇÃO CAMPANHAS SC VULCAN",
-    "local": "HARDNESS",
-    "setor": "Preços",
-    "responsavel": "Lucas"
-  },
-  {
-    "inicio": "2024-07-10",
-    "final": "2024-07-10",
     "acao": "PAUSA TRANSPORTADORA BRASPRESS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-10",
@@ -3413,7 +3613,7 @@ const acoesData = [
     "acao": "REATIVAÇÃO IMPERMEABILIZANTES PELA TRANSP NATIVA",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-11",
@@ -3453,7 +3653,7 @@ const acoesData = [
     "acao": "REATIVAÇÃO TRANSP BRASPRESS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-15",
@@ -3466,10 +3666,10 @@ const acoesData = [
   {
     "inicio": "2024-07-16",
     "final": "2024-07-16",
-    "acao": "AJUSTE CROSS OVD R$ 30,00 A R$ 80,00 | 3>4 DIAS",
+    "acao": "AJUSTE CROSS OVD R$ 30,00 A R$ 80,00 | 3\u003e4 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-16",
@@ -3482,10 +3682,10 @@ const acoesData = [
   {
     "inicio": "2024-07-16",
     "final": "2024-07-16",
-    "acao": "AJUSTE CROSS OVD R$ 0 A R$ 30,00 | 4>5 DIAS",
+    "acao": "AJUSTE CROSS OVD R$ 0 A R$ 30,00 | 4\u003e5 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-16",
@@ -3493,7 +3693,7 @@ const acoesData = [
     "acao": "AJUSTE CROSS OVD ACIMA DE R$ 80,00 | 3 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-07-19",
@@ -3578,7 +3778,7 @@ const acoesData = [
   {
     "inicio": "2024-07-25",
     "final": "2024-07-25",
-    "acao": "CROSS AJUSTE MAKITA 4>6",
+    "acao": "CROSS AJUSTE MAKITA 4\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -3586,47 +3786,47 @@ const acoesData = [
   {
     "inicio": "2024-07-30",
     "final": "2024-07-30",
-    "acao": "AUMENTO 2 DIAS REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 3 DIAS CROSS MAGALU | 3>5",
-    "local": "INTELIPOST",
+    "acao": "AUMENTO 2 DIAS REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 3 DIAS CROSS MAGALU | 3\u003e5",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-30",
     "final": "2024-07-30",
-    "acao": "AUMENTO 2 DIAS REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 4 DIAS CROSS MAGALU | 4>6",
-    "local": "INTELIPOST",
+    "acao": "AUMENTO 2 DIAS REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 4 DIAS CROSS MAGALU | 4\u003e6",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-30",
     "final": "2024-07-30",
-    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 5 DIAS CROSS MAGALU | 5>6",
-    "local": "INTELIPOST",
+    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 6 DIAS CROSS MAGALU | 6\u003e7",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-30",
     "final": "2024-07-30",
-    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 6 DIAS CROSS MAGALU | 6>7",
-    "local": "INTELIPOST",
+    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 5 DIAS CROSS MAGALU | 5\u003e6",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-30",
     "final": "2024-07-30",
-    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 7 DIAS CROSS MAGALU | 7>8",
-    "local": "INTELIPOST",
+    "acao": "AUMENTO 1 DIA REGRA: CANAL DE VENDAS - PRAZO ADICIONAL 7 DIAS CROSS MAGALU | 7\u003e8",
+    "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2024-07-31",
     "final": "2024-07-31",
-    "acao": "PRESTO CROSS DOCKING 10>15",
+    "acao": "PRESTO CROSS DOCKING 10\u003e15",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -3634,7 +3834,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO CHIAPERINI IPV 1,56>1,6",
+    "acao": "AUMENTO CHIAPERINI IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3642,7 +3842,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO MODULATTO IPV 1,56>1,6",
+    "acao": "AUMENTO MODULATTO IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3650,7 +3850,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO MENEGOTTI IPV 1,55>1,6",
+    "acao": "AUMENTO MENEGOTTI IPV 1,55\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3658,7 +3858,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BRITANIA IPV 1,59>1,6",
+    "acao": "AUMENTO BRITANIA IPV 1,59\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3666,7 +3866,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BUFFALO IPV 1,56>1,6",
+    "acao": "AUMENTO BUFFALO IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3674,7 +3874,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BELFIX IPV 1,59>1,6",
+    "acao": "AUMENTO BELFIX IPV 1,59\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3682,7 +3882,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO NEGRAO IPV 1,56>1,6",
+    "acao": "AUMENTO NEGRAO IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3690,7 +3890,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BALMER IPV 1,55>1,6",
+    "acao": "AUMENTO BALMER IPV 1,55\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3698,7 +3898,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO MAKITA IPV 1,56>1,6",
+    "acao": "AUMENTO MAKITA IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3706,7 +3906,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO PRESTO IPV 1,62>1,6",
+    "acao": "AUMENTO PRESTO IPV 1,62\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3714,7 +3914,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BRANCO IPV 1,56>1,6",
+    "acao": "AUMENTO BRANCO IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3722,7 +3922,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO VULCAN IPV 1,58>1,6",
+    "acao": "AUMENTO VULCAN IPV 1,58\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3730,7 +3930,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BOXER IPV 1,51>1,6",
+    "acao": "AUMENTO BOXER IPV 1,51\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3738,7 +3938,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO TOYAMA IPV 1,6>1,6",
+    "acao": "AUMENTO TOYAMA IPV 1,6\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3746,7 +3946,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO TEKNA IPV 1,56>1,6",
+    "acao": "AUMENTO TEKNA IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3754,7 +3954,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO LYNUS IPV 1,57>1,6",
+    "acao": "AUMENTO LYNUS IPV 1,57\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3762,7 +3962,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO TRAPP IPV 1,57>1,6",
+    "acao": "AUMENTO TRAPP IPV 1,57\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3770,7 +3970,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO FLACH IPV 1,51>1,6",
+    "acao": "AUMENTO FLACH IPV 1,51\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3778,7 +3978,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO NOVA IPV 1,55>1,6",
+    "acao": "AUMENTO NOVA IPV 1,55\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3786,7 +3986,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO GMEG IPV 1,56>1,6",
+    "acao": "AUMENTO GMEG IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3794,7 +3994,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO PUMA IPV 1,56>1,6",
+    "acao": "AUMENTO PUMA IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3810,7 +4010,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO CCM IPV 1,56>1,6",
+    "acao": "AUMENTO CCM IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3818,7 +4018,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO CMB IPV 1,56>1,6",
+    "acao": "AUMENTO CMB IPV 1,56\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3826,7 +4026,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO PDR IPV 1,55>1,6",
+    "acao": "AUMENTO PDR IPV 1,55\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3834,7 +4034,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO CSM IPV 1,55>1,6",
+    "acao": "AUMENTO CSM IPV 1,55\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3842,7 +4042,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO BETA IPV 1,5>1,6",
+    "acao": "AUMENTO BETA IPV 1,5\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3850,7 +4050,7 @@ const acoesData = [
   {
     "inicio": "2024-08-01",
     "final": "2024-08-01",
-    "acao": "AUMENTO WAP IPV 1,6>1,6",
+    "acao": "AUMENTO WAP IPV 1,6\u003e1,6",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -3858,7 +4058,7 @@ const acoesData = [
   {
     "inicio": "2024-08-02",
     "final": "2024-08-02",
-    "acao": "BUFFALO CROSS DOCKING 6>4",
+    "acao": "BUFFALO CROSS DOCKING 6\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -3885,7 +4085,7 @@ const acoesData = [
     "acao": "ATIVAÇÃO TRANSPORTADORA LOGGI",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-08-05",
@@ -3906,7 +4106,7 @@ const acoesData = [
   {
     "inicio": "2024-08-07",
     "final": "2024-08-07",
-    "acao": "PRESTO CROSS DOCKING 15>10",
+    "acao": "PRESTO CROSS DOCKING 15\u003e10",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4002,7 +4202,7 @@ const acoesData = [
   {
     "inicio": "2024-08-12",
     "final": "2024-08-12",
-    "acao": "CROSS AJUSTE MAKITA 6>5",
+    "acao": "CROSS AJUSTE MAKITA 6\u003e5",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4093,7 +4293,7 @@ const acoesData = [
     "acao": "ATUALIZADO LIMITE DE PESO FRETE GRATIS SITE DE 100KG PARA 199KG",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-09-05",
@@ -4101,15 +4301,7 @@ const acoesData = [
     "acao": "ATUALIZADO GRUPO DE PRODUTOS FRETE GRATIS SUL/SUDESTE",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2024-09-06",
-    "final": "2024-09-06",
-    "acao": "BLOQUEIOS TABELAS BRITANIA tabela 310 e 296 | LINHA MARROM E BRANCA IMPORTADAS",
-    "local": "FORNECEDORES",
-    "setor": "Vendas",
-    "responsavel": "Jean"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-09-06",
@@ -4137,19 +4329,27 @@ const acoesData = [
   },
   {
     "inicio": "2024-09-06",
-    "final": "2024-09-06",
-    "acao": "ATUALIZADA TABELA DE FRETE CSM +1 DIA PRAZO DE ENTREGA",
-    "local": "INTELIPOST",
-    "setor": "Marketplaces",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2024-09-06",
     "final": "2024-09-30",
     "acao": "CAMPANHA Itens selecionados Ticket alto",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-09-06",
+    "final": "2024-09-06",
+    "acao": "BLOQUEIOS TABELAS BRITANIA tabela 310 e 296 | LINHA MARROM E BRANCA IMPORTADAS",
+    "local": "FORNECEDORES",
+    "setor": "Vendas",
+    "responsavel": "Jean"
+  },
+  {
+    "inicio": "2024-09-06",
+    "final": "2024-09-06",
+    "acao": "ATUALIZADA TABELA DE FRETE CSM +1 DIA PRAZO DE ENTREGA",
+    "local": "INTELIPOST",
+    "setor": "Marketplaces",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-09-06",
@@ -4189,7 +4389,7 @@ const acoesData = [
     "acao": "EXPANSÃO DOS PRODUTOS COM FRETE GRÁTIS SUL E SUDESTE",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-09-20",
@@ -4250,50 +4450,50 @@ const acoesData = [
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS BELFIX PRODUZIDOS 8>7",
+    "acao": "AJUSTE DE CROSS BELFIX PRODUZIDOS 8\u003e7",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS MENEGOTTI 4>6",
+    "acao": "AJUSTE DE CROSS MENEGOTTI 4\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS BUFFALO 4>5",
+    "acao": "AJUSTE DE CROSS BUFFALO 4\u003e5",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS TOYAMA 3>6",
+    "acao": "AJUSTE DE CROSS TOYAMA 3\u003e6",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS BALMER 5>7",
+    "acao": "AJUSTE DE CROSS BALMER 5\u003e7",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-10",
     "final": "2024-10-10",
-    "acao": "AJUSTE DE CROSS PUMA 5>4",
+    "acao": "AJUSTE DE CROSS PUMA 5\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-11",
@@ -4306,34 +4506,34 @@ const acoesData = [
   {
     "inicio": "2024-10-17",
     "final": "2024-10-17",
-    "acao": "REAJUSTE ACRESCIMO DE FRETE NATIVA TRANSP 30>20%",
+    "acao": "REAJUSTE ACRESCIMO DE FRETE NATIVA TRANSP 30\u003e20%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-17",
     "final": "2024-10-17",
-    "acao": "REAJUSTE ACRESCIMO DE FRETE ATUAL CARGAS 20>35%",
+    "acao": "REAJUSTE ACRESCIMO DE FRETE ATUAL CARGAS 20\u003e35%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-17",
     "final": "2024-10-17",
-    "acao": "REAJUSTE ACRESCIMO DE FRETE BRASPRESS 25>40%",
+    "acao": "REAJUSTE ACRESCIMO DE FRETE BRASPRESS 25\u003e40%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-17",
     "final": "2024-10-17",
-    "acao": "REAJUSTE ACRESCIMO DE FRETE JADLOG 40>55%",
+    "acao": "REAJUSTE ACRESCIMO DE FRETE JADLOG 40\u003e55%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-18",
@@ -4373,7 +4573,7 @@ const acoesData = [
     "acao": "REMOÇÃO COTAÇÃO BRASPRESS PARA RS (PROBLEMAS COM A FILIAL)",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-10-25",
@@ -4594,7 +4794,7 @@ const acoesData = [
   {
     "inicio": "2024-11-18",
     "final": "2024-11-18",
-    "acao": "ACRESCIMO DE CROSS O.V.D PRODUTOS TICKET BAIXO O.V.D DE 1 A 100 REAIS 4>5",
+    "acao": "ACRESCIMO DE CROSS O.V.D PRODUTOS TICKET BAIXO O.V.D DE 1 A 100 REAIS 4\u003e5",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4602,7 +4802,7 @@ const acoesData = [
   {
     "inicio": "2024-11-18",
     "final": "2024-11-18",
-    "acao": "ACRESCIMO DE CROSS O.V.D PRODUTOS TICKET BAIXO DE 100 A 150 REAIS 3>4",
+    "acao": "ACRESCIMO DE CROSS O.V.D PRODUTOS TICKET BAIXO DE 100 A 150 REAIS 3\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4621,12 +4821,12 @@ const acoesData = [
     "acao": "PRAZO ADC 5 DIAS TRANSPORTADORA MOVVI (ATRASOS NA ENTREGA)",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-11-26",
     "final": "2024-11-26",
-    "acao": "TERCEIRA MIGRAÇÃO PRODUTOS VONDER LOJA OFICIAL GUIMEPA <> VONDER (TROCA DE MLBS MAIS VENDIDOS)",
+    "acao": "TERCEIRA MIGRAÇÃO PRODUTOS VONDER LOJA OFICIAL GUIMEPA \u003c\u003e VONDER (TROCA DE MLBS MAIS VENDIDOS)",
     "local": "MARKETPLACES",
     "setor": "Vendas",
     "responsavel": "Equipe"
@@ -4637,7 +4837,7 @@ const acoesData = [
     "acao": "AJUSTE NO SELETOR, RETIRADO FRETE GRATIS SUDESTE GERAL PARA SUL/SP",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-11-26",
@@ -4653,7 +4853,7 @@ const acoesData = [
     "acao": "ATUALIZADO GRUPO DE PRODUTOS FRETE GRATIS SUL/SP",
     "local": "INTELIPOST",
     "setor": "Campanhas",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-11-27",
@@ -4661,7 +4861,15 @@ const acoesData = [
     "acao": "ACRESCIMO 1 DIA PRAZO DE ENTREGA/PRAZO MANUSEIO TODAS TRANSPORTADORAS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
+  },
+  {
+    "inicio": "2024-11-27",
+    "final": "2024-11-27",
+    "acao": "ACRESCIMO 1 DIA PRAZO CROSSDOCKING TODOS FORNECEDORES ATIVOS",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-11-27",
@@ -4674,18 +4882,10 @@ const acoesData = [
   {
     "inicio": "2024-11-27",
     "final": "2024-11-27",
-    "acao": "ACRESCIMO 1 DIA PRAZO CROSSDOCKING TODOS FORNECEDORES ATIVOS",
-    "local": "HARDNESS",
-    "setor": "Operações",
-    "responsavel": "Logística"
-  },
-  {
-    "inicio": "2024-11-27",
-    "final": "2024-11-27",
-    "acao": "ACRESCIMO DE FRETE LOGGI 30>60%",
+    "acao": "ACRESCIMO DE FRETE LOGGI 30\u003e60%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2024-12-03",
@@ -4738,7 +4938,7 @@ const acoesData = [
   {
     "inicio": "2024-12-05",
     "final": "2024-12-05",
-    "acao": "AUMENTO IPV PRODUTOS 200 ATÉ 350 - IPV FIXO 1,64",
+    "acao": "AUMENTO IPV PRODUTOS 350 ATÉ 500 - IPV FIXO 1,63",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4746,7 +4946,7 @@ const acoesData = [
   {
     "inicio": "2024-12-05",
     "final": "2024-12-05",
-    "acao": "AUMENTO IPV PRODUTOS 350 ATÉ 500 - IPV FIXO 1,63",
+    "acao": "AUMENTO IPV PRODUTOS 200 ATÉ 350 - IPV FIXO 1,64",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4770,7 +4970,7 @@ const acoesData = [
   {
     "inicio": "2024-12-10",
     "final": "2024-12-10",
-    "acao": "LOTE 1 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250",
+    "acao": "LOTE 1 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250 - Enquadramento de MARKUP BASE POR LOJA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4778,7 +4978,7 @@ const acoesData = [
   {
     "inicio": "2024-12-10",
     "final": "2024-12-10",
-    "acao": "LOTE 2 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250",
+    "acao": "LOTE 2 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250 - Enquadramento de MARKUP BASE POR LOJA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4786,7 +4986,7 @@ const acoesData = [
   {
     "inicio": "2024-12-10",
     "final": "2024-12-10",
-    "acao": "LOTE 3 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250",
+    "acao": "LOTE 3 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250 - Enquadramento de MARKUP BASE POR LOJA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4794,7 +4994,7 @@ const acoesData = [
   {
     "inicio": "2024-12-10",
     "final": "2024-12-10",
-    "acao": "LOTE 4 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250",
+    "acao": "LOTE 4 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250 - Enquadramento de MARKUP BASE POR LOJA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4802,7 +5002,7 @@ const acoesData = [
   {
     "inicio": "2024-12-10",
     "final": "2024-12-10",
-    "acao": "LOTE 5 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250",
+    "acao": "LOTE 5 - TODOS_MARKETPLACES_AJUSTE MARKUP ITENS ACIMA DE 250 - Enquadramento de MARKUP BASE POR LOJA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4846,6 +5046,14 @@ const acoesData = [
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2024-12-19",
+    "final": "2024-12-19",
+    "acao": "BLOQUEIO DE VARIOS FORNECEDORES POR FÉRIAS COLETIVAS",
+    "local": "FORNECEDORES",
+    "setor": "Publicações",
+    "responsavel": "Jean"
   },
   {
     "inicio": "2024-12-20",
@@ -4936,6 +5144,22 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2025-01-02",
+    "final": "2025-01-02",
+    "acao": "PROBLEMAS GRAVES DE INTEGRAÇÃO DE PEDIDOS - PEDIDOS SEM COMENTÁRIOS - PREENCHIMENTO MANUAL DE +200 PEDIDOS",
+    "local": "HARDNESS",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-01-02",
+    "final": "2025-01-02",
+    "acao": "PROBLEMAS GRAVES DE INTEGRAÇÃO DE PEDIDOS - PEDIDOS NÃO INTEGRAM POR TEMPO EXCEDIDO",
+    "local": "HARDNESS",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
     "inicio": "2025-01-06",
     "final": "2025-01-06",
     "acao": "AUMENTO MARKUP SHOPHUB - CANAL COM FLUXO DE PAGAMENTOS LONGO",
@@ -4944,9 +5168,25 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2025-01-06",
+    "final": "2025-01-06",
+    "acao": "PROBLEMAS GRAVES DE INTEGRAÇÃO DE PEDIDOS - PEDIDOS SEM COMENTÁRIOS - PREENCHIMENTO MANUAL DE +50 PEDIDOS",
+    "local": "HARDNESS",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-01-06",
+    "final": "2025-01-06",
+    "acao": "PROBLEMAS GRAVES DE INTEGRAÇÃO DE PEDIDOS - PEDIDOS NÃO INTEGRAM POR TEMPO EXCEDIDO",
+    "local": "HARDNESS",
+    "setor": "Integradores",
+    "responsavel": "Bruno"
+  },
+  {
     "inicio": "2025-01-07",
     "final": "2025-01-07",
-    "acao": "AUMENTO MARKUP AMAZON 3 LOJAS - ITENS TICKE ABAIXO DE 79,00 - PARA COBRAR AO MENOS 15,00 DE TAXA (FRETE COBRADO DO CLIENTE)",
+    "acao": "AUMENTO MARKUP AMAZON 3 LOJAS - ITENS TICKE ABAIXO DE 79,00",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -4978,7 +5218,7 @@ const acoesData = [
   {
     "inicio": "2025-01-07",
     "final": "2025-01-07",
-    "acao": "AJUSTE CROSS PADRÃO CHIAPERINI ODONTOLOGICOS 11>14",
+    "acao": "AJUSTE CROSS PADRÃO CHIAPERINI ODONTOLOGICOS 11\u003e14",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4986,7 +5226,7 @@ const acoesData = [
   {
     "inicio": "2025-01-07",
     "final": "2025-01-07",
-    "acao": "AJUSTE CROSS PADRÃO CSM 3>4",
+    "acao": "AJUSTE CROSS PADRÃO CSM 3\u003e4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -4994,9 +5234,17 @@ const acoesData = [
   {
     "inicio": "2025-01-13",
     "final": "2025-01-13",
-    "acao": "AUMENTO MARKUP MAGAZINE_LUIZA_AJUSTE-MARKUP-TICKET",
+    "acao": "AUMENTO MARKUP MAGAZINE_LUIZA",
     "local": "ANYMARKET",
     "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-01-14",
+    "final": "2025-01-14",
+    "acao": "CORTADO ESTOQUE DE PRODUTOS QUE NÃO ATINGIM CUSTO DE FRETE CIF OU PEDIDO MINIMO FORNECEDOR CHIAPERINI",
+    "local": "FORNECEDORES",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
@@ -5035,14 +5283,6 @@ const acoesData = [
     "inicio": "2025-01-14",
     "final": "2025-01-14",
     "acao": "CORTADO ESTOQUE DE PRODUTOS QUE NÃO ATINGIM CUSTO DE FRETE CIF OU PEDIDO MINIMO FORNECEDOR TRAPP",
-    "local": "FORNECEDORES",
-    "setor": "Operações",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2025-01-14",
-    "final": "2025-01-14",
-    "acao": "CORTADO ESTOQUE DE PRODUTOS QUE NÃO ATINGIM CUSTO DE FRETE CIF - CHIAPERINI",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5093,7 +5333,7 @@ const acoesData = [
     "acao": "DESATIVADO TABELAS JADLOG",
     "local": "INTELIPOST",
     "setor": "Operações",
-    "responsavel": "Logística"
+    "responsavel": "Equipe"
   },
   {
     "inicio": "2025-01-23",
@@ -5234,7 +5474,7 @@ const acoesData = [
   {
     "inicio": "2025-02-20",
     "final": "2025-02-20",
-    "acao": "AUMENTO ACRESCIMO BRASPRESS 50% > 60%",
+    "acao": "AUMENTO ACRESCIMO BRASPRESS 50% \u003e 60%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5242,7 +5482,7 @@ const acoesData = [
   {
     "inicio": "2025-02-20",
     "final": "2025-02-20",
-    "acao": "AJUSTE CROSS BRITANIA 9 > 15 DIAS",
+    "acao": "AJUSTE CROSS BRITANIA 9 \u003e 15 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5250,7 +5490,7 @@ const acoesData = [
   {
     "inicio": "2025-02-20",
     "final": "2025-02-20",
-    "acao": "REDUÇÃO ACRESCIMO LOGGI 40% > 30%",
+    "acao": "REDUÇÃO ACRESCIMO LOGGI 40% \u003e 30%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5258,7 +5498,7 @@ const acoesData = [
   {
     "inicio": "2025-02-24",
     "final": "2025-02-24",
-    "acao": "BELFIX, MENEGOTTI, LYNUS, CSM - MGRADA PARA COTAÇÃO COM ACRESCIMO DE 6 > 8 DIAS - MAGALU",
+    "acao": "BELFIX, MENEGOTTI, LYNUS, CSM - MGRADA PARA COTAÇÃO COM ACRESCIMO DE 6 \u003e 8 DIAS - MAGALU",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5266,7 +5506,7 @@ const acoesData = [
   {
     "inicio": "2025-02-24",
     "final": "2025-02-24",
-    "acao": "OVD, NORDTECH, TOYAMA, GMEG - MIGRADA PARA COTAÇÃO COM ACRESCIMO DE 5 > 7 DIAS - MAGALU",
+    "acao": "OVD, NORDTECH, TOYAMA, GMEG - MIGRADA PARA COTAÇÃO COM ACRESCIMO DE 5 \u003e 7 DIAS - MAGALU",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5282,7 +5522,7 @@ const acoesData = [
   {
     "inicio": "2025-02-24",
     "final": "2025-02-24",
-    "acao": "BRITANIA - MIGRADA PARA COTAÇÃO COM ACRESCIMO 6 > 15 DIAS - MAGALU",
+    "acao": "BRITANIA - MIGRADA PARA COTAÇÃO COM ACRESCIMO 6 \u003e 15 DIAS - MAGALU",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5306,7 +5546,7 @@ const acoesData = [
   {
     "inicio": "2025-02-26",
     "final": "2025-02-26",
-    "acao": "AJUSTE CROSS OVD ACIMA DE 50 5 > 4",
+    "acao": "AJUSTE CROSS OVD ACIMA DE 50 5 \u003e 4",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5314,7 +5554,7 @@ const acoesData = [
   {
     "inicio": "2025-02-26",
     "final": "2025-02-26",
-    "acao": "AJUSTE CROSS OVD ATÉ 50,00 6 > 5",
+    "acao": "AJUSTE CROSS OVD ATÉ 50,00 6 \u003e 5",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5402,7 +5642,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS BEL FIX PRODUZIDOS 20 > 15 DIAS",
+    "acao": "AJUSTE CROSS BEL FIX PRODUZIDOS 20 \u003e 15 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5410,7 +5650,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS BEL FIX DISPONIVEIS 8 > 6 DIAS",
+    "acao": "AJUSTE CROSS BEL FIX DISPONIVEIS 8 \u003e 6 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5418,7 +5658,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS NEGRÃO 13 > 7 DIAS",
+    "acao": "AJUSTE CROSS NEGRÃO 13 \u003e 7 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5426,7 +5666,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS BOVENAU 9 > 8 DIAS",
+    "acao": "AJUSTE CROSS BOVENAU 9 \u003e 8 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5434,7 +5674,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS BUFFALO 7 > 6 DIAS",
+    "acao": "AJUSTE CROSS BUFFALO 7 \u003e 6 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5442,7 +5682,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS TOYAMA 7 > 5 DIAS",
+    "acao": "AJUSTE CROSS TOYAMA 7 \u003e 5 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5450,7 +5690,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS WAP 20 > 18 DIAS",
+    "acao": "AJUSTE CROSS WAP 20 \u003e 18 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5458,7 +5698,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS LYNUS 7 > 6 DIAS",
+    "acao": "AJUSTE CROSS LYNUS 7 \u003e 6 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5466,7 +5706,7 @@ const acoesData = [
   {
     "inicio": "2025-03-12",
     "final": "2025-03-12",
-    "acao": "AJUSTE CROSS TEKNA 7 > 5 DIAS",
+    "acao": "AJUSTE CROSS TEKNA 7 \u003e 5 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -5474,7 +5714,7 @@ const acoesData = [
   {
     "inicio": "2025-03-13",
     "final": "2025-03-13",
-    "acao": "AUMENTO ACRESCIMO LOGGI 30% > 40% (RETORNANDO PARA 40%)",
+    "acao": "AUMENTO ACRESCIMO LOGGI 30% \u003e 40% (RETORNANDO PARA 40%)",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5546,7 +5786,7 @@ const acoesData = [
   {
     "inicio": "2025-03-21",
     "final": "2025-03-21",
-    "acao": "AUMENTO ACRESCIMO NATIVA 30% > 50%",
+    "acao": "AUMENTO ACRESCIMO NATIVA 30% \u003e 50%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5554,7 +5794,7 @@ const acoesData = [
   {
     "inicio": "2025-03-21",
     "final": "2025-03-21",
-    "acao": "AUMENTO ACRESCIMO LOGGI 40% > 50%",
+    "acao": "AUMENTO ACRESCIMO LOGGI 40% \u003e 50%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -5618,17 +5858,17 @@ const acoesData = [
   {
     "inicio": "2025-04-02",
     "final": "2025-04-02",
-    "acao": "3% SHOPEE TETO COMISSÃO FAIXA 526 a 700 mil",
+    "acao": "AUMENTO TAXA FRETE - AMAZON_GLOBAL_API GMK8",
     "local": "ANYMARKET",
-    "setor": "Campanhas",
+    "setor": "Preços",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2025-04-02",
     "final": "2025-04-02",
-    "acao": "AUMENTO TAXA FRETE - AMAZON_GLOBAL_API GMK8",
+    "acao": "3% SHOPEE TETO COMISSÃO FAIXA 526 a 700 mil",
     "local": "ANYMARKET",
-    "setor": "Preços",
+    "setor": "Campanhas",
     "responsavel": "Bruno"
   },
   {
@@ -5642,7 +5882,7 @@ const acoesData = [
   {
     "inicio": "2025-04-03",
     "final": "2025-04-03",
-    "acao": "AUMENTO - SHOPEE_ FAIXAS ABAIXO DE 500 - AJUTE MARKUP QUE ESTAVAM MAIS ALTO MAIS ATRATIVO FAIXA ACIMA de 500 - NOVA COMISSÃO DE 14%",
+    "acao": "AUMENTO - SHOPEE_ FAIXAS ABAIXO DE 500",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -5794,7 +6034,7 @@ const acoesData = [
   {
     "inicio": "2025-06-06",
     "final": "2025-06-06",
-    "acao": "MAGALU 3 LOJAS - FAIXA MAIS COMPETITIVA 1,07 acima 1000 - 1,09 80 a 1000 - 1,15 50 a 80 - 1,20 20 a 50 - 1,25 0 a 20",
+    "acao": "ME1 - MERCADO_LIVRE_ IMPULSAO LOJA AMARELA",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -5802,7 +6042,7 @@ const acoesData = [
   {
     "inicio": "2025-06-06",
     "final": "2025-06-06",
-    "acao": "ME1 - MERCADO_LIVRE_ IMPULSAO LOJA AMARELA - REFORMULAÇÃO DE MARKUP MINIMO - ME2 É CALCULADO PELO SISTEMA",
+    "acao": "MAGALU 3 LOJAS - FAIXA MAIS COMPETITIVA 1,07 acima 1000 - 1,09 80 a 1000 - 1,15 50 a 80 - 1,20 20 a 50 - 1,25 0 a 20",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -5946,6 +6186,14 @@ const acoesData = [
   {
     "inicio": "2025-06-18",
     "final": "2025-06-18",
+    "acao": "MAKUP AMAZON 3 LOJAS - TICKET A BAIXO DE 80.00",
+    "local": "ANYMARKET",
+    "setor": "Preços",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-06-18",
+    "final": "2025-06-18",
     "acao": "SHOPHUB MARKUP TICKET BAIXO - 1,03 acima 200 - 1,04 100 a 200 - 1,07 50 a 100 - 1,10 0 a 50",
     "local": "ANYMARKET",
     "setor": "Preços",
@@ -5955,14 +6203,6 @@ const acoesData = [
     "inicio": "2025-06-18",
     "final": "2025-06-18",
     "acao": "MARKUP SENFF_SHOPPING_MARKUP-NOVO 1,05 PARA LOJA TODA",
-    "local": "ANYMARKET",
-    "setor": "Preços",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2025-06-18",
-    "final": "2025-06-18",
-    "acao": "MAKUP AMAZON 3 LOJAS - TICKET A BAIXO",
     "local": "ANYMARKET",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -6026,7 +6266,7 @@ const acoesData = [
   {
     "inicio": "2025-07-11",
     "final": "2025-07-11",
-    "acao": "AJUSTE CROSS BUFFALO PRODUTOS ACIMA DE 200.00 6 > 4",
+    "acao": "AJUSTE CROSS BUFFALO PRODUTOS ACIMA DE 200.00 6 \u003e 4",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6034,7 +6274,7 @@ const acoesData = [
   {
     "inicio": "2025-07-11",
     "final": "2025-07-11",
-    "acao": "AJUSTE CROSS MAKITA PRODUTOS ACIMA DE 200.00 8 > 6",
+    "acao": "AJUSTE CROSS MAKITA PRODUTOS ACIMA DE 200.00 8 \u003e 6",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6042,7 +6282,7 @@ const acoesData = [
   {
     "inicio": "2025-07-11",
     "final": "2025-07-11",
-    "acao": "AJUSTE CROSS LYNUS de 6 > 4 DIAS",
+    "acao": "AJUSTE CROSS LYNUS de 6 \u003e 4 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6050,7 +6290,7 @@ const acoesData = [
   {
     "inicio": "2025-07-11",
     "final": "2025-07-11",
-    "acao": "AJUSTE CROSS NORDTECH 5 > 4 DIAS",
+    "acao": "AJUSTE CROSS NORDTECH 5 \u003e 4 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6058,7 +6298,7 @@ const acoesData = [
   {
     "inicio": "2025-07-11",
     "final": "2025-07-11",
-    "acao": "AJUSTE CROSS GMEG de 5 > 4 DIAS",
+    "acao": "AJUSTE CROSS GMEG de 5 \u003e 4 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6160,9 +6400,41 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2025-07-29",
+    "final": "2025-07-29",
+    "acao": "Lably - Etiqueta e Sticker nos produtos e home",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Jone"
+  },
+  {
+    "inicio": "2025-07-29",
+    "final": "2025-07-29",
+    "acao": "Label Cupom Dia dos Pais",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-07-29",
+    "final": "2025-07-29",
+    "acao": "Label Cupom Makita",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-08-08",
+    "final": "2025-08-08",
+    "acao": "Plugado Pinterest",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Lucas"
+  },
+  {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "BRITANIA/PHILCO REDUCAO AJUSTE CROSS DE 15>8 DIAS",
+    "acao": "BRITANIA/PHILCO REDUCAO AJUSTE CROSS DE 15\u003e8 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6170,7 +6442,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "CHIAPERINI REDUCAO AJUSTE CROSS DE 7>5 DIAS",
+    "acao": "CHIAPERINI REDUCAO AJUSTE CROSS DE 7\u003e5 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6178,7 +6450,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "BOVENAU AUMENTO AJUSTE CROSS DE 8>12 DIAS",
+    "acao": "BOVENAU AUMENTO AJUSTE CROSS DE 8\u003e12 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6186,7 +6458,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "GARTHEN REDUCAO AJUSTE CROSS DE 4>3 DIAS",
+    "acao": "GARTHEN REDUCAO AJUSTE CROSS DE 4\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6194,7 +6466,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "BUFFALO REDUCAO AJUSTE CROSS DE 4>3 DIAS",
+    "acao": "BUFFALO REDUCAO AJUSTE CROSS DE 4\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6202,7 +6474,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "BALMER REDUCAO AJUSTE CROSS DE 8>3 DIAS",
+    "acao": "BALMER REDUCAO AJUSTE CROSS DE 8\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6210,7 +6482,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "BRANCO REDUCAO AJUSTE CROSS DE 6>3 DIAS",
+    "acao": "BRANCO REDUCAO AJUSTE CROSS DE 6\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6218,7 +6490,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "MAKITA REDUCAO AJUSTE CROSS DE 6>4 DIAS",
+    "acao": "MAKITA REDUCAO AJUSTE CROSS DE 6\u003e4 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6226,7 +6498,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "TOYAMA REDUCAO AJUSTE CROSS DE 5>3 DIAS",
+    "acao": "TOYAMA REDUCAO AJUSTE CROSS DE 5\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6234,7 +6506,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "TRAPP AUMENTO AJUSTE CROSS DE 9>14 DIAS",
+    "acao": "TRAPP AUMENTO AJUSTE CROSS DE 9\u003e14 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6242,7 +6514,15 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "LYNUS REDUCAO AJUSTE CROSS DE 4>3 DIAS",
+    "acao": "Criado Coleção Máquinas para Jardinagem",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-08-11",
+    "final": "2025-08-11",
+    "acao": "LYNUS REDUCAO AJUSTE CROSS DE 4\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6250,7 +6530,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "WAP REDUCAO AJUSTE CROSS DE 18>12 DIAS",
+    "acao": "WAP REDUCAO AJUSTE CROSS DE 18\u003e12 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6258,7 +6538,7 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "TEKNA REDUCAO AJUSTE CROSS DE 4>3 DIAS",
+    "acao": "TEKNA REDUCAO AJUSTE CROSS DE 4\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6266,10 +6546,34 @@ const acoesData = [
   {
     "inicio": "2025-08-11",
     "final": "2025-08-11",
-    "acao": "CSM REDUCAO AJUSTE CROSS DE 4>3 DIAS",
+    "acao": "CSM REDUCAO AJUSTE CROSS DE 4\u003e3 DIAS",
     "local": "FORNECEDORES",
     "setor": "Operações",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-08-14",
+    "final": "2025-08-14",
+    "acao": "Apontamento do e-mail lojavirtual@guimepa.com.br configurações CNAME",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Lucas"
+  },
+  {
+    "inicio": "2025-08-15",
+    "final": "2025-08-15",
+    "acao": "Incluído no Menu Superior opção Promoções",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-08-15",
+    "final": "2025-08-15",
+    "acao": "Importar Produtos na Coleção de Promoções",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Jone"
   },
   {
     "inicio": "2025-08-18",
@@ -6314,7 +6618,7 @@ const acoesData = [
   {
     "inicio": "2025-08-29",
     "final": "2025-08-29",
-    "acao": "AUMENTO ACRESCIMO BRASPRESS 60% > 70% - AUMENTO TABELA BRASPRESS",
+    "acao": "AUMENTO ACRESCIMO BRASPRESS 60% \u003e 70% - AUMENTO TABELA BRASPRESS",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -6330,18 +6634,34 @@ const acoesData = [
   {
     "inicio": "2025-09-02",
     "final": "2025-09-02",
+    "acao": "Ativar Cálculo de Frete no Carrinho",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Jone"
+  },
+  {
+    "inicio": "2025-09-02",
+    "final": "2025-09-02",
     "acao": "INICIO ME2 CROSS",
     "local": "MARKETPLACES",
-    "setor": "Vendas",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
     "inicio": "2025-09-05",
     "final": "2025-09-05",
-    "acao": "REDUCAO ACRESCIMO BRASPRESS 70% > 60% - TABELA TROCADA COM VALORES",
+    "acao": "REDUCAO ACRESCIMO BRASPRESS 70% \u003e 60% - TABELA TROCADA COM VALORES",
     "local": "INTELIPOST",
     "setor": "Operações",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2025-09-05",
+    "final": "2025-09-05",
+    "acao": "Lançado Formulário de Cadastro Fornecedores",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Lucas"
   },
   {
     "inicio": "2025-09-17",
@@ -6362,7 +6682,7 @@ const acoesData = [
   {
     "inicio": "2025-09-26",
     "final": "2025-09-26",
-    "acao": "AUMENTO PRAZO CROSS WAP PROBLEMAS COM LOGISTICA TROCA DE CD 12>15",
+    "acao": "AUMENTO PRAZO CROSS WAP PROBLEMAS COM LOGISTICA TROCA DE CD 12\u003e15",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6370,7 +6690,7 @@ const acoesData = [
   {
     "inicio": "2025-09-30",
     "final": "2025-09-30",
-    "acao": "ATIVACAO MAGALOG",
+    "acao": "ATIVAÇÃO MAGALOG",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -6402,7 +6722,7 @@ const acoesData = [
   {
     "inicio": "2025-10-07",
     "final": "2025-10-07",
-    "acao": "ACRESCIMO RODONAVES AJUSTADO 60% > 40%",
+    "acao": "ACRESCIMO RODONAVES AJUSTADO 60% \u003e 40%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -6410,7 +6730,7 @@ const acoesData = [
   {
     "inicio": "2025-10-07",
     "final": "2025-10-07",
-    "acao": "ACRESCIMO TNT AJUSTADO 40% > 30%",
+    "acao": "ACRESCIMO TNT AJUSTADO 40% \u003e 30%",
     "local": "INTELIPOST",
     "setor": "Transportadoras",
     "responsavel": "Bruno"
@@ -6442,7 +6762,7 @@ const acoesData = [
   {
     "inicio": "2025-10-13",
     "final": "2025-10-13",
-    "acao": "AUMENTO CROSS WAP 15 > 20 DIAS",
+    "acao": "AUMENTO CROSS WAP 15 \u003e 20 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -6609,6 +6929,14 @@ const acoesData = [
   },
   {
     "inicio": "2025-11-10",
+    "final": "2025-11-25",
+    "acao": "MENU NOVO COM PRODUTOS INTERATIVOS",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Jone"
+  },
+  {
+    "inicio": "2025-11-10",
     "final": "2025-11-10",
     "acao": "ENTRADA MAYKEL EQUIPE",
     "local": "EQUIPE",
@@ -6768,6 +7096,14 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
+    "inicio": "2025-11-13",
+    "final": "2025-11-13",
+    "acao": "Menu de Cupons no site",
+    "local": "SITE",
+    "setor": "Vendas",
+    "responsavel": "Jone"
+  },
+  {
     "inicio": "2025-11-14",
     "final": "2025-11-14",
     "acao": "REAJUSTE TABELA BRASPRESS - TAXAS DIFAL POR ESTADO",
@@ -6825,11 +7161,11 @@ const acoesData = [
   },
   {
     "inicio": "2025-11-19",
-    "final": "2025-11-19",
-    "acao": "NOVOS IPV PADRÃO 1,80 - TODAS AS FAIXAS - REDUÇÃO REGRESSIVA DE 20% APENAS - 10.661 skus",
-    "local": "HARDNESS",
-    "setor": "Preços",
-    "responsavel": "Bruno"
+    "final": "2025-12-04",
+    "acao": "ATUALIZAÇÃO DA TABELA ORIGEM PR TNT FEDEX",
+    "local": "INTELIPOST",
+    "setor": "Operações",
+    "responsavel": "Igor"
   },
   {
     "inicio": "2025-11-19",
@@ -6841,11 +7177,11 @@ const acoesData = [
   },
   {
     "inicio": "2025-11-19",
-    "final": "2025-12-04",
-    "acao": "ATUALIZAÇÃO DA TABELA ORIGEM PR TNT FEDEX",
-    "local": "INTELIPOST",
-    "setor": "Operações",
-    "responsavel": "Igor"
+    "final": "2025-11-19",
+    "acao": "NOVOS IPV PADRÃO 1,80 - TODAS AS FAIXAS - REDUÇÃO REGRESSIVA DE 20% APENAS - 10.661 skus",
+    "local": "HARDNESS",
+    "setor": "Preços",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2025-11-24",
@@ -6897,19 +7233,19 @@ const acoesData = [
   },
   {
     "inicio": "2025-11-26",
-    "final": "2025-11-26",
-    "acao": "FRETE GRATIS SC - ACIMA DE 300 - PESO MAXIMO 200 - CORREÇÃO 08h58 - REGRA ESTAVA COM BUG",
-    "local": "INTELIPOST",
-    "setor": "Operações",
-    "responsavel": "Bruno"
-  },
-  {
-    "inicio": "2025-11-26",
     "final": "2025-12-02",
     "acao": "ATUALIZAÇÃO TABELAS PR E SC BRASPRESS PARA RESTRINGIR PACOTES COM NO MÁXIMO 1,19 CM",
     "local": "INTELIPOST",
     "setor": "Operações",
     "responsavel": "Igor"
+  },
+  {
+    "inicio": "2025-11-26",
+    "final": "2025-11-26",
+    "acao": "FRETE GRATIS SC - ACIMA DE 300 - PESO MAXIMO 200 - CORREÇÃO 08h58 - REGRA ESTAVA COM BUG",
+    "local": "INTELIPOST",
+    "setor": "Operações",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2025-11-26",
@@ -7236,7 +7572,7 @@ const acoesData = [
     "final": "2026-01-26",
     "acao": "INICIO TESTE ATIVAÇÃO ME2 CROSS APENAS DURANTE O DIA",
     "local": "HARDNESS",
-    "setor": "Vendas",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
@@ -7322,7 +7658,7 @@ const acoesData = [
   {
     "inicio": "2026-02-12",
     "final": "2026-02-12",
-    "acao": "AJUSTE CROSS MAKITA PRODUTOS BAIXO DE 200.00 17 > 12",
+    "acao": "AJUSTE CROSS MAKITA PRODUTOS BAIXO DE 200.00 17 \u003e 12",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -7330,7 +7666,7 @@ const acoesData = [
   {
     "inicio": "2026-02-12",
     "final": "2026-02-12",
-    "acao": "AJUSTE CROSS MAKITA PRODUTOS ACIMA DE 200.00 12 > 7",
+    "acao": "AJUSTE CROSS MAKITA PRODUTOS ACIMA DE 200.00 12 \u003e 7",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -7570,7 +7906,7 @@ const acoesData = [
   {
     "inicio": "2026-04-14",
     "final": "2026-04-16",
-    "acao": "REGRA DE CAMPANHA DE FRETE GRÁTIS SUL E SP;>R$ 1000;<7 KG",
+    "acao": "REGRA DE CAMPANHA DE FRETE GRÁTIS SUL E SP;\u003eR$ 1000;\u003c7 KG",
     "local": "INTELIPOST",
     "setor": "Campanhas",
     "responsavel": "Igor"
@@ -7634,9 +7970,9 @@ const acoesData = [
   {
     "inicio": "2026-04-16",
     "final": "2026-04-16",
-    "acao": "AJUSTE CROSS MTX 5>3 DIAS",
-    "local": "ANYMARKET",
-    "setor": "Preços",
+    "acao": "AJUSTE CROSS MTX 5\u003e3 DIAS",
+    "local": "HARDNESS",
+    "setor": "Operações",
     "responsavel": "Bruno"
   },
   {
@@ -7650,7 +7986,7 @@ const acoesData = [
   {
     "inicio": "2026-04-17",
     "final": "2026-04-17",
-    "acao": "REDUÇÃO CROSS DOCKING TRAMONTINA 7>4 DIAS",
+    "acao": "REDUÇÃO CROSS DOCKING TRAMONTINA 7\u003e4 DIAS",
     "local": "HARDNESS",
     "setor": "Operações",
     "responsavel": "Bruno"
@@ -8001,6 +8337,14 @@ const acoesData = [
   },
   {
     "inicio": "2026-07-16",
+    "final": "2026-07-27",
+    "acao": "ATUALIZAÇÃO TABELA MAGALOG SC",
+    "local": "INTELIPOST",
+    "setor": "Transportadoras",
+    "responsavel": "Igor"
+  },
+  {
+    "inicio": "2026-07-16",
     "final": "2026-07-16",
     "acao": "UNIÃO ESTOQUE NEGRÃO PR + SC",
     "local": "HARDNESS",
@@ -8064,17 +8408,25 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
-    "inicio": "2026-07-27",
-    "final": "2026-07-27",
-    "acao": "REDUÇÃO IPV TICKET + ALTO 0,03 de 300 a mil",
+    "inicio": "2026-07-24",
+    "final": "2026-07-24",
+    "acao": "CROSS MTX 4 \u003e 2 DIAS",
     "local": "HARDNESS",
-    "setor": "Preços",
+    "setor": "Operações",
     "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-07-24",
+    "final": "2026-07-24",
+    "acao": "CROSS MTX 2 \u003e 3 DIAS",
+    "local": "HARDNESS",
+    "setor": "Operações",
+    "responsavel": "Jone"
   },
   {
     "inicio": "2026-07-27",
     "final": "2026-07-27",
-    "acao": "REDUÇÃO IPV TICKET + ALTO 0,02 mil a 2 mil",
+    "acao": "REDUÇÃO IPV TICKET + ALTO 0,03 de 300 a mil",
     "local": "HARDNESS",
     "setor": "Preços",
     "responsavel": "Bruno"
@@ -8088,25 +8440,33 @@ const acoesData = [
     "responsavel": "Bruno"
   },
   {
-    "inicio": "2026-07-16",
+    "inicio": "2026-07-27",
     "final": "2026-07-27",
-    "acao": "ATUALIZAÇÃO TABELA MAGALOG SC",
-    "local": "INTELIPOST",
-    "setor": "Transportadoras",
-    "responsavel": "Igor"
-  },
-  {
-    "inicio": "2026-07-24",
-    "final": "2026-07-24",
-    "acao": "CROSS MTX 2 > 3 DIAS",
-    "local": "FORNECEDORES",
-    "setor": "Campanhas",
-    "responsavel": "Jone"
+    "acao": "REDUÇÃO IPV TICKET + ALTO 0,02 mil a 2 mil",
+    "local": "HARDNESS",
+    "setor": "Preços",
+    "responsavel": "Bruno"
   },
   {
     "inicio": "2026-07-29",
     "final": "2026-07-29",
     "acao": "ADS MERCADO LIVRE DESLIGADOS",
+    "local": "MARKETPLACES",
+    "setor": "Campanhas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-08-03",
+    "final": "2026-08-03",
+    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS MERCADO LIVRE",
+    "local": "MARKETPLACES",
+    "setor": "Vendas",
+    "responsavel": "Bruno"
+  },
+  {
+    "inicio": "2026-08-03",
+    "final": "2026-08-03",
+    "acao": "AJUSTE 2% - ADEQUAÇÃO MARKUP FAIXA - SHOPEE GUIMEPA",
     "local": "MARKETPLACES",
     "setor": "Campanhas",
     "responsavel": "Bruno"
@@ -8122,17 +8482,25 @@ const acoesData = [
   {
     "inicio": "2026-08-03",
     "final": "2026-08-03",
-    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS MERCADO LIVRE",
+    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS TIKTOK",
     "local": "MARKETPLACES",
     "setor": "Vendas",
     "responsavel": "Bruno"
   },
   {
-    "inicio": "2026-08-03",
-    "final": "2026-08-03",
-    "acao": "DESLIGADO CAMPANHAS ABERTAS AFILIADOS TIKTOK",
-    "local": "MARKETPLACES",
-    "setor": "Vendas",
+    "inicio": "2026-08-06",
+    "final": "2026-08-06",
+    "acao": "ALTERAÇÃO DO ACRÉSCIMO PERCENTUAL UF PE NO INTELIPOST",
+    "local": "INTELIPOST",
+    "setor": "Transportadoras",
+    "responsavel": "Igor"
+  },
+  {
+    "inicio": "2026-08-06",
+    "final": "2026-08-06",
+    "acao": "AJUSTE DESCONTOS E CAMPANHAS DA BOSCH",
+    "local": "HARDNESS",
+    "setor": "Preços",
     "responsavel": "Bruno"
   }
 ];
