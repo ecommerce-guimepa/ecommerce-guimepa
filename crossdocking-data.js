@@ -138,7 +138,7 @@ const crossDockingData = [
     "ordem": 16,
     "fornecedor": "NEGRAO",
     "image": "WORKER.png",
-    "prazo": 12,
+    "prazo": 8,
     "operador": "ABAIXO",
     "preco": 50,
     "custo": 30
@@ -147,7 +147,7 @@ const crossDockingData = [
     "ordem": 17,
     "fornecedor": "NEGRAO",
     "image": "WORKER.png",
-    "prazo": 8,
+    "prazo": 4,
     "operador": "ACIMA",
     "preco": 50,
     "custo": 30
@@ -372,7 +372,7 @@ const crossDockingData = [
     "ordem": 42,
     "fornecedor": "BOSCH",
     "image": "Bosch.png",
-    "prazo": 8,
+    "prazo": 12,
     "operador": "ABAIXO",
     "preco": 100,
     "custo": 60.5
@@ -381,7 +381,7 @@ const crossDockingData = [
     "ordem": 43,
     "fornecedor": "BOSCH",
     "image": "Bosch.png",
-    "prazo": 7,
+    "prazo": 8,
     "operador": "ACIMA",
     "preco": 100,
     "custo": 60.5
@@ -390,7 +390,7 @@ const crossDockingData = [
     "ordem": 44,
     "fornecedor": "BOSCH",
     "image": "Bosch.png",
-    "prazo": 6,
+    "prazo": 8,
     "operador": "ACIMA",
     "preco": 1000,
     "custo": 606
