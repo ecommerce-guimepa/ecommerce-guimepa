@@ -3,7 +3,7 @@ const crossDockingData = [
     "ordem": 1,
     "fornecedor": "MTX",
     "image": "MTX.png",
-    "prazo": 2,
+    "prazo": 3,
     "operador": "GERAL",
     "preco": null,
     "custo": null
