@@ -12,7 +12,7 @@ const crossDockingData = [
     "ordem": 2,
     "fornecedor": "BRITANIA",
     "image": "britania.png",
-    "prazo": 7,
+    "prazo": 10,
     "operador": "GERAL",
     "preco": null,
     "custo": null
