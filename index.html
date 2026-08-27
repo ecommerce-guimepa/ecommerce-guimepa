@@ -1016,7 +1016,7 @@
 
   /* Gráfico 3: evolução (SVG) */
   .log-evolucao-wrap{width:100%}
-  .log-evolucao-wrap svg{width:100%;max-height:168px;height:auto;display:block}
+  .log-evolucao-wrap svg{width:100%;max-height:180px;height:auto;display:block}
   .log-evolucao-wrap .log-legend{margin-bottom:8px}
   .log-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px}
   .log-legend span{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#475569;font-weight:700}
@@ -3070,7 +3070,14 @@ initCampaigns();
 (function(){
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   const pld=s=>{const [y,m,d]=String(s).split('-').map(Number);return new Date(y,m-1,d);};
-  const dayDiff=(a,b)=>Math.round((pld(a)-pld(b))/86400000); /* a - b em dias */
+  const dayDiff=(a,b)=>{const s=pld(b),e=pld(a);let n=0,d=new Date(s);d.setDate(d.getDate()+1);while(d<=e){const w=d.getDay();if(w!==0&&w!==6)n++;d.setDate(d.getDate()+1);}return n;}; /* dias úteis em (b,a], a=final */
+  /* Ciclo completo: apenas registros com as 3 datas e total<=TOTAL_CAP. Garante que a+b===t (dias úteis telescopam). */
+  const fullCycle=r=>{
+    if(!(r.dataOc&&r.dataNf&&r.dataEstoque)) return null;
+    const a=dayDiff(r.dataNf,r.dataOc),b=dayDiff(r.dataEstoque,r.dataNf),t=dayDiff(r.dataEstoque,r.dataOc);
+    if(a<0||b<0||!validTotal(t)) return null;
+    return {a,b,t};
+  };
   const fmt1=v=>v==null?'–':v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
   const fmt0=v=>v==null?'–':String(Math.round(v));
   const TOTAL_CAP=30; /* prazos totais acima desse valor são ignorados (outliers) */
@@ -3159,10 +3166,8 @@ initCampaigns();
   function metrics(rows){
     let oc=[],nf=[],tot=[];
     rows.forEach(r=>{
-      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
-      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)oc.push(d);}
-      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)nf.push(d);}
-      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))tot.push(d);}
+      const c=fullCycle(r);
+      if(c){oc.push(c.a);nf.push(c.b);tot.push(c.t);}
     });
     const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
     const max=a=>a.length?Math.max(...a):null;
@@ -3302,7 +3307,7 @@ initCampaigns();
     series=series.slice(-9);
     const avgAll=m.tot.vals.length?m.tot.vals.reduce((s,v)=>s+v,0)/m.tot.vals.length:0;
     const maxV=Math.max(...series.map(s=>s.avg),avgAll)*1.2||1;
-    const W=820,H=170,padL=34,padR=12,padT=22,padB=22;
+    const W=820,H=180,padL=34,padR=12,padT=22,padB=30;
     const iw=W-padL-padR,ih=H-padT-padB;
     const n=series.length;
     const x=i=>padL+(n===1?iw/2:i/(n-1)*iw);
@@ -3312,7 +3317,7 @@ initCampaigns();
     let grid='';
     for(let i=0;i<=gridY;i++){const gy=padT+(ih/gridY)*i;const val=maxV*(1-i/gridY);grid+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#f1f5f9" stroke-width="1"/><text x="${padL-6}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#a3b3c6">${val.toFixed(0)}</text>`;}
     let xLabels='';
-    series.forEach((s,i)=>{xLabels+=`<text x="${x(i)}" y="${H-7}" text-anchor="middle" font-size="8.5" fill="#94a3b8">${weekLabel(s.w)}</text>`;});
+    series.forEach((s,i)=>{xLabels+=`<text x="${x(i)}" y="${H-9}" text-anchor="middle" font-size="11" font-weight="800" fill="#1e293b">${weekLabel(s.w)}</text>`;});
     // etiquetas de valor acima de cada ponto
     let labels='';
     series.forEach((s,i)=>{labels+=`<text x="${x(i)}" y="${y(s.avg)-7}" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">${fmt1(s.avg)}</text>`;});
@@ -3353,10 +3358,8 @@ initCampaigns();
       const k=keyOf(r);
       if(!groups.has(k))groups.set(k,{key:k,logo:r.logo||null,label:logoName(k)||r.marca||r.fornecedor,oc:[],nf:[],tot:[],n:0});
       const g=groups.get(k);g.n++;
-      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
-      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)g.oc.push(d);}
-      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)g.nf.push(d);}
-      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))g.tot.push(d);}
+      const c=fullCycle(r);
+      if(c){g.oc.push(c.a);g.nf.push(c.b);g.tot.push(c.t);}
     });
     const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
     const rows=[...groups.values()].map(g=>({key:g.key,logo:g.logo,label:g.label,tot:avg(g.tot)}))
@@ -3441,10 +3444,8 @@ initCampaigns();
       const k=normLogo(r.logo);
       if(!map.has(k)) map.set(k,{logo:r.logo,label:(r.marca||r.fornecedor||logoName(r.logo)),oc:[],nf:[],tot:[]});
       const g=map.get(k);
-      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
-      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)g.oc.push(d);}
-      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)g.nf.push(d);}
-      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))g.tot.push(d);}
+      const c=fullCycle(r);
+      if(c){g.oc.push(c.a);g.nf.push(c.b);g.tot.push(c.t);}
     });
     const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
     const out=new Map();
