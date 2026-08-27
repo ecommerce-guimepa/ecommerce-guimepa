@@ -912,6 +912,15 @@
   .log-bucket-btn:hover{border-color:#93c5fd;color:#1d4ed8;background:#eff6ff}
   .log-bucket-btn.active{background:#2563eb;border-color:#2563eb;color:#fff;box-shadow:0 3px 10px rgba(37,99,235,.25)}
   .log-bucket-btn.active:hover{background:#1d4ed8;color:#fff}
+  .log-geral-controls{display:flex;align-items:flex-start;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #eef2f7;flex-wrap:wrap}
+  .log-geral-controls .log-bucket-title{padding-top:6px}
+  .log-geral-controls-sep{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.06em;padding:7px 4px 7px 0}
+  .log-status-green.active{background:#16a34a;border-color:#16a34a;box-shadow:0 3px 10px rgba(22,163,74,.25)}
+  .log-status-green.active:hover{background:#15803d}
+  .log-status-red.active{background:#dc2626;border-color:#dc2626;box-shadow:0 3px 10px rgba(220,38,38,.25)}
+  .log-status-red.active:hover{background:#b91c1c}
+  .log-status-yellow.active{background:#d97706;border-color:#d97706;box-shadow:0 3px 10px rgba(217,119,6,.25)}
+  .log-status-yellow.active:hover{background:#b45309}
 
   .log-kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:16px}
   .log-kpi{background:#fff;border:1px solid var(--app-line);border-radius:14px;padding:16px 16px 14px;box-shadow:var(--app-shadow);border-top:3px solid #2563eb;display:flex;flex-direction:column}
@@ -927,6 +936,9 @@
   .log-geral-list{display:flex;flex-direction:column;gap:12px}
   .log-geral-item{display:grid;grid-template-columns:minmax(190px,1.4fr) minmax(230px,1.6fr) minmax(250px,2fr);gap:20px;align-items:stretch;padding:14px 16px;border:1px solid #eef2f7;border-radius:14px;background:#fff;box-shadow:0 3px 12px rgba(15,23,42,.04)}
   .log-geral-item.log-geral-alert{border-color:#fecaca;background:#fffbfb}
+  .log-geral-item.log-geral-item-st-red{border-left:5px solid #ef4444;border-top:1px solid #fecaca;border-right:1px solid #fecaca;border-bottom:1px solid #fecaca;background:#fffbfb}
+  .log-geral-item.log-geral-item-st-yellow{border-left:5px solid #f59e0b;border-top:1px solid #fde68a;border-right:1px solid #fde68a;border-bottom:1px solid #fde68a;background:#fffbeb}
+  .log-geral-item.log-geral-item-st-green{border-left:5px solid #22c55e;border-top:1px solid #bbf7d0;border-right:1px solid #bbf7d0;border-bottom:1px solid #bbf7d0;background:#fbfdfc}
   .log-geral-brand{display:flex;align-items:center;gap:12px;min-width:0}
   .log-geral-logo{width:96px;height:40px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:#f8fafc;border:1px solid #eef2f7;border-radius:9px;padding:5px 8px}
   .log-geral-logo img{max-width:80px;max-height:30px;object-fit:contain}
@@ -938,6 +950,9 @@
   .log-geral-days{display:flex;align-items:baseline;gap:2px;font-size:16px;font-weight:850;color:#0f172a}
   .log-geral-days small{font-size:8px;font-weight:800;color:#64748b;text-transform:uppercase}
   .log-geral-level.lgl-general .log-geral-days{color:#1d4ed8}
+  .log-geral-level.lgl-headroom{background:#f0fdf4;border-color:#bbf7d0}
+  .log-geral-level.lgl-headroom .log-geral-days{color:#15803d}
+  .log-geral-level.lgl-headroom .log-geral-rule{color:#166534}
   .log-geral-rule{font-size:10px;color:#334155;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .log-geral-cost{font-size:10px;font-weight:800;color:#0f766e}
   .log-geral-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
@@ -955,6 +970,10 @@
   .log-attention-item{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border:1px solid #fee2e2;border-left:4px solid #ef4444;border-radius:12px;background:#fff7f7;margin-bottom:10px}
   .log-attention-item.log-att-up{border-color:#fee2e2;border-left-color:#ef4444;background:#fff7f7}
   .log-attention-item.log-att-down{border-color:#d1fae5;border-left-color:#059669;background:#f0fdf4}
+  .log-attention-item.log-att-mid{border-color:#fde68a;border-left-color:#d97706;background:#fffbeb}
+  .log-attention-item.log-att-mid strong{color:#92400e}
+  .log-attention-item.log-att-mid .log-attention-ico{color:#d97706}
+  .log-attention-item .att-badge-att-mid{background:#fef3c7;color:#92400e}
   .log-attention-ico{font-size:16px;line-height:1.3}
   .log-attention-item p{margin:0;font-size:13px;color:#475569;line-height:1.5}
   .log-attention-item strong{font-weight:800}
@@ -1654,6 +1673,20 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
         <div class="log-filter-suppliers">
           <div class="log-filter-label"><span>Fornecedores</span><button class="clear-btn log-filter-all" id="geralClearSuppliers" type="button">Todos os fornecedores</button></div>
           <div class="log-supplier-track" id="geralSupplierFilters" aria-label="Filtrar fornecedores pela logo"></div>
+        </div>
+        <div class="log-geral-controls">
+          <span class="log-bucket-title">Ordenar por</span>
+          <div class="log-bucket-filters" id="geralSortFilters">
+            <button class="log-bucket-btn active" type="button" data-sort="low">Menor média total</button>
+            <button class="log-bucket-btn" type="button" data-sort="high">Pior média total</button>
+          </div>
+          <span class="log-geral-controls-sep">Situação</span>
+          <div class="log-bucket-filters" id="geralStatusFilters">
+            <button class="log-bucket-btn active" type="button" data-status="all">Todos</button>
+            <button class="log-bucket-btn log-status-green" type="button" data-status="green">&#10003; Positivas</button>
+            <button class="log-bucket-btn log-status-red" type="button" data-status="red">&#9888; Atenção</button>
+            <button class="log-bucket-btn log-status-yellow" type="button" data-status="yellow">&#9679; Sugestão</button>
+          </div>
         </div>
         <div class="log-filter-actions">
           <span class="log-result-count" id="geralResultCount"></span>
@@ -3053,16 +3086,31 @@ initCampaigns();
   let bucketSel=null; // índice da faixa da Distribuição do Tempo Total, ou null
   const BUCKETS=[{name:'0 a 5',min:0,max:5,color:'#22c55e'},{name:'6 a 8',min:6,max:8,color:'#84cc16'},{name:'9 a 10',min:9,max:10,color:'#f59e0b'},{name:'Acima de 10',min:11,max:Infinity,color:'#ef4444'}];
   const money=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:2});
+  let geralSort='low';        // 'low' = menor média total primeiro | 'high' = pior primeiro
+  let geralStatusFilter='all'; // 'all' | 'green' | 'red' | 'yellow'
 
-  function geralLevelCompact(row){
+  function geralStatusOf(levels,realAvg){
+    if(realAvg==null) return null;
+    const P=levels.map(l=>Number(l.prazo)).filter(Number.isFinite);
+    if(!P.length) return null;
+    const below=P.filter(p=>p<realAvg).length;
+    if(below===P.length) return 'red';
+    if(below>0) return 'yellow';
+    return 'green';
+  }
+  function geralValOf(r){return r.rd&&r.rd.tot!=null?r.rd.tot:null;}
+
+  function geralLevelCompact(row,realAvg){
     const op=String(row.operador||'').toUpperCase();
     const general=!row.preco||!row.custo||op==='GERAL'||op.includes('PRODU');
+    const headroom=realAvg!=null&&Number(row.prazo)>realAvg;
+    const hr=headroom?' lgl-headroom':'';
     if(general){
       const label=op.includes('PRODU')?'Produtos em produção':'Regra geral';
-      return `<div class="log-geral-level lgl-general"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(label)}</span></div>`;
+      return `<div class="log-geral-level lgl-general${hr}"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(label)}</span></div>`;
     }
     const condition=op==='ABAIXO'?'Abaixo de':'A partir de';
-    return `<div class="log-geral-level"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(condition)} ${money(row.preco)}</span><span class="log-geral-cost">${money(row.custo)}</span></div>`;
+    return `<div class="log-geral-level${hr}"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(condition)} ${money(row.preco)}</span><span class="log-geral-cost">${money(row.custo)}</span></div>`;
   }
 
   const COLORS={
@@ -3215,6 +3263,13 @@ initCampaigns();
       el.addEventListener('click',click);
       el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();click();}});
     });
+  }
+
+  function renderBucketFilters(){
+    const host=document.getElementById('logBucketFilters');
+    if(!host) return;
+    host.innerHTML=BUCKETS.map((b,i)=>`<button class="log-bucket-btn${bucketSel===i?' active':''}" type="button" data-bucket="${i}">${b.name} d</button>`).join('');
+    host.querySelectorAll('[data-bucket]').forEach(el=>el.addEventListener('click',()=>{const i=Number(el.dataset.bucket);bucketSel=bucketSel===i?null:i;renderLogistico();}));
   }
 
   const WEEK_LABELS=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
@@ -3418,6 +3473,10 @@ initCampaigns();
       renderVisaoGeral();
     }));
   }
+  function renderGeralControls(){
+    document.querySelectorAll('#geralSortFilters .log-bucket-btn').forEach(b=>b.classList.toggle('active',b.dataset.sort===geralSort));
+    document.querySelectorAll('#geralStatusFilters .log-bucket-btn').forEach(b=>b.classList.toggle('active',b.dataset.status===geralStatusFilter));
+  }
   function renderVisaoGeral(){
     const wrap=document.querySelector('#cxd-panel-geral');
     if(!wrap||!wrap.classList.contains('active')) return;
@@ -3425,45 +3484,55 @@ initCampaigns();
     const configs=geralBrandsConfig();
     const real=geralRealByLogo();
     const vis=geralSelected.size?configs.filter(g=>geralSelected.has(normLogo(g.image))):configs;
-    const rows=vis.map(g=>{
+    const allRows=vis.map(g=>{
       const rd=real.get(normLogo(g.image))||null;
       const ref=configRef(g);
+      const realAvg=rd?rd.tot:null;
       const prazos=[...new Set(g.niveis.map(r=>Number(r.prazo)).filter(Number.isFinite))].sort((a,b)=>a-b);
       const levels=g.niveis.slice().sort((a,b)=>a.ordem-b.ordem);
-      const red=(rd&&rd.tot!=null&&ref!=null)?Math.floor(rd.tot):null;
-      const reduce=!!(red!=null&&red>=1&&ref!=null&&red<ref);
-      return {label:g.fornecedor,image:g.image,prazos,ref,rd,levels,red,reduce,flag:!!(rd&&ref!=null&&rd.tot!=null&&rd.tot>ref)};
-    }).sort((a,b)=>a.label.localeCompare(b.label));
+      return {label:g.fornecedor,image:g.image,prazos,ref,rd,levels,realAvg,status:geralStatusOf(levels,realAvg)};
+    });
+    const rows=allRows
+      .filter(r=>geralStatusFilter==='all'||r.status===geralStatusFilter)
+      .sort((a,b)=>{
+        const av=geralValOf(a),bv=geralValOf(b);
+        const an=av==null,bn=bv==null;
+        if(an&&bn) return a.label.localeCompare(b.label);
+        if(an) return 1;
+        if(bn) return -1;
+        return geralSort==='high'?bv-av:av-bv;
+      });
     renderGeralSupplierFilters();
+    renderGeralControls();
     const hero=document.getElementById('geralHeroStats');
     if(hero){
       const comReal=rows.filter(r=>r.rd&&r.rd.tot!=null).length;
-      const acima=rows.filter(r=>r.flag).length;
+      const atencao=rows.filter(r=>r.status==='red').length;
       const tots=[];rows.forEach(r=>{if(r.rd&&r.rd.tot!=null)tots.push(r.rd.tot);});
       const totAvg=tots.length?tots.reduce((s,v)=>s+v,0)/tots.length:null;
       const st=[
-        {value:vis.length,label:'FORNECEDORES CONFIGURADOS'},
+        {value:rows.length,label:'FORNECEDORES NO RECORTE'},
         {value:comReal,label:'COM DADOS REAIS'},
-        {value:acima,label:'ACIMA DO PRAZO CONFIGURADO'},
+        {value:atencao,label:'EM ATENÇÃO'},
         {value:(totAvg!=null?fmt1(totAvg)+'<small> dias</small>':'–'),label:'MÉDIA TOTAL REAL (RECORTE)',accent:true}
       ];
       hero.innerHTML=st.map(s=>`<div class="log-hero-stat${s.accent?' hs-accent':''}"><div class="log-hs-value">${s.value}</div><div class="log-hs-label">${s.label}</div></div>`).join('');
     }
     const rc=document.getElementById('geralResultCount');
-    if(rc) rc.textContent=`${rows.length} fornecedores ${geralSelected.size?'no recorte':'configurados'}`;
+    if(rc) rc.textContent=`${rows.length} de ${vis.length} fornecedores ${geralSelected.size?'no recorte':''}`;
     const host=document.getElementById('geralCompare');
     if(host){
-      if(!rows.length){host.innerHTML='<div class="log-empty">Nenhum fornecedor para o recorte selecionado.</div>';}
+      if(!rows.length){host.innerHTML='<div class="log-empty">Nenhum fornecedor para os filtros selecionados.</div>';}
       else{
         host.innerHTML='<div class="log-geral-list">'+rows.map(r=>{
           const img=r.image?`<img src="logos-marcas/${encodeURI(r.image)}" alt="${esc(r.label)}" loading="lazy" onerror="this.style.display='none'">`:'';
-          const alertCls=r.flag?' log-geral-alert':'';
-          const totVal= r.rd&&r.rd.tot!=null ? `<span class="lgl-value${r.flag?' lgl-alert':''}">${fmt1(r.rd.tot)}<small> dias</small></span>` : '<span class="lgl-value">—</span>';
+          const stCls=r.status?' log-geral-item-st-'+r.status:'';
+          const totVal= r.rd&&r.rd.tot!=null ? `<span class="lgl-value${r.status==='red'?' lgl-alert':''}">${fmt1(r.rd.tot)}<small> dias</small></span>` : '<span class="lgl-value">—</span>';
           const oc= r.rd&&r.rd.oc!=null?fmt1(r.rd.oc):'—';
           const nf= r.rd&&r.rd.nf!=null?fmt1(r.rd.nf):'—';
-          return `<div class="log-geral-item${alertCls}">
+          return `<div class="log-geral-item${stCls}">
             <div class="log-geral-brand"><span class="log-geral-logo">${img}</span><span class="log-geral-name">${esc(r.label)}</span></div>
-            <div class="log-geral-levels"><div class="log-geral-levels-title">Níveis de corte · ${r.levels.length}</div>${r.levels.map(geralLevelCompact).join('')}</div>
+            <div class="log-geral-levels"><div class="log-geral-levels-title">Níveis de corte · ${r.levels.length}</div>${r.levels.map(l=>geralLevelCompact(l,r.realAvg)).join('')}</div>
             <div class="log-geral-cols">
               <div class="log-geral-cell"><span class="lgl-label">Média OC → NF</span><span class="lgl-value">${oc}</span></div>
               <div class="log-geral-cell"><span class="lgl-label">Média NF → Estoque</span><span class="lgl-value">${nf}</span></div>
@@ -3475,18 +3544,21 @@ initCampaigns();
     }
     const sum=document.getElementById('geralSummary');
     if(sum){
-      const up=rows.filter(r=>r.flag);
-      const down=rows.filter(r=>r.reduce);
+      const red=rows.filter(r=>r.status==='red');
+      const yellow=rows.filter(r=>r.status==='yellow');
+      const green=rows.filter(r=>r.status==='green');
       const items=[];
-      up.forEach(r=>{
-        const cfg=r.prazos.join(' · ');
-        items.push(`<div class="log-attention-item log-att-up"><span class="log-attention-ico">⚠</span><p><span class="att-badge">Acima do prazo</span><strong>${esc(r.label)}</strong> tem prazo médio real de <strong>${fmt1(r.rd.tot)} dias</strong>, acima do configurado de <strong>${cfg} dias</strong>. Avaliar o fluxo de faturamento e entrega.</p></div>`);
+      red.forEach(r=>{
+        items.push(`<div class="log-attention-item log-att-up"><span class="log-attention-ico">⚠</span><p><span class="att-badge">Atenção</span>Todos os prazos configurados de <strong>${esc(r.label)}</strong> (<strong>${esc(r.prazos.join(' · '))} dias</strong>) ficam abaixo do prazo médio real de <strong>${fmt1(r.rd.tot)} dias</strong>. O fornecedor não está cumprindo o prazo estipulado — revisar os prazos configurados.</p></div>`);
       });
-      down.forEach(r=>{
-        const cfg=r.prazos.join(' · ');
-        items.push(`<div class="log-attention-item log-att-down"><span class="log-attention-ico">↓</span><p><span class="att-badge">Oportunidade</span>O <strong>${esc(r.label)}</strong> entrega em média em <strong>${fmt1(r.rd.tot)} dias</strong>. Você pode reduzir o prazo configurado de <strong>${cfg} dias</strong> para <strong>${r.red} dias</strong>.</p></div>`);
+      yellow.forEach(r=>{
+        items.push(`<div class="log-attention-item log-att-mid"><span class="log-attention-ico">●</span><p><span class="att-badge">Sugestão</span>Algumas faixas configuradas de <strong>${esc(r.label)}</strong> (<strong>${esc(r.prazos.join(' · '))} dias</strong>) ficam abaixo do prazo médio real de <strong>${fmt1(r.rd.tot)} dias</strong>. Avaliar se esses níveis de corte são factíveis.</p></div>`);
       });
-      if(!items.length){sum.innerHTML='<div class="log-empty">Nenhum ponto de atenção nem oportunidade de redução no recorte. ✓</div>';}
+      green.forEach(r=>{
+        const mark=Math.max(1,Math.floor(r.rd.tot));
+        items.push(`<div class="log-attention-item log-att-down"><span class="log-attention-ico">↓</span><p><span class="att-badge">Positiva</span><strong>${esc(r.label)}</strong> entrega em média em <strong>${fmt1(r.rd.tot)} dias</strong>. Dá para reduzir o prazo configurado de <strong>${esc(r.prazos.join(' · '))} dias</strong> para <strong>${mark} dias</strong>.</p></div>`);
+      });
+      if(!items.length){sum.innerHTML='<div class="log-empty">Nenhum item para a seleção atual. ✓</div>';}
       else{sum.innerHTML='<div class="log-attention-list">'+items.join('')+'</div>';}
     }
   }
@@ -3503,6 +3575,7 @@ initCampaigns();
     renderKpis(m);
     renderEtapa(m);
     renderDistrib(m);
+    renderBucketFilters();
     renderEvolucao(m,rows);
     renderTopOc(m,rows);
     renderRanking(rows);
@@ -3513,6 +3586,7 @@ initCampaigns();
 
   function clearAllFilters(){
     selected=new Set();
+    bucketSel=null;
     st.oc=[null,null];st.nf=[null,null];st.est=[null,null];
     ['logFromOc','logToOc','logFromNf','logToNf','logFromEst','logToEst'].forEach(id=>{document.getElementById(id).value='';});
     renderLogistico();
@@ -3531,6 +3605,8 @@ initCampaigns();
     document.getElementById('logClearFilters').addEventListener('click',clearAllFilters);
     const gClear=document.getElementById('geralClearSuppliers');
     if(gClear) gClear.addEventListener('click',()=>{geralSelected=new Set();renderVisaoGeral();});
+    document.querySelectorAll('#geralSortFilters .log-bucket-btn').forEach(b=>b.addEventListener('click',()=>{geralSort=b.dataset.sort;renderVisaoGeral();}));
+    document.querySelectorAll('#geralStatusFilters .log-bucket-btn').forEach(b=>b.addEventListener('click',()=>{geralStatusFilter=b.dataset.status;renderVisaoGeral();}));
     const binds=[['logFromOc','logToOc','oc'],['logFromNf','logToNf','nf'],['logFromEst','logToEst','est']];
     binds.forEach(([fromId,toId,key])=>{
       const from=document.getElementById(fromId),to=document.getElementById(toId);
