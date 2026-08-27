@@ -291,19 +291,10 @@ const crossDockingData = [
     "ordem": 33,
     "fornecedor": "PRESTO",
     "image": "PRESTO.png",
-    "prazo": 10,
-    "operador": "ABAIXO",
-    "preco": 1000,
-    "custo": 606
-  },
-  {
-    "ordem": 34,
-    "fornecedor": "PRESTO",
-    "image": "PRESTO.png",
     "prazo": 7,
-    "operador": "ACIMA",
-    "preco": 1000,
-    "custo": 606
+    "operador": "ABAIXO",
+    "preco": null,
+    "custo": null
   },
   {
     "ordem": 35,
