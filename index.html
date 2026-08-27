@@ -862,6 +862,189 @@
   @media(max-width:1000px){.crossdocking-filter-track{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,50px)}}
   @media(max-width:700px){.crossdocking-main{padding:14px 12px 30px}.crossdocking-hero{align-items:flex-start;flex-direction:column;padding:18px}.crossdocking-summary{justify-content:flex-start}.crossdocking-filter-bar{align-items:stretch;flex-direction:column}.crossdocking-clear-filter{width:100%}.crossdocking-filter-track{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(5,48px)}.crossdocking-logo-filter{height:48px}.crossdocking-grid{grid-template-columns:1fr}.crossdocking-card-head{min-height:96px}.crossdocking-logo-box img{max-width:170px;max-height:58px}}
 
+  /* ===== Cross Docking: abas internas (Visão Geral / Desempenho Logístico) ===== */
+  .cxd-subtabs{display:flex;gap:8px;margin:0 0 16px;padding:6px;background:#fff;border:1px solid var(--app-line);border-radius:14px;width:max-content;box-shadow:var(--app-shadow)}
+  .cxd-subtab{border:0;background:transparent;color:#52677d;font:800 12px 'Roboto',sans-serif;padding:10px 18px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.16s}
+  .cxd-subtab:hover{background:#f1f5f9;color:#1d4ed8}
+  .cxd-subtab.active{background:#dbeafe;color:#1d4ed8;box-shadow:0 2px 10px rgba(29,78,216,.12)}
+  .cxd-subtab .cxd-tab-dot{width:7px;height:7px;border-radius:50%;background:#94a3b8}
+  .cxd-subtab.active .cxd-tab-dot{background:#2563eb}
+  .cxd-subpanel{display:none}
+  .cxd-subpanel.active{display:block;animation:panelReveal .22s ease both}
+  @media(max-width:700px){.cxd-subtabs{width:100%}.cxd-subtab{flex:1;justify-content:center}}
+
+  /* ===== Desempenho Logístico ===== */
+  .log-hero{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:16px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;box-shadow:0 12px 30px rgba(15,23,42,.14)}
+  .log-hero-copy .log-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#93c5fd;margin-bottom:6px}
+  .log-hero-copy h2{font-size:26px;line-height:1.1;margin:0 0 6px}
+  .log-hero-copy p{margin:0;color:#cbd5e1;font-size:13px;max-width:720px}
+  .log-hero-stats{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,minmax(104px,1fr));gap:10px}
+  .log-hero-stat{padding:11px 14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:12px;text-align:center;backdrop-filter:blur(4px)}
+  .log-hero-stat .log-hs-value{font-size:20px;font-weight:850;line-height:1;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .log-hero-stat .log-hs-value small{font-size:11px;color:#bfdbfe;font-weight:700}
+  .log-hero-stat .log-hs-label{margin-top:5px;font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#bfdbfe;line-height:1.25;min-height:20px;display:flex;align-items:center;justify-content:center}
+  .log-hero-stat.hs-accent{border-color:rgba(147,197,253,.5);background:rgba(37,99,235,.28)}
+
+  .log-filter-panel{background:#fff;border:1px solid var(--app-line);border-radius:16px;box-shadow:var(--app-shadow);padding:14px 16px;margin-bottom:16px}
+  .log-filter-label{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;font-size:10px;font-weight:850;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
+  .log-filter-all{min-height:26px;padding:3px 10px;font-size:10px}
+  .log-supplier-track{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+  .log-supplier-btn{height:56px;border:1px solid #e2e8f0;border-radius:11px;background:#fff;display:flex;align-items:center;justify-content:center;padding:7px;cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;position:relative}
+  .log-supplier-btn:hover{border-color:#93c5fd;box-shadow:0 5px 14px rgba(37,99,235,.10);transform:translateY(-1px)}
+  .log-supplier-btn.active{border:2px solid #2563eb;background:#eff6ff;box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+  .log-supplier-btn img{max-width:100%;max-height:38px;object-fit:contain}
+  .log-supplier-btn .log-supplier-init{font-size:11px;font-weight:800;color:#52677d;text-transform:uppercase}
+  .log-supplier-btn .log-supplier-count{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#2563eb;color:#fff;font-size:9px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(37,99,235,.35)}
+  .log-period-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #eef2f7}
+  .log-period-group{display:flex;flex-direction:column;gap:6px}
+  .log-period-title{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.06em}
+  .log-period-inputs{display:flex;align-items:center;gap:7px}
+  .log-period-inputs input{flex:1;min-width:0;height:36px;padding:0 8px;border:1px solid var(--app-line);border-radius:9px;background:#fff;color:var(--app-text);font:600 12px 'Roboto',sans-serif}
+  .log-period-sep{color:#94a3b8;font-size:12px;flex:0 0 auto}
+  .log-filter-actions{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #eef2f7}
+  .log-result-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--muted)}
+  .log-filter-actions .clear-btn{min-height:34px;padding:6px 14px}
+
+  .log-bucket-row{display:flex;align-items:flex-start;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #eef2f7;flex-wrap:wrap}
+  .log-bucket-title{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.06em;padding-top:6px;flex:0 0 auto}
+  .log-bucket-filters{display:flex;gap:8px;flex-wrap:wrap}
+  .log-bucket-btn{border:1px solid #e2e8f0;background:#fff;color:#52677d;font:800 11px 'Roboto',sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+  .log-bucket-btn:hover{border-color:#93c5fd;color:#1d4ed8;background:#eff6ff}
+  .log-bucket-btn.active{background:#2563eb;border-color:#2563eb;color:#fff;box-shadow:0 3px 10px rgba(37,99,235,.25)}
+  .log-bucket-btn.active:hover{background:#1d4ed8;color:#fff}
+
+  .log-kpi-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:16px}
+  .log-kpi{background:#fff;border:1px solid var(--app-line);border-radius:14px;padding:16px 16px 14px;box-shadow:var(--app-shadow);border-top:3px solid #2563eb;display:flex;flex-direction:column}
+  .log-kpi:nth-child(2){border-top-color:#22c55e}.log-kpi:nth-child(3){border-top-color:#f59e0b}.log-kpi:nth-child(4){border-top-color:#8b5cf6}.log-kpi:nth-child(5){border-top-color:#ef4444}
+  .log-kpi .log-kpi-label{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
+  .log-kpi .log-kpi-value{font-size:30px;font-weight:850;color:#172033;line-height:1.05;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+  .log-kpi .log-kpi-sub{font-size:10px;color:#94a3b8;font-weight:650}
+  .log-kpi-suffix{font-size:13px;color:#64748b;font-weight:700;margin-left:2px}
+  .log-kpi.log-kpi-featured{background:linear-gradient(180deg,#f5f3ff,#fff);border-color:#c4b5fd;border-top-width:4px;border-top-color:#8b5cf6;box-shadow:0 10px 24px rgba(139,92,246,.18)}
+  .log-kpi.log-kpi-featured .log-kpi-value{font-size:38px;color:#6d28d9;font-weight:900}
+  .log-kpi.log-kpi-featured .log-kpi-label{color:#7c3aed}
+  .log-compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .log-geral-list{display:flex;flex-direction:column;gap:12px}
+  .log-geral-item{display:grid;grid-template-columns:minmax(190px,1.4fr) minmax(230px,1.6fr) minmax(250px,2fr);gap:20px;align-items:stretch;padding:14px 16px;border:1px solid #eef2f7;border-radius:14px;background:#fff;box-shadow:0 3px 12px rgba(15,23,42,.04)}
+  .log-geral-item.log-geral-alert{border-color:#fecaca;background:#fffbfb}
+  .log-geral-brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .log-geral-logo{width:96px;height:40px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:#f8fafc;border:1px solid #eef2f7;border-radius:9px;padding:5px 8px}
+  .log-geral-logo img{max-width:80px;max-height:30px;object-fit:contain}
+  .log-geral-name{font-size:13px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.04em}
+  .log-geral-levels{display:flex;flex-direction:column;gap:6px}
+  .log-geral-levels-title{font-size:10px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+  .log-geral-level{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px 8px;border-radius:9px;background:#f8fafc;border:1px solid #eef2f7}
+  .log-geral-level.lgl-general{grid-template-columns:44px 1fr;background:#eff6ff;border-color:#dbeafe}
+  .log-geral-days{display:flex;align-items:baseline;gap:2px;font-size:16px;font-weight:850;color:#0f172a}
+  .log-geral-days small{font-size:8px;font-weight:800;color:#64748b;text-transform:uppercase}
+  .log-geral-level.lgl-general .log-geral-days{color:#1d4ed8}
+  .log-geral-rule{font-size:10px;color:#334155;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .log-geral-cost{font-size:10px;font-weight:800;color:#0f766e}
+  .log-geral-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .log-geral-cell{display:flex;flex-direction:column;gap:4px;padding:10px 12px;border-radius:11px;background:#f8fafc;border:1px solid #eef2f7;justify-content:center;min-height:64px}
+  .log-geral-cell .lgl-label{font-size:9px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:.05em;line-height:1.2}
+  .log-geral-cell .lgl-value{font-size:18px;font-weight:850;color:#172033;font-variant-numeric:tabular-nums;line-height:1.1}
+  .log-geral-cell .lgl-value small{font-size:10px;color:#94a3b8;font-weight:700}
+  .log-geral-cell.log-geral-cell-total{background:linear-gradient(180deg,#f5f3ff,#fff);border-color:#c4b5fd}
+  .log-geral-cell.log-geral-cell-total .lgl-value{color:#6d28d9;font-size:22px;font-weight:900}
+  .log-geral-cell.log-geral-cell-total .lgl-label{color:#7c3aed}
+  .log-geral-cell.log-geral-cell-total .lgl-value.lgl-alert{color:#dc2626}
+  @media(max-width:1180px){.log-geral-item{grid-template-columns:1fr;gap:14px}.log-geral-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:560px){.log-geral-cols{grid-template-columns:1fr 1fr}.log-geral-cell.log-geral-cell-total{grid-column:1 / -1}}
+
+  .log-attention-item{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border:1px solid #fee2e2;border-left:4px solid #ef4444;border-radius:12px;background:#fff7f7;margin-bottom:10px}
+  .log-attention-item.log-att-up{border-color:#fee2e2;border-left-color:#ef4444;background:#fff7f7}
+  .log-attention-item.log-att-down{border-color:#d1fae5;border-left-color:#059669;background:#f0fdf4}
+  .log-attention-ico{font-size:16px;line-height:1.3}
+  .log-attention-item p{margin:0;font-size:13px;color:#475569;line-height:1.5}
+  .log-attention-item strong{font-weight:800}
+  .log-attention-item.log-att-up strong{color:#b91c1c}
+  .log-attention-item.log-att-down strong{color:#047857}
+  .log-attention-item.log-att-down .log-attention-ico{color:#059669}
+  .log-attention-item .att-badge{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:999px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+  .log-att-att-up .att-badge{background:#fee2e2;color:#b91c1c}
+  .log-att-att-down .att-badge{background:#d1fae5;color:#047857}
+  .log-attention-item .att-badge{vertical-align:middle}
+
+  .log-grid{display:grid;gap:16px;margin-bottom:16px}
+  .log-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .log-chart-card{overflow:hidden}
+  .log-chart-card.log-full{width:100%;margin-bottom:16px}
+  .log-card-hint{margin-left:auto;font-size:10px;color:#94a3b8;font-weight:650;white-space:nowrap}
+  .log-chart-body{padding:16px}
+  .log-empty{padding:32px 16px;text-align:center;color:#64748b;font-size:13px;font-weight:600}
+
+  /* Gráfico 1: Tempo médio por etapa */
+  .log-etapa-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:end;min-height:250px}
+  .log-etapa-col{display:flex;flex-direction:column;align-items:center;gap:9px}
+  .log-etapa-col .log-etapa-val{font-size:36px;font-weight:900;color:#0f172a;font-variant-numeric:tabular-nums;line-height:1}
+  .log-etapa-col .log-etapa-val small{font-size:13px;color:#64748b}
+  .log-etapa-bar{width:60%;max-width:100px;border-radius:12px 12px 5px 5px;min-height:0;transition:height .4s ease;box-shadow:inset 0 -6px 14px rgba(255,255,255,.18)}
+  .log-etapa-name{font-size:12px;font-weight:850;color:#1e293b;text-align:center}
+  .log-etapa-sub{font-size:9px;color:#94a3b8;text-align:center;text-transform:uppercase;letter-spacing:.05em}
+
+  /* Gráfico 2: distribuição */
+  .log-distrib-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:end;min-height:240px}
+  .log-distrib-col{display:flex;flex-direction:column;align-items:center;gap:7px}
+  .log-distrib-bar{width:66%;max-width:86px;border-radius:12px 12px 5px 5px;min-height:0;transition:height .4s ease;box-shadow:inset 0 -6px 14px rgba(255,255,255,.18)}
+  .log-distrib-col .log-distrib-val{font-size:30px;font-weight:900;color:#0f172a;font-variant-numeric:tabular-nums;line-height:1}
+  .log-distrib-name{font-size:11.5px;font-weight:850;color:#1e293b;text-align:center}
+  .log-distrib-col .log-distrib-sub{font-size:11px;font-weight:800;color:#334155;text-align:center;margin-top:2px}
+  .log-distrib-col{position:relative;padding:6px 10px;border-radius:12px;cursor:pointer;transition:background .15s}
+  .log-distrib-col:hover{background:#f1f5f9}
+  .log-distrib-col.log-distrib-active{background:#dbeafe;box-shadow:inset 0 0 0 2px #2563eb}
+  .log-distrib-col.log-distrib-active .log-distrib-val{color:#1d4ed8}
+
+  /* Gráfico 3: evolução (SVG) */
+  .log-evolucao-wrap{width:100%}
+  .log-evolucao-wrap svg{width:100%;max-height:168px;height:auto;display:block}
+  .log-evolucao-wrap .log-legend{margin-bottom:8px}
+  .log-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:8px}
+  .log-legend span{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:#475569;font-weight:700}
+  .log-legend i{width:16px;height:4px;border-radius:2px;display:inline-block}
+
+  /* Gráfico 4: maiores tempos por OC */
+  .log-topoc-list{display:flex;flex-direction:column;gap:10px}
+  .log-topoc-row{display:grid;grid-template-columns:150px minmax(0,1fr) 90px;gap:12px;align-items:center}
+  .log-topoc-oc{font-size:12px;font-weight:800;color:#334155;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .log-topoc-oc span{display:block;font-size:9px;color:#94a3b8;font-weight:650;text-transform:uppercase;letter-spacing:.04em}
+  .log-topoc-track{height:20px;border-radius:6px;overflow:hidden;display:flex;background:#eef2f7}
+  .log-topoc-seg{height:100%}
+  .log-topoc-total{font-size:13px;font-weight:850;color:#172033;text-align:right;font-variant-numeric:tabular-nums}
+
+  /* Ranking de fornecedores (2 grids lado a lado) */
+  .log-ranking-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+  .log-ranking-card{background:#f8fafc;border:1px solid #eef2f7;border-radius:13px;overflow:hidden}
+  .log-ranking-card .log-rc-head{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fff;border-bottom:1px solid #eef2f7}
+  .log-rc-head .log-rc-title{font-size:14px;font-weight:900;color:#1e293b;letter-spacing:.01em;line-height:1.15}
+  .log-rc-head .log-rc-sub{margin-left:auto;font-size:9px;font-weight:750;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em}
+  .log-rc-fast .log-rc-head{color:#15803d}.log-rc-fast .log-rc-title{color:#15803d}
+  .log-rc-slow .log-rc-head{color:#b45309}.log-rc-slow .log-rc-title{color:#b45309}
+  .log-ranking-card .log-rc-list{display:flex;flex-direction:column;max-height:520px;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 8px 8px}
+  .log-rank-item{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:10px;cursor:pointer;transition:background .14s}
+  .log-rank-item:hover{background:#fff}
+  .log-rank-item.log-rank-active{background:#dbeafe}
+  .log-rank-item .log-rank-pos{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#f1f5f9;color:#52677d;font-size:10px;font-weight:850;display:inline-flex;align-items:center;justify-content:center}
+  .log-rc-fast .log-rank-item:nth-child(-n+3) .log-rank-pos{background:#dcfce7;color:#15803d}
+  .log-rc-slow .log-rank-item:nth-child(-n+1) .log-rank-pos{background:#fee2e2;color:#b91c1c}
+  .log-rank-item .log-rank-logo{flex:1 1 auto;height:40px;min-width:0;display:flex;align-items:center;justify-content:center}
+  .log-rank-item .log-rank-logo img{max-width:96px;max-height:36px;object-fit:contain}
+  .log-rank-item .log-rank-logo .log-supplier-init{font-size:12px;font-weight:800;color:#52677d}
+  .log-rank-item .log-rank-meta{flex:0 0 auto;text-align:right;font-size:17px;font-weight:900;color:#0f172a;font-variant-numeric:tabular-nums;min-width:52px}
+  .log-rank-item .log-rank-meta small{display:block;font-size:8.5px;font-weight:750;color:#94a3b8;text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+  @media(max-width:900px){.log-ranking-grid{grid-template-columns:1fr}}
+
+  /* Insights */
+  .log-insight-card{border-left:4px solid #2563eb;margin-bottom:16px}
+  .log-insight-list{display:flex;flex-direction:column;gap:10px}
+  .log-insight{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:11px;background:#f8fafc;border:1px solid #eef2f7}
+  .log-insight .log-insight-ico{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+  .log-insight p{margin:0;font-size:12px;line-height:1.5;color:#334155}
+  .log-insight p strong{color:#0f172a}
+
+  @media(max-width:1200px){.log-kpi-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.log-grid-2{grid-template-columns:1fr}}
+  @media(max-width:900px){.log-period-row{grid-template-columns:1fr}}
+  @media(max-width:720px){.log-hero{align-items:flex-start;flex-direction:column;padding:18px}.log-hero-stats{align-self:stretch;grid-template-columns:repeat(3,minmax(0,1fr))}.log-hero-copy h2{font-size:22px}.log-kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.log-supplier-track{grid-template-columns:repeat(4,minmax(0,1fr))}.log-topoc-row{grid-template-columns:92px minmax(0,1fr) 64px}.log-topoc-oc{font-size:11px}}
 
   .publication-filter-result{margin-left:auto;font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap;}
   .publication-clear-btn{min-height:34px;padding:6px 12px;}
@@ -1452,14 +1635,123 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 
 <section id="dashboard-crossdocking" class="dashboard-panel">
   <div class="crossdocking-main">
-    <div class="crossdocking-summary-bar" aria-label="Resumo de Cross Docking">
-      <div class="crossdocking-summary" id="crossDockingSummary"></div>
+    <div class="cxd-subtabs" role="tablist" aria-label="Seções de Cross Docking">
+      <button class="cxd-subtab active" type="button" data-cxd-tab="geral" role="tab" aria-selected="true">Visão Geral</button>
+      <button class="cxd-subtab" type="button" data-cxd-tab="regras" role="tab" aria-selected="false">Prazos Configurados</button>
+      <button class="cxd-subtab" type="button" data-cxd-tab="logistico" role="tab" aria-selected="false">Desempenho Logístico</button>
     </div>
-    <div class="crossdocking-filter-bar">
-      <div class="crossdocking-filter-track" id="crossDockingSupplierFilters" aria-label="Filtrar fornecedores pela logo"></div>
-      <button class="clear-btn crossdocking-clear-filter" id="clearCrossDockingFilters" type="button">Limpar Filtros</button>
+    <div class="cxd-subpanel active" id="cxd-panel-geral" role="tabpanel">
+      <div class="log-hero">
+        <div class="log-hero-copy">
+          <div class="log-eyebrow">Cross Docking &bull; Panorama</div>
+          <h2>Visão Geral</h2>
+          <p>Compare o prazo configurado por fornecedor com o desempenho real das entregas (OC &rarr; NF &rarr; Estoque).</p>
+        </div>
+        <div class="log-hero-stats" id="geralHeroStats"></div>
+      </div>
+
+      <div class="log-filter-panel">
+        <div class="log-filter-suppliers">
+          <div class="log-filter-label"><span>Fornecedores</span><button class="clear-btn log-filter-all" id="geralClearSuppliers" type="button">Todos os fornecedores</button></div>
+          <div class="log-supplier-track" id="geralSupplierFilters" aria-label="Filtrar fornecedores pela logo"></div>
+        </div>
+        <div class="log-filter-actions">
+          <span class="log-result-count" id="geralResultCount"></span>
+        </div>
+      </div>
+
+      <div class="section log-chart-card log-full">
+        <div class="section-header"><span class="section-title">Configurado &times; Real por Fornecedor</span><span class="log-card-hint">Prazo configurado vs. médias reais de entrega</span></div>
+        <div class="log-chart-body"><div class="log-compare-wrap" id="geralCompare"></div></div>
+      </div>
+
+      <div class="section log-chart-card log-full">
+        <div class="section-header"><span class="section-title">Pontos de Atenção e Oportunidades</span><span class="log-card-hint">Acima do prazo configurado ou com espaço para reduzir</span></div>
+        <div class="log-chart-body"><div class="log-compare-summary" id="geralSummary"></div></div>
+      </div>
     </div>
-    <div class="crossdocking-grid" id="crossDockingGrid"></div>
+    <div class="cxd-subpanel" id="cxd-panel-regras" role="tabpanel">
+      <div class="crossdocking-summary-bar" aria-label="Resumo de Cross Docking">
+        <div class="crossdocking-summary" id="crossDockingSummary"></div>
+      </div>
+      <div class="crossdocking-filter-bar">
+        <div class="crossdocking-filter-track" id="crossDockingSupplierFilters" aria-label="Filtrar fornecedores pela logo"></div>
+        <button class="clear-btn crossdocking-clear-filter" id="clearCrossDockingFilters" type="button">Limpar Filtros</button>
+      </div>
+      <div class="crossdocking-grid" id="crossDockingGrid"></div>
+    </div>
+
+    <div class="cxd-subpanel" id="cxd-panel-logistico" role="tabpanel">
+      <!-- Cabeçalho -->
+      <div class="log-hero">
+        <div class="log-hero-copy">
+          <div class="log-eyebrow">Logística &bull; Prazos</div>
+          <h2>Desempenho Logístico dos Fornecedores</h2>
+          <p>Análise do tempo entre a emissão da OC, a emissão da NF e a entrada do produto em estoque.</p>
+        </div>
+        <div class="log-hero-stats" id="logHeroStats"></div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="log-filter-panel">
+        <div class="log-filter-suppliers">
+          <div class="log-filter-label"><span>Fornecedores</span><button class="clear-btn log-filter-all" id="logClearSuppliers" type="button">Todos os fornecedores</button></div>
+          <div class="log-supplier-track" id="logSupplierFilters" aria-label="Filtrar fornecedores pela logo"></div>
+        </div>
+        <div class="log-period-row">
+          <div class="log-period-group"><span class="log-period-title">Período Emissão OC</span><div class="log-period-inputs"><input type="date" id="logFromOc" aria-label="De"><span class="log-period-sep">→</span><input type="date" id="logToOc" aria-label="Até"></div></div>
+          <div class="log-period-group"><span class="log-period-title">Período Emissão NF</span><div class="log-period-inputs"><input type="date" id="logFromNf" aria-label="De"><span class="log-period-sep">→</span><input type="date" id="logToNf" aria-label="Até"></div></div>
+          <div class="log-period-group"><span class="log-period-title">Período Entrada Estoque</span><div class="log-period-inputs"><input type="date" id="logFromEst" aria-label="De"><span class="log-period-sep">→</span><input type="date" id="logToEst" aria-label="Até"></div></div>
+        </div>
+        <div class="log-bucket-row">
+          <span class="log-bucket-title">Distribuição do Tempo Total</span>
+          <div class="log-bucket-filters" id="logBucketFilters"></div>
+        </div>
+        <div class="log-filter-actions">
+          <button class="clear-btn" id="logClearFilters" type="button">Limpar todos os filtros</button>
+          <span class="log-result-count" id="logResultCount"></span>
+        </div>
+      </div>
+
+      <!-- Cards totalizadores -->
+      <div class="log-kpi-grid" id="logKpiRow"></div>
+
+      <!-- Linha 1: tempo médio por etapa + distribuição -->
+      <div class="log-grid log-grid-2">
+        <div class="section log-chart-card">
+          <div class="section-header"><span class="section-title">Tempo Médio por Etapa</span><span class="log-card-hint">Dias por etapa do processo</span></div>
+          <div class="log-chart-body"><div class="log-etapa-wrap" id="logEtapaChart"></div></div>
+        </div>
+        <div class="section log-chart-card">
+          <div class="section-header"><span class="section-title">Distribuição do Tempo Total</span><span class="log-card-hint">Clique em uma faixa para filtrar</span></div>
+          <div class="log-chart-body"><div class="log-distrib-wrap" id="logDistribChart"></div></div>
+        </div>
+      </div>
+
+      <!-- Linha 2: evolução do tempo total -->
+      <div class="section log-chart-card log-full">
+        <div class="section-header"><span class="section-title">Evolução do Tempo Total</span><span class="log-card-hint">Média mensal e linha da média geral do período</span></div>
+        <div class="log-chart-body"><div class="log-evolucao-wrap" id="logEvolucaoChart"></div></div>
+      </div>
+
+      <!-- Linha 3: maiores tempos por OC -->
+      <div class="section log-chart-card log-full">
+        <div class="section-header"><span class="section-title">Maiores Tempos por OC</span><span class="log-card-hint">Top OCs com maior prazo total, dividido por etapa</span></div>
+        <div class="log-chart-body"><div class="log-topoc-wrap" id="logTopOcChart"></div></div>
+      </div>
+
+      <!-- Linha 4: ranking de fornecedores -->
+      <div class="section log-chart-card log-full">
+        <div class="section-header"><span class="section-title">Ranking de Fornecedores</span><span class="log-card-hint">Clique em um fornecedor para filtrar todo o painel</span></div>
+        <div class="log-chart-body"><div class="log-ranking-grid" id="logRanking"></div></div>
+      </div>
+
+      <!-- Insights -->
+      <div class="section log-insight-card">
+        <div class="section-header"><span class="section-title">Leitura Executiva</span><span class="log-card-hint">Insights automáticos com base nos dados filtrados</span></div>
+        <div class="log-chart-body"><div class="log-insight-list" id="logInsights"></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1612,6 +1904,7 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 <script src="suporte-ti-data.js"></script>
 <script src="campanhas-data.js"></script>
 <script src="crossdocking-data.js"></script>
+<script src="crossdocking-prazos-data.js"></script>
 <script src="foco-comercial-data.js"></script>
 <script>
 // ============ FOCO COMERCIAL ============
@@ -2740,6 +3033,520 @@ initCampaigns();
 
 
 <script>
+/* ===================== DESEMPENHO LOGÍSTICO DOS FORNECEDORES ===================== */
+(function(){
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const pld=s=>{const [y,m,d]=String(s).split('-').map(Number);return new Date(y,m-1,d);};
+  const dayDiff=(a,b)=>Math.round((pld(a)-pld(b))/86400000); /* a - b em dias */
+  const fmt1=v=>v==null?'–':v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const fmt0=v=>v==null?'–':String(Math.round(v));
+  const TOTAL_CAP=30; /* prazos totais acima desse valor são ignorados (outliers) */
+  const validTotal=d=>d>=0&&d<=TOTAL_CAP;
+  const keyOf=r=>r.logo||r.marca||r.fornecedor; /* identidade = imagem (logo), evitando duplicatas */
+  const logoName=l=>String(l||'').replace(/\.\w+$/i,'');
+
+  let selected=new Set();
+  let supplierMeta=[]; // [{key, logo, label, count}]
+  const st={oc:[null,null],nf:[null,null],est:[null,null]}; // [from,to]
+  let geralSelected=new Set();
+  const normLogo=l=>String(l||'').toLowerCase();
+  let bucketSel=null; // índice da faixa da Distribuição do Tempo Total, ou null
+  const BUCKETS=[{name:'0 a 5',min:0,max:5,color:'#22c55e'},{name:'6 a 8',min:6,max:8,color:'#84cc16'},{name:'9 a 10',min:9,max:10,color:'#f59e0b'},{name:'Acima de 10',min:11,max:Infinity,color:'#ef4444'}];
+  const money=v=>Number(v||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:2});
+
+  function geralLevelCompact(row){
+    const op=String(row.operador||'').toUpperCase();
+    const general=!row.preco||!row.custo||op==='GERAL'||op.includes('PRODU');
+    if(general){
+      const label=op.includes('PRODU')?'Produtos em produção':'Regra geral';
+      return `<div class="log-geral-level lgl-general"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(label)}</span></div>`;
+    }
+    const condition=op==='ABAIXO'?'Abaixo de':'A partir de';
+    return `<div class="log-geral-level"><span class="log-geral-days">${esc(row.prazo)}<small>d</small></span><span class="log-geral-rule">${esc(condition)} ${money(row.preco)}</span><span class="log-geral-cost">${money(row.custo)}</span></div>`;
+  }
+
+  const COLORS={
+    oc:'#2563eb',
+    nf:'#f59e0b',
+    total:'#8b5cf6',
+    distrib:['#22c55e','#84cc16','#f59e0b','#ef4444']
+  };
+
+  function supplierOrder(){
+    const meta=[...supplierMeta].sort((a,b)=>b.count-a.count);
+    // mantém fornecedores com logo à frente dos sem logo, por volume
+    return meta.sort((a,b)=>(a.logo?0:1)-(b.logo?0:1) || b.count-a.count);
+  }
+
+  function initMeta(){
+    const map=new Map();
+    crossDockingPrazosData.forEach(r=>{
+      const k=keyOf(r);
+      if(!map.has(k)) map.set(k,{key:k,logo:r.logo||null,marcas:new Set(),count:0});
+      const e=map.get(k); e.count++; e.marcas.add(r.marca||r.fornecedor);
+    });
+    supplierMeta=[...map.values()].map(e=>({key:e.key,logo:e.logo,label:[...e.marcas].join(' / '),count:e.count}));
+  }
+
+  function filtered(){
+    return crossDockingPrazosData.filter(r=>{
+      if(selected.size && !selected.has(keyOf(r))) return false;
+      if(st.oc[0] && r.dataOc && r.dataOc<st.oc[0]) return false;
+      if(st.oc[1] && r.dataOc && r.dataOc>st.oc[1]) return false;
+      if(st.nf[0] && r.dataNf && r.dataNf<st.nf[0]) return false;
+      if(st.nf[1] && r.dataNf && r.dataNf>st.nf[1]) return false;
+      if(st.est[0] && r.dataEstoque && r.dataEstoque<st.est[0]) return false;
+      if(st.est[1] && r.dataEstoque && r.dataEstoque>st.est[1]) return false;
+      if(bucketSel!=null){
+        const b=BUCKETS[bucketSel];
+        if(!(r.dataOc&&r.dataNf&&r.dataEstoque)) return false;
+        const d=dayDiff(r.dataEstoque,r.dataOc);
+        if(!validTotal(d)) return false;
+        if(d<b.min||d>b.max) return false;
+      }
+      return true;
+    });
+  }
+
+  function metrics(rows){
+    let oc=[],nf=[],tot=[];
+    rows.forEach(r=>{
+      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
+      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)oc.push(d);}
+      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)nf.push(d);}
+      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))tot.push(d);}
+    });
+    const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
+    const max=a=>a.length?Math.max(...a):null;
+    return {
+      oc:{vals:oc,avg:avg(oc)},
+      nf:{vals:nf,avg:avg(nf)},
+      tot:{vals:tot,avg:avg(tot),max:max(tot)},
+      nAnalisadas:tot.length
+    };
+  }
+
+  function renderSupplierFilters(){
+    const wrap=document.getElementById('logSupplierFilters');
+    if(!wrap) return;
+    wrap.innerHTML=supplierOrder().map(s=>{
+      const initials=`<span class="log-supplier-init"${s.logo?' style="display:none"':''}>${esc(logoName(s.key).substring(0,3))}</span>`;
+      const img=s.logo?`<img src="logos-marcas/${encodeURI(s.logo)}" alt="${esc(s.label)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
+      return `<button class="log-supplier-btn${selected.has(s.key)?' active':''}" type="button" data-key="${esc(s.key)}" title="${esc(s.label)} (${s.count})" aria-label="Filtrar por ${esc(s.label)}">${img}${initials}<span class="log-supplier-count">${s.count}</span></button>`;
+    }).join('');
+    wrap.querySelectorAll('.log-supplier-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      const k=btn.dataset.key;
+      if(selected.has(k)){selected.delete(k);}else{selected=new Set([k]);}
+      renderLogistico();
+    }));
+  }
+
+  function renderKpis(m){
+    const suffixOf=label=>label.startsWith('Total de OC')?' OCs':' dias';
+    const cards=[
+      {label:'Total de OCs analisadas',value:fmt0(m.nAnalisadas),sub:'OCs com ciclo completo (até 30 dias)'},
+      {label:'Tempo médio OC → NF',value:fmt1(m.oc.avg),sub:'Emissão OC até emissão NF'},
+      {label:'Tempo médio NF → Estoque',value:fmt1(m.nf.avg),sub:'Emissão NF até entrada em estoque'},
+      {label:'Tempo médio total',value:fmt1(m.tot.avg),sub:'Emissão OC até entrada em estoque',featured:true},
+      {label:'Maior tempo total',value:(m.tot.max!=null?Math.round(m.tot.max):'–'),sub:'Maior prazo considerado (≤30 dias)'}
+    ];
+    const row=document.getElementById('logKpiRow');
+    if(!row) return;
+    row.innerHTML=cards.map(c=>{
+      const isDash=c.value==='–';
+      const f=c.featured?' log-kpi-featured':'';
+      const fsuffix=isDash?'':suffixOf(c.label);
+      return `<div class="log-kpi${f}"><span class="log-kpi-label">${c.label}</span><span class="log-kpi-value">${c.value}<small class="log-kpi-suffix">${fsuffix}</small></span><span class="log-kpi-sub">${c.sub}</span></div>`;
+    }).join('');
+  }
+
+  function percentual(vals,min,max){
+    if(!vals.length) return null;
+    const n=vals.filter(v=>v>=min&&v<=max).length;
+    return (n/vals.length*100);
+  }
+  function renderHeroStats(m){
+    const host=document.getElementById('logHeroStats');
+    if(!host) return;
+    const pct=p=>(p==null?'–':(p.toLocaleString('pt-BR',{maximumFractionDigits:1})+'%'));
+    const dias=(v,suf)=>v==null?'–':fmt1(v)+'<small> '+suf+'</small>';
+    const st=[
+      {value:(m.tot.avg!=null?fmt1(m.tot.avg)+'<small> dias</small>':'–'),label:'MÉDIA TOTAL NO RECORTE',accent:true},
+      {value:dias(m.oc.avg,'d'),label:'MÉDIA OC → NF'},
+      {value:dias(m.nf.avg,'d'),label:'MÉDIA NF → ESTOQUE'},
+      {value:pct(percentual(m.tot.vals,0,5)),label:'OCs DE 0 A 5 DIAS'},
+      {value:pct(percentual(m.tot.vals,6,8)),label:'OCs DE 6 A 8 DIAS'},
+      {value:pct(percentual(m.tot.vals,9,10)),label:'OCs DE 9 A 10 DIAS'}
+    ];
+    host.innerHTML=st.map(s=>`<div class="log-hero-stat${s.accent?' hs-accent':''}"><div class="log-hs-value">${s.value}</div><div class="log-hs-label">${s.label}</div></div>`).join('');
+  }
+
+  function renderEtapa(m){
+    const host=document.getElementById('logEtapaChart');
+    if(!host) return;
+    if(m.tot.avg==null&&m.oc.avg==null&&m.nf.avg==null){host.innerHTML='<div class="log-empty">Sem dados suficientes para o período selecionado.</div>';return;}
+    const items=[
+      {name:'OC → NF',val:m.oc.avg,color:COLORS.oc},
+      {name:'NF → Estoque',val:m.nf.avg,color:COLORS.nf},
+      {name:'Total',val:m.tot.avg,color:COLORS.total}
+    ];
+    const max=Math.max(...items.map(i=>i.val||0))||1;
+    host.innerHTML=items.map(i=>{
+      const h= i.val==null?0:Math.max(3,(i.val/max)*160);
+      return `<div class="log-etapa-col"><div class="log-etapa-val" style="color:${i.color}">${fmt1(i.val)}<small> dias</small></div><div class="log-etapa-bar" style="height:${h}px;background:linear-gradient(180deg,${i.color},${i.color}99)"></div><div class="log-etapa-name">${i.name}</div><div class="log-etapa-sub">média do período</div></div>`;
+    }).join('');
+  }
+
+  function renderDistrib(m){
+    const host=document.getElementById('logDistribChart');
+    if(!host) return;
+    if(!m.tot.vals.length){host.innerHTML='<div class="log-empty">Sem dados suficientes para o período selecionado.</div>';return;}
+    const counts=BUCKETS.map(b=>m.tot.vals.filter(v=>v>=b.min&&v<=b.max).length);
+    const total=m.tot.vals.length;
+    const peak=Math.max(...counts)||1;
+    host.innerHTML=counts.map((c,i)=>{
+      const h=Math.max(2,(c/peak)*150);
+      const pct=total?(c/total*100):0;
+      const active=bucketSel===i?' log-distrib-active':'';
+      return `<div class="log-distrib-col${active}" data-bucket="${i}" role="button" tabindex="0" title="Filtrar por ${BUCKETS[i].name} dias"><div class="log-distrib-val">${c}</div><div class="log-distrib-bar" style="height:${h}px;background:linear-gradient(180deg,${COLORS.distrib[i]},${COLORS.distrib[i]}cc)"></div><div class="log-distrib-name">${BUCKETS[i].name}</div><div class="log-distrib-sub">${pct.toLocaleString('pt-BR',{maximumFractionDigits:1})}% das OCs</div></div>`;
+    }).join('');
+    host.querySelectorAll('.log-distrib-col').forEach(el=>{
+      const click=()=>{const i=Number(el.dataset.bucket);bucketSel=bucketSel===i?null:i;renderLogistico();};
+      el.addEventListener('click',click);
+      el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();click();}});
+    });
+  }
+
+  const WEEK_LABELS=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+  function isoWeek(date){
+    const d=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));
+    const dayNum=d.getUTCDay()||7; d.setUTCDate(d.getUTCDate()+4-dayNum);
+    const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    const week=Math.ceil((((d-yearStart)/86400000)+1)/7);
+    return yearStart.getUTCFullYear()+'-W'+String(week).padStart(2,'0');
+  }
+  function weekLabel(key){
+    // chave "AAAA-W##" -> SEMMM/AA por aproximação do dia 4 da semana
+    const [y,w]=key.split('-W').map(Number);
+    const jan4=new Date(y,0,4);
+    const start=new Date(jan4.getTime()+(w-1)*7*86400000+3*86400000);
+    return 'S'+String(w).padStart(2,'0')+' '+WEEK_LABELS[start.getMonth()]+'/'+String(start.getFullYear()).slice(2);
+  }
+
+  function renderEvolucao(m,baseRows){
+    const host=document.getElementById('logEvolucaoChart');
+    if(!host) return;
+    const rows=baseRows.filter(r=>r.dataOc&&r.dataNf&&r.dataEstoque);
+    const pts=[];
+    rows.forEach(r=>{const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))pts.push({w:isoWeek(pld(r.dataOc)),d});});
+    if(pts.length<2){host.innerHTML='<div class="log-empty">Sem volume suficiente para a evolução temporal do período.</div>';return;}
+    const groups=new Map();
+    pts.forEach(p=>{if(!groups.has(p.w))groups.set(p.w,[]);groups.get(p.w).push(p.d);});
+    let series=[...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0])).map(([w,vals])=>({w,avg:vals.reduce((s,v)=>s+v,0)/vals.length}));
+    // limita aos últimos 2 meses (9 últimas semanas)
+    series=series.slice(-9);
+    const avgAll=m.tot.vals.length?m.tot.vals.reduce((s,v)=>s+v,0)/m.tot.vals.length:0;
+    const maxV=Math.max(...series.map(s=>s.avg),avgAll)*1.2||1;
+    const W=820,H=170,padL=34,padR=12,padT=22,padB=22;
+    const iw=W-padL-padR,ih=H-padT-padB;
+    const n=series.length;
+    const x=i=>padL+(n===1?iw/2:i/(n-1)*iw);
+    const y=v=>padT+ih-(v/maxV)*ih;
+    const line=series.map((s,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(s.avg).toFixed(1)}`).join(' ');
+    const gridY=3;
+    let grid='';
+    for(let i=0;i<=gridY;i++){const gy=padT+(ih/gridY)*i;const val=maxV*(1-i/gridY);grid+=`<line x1="${padL}" y1="${gy}" x2="${W-padR}" y2="${gy}" stroke="#f1f5f9" stroke-width="1"/><text x="${padL-6}" y="${gy+3}" text-anchor="end" font-size="8.5" fill="#a3b3c6">${val.toFixed(0)}</text>`;}
+    let xLabels='';
+    series.forEach((s,i)=>{xLabels+=`<text x="${x(i)}" y="${H-7}" text-anchor="middle" font-size="8.5" fill="#94a3b8">${weekLabel(s.w)}</text>`;});
+    // etiquetas de valor acima de cada ponto
+    let labels='';
+    series.forEach((s,i)=>{labels+=`<text x="${x(i)}" y="${y(s.avg)-7}" text-anchor="middle" font-size="9" font-weight="700" fill="#2563eb">${fmt1(s.avg)}</text>`;});
+    const avgY=y(avgAll);
+    const firstX=x(0),lastX=x(n-1);
+    host.innerHTML=`<div class="log-legend"><span><i style="background:#2563eb"></i>Média semanal (total em dias)</span><span style="border-top:2px dashed #ef4444;height:0;padding-top:4px">Média geral (${fmt1(avgAll)} dias)</span></div><svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evolução do tempo total por semana">
+      ${grid}
+      <line x1="${firstX}" y1="${avgY}" x2="${lastX}" y2="${avgY}" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <path d="${line}" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      ${series.map((s,i)=>`<circle cx="${x(i)}" cy="${y(s.avg)}" r="3.5" fill="#fff" stroke="#2563eb" stroke-width="2"><title>${weekLabel(s.w)}: ${fmt1(s.avg)} dias</title></circle>`).join('')}
+      ${labels}
+      ${xLabels}
+    </svg>`;
+  }
+
+  function renderTopOc(m,baseRows){
+    const host=document.getElementById('logTopOcChart');
+    if(!host) return;
+    const rows=baseRows.map(r=>{
+      if(!(r.dataOc&&r.dataNf&&r.dataEstoque)) return null;
+      const a=dayDiff(r.dataNf,r.dataOc),b=dayDiff(r.dataEstoque,r.dataNf),t=dayDiff(r.dataEstoque,r.dataOc);
+      if(a<0||b<0||!validTotal(t)) return null;
+      return {oc:r.oc||r.dataOc,marca:r.marca,logo:r.logo,a,b,t};
+    }).filter(Boolean).sort((x,y)=>y.t-x.t).slice(0,10);
+    if(!rows.length){host.innerHTML='<div class="log-empty">Sem dados suficientes para o período selecionado.</div>';return;}
+    const maxT=rows[0].t||1;
+    host.innerHTML='<div class="log-topoc-list">'+rows.map(r=>{
+      const pctA=(r.a/maxT)*100,pctB=(r.b/maxT)*100;
+      return `<div class="log-topoc-row"><div class="log-topoc-oc" title="${esc(r.marca)}">OC ${esc(r.oc)}<span>${esc(r.marca.split(' ').slice(0,2).join(' '))}</span></div><div class="log-topoc-track" title="OC→NF ${r.a} dias · NF→Estoque ${r.b} dias"><div class="log-topoc-seg" style="width:${pctA}%;background:#2563eb"></div><div class="log-topoc-seg" style="width:${pctB}%;background:#f59e0b"></div></div><div class="log-topoc-total">${r.t}<small style="font-size:10px;color:#94a3b8">d</small></div></div>`;
+    }).join('')+'</div><div class="log-legend" style="margin-top:14px"><span><i style="background:#2563eb"></i>OC → NF</span><span><i style="background:#f59e0b"></i>NF → Estoque</span></div>';
+  }
+
+  function renderRanking(baseRows){
+    const host=document.getElementById('logRanking');
+    if(!host) return;
+    const groups=new Map();
+    baseRows.forEach(r=>{
+      const k=keyOf(r);
+      if(!groups.has(k))groups.set(k,{key:k,logo:r.logo||null,label:logoName(k)||r.marca||r.fornecedor,oc:[],nf:[],tot:[],n:0});
+      const g=groups.get(k);g.n++;
+      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
+      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)g.oc.push(d);}
+      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)g.nf.push(d);}
+      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))g.tot.push(d);}
+    });
+    const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
+    const rows=[...groups.values()].map(g=>({key:g.key,logo:g.logo,label:g.label,tot:avg(g.tot)}))
+      .filter(r=>r.tot!=null)
+      .sort((a,b)=>a.tot-b.tot); /* crescente = mais rápido primeiro */
+    if(!rows.length){host.innerHTML='<div class="log-empty">Sem dados suficientes para o período selecionado.</div>';return;}
+    const slow=[...rows].reverse(); /* decrescente = mais lento primeiro */
+    const makeCard=(list,cls,title,sub)=>{
+      const items=list.map((r,i)=>{
+        const logo=r.logo?`<img src="logos-marcas/${encodeURI(r.logo)}" alt="${esc(r.label)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
+        const init=`<span class="log-supplier-init" style="${r.logo?'display:none':''}">${esc((r.label||'?').substring(0,3))}</span>`;
+        const active=selected.has(r.key)?' log-rank-active':'';
+        return `<div class="log-rank-item${active}" data-rank-key="${esc(r.key)}" title="${esc(r.label)} · média total ${fmt1(r.tot)} dias" role="button" tabindex="0">
+          <span class="log-rank-pos">${i+1}</span>
+          <span class="log-rank-logo">${logo}${init}</span>
+          <span class="log-rank-meta">${fmt1(r.tot)}<small>dias</small></span>
+        </div>`;
+      }).join('');
+      return `<div class="log-ranking-card ${cls}"><div class="log-rc-head"><span class="log-rc-title">${title}</span><span class="log-rc-sub">${sub}</span></div><div class="log-rc-list">${items}</div></div>`;
+    };
+    host.innerHTML=makeCard(rows,'log-rc-fast','Mais rápidos primeiro','menor prazo médio')
+      + makeCard(slow,'log-rc-slow','Mais lentos primeiro','maior prazo médio');
+    host.querySelectorAll('.log-rank-item').forEach(el=>{
+      const click=()=>{const k=el.dataset.rankKey;selected=selected.has(k)?new Set():new Set([k]);renderLogistico();};
+      el.addEventListener('click',click);
+      el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();click();}});
+    });
+  }
+
+  function renderInsights(m,baseRows){
+    const host=document.getElementById('logInsights');
+    if(!host) return;
+    if(m.tot.avg==null&&m.oc.avg==null&&m.nf.avg==null){host.innerHTML='<div class="log-empty">Sem dados suficientes para o período selecionado.</div>';return;}
+    const items=[];
+    const icon=s=>`<span class="log-insight-ico">${s}</span>`;
+    // etapa dominante
+    if(m.oc.avg!=null&&m.nf.avg!=null){
+      if(m.oc.avg>m.nf.avg*1.1){
+        items.push(`${icon('①')}<p>O principal tempo do processo está concentrado na etapa entre a <strong>emissão da OC e o faturamento pelo fornecedor</strong> (OC → NF média de ${fmt1(m.oc.avg)} dias). Reforçar o prazo de faturamento junto aos fornecedores.</p>`);
+      } else if(m.nf.avg>m.oc.avg*1.1){
+        items.push(`${icon('①')}<p>O maior tempo do processo está concentrado entre a <strong>emissão da NF e a entrada em estoque</strong> (NF → Estoque média de ${fmt1(m.nf.avg)} dias), indicando atenção na etapa logística/recebimento.</p>`);
+      } else {
+        items.push(`${icon('①')}<p>O tempo está distribuído entre as etapas (OC → NF ${fmt1(m.oc.avg)} dias e NF → Estoque ${fmt1(m.nf.avg)} dias). Analisar ambas as frentes para redução do prazo total.</p>`);
+      }
+    }
+    // acima de 10 dias
+    const acima=m.tot.vals.filter(v=>v>10).length;
+    if(m.tot.vals.length&&acima>0){
+      items.push(`${icon('②')}<p><strong>${acima}</strong> de <strong>${m.tot.vals.length}</strong> OCs (${(acima/m.tot.vals.length*100).toLocaleString('pt-BR',{maximumFractionDigits:1})}%) superaram <strong>10 dias</strong> de prazo total — priorizar a tratativa dos casos fora do prazo.</p>`);
+    }
+    const labelOf=new Map();supplierMeta.forEach(s=>labelOf.set(s.key,s.label));
+    const groups=new Map();
+    baseRows.forEach(r=>{if(!(r.dataOc&&r.dataNf&&r.dataEstoque))return;const d=dayDiff(r.dataEstoque,r.dataOc);if(!validTotal(d))return;const k=keyOf(r);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(d);});
+    const flagged=[...groups.entries()].map(([k,vals])=>({k,label:labelOf.get(k)||logoName(k),avg:vals.reduce((s,v)=>s+v,0)/vals.length,n:vals.length}))
+      .filter(g=>g.n>=3&&m.tot.avg!=null&&g.avg>m.tot.avg*1.25)
+      .sort((a,b)=>b.avg-a.avg).slice(0,2);
+    if(flagged.length){
+      items.push(`${icon('③')}<p><strong>${esc(flagged[0].label)}</strong> apresenta tempo médio total de ${fmt1(flagged[0].avg)} dias, significativamente acima do consolidado geral (${fmt1(m.tot.avg)} dias), e deve ser acompanhado de perto.</p>`);
+    }
+    // comparação quando há múltiplos fornecedores no ranking
+    const rank=baseRows.reduce((acc,r)=>{if(!(r.dataOc&&r.dataNf&&r.dataEstoque))return acc;const d=dayDiff(r.dataEstoque,r.dataOc);if(!validTotal(d))return acc;const k=keyOf(r);if(!acc.has(k))acc.set(k,[]);acc.get(k).push(d);return acc;},new Map());
+    if(selected.size>1&&rank.size>1){
+      const sorted=[...rank.entries()].map(([k,vals])=>({label:labelOf.get(k)||logoName(k),avg:vals.reduce((s,v)=>s+v,0)/vals.length})).sort((a,b)=>a.avg-b.avg);
+      items.push(`${icon('④')}<p>Comparando os fornecedores selecionados: <strong>${esc(sorted[0].label)}</strong> possui o melhor desempenho (${fmt1(sorted[0].avg)} dias) e <strong>${esc(sorted[sorted.length-1].label)}</strong> o pior (${fmt1(sorted[sorted.length-1].avg)} dias).</p>`);
+    }
+    if(!items.length) items.push(`${icon('✓')}<p>Desempenho estável no recorte atual, sem pontos de atenção destacados. Seguir acompanhando a evolução.</p>`);
+    host.innerHTML=items.map(i=>`<div class="log-insight">${i}</div>`).join('');
+  }
+
+  // -------- VISÃO GERAL (configurado × real) --------
+  function geralBrandsConfig(){
+    const map=new Map();
+    crossDockingData.forEach(row=>{
+      if(!map.has(row.fornecedor)) map.set(row.fornecedor,{fornecedor:row.fornecedor,image:row.image,ordem:row.ordem,niveis:[]});
+      map.get(row.fornecedor).niveis.push(row);
+    });
+    return [...map.values()].sort((a,b)=>a.ordem-b.ordem);
+  }
+  function geralRealByLogo(){
+    const map=new Map();
+    crossDockingPrazosData.forEach(r=>{
+      const k=normLogo(r.logo);
+      if(!map.has(k)) map.set(k,{logo:r.logo,label:(r.marca||r.fornecedor||logoName(r.logo)),oc:[],nf:[],tot:[]});
+      const g=map.get(k);
+      const hOc=!!r.dataOc,hNf=!!r.dataNf,hEst=!!r.dataEstoque;
+      if(hOc&&hNf){const d=dayDiff(r.dataNf,r.dataOc);if(d>=0)g.oc.push(d);}
+      if(hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataNf);if(d>=0)g.nf.push(d);}
+      if(hOc&&hNf&&hEst){const d=dayDiff(r.dataEstoque,r.dataOc);if(validTotal(d))g.tot.push(d);}
+    });
+    const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
+    const out=new Map();
+    map.forEach((g,k)=>out.set(k,{logo:g.logo,label:g.label,oc:avg(g.oc),nf:avg(g.nf),tot:avg(g.tot),n:g.tot.length}));
+    return out;
+  }
+  function configRef(group){
+    const ger=group.niveis.find(x=>/GERAL|PRODU/i.test(x.operador||''));
+    if(ger) return Number(ger.prazo);
+    const vals=group.niveis.map(r=>Number(r.prazo)).filter(Number.isFinite);
+    return vals.length?Math.min(...vals):null;
+  }
+  function renderGeralSupplierFilters(){
+    const wrap=document.getElementById('geralSupplierFilters');
+    if(!wrap) return;
+    const configs=geralBrandsConfig();
+    wrap.innerHTML=configs.map(g=>{
+      const active=geralSelected.has(normLogo(g.image));
+      const init=`<span class="log-supplier-init"${g.image?' style="display:none"':''}>${esc(g.fornecedor.substring(0,3))}</span>`;
+      const img=g.image?`<img src="logos-marcas/${encodeURI(g.image)}" alt="${esc(g.fornecedor)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
+      return `<button class="log-supplier-btn${active?' active':''}" type="button" data-key="${esc(normLogo(g.image))}" title="${esc(g.fornecedor)}" aria-label="Filtrar por ${esc(g.fornecedor)}">${img}${init}<span class="log-supplier-count">${g.niveis.length}</span></button>`;
+    }).join('');
+    wrap.querySelectorAll('.log-supplier-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      const k=btn.dataset.key;
+      if(geralSelected.has(k)){geralSelected.delete(k);}else{geralSelected=new Set([k]);}
+      renderVisaoGeral();
+    }));
+  }
+  function renderVisaoGeral(){
+    const wrap=document.querySelector('#cxd-panel-geral');
+    if(!wrap||!wrap.classList.contains('active')) return;
+    if(typeof crossDockingData==='undefined'||typeof crossDockingPrazosData==='undefined') return;
+    const configs=geralBrandsConfig();
+    const real=geralRealByLogo();
+    const vis=geralSelected.size?configs.filter(g=>geralSelected.has(normLogo(g.image))):configs;
+    const rows=vis.map(g=>{
+      const rd=real.get(normLogo(g.image))||null;
+      const ref=configRef(g);
+      const prazos=[...new Set(g.niveis.map(r=>Number(r.prazo)).filter(Number.isFinite))].sort((a,b)=>a-b);
+      const levels=g.niveis.slice().sort((a,b)=>a.ordem-b.ordem);
+      const red=(rd&&rd.tot!=null&&ref!=null)?Math.floor(rd.tot):null;
+      const reduce=!!(red!=null&&red>=1&&ref!=null&&red<ref);
+      return {label:g.fornecedor,image:g.image,prazos,ref,rd,levels,red,reduce,flag:!!(rd&&ref!=null&&rd.tot!=null&&rd.tot>ref)};
+    }).sort((a,b)=>a.label.localeCompare(b.label));
+    renderGeralSupplierFilters();
+    const hero=document.getElementById('geralHeroStats');
+    if(hero){
+      const comReal=rows.filter(r=>r.rd&&r.rd.tot!=null).length;
+      const acima=rows.filter(r=>r.flag).length;
+      const tots=[];rows.forEach(r=>{if(r.rd&&r.rd.tot!=null)tots.push(r.rd.tot);});
+      const totAvg=tots.length?tots.reduce((s,v)=>s+v,0)/tots.length:null;
+      const st=[
+        {value:vis.length,label:'FORNECEDORES CONFIGURADOS'},
+        {value:comReal,label:'COM DADOS REAIS'},
+        {value:acima,label:'ACIMA DO PRAZO CONFIGURADO'},
+        {value:(totAvg!=null?fmt1(totAvg)+'<small> dias</small>':'–'),label:'MÉDIA TOTAL REAL (RECORTE)',accent:true}
+      ];
+      hero.innerHTML=st.map(s=>`<div class="log-hero-stat${s.accent?' hs-accent':''}"><div class="log-hs-value">${s.value}</div><div class="log-hs-label">${s.label}</div></div>`).join('');
+    }
+    const rc=document.getElementById('geralResultCount');
+    if(rc) rc.textContent=`${rows.length} fornecedores ${geralSelected.size?'no recorte':'configurados'}`;
+    const host=document.getElementById('geralCompare');
+    if(host){
+      if(!rows.length){host.innerHTML='<div class="log-empty">Nenhum fornecedor para o recorte selecionado.</div>';}
+      else{
+        host.innerHTML='<div class="log-geral-list">'+rows.map(r=>{
+          const img=r.image?`<img src="logos-marcas/${encodeURI(r.image)}" alt="${esc(r.label)}" loading="lazy" onerror="this.style.display='none'">`:'';
+          const alertCls=r.flag?' log-geral-alert':'';
+          const totVal= r.rd&&r.rd.tot!=null ? `<span class="lgl-value${r.flag?' lgl-alert':''}">${fmt1(r.rd.tot)}<small> dias</small></span>` : '<span class="lgl-value">—</span>';
+          const oc= r.rd&&r.rd.oc!=null?fmt1(r.rd.oc):'—';
+          const nf= r.rd&&r.rd.nf!=null?fmt1(r.rd.nf):'—';
+          return `<div class="log-geral-item${alertCls}">
+            <div class="log-geral-brand"><span class="log-geral-logo">${img}</span><span class="log-geral-name">${esc(r.label)}</span></div>
+            <div class="log-geral-levels"><div class="log-geral-levels-title">Níveis de corte · ${r.levels.length}</div>${r.levels.map(geralLevelCompact).join('')}</div>
+            <div class="log-geral-cols">
+              <div class="log-geral-cell"><span class="lgl-label">Média OC → NF</span><span class="lgl-value">${oc}</span></div>
+              <div class="log-geral-cell"><span class="lgl-label">Média NF → Estoque</span><span class="lgl-value">${nf}</span></div>
+              <div class="log-geral-cell log-geral-cell-total"><span class="lgl-label">Média total real</span>${totVal}</div>
+            </div>
+          </div>`;
+        }).join('')+'</div>';
+      }
+    }
+    const sum=document.getElementById('geralSummary');
+    if(sum){
+      const up=rows.filter(r=>r.flag);
+      const down=rows.filter(r=>r.reduce);
+      const items=[];
+      up.forEach(r=>{
+        const cfg=r.prazos.join(' · ');
+        items.push(`<div class="log-attention-item log-att-up"><span class="log-attention-ico">⚠</span><p><span class="att-badge">Acima do prazo</span><strong>${esc(r.label)}</strong> tem prazo médio real de <strong>${fmt1(r.rd.tot)} dias</strong>, acima do configurado de <strong>${cfg} dias</strong>. Avaliar o fluxo de faturamento e entrega.</p></div>`);
+      });
+      down.forEach(r=>{
+        const cfg=r.prazos.join(' · ');
+        items.push(`<div class="log-attention-item log-att-down"><span class="log-attention-ico">↓</span><p><span class="att-badge">Oportunidade</span>O <strong>${esc(r.label)}</strong> entrega em média em <strong>${fmt1(r.rd.tot)} dias</strong>. Você pode reduzir o prazo configurado de <strong>${cfg} dias</strong> para <strong>${r.red} dias</strong>.</p></div>`);
+      });
+      if(!items.length){sum.innerHTML='<div class="log-empty">Nenhum ponto de atenção nem oportunidade de redução no recorte. ✓</div>';}
+      else{sum.innerHTML='<div class="log-attention-list">'+items.join('')+'</div>';}
+    }
+  }
+
+  function renderLogistico(){
+    const wrap=document.querySelector('#cxd-panel-logistico');
+    if(!wrap||!wrap.classList.contains('active')) return;
+    if(typeof crossDockingPrazosData==='undefined'){return;}
+    if(!supplierMeta.length) initMeta();
+    const rows=filtered();
+    const m=metrics(rows);
+    renderSupplierFilters();
+    renderHeroStats(m);
+    renderKpis(m);
+    renderEtapa(m);
+    renderDistrib(m);
+    renderEvolucao(m,rows);
+    renderTopOc(m,rows);
+    renderRanking(rows);
+    renderInsights(m,rows);
+    const rc=document.getElementById('logResultCount');
+    if(rc) rc.textContent=`${rows.length} registros · ${m.nAnalisadas} OCs analisadas`;
+  }
+
+  function clearAllFilters(){
+    selected=new Set();
+    st.oc=[null,null];st.nf=[null,null];st.est=[null,null];
+    ['logFromOc','logToOc','logFromNf','logToNf','logFromEst','logToEst'].forEach(id=>{document.getElementById(id).value='';});
+    renderLogistico();
+  }
+
+  function initLogistico(){
+    if(typeof crossDockingPrazosData==='undefined') return;
+    initMeta();
+    document.querySelectorAll('.cxd-subtab').forEach(btn=>btn.addEventListener('click',()=>{
+      document.querySelectorAll('.cxd-subtab').forEach(x=>{x.classList.toggle('active',x===btn);x.setAttribute('aria-selected',x===btn?'true':'false');});
+      document.querySelectorAll('.cxd-subpanel').forEach(p=>p.classList.toggle('active',p.id==='cxd-panel-'+btn.dataset.cxdTab));
+      if(btn.dataset.cxdTab==='logistico'){renderLogistico();}
+      else if(btn.dataset.cxdTab==='geral'){renderVisaoGeral();}
+    }));
+    document.getElementById('logClearSuppliers').addEventListener('click',()=>{selected=new Set();renderLogistico();});
+    document.getElementById('logClearFilters').addEventListener('click',clearAllFilters);
+    const gClear=document.getElementById('geralClearSuppliers');
+    if(gClear) gClear.addEventListener('click',()=>{geralSelected=new Set();renderVisaoGeral();});
+    const binds=[['logFromOc','logToOc','oc'],['logFromNf','logToNf','nf'],['logFromEst','logToEst','est']];
+    binds.forEach(([fromId,toId,key])=>{
+      const from=document.getElementById(fromId),to=document.getElementById(toId);
+      from.addEventListener('change',()=>{st[key][0]=from.value?from.value:null;renderLogistico();});
+      to.addEventListener('change',()=>{st[key][1]=to.value?to.value:null;renderLogistico();});
+    });
+    window.addEventListener('resize',()=>{clearTimeout(window.__logResize);window.__logResize=setTimeout(()=>{if(document.querySelector('#cxd-panel-logistico.active'))renderLogistico();},150);});
+    renderVisaoGeral();
+    renderLogistico();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initLogistico); else initLogistico();
+})();
+</script>
+
+
+<script>
 (function(){
   const overlay=document.getElementById('globalSearchOverlay');
   const openBtn=document.getElementById('globalSearchOpen');
@@ -2764,6 +3571,7 @@ initCampaigns();
     try{(window.campanhasData||campanhasData||[]).forEach(x=>add(out,'Campanhas',x.nome||x.campanha||x.titulo,[x.marketplace,x.tipo,x.desconto].filter(Boolean).join(' • '),'campanhas',Object.values(x).join(' ')))}catch(e){}
     try{((window.focoComercialData||focoComercialData||{}).rotinas||[]).forEach(x=>add(out,'Foco Comercial',x.nome,x.subarea,'foco-comercial',x.resumo))}catch(e){}
     try{(window.crossDockingData||crossDockingData||[]).forEach(x=>add(out,'Cross Docking',x.fornecedor||x.nome||x.supplier,'Fornecedor e regras de postagem','crossdocking',JSON.stringify(x)))}catch(e){}
+    try{(window.crossDockingPrazosData||crossDockingPrazosData||[]).forEach(x=>add(out,'Cross Docking · Prazos',x.marca||x.fornecedor,'OC '+x.oc+' — prazos de entrega','crossdocking',[x.oc,x.fornecedor,x.marca,x.dataOc,x.dataNf,x.dataEstoque].join(' '),'logistico'))}catch(e){}
     try{(window.fornecedoresData||fornecedoresData||[]).forEach(x=>add(out,'Parceiros · Fornecedores',x.fornecedor,'Fornecedor','parceiros',JSON.stringify(x)))}catch(e){}
     try{(window.intelipostData||intelipostData||[]).forEach(x=>add(out,'Parceiros · Intelipost',x.nome,x.parceiro+' • '+x.acoes,'parceiros',JSON.stringify(x),'intelipost'))}catch(e){}
     try{(window.transportadorasData||transportadorasData||[]).forEach(x=>add(out,'Parceiros · Transportadoras',x.transportadora,'Transportadora • '+(x.regioesAtendidas||''),'parceiros',JSON.stringify(x)))}catch(e){}
@@ -2780,7 +3588,7 @@ initCampaigns();
     results.innerHTML=Object.entries(groups).map(([group,items])=>'<section class="global-search-group"><div class="global-search-group-title">'+esc(group)+' · '+items.length+'</div>'+items.map(x=>'<button class="global-search-item" type="button" data-search-dashboard="'+esc(x.dashboard)+'" data-search-subtab="'+esc(x.subtab||'')+'"><span><strong>'+esc(x.title)+'</strong><small>'+esc(x.subtitle||'')+'</small></span><span>Abrir área →</span></button>').join('')+'</section>').join('');
   }
   input.addEventListener('input',()=>renderSearch(input.value));
-  results.addEventListener('click',e=>{const btn=e.target.closest('[data-search-dashboard]');if(!btn)return;const tab=document.querySelector('.portal-tab[data-dashboard="'+btn.dataset.searchDashboard+'"]');if(tab){closeSearch();tab.click();if(btn.dataset.searchSubtab){setTimeout(()=>document.querySelector('[data-partners-tab="'+btn.dataset.searchSubtab+'"]')?.click(),20)}window.scrollTo({top:0,behavior:'auto'})}});
+  results.addEventListener('click',e=>{const btn=e.target.closest('[data-search-dashboard]');if(!btn)return;const tab=document.querySelector('.portal-tab[data-dashboard="'+btn.dataset.searchDashboard+'"]');if(tab){closeSearch();tab.click();const st=btn.dataset.searchSubtab;if(st){setTimeout(()=>{const p=document.querySelector('[data-partners-tab="'+st+'"]');if(p)p.click();else{const c=document.querySelector('[data-cxd-tab="'+st+'"]');if(c)c.click();}},20)}window.scrollTo({top:0,behavior:'auto'})}});
 
   // Tooltips profissionais para indicadores e controles principais.
   const tips={
