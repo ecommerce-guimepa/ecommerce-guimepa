@@ -30,7 +30,7 @@ const crossDockingData = [
     "ordem": 4,
     "fornecedor": "TEKNA",
     "image": "Tekna.png",
-    "prazo": 3,
+    "prazo": 4,
     "operador": "GERAL",
     "preco": null,
     "custo": null
@@ -39,7 +39,7 @@ const crossDockingData = [
     "ordem": 5,
     "fornecedor": "BETA",
     "image": "Beta.png",
-    "prazo": 7,
+    "prazo": 5,
     "operador": "GERAL",
     "preco": null,
     "custo": null
@@ -68,7 +68,7 @@ const crossDockingData = [
     "image": "Vonder.png",
     "prazo": 1,
     "operador": "ACIMA",
-    "preco": 1000,
+    "preco": 200,
     "custo": 606
   },
   {
@@ -138,7 +138,7 @@ const crossDockingData = [
     "ordem": 16,
     "fornecedor": "NEGRAO",
     "image": "WORKER.png",
-    "prazo": 8,
+    "prazo": 5,
     "operador": "ABAIXO",
     "preco": 50,
     "custo": 30
@@ -192,7 +192,7 @@ const crossDockingData = [
     "ordem": 22,
     "fornecedor": "CSM",
     "image": "CSM.png",
-    "prazo": 7,
+    "prazo": 4,
     "operador": "ABAIXO",
     "preco": 1000,
     "custo": 606
@@ -228,7 +228,7 @@ const crossDockingData = [
     "ordem": 26,
     "fornecedor": "CCM",
     "image": "CCM.png",
-    "prazo": 5,
+    "prazo": 4,
     "operador": "ABAIXO",
     "preco": 1000,
     "custo": 606
@@ -291,7 +291,7 @@ const crossDockingData = [
     "ordem": 33,
     "fornecedor": "PRESTO",
     "image": "PRESTO.png",
-    "prazo": 7,
+    "prazo": 6,
     "operador": "ABAIXO",
     "preco": null,
     "custo": null
@@ -327,7 +327,7 @@ const crossDockingData = [
     "ordem": 38,
     "fornecedor": "BOVENAU",
     "image": "BOVENAU.png",
-    "prazo": 8,
+    "prazo": 4,
     "operador": "ABAIXO",
     "preco": 1000,
     "custo": 606
@@ -336,7 +336,7 @@ const crossDockingData = [
     "ordem": 39,
     "fornecedor": "BOVENAU",
     "image": "BOVENAU.png",
-    "prazo": 4,
+    "prazo": 3,
     "operador": "ACIMA",
     "preco": 1000,
     "custo": 606
@@ -345,7 +345,7 @@ const crossDockingData = [
     "ordem": 40,
     "fornecedor": "BALMER",
     "image": "Balmer.png",
-    "prazo": 12,
+    "prazo": 8,
     "operador": "ABAIXO",
     "preco": 1000,
     "custo": 606
@@ -354,7 +354,7 @@ const crossDockingData = [
     "ordem": 41,
     "fornecedor": "BALMER",
     "image": "Balmer.png",
-    "prazo": 7,
+    "prazo": 6,
     "operador": "ACIMA",
     "preco": 1000,
     "custo": 606
@@ -363,7 +363,7 @@ const crossDockingData = [
     "ordem": 42,
     "fornecedor": "BOSCH",
     "image": "Bosch.png",
-    "prazo": 12,
+    "prazo": 9,
     "operador": "ABAIXO",
     "preco": 100,
     "custo": 60.5
