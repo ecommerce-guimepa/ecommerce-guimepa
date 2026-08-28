@@ -75,7 +75,7 @@ const crossDockingData = [
     "ordem": 9,
     "fornecedor": "WAP",
     "image": "Wap.png",
-    "prazo": 10,
+    "prazo": 23,
     "operador": "ABAIXO",
     "preco": 100,
     "custo": 60.5
@@ -84,7 +84,7 @@ const crossDockingData = [
     "ordem": 10,
     "fornecedor": "WAP",
     "image": "Wap.png",
-    "prazo": 7,
+    "prazo": 18,
     "operador": "ACIMA",
     "preco": 100,
     "custo": 60.5
@@ -93,7 +93,7 @@ const crossDockingData = [
     "ordem": 11,
     "fornecedor": "WAP",
     "image": "Wap.png",
-    "prazo": 5,
+    "prazo": 15,
     "operador": "ACIMA",
     "preco": 1000,
     "custo": 606
