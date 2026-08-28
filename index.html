@@ -2488,15 +2488,15 @@ function addOptions(select, values, allLabel) {
   select.innerHTML = '<option value="">' + allLabel + '</option>' + values.map(v => '<option value="' + escapeHtml(v) + '">' + escapeHtml(v) + '</option>').join('');
 }
 
-const latestActionDate = acoesData.reduce((max,a)=> a.inicio > max ? a.inicio : max, '0000-00-00');
+const latestActionDate = acoesData.reduce((max,a)=> a.data > max ? a.data : max, '0000-00-00');
 const latestDateObj = parseLocalDate(latestActionDate);
 
 function renderActionKPIs(dataSet) {
-  const years = uniq(dataSet.map(a=>a.inicio.slice(0,4)));
+  const years = uniq(dataSet.map(a=>a.data.slice(0,4)));
   const locals = uniq(dataSet.map(a=>a.local).filter(v=>v!=='Não informado'));
   const sectors = uniq(dataSet.map(a=>a.setor).filter(v=>v!=='Não informado'));
   const currentMonthKey = latestActionDate.slice(0,7);
-  const currentMonthCount = dataSet.filter(a=>a.inicio.startsWith(currentMonthKey)).length;
+  const currentMonthCount = dataSet.filter(a=>a.data.startsWith(currentMonthKey)).length;
   const items = [
     {label:'Total de Ações',value:dataSet.length,sub:'registros históricos',cls:'blue'},
     {label:'Mês mais recente',value:currentMonthCount,sub:actionMonths[latestDateObj.getMonth()]+' de '+latestDateObj.getFullYear(),cls:'green'},
@@ -2554,18 +2554,18 @@ function renderLocalLegend(){
 function renderTimeline() {
   const filteredBase=getFilteredActions();
   const timelineActions=filteredBase.map(action=>({...action,_timelineIndex:acoesData.indexOf(action)})).sort((a,b)=>
-    b.inicio.localeCompare(a.inicio)||b.final.localeCompare(a.final)||b._timelineIndex-a._timelineIndex
+    b.data.localeCompare(a.data)||b._timelineIndex-a._timelineIndex
   );
   const latestTimelineActions=new Set(timelineActions.slice(0,2).map(a=>a._timelineIndex));
-  const refDate=timelineActions.length?parseLocalDate(timelineActions[0].inicio):latestDateObj;
+  const refDate=timelineActions.length?parseLocalDate(timelineActions[0].data):latestDateObj;
   const monthKeys=[];
   for(let i=0;i<=2;i++){ const d=new Date(refDate.getFullYear(),refDate.getMonth()-i,1); monthKeys.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')); }
   document.getElementById('timelineReference').textContent='Base atualizada até '+actionFmtDate(latestActionDate);
   document.getElementById('actionsTimeline').innerHTML=monthKeys.map(key=>{
     const [y,m]=key.split('-').map(Number);
-    const list=timelineActions.filter(a=>a.inicio.startsWith(key));
+    const list=timelineActions.filter(a=>a.data.startsWith(key));
     return '<div class="timeline-month"><div class="timeline-month-header"><span>'+actionMonths[m-1]+' '+y+'</span><span>'+list.length+' ações</span></div><div class="timeline-items">'+
-      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item'+(latestTimelineActions.has(a._timelineIndex)?' latest-action':'')+'" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.inicio)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
+      (list.length?list.map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<div class="timeline-item'+(latestTimelineActions.has(a._timelineIndex)?' latest-action':'')+'" style="--timeline-color:'+lc.solid+';"><div class="timeline-date">'+actionFmtDate(a.data)+'</div><div class="timeline-action">'+escapeHtml(a.acao)+'</div><div class="timeline-meta"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span> <span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span> <span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></div></div>';}).join(''):'<div class="empty-state">Nenhuma ação registrada.</div>')+
       '</div></div>';
   }).join('');
 }
@@ -2576,24 +2576,24 @@ function getFilteredActions(){
   const local=document.getElementById('filterLocal').value;
   const setor=document.getElementById('filterSetor').value;
   const responsavel=document.getElementById('filterResponsavel').value;
-  return acoesData.filter(a=>(!year||a.inicio.slice(0,4)===year)&&(!month||String(parseLocalDate(a.inicio).getMonth()+1)===month)&&(!local||a.local===local)&&(!setor||a.setor===setor)&&(!responsavel||(a.responsavel||'Não informado')===responsavel)&&(!activeActionsChartFilter||activeActionsChartFilter.values.includes(String(a[activeActionsChartFilter.field]||'Não informado').trim()||'Não informado')));
+  return acoesData.filter(a=>(!year||a.data.slice(0,4)===year)&&(!month||String(parseLocalDate(a.data).getMonth()+1)===month)&&(!local||a.local===local)&&(!setor||a.setor===setor)&&(!responsavel||(a.responsavel||'Não informado')===responsavel)&&(!activeActionsChartFilter||activeActionsChartFilter.values.includes(String(a[activeActionsChartFilter.field]||'Não informado').trim()||'Não informado')));
 }
 
 function renderActionHistory(){
   const filtered=getFilteredActions();
   document.getElementById('actionsResultCount').textContent=filtered.length.toLocaleString('pt-BR')+' ações encontradas';
-  const groups={}; filtered.forEach(a=>{const y=a.inicio.slice(0,4);(groups[y]??=[]).push(a)});
+  const groups={}; filtered.forEach(a=>{const y=a.data.slice(0,4);(groups[y]??=[]).push(a)});
   const years=Object.keys(groups).sort((a,b)=>b-a);
   if(!years.length){document.getElementById('actionsHistory').innerHTML='<div class="empty-state">Nenhuma ação encontrada para os filtros selecionados.</div>';return;}
   document.getElementById('actionsHistory').innerHTML=years.map(year=>{
     const open='';
-    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Início" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.inicio)+'</td><td data-label="Final" style="white-space:nowrap;">'+actionFmtDate(a.final)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td><td data-label="Responsável"><span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></td></tr>';}).join('');
-    return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>Recolhido</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Início</th><th>Final</th><th>Ação</th><th>Local</th><th>Setor</th><th>Responsável</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
+    const rows=groups[year].map(a=>{const lc=localColor(a.local),sc=sectorColor(a.setor);return '<tr><td data-label="Data da Ação" style="white-space:nowrap;font-weight:700;">'+actionFmtDate(a.data)+'</td><td data-label="Ação" class="action-title">'+escapeHtml(a.acao)+'</td><td data-label="Local"><span class="pill local" style="'+pillStyle(lc)+'">'+escapeHtml(a.local)+'</span></td><td data-label="Setor"><span class="pill setor" style="'+pillStyle(sc)+'">'+escapeHtml(a.setor)+'</span></td><td data-label="Responsável"><span class="action-person">'+teamPersonHTML(a.responsavel||'Não informado',true)+'</span></td></tr>';}).join('');
+    return '<div class="year-group'+open+'"><button class="year-toggle" onclick="this.parentElement.classList.toggle(\'open\')"><span class="year-left"><span class="year-arrow">▸</span><span>'+year+'</span><span class="year-count">'+groups[year].length+' ações</span></span><span>Recolhido</span></button><div class="year-content"><div class="table-scroll"><table class="actions-table"><thead><tr><th>Data da Ação</th><th>Ação</th><th>Local</th><th>Setor</th><th>Responsável</th></tr></thead><tbody>'+rows+'</tbody></table></div></div></div>';
   }).join('');
 }
 
 function initActionsDashboard(){
-  addOptions(document.getElementById('filterYear'),uniq(acoesData.map(a=>a.inicio.slice(0,4))).sort((a,b)=>b-a),'Todos os anos');
+  addOptions(document.getElementById('filterYear'),uniq(acoesData.map(a=>a.data.slice(0,4))).sort((a,b)=>b-a),'Todos os anos');
   document.getElementById('filterMonth').innerHTML='<option value="">Todos os meses</option>'+actionMonths.map((m,i)=>'<option value="'+(i+1)+'">'+m+'</option>').join('');
   addOptions(document.getElementById('filterLocal'),uniq(acoesData.map(a=>a.local)),'Todos os locais');
   addOptions(document.getElementById('filterSetor'),uniq(acoesData.map(a=>a.setor)),'Todos os setores');
