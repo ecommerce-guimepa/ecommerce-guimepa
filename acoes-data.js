@@ -1082,5 +1082,6 @@ const acoesData = [
   { "data": "2026-08-28", "acao": "PRAZO CROSS PRESTO ALTERADO DE 7 > 6 DIAS PRAZO GERAL", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2026-08-28", "acao": "PRAZO CROSS BOSCH ALTERADO DE 12 > 9 DIAS ABAIXO DDE 100,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2026-08-28", "acao": "PRAZO CROSS WORKER ALTERADO DE 8 > 5 DIAS ABAIXO DDE 50,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
-    { "data": "2026-08-28", "acao": "PRAZO CROSS OVD CORTE DE PREÇO FAIXA COM 1 DIA - ACIMA 1 MIL para ACIMA 200,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" }
+  { "data": "2026-08-28", "acao": "PRAZO CROSS OVD CORTE DE PREÇO FAIXA COM 1 DIA - ACIMA 1 MIL para ACIMA 200,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" }
+  { "data": "2026-08-28", "acao": "AUMENTO MARKUP - TRAMONTINA - FAIXA ATE 100 - TODOS OS CANAIS", "local": "ANYMARKET", "setor": "Preços", "responsavel": "Bruno" }
 ];
