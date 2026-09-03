@@ -894,6 +894,11 @@
   .log-supplier-btn:hover{border-color:#93c5fd;box-shadow:0 5px 14px rgba(37,99,235,.10);transform:translateY(-1px)}
   .log-supplier-btn.active{border:2px solid #2563eb;background:#eff6ff;box-shadow:0 0 0 3px rgba(37,99,235,.10)}
   .log-supplier-btn img{max-width:100%;max-height:38px;object-fit:contain}
+  .log-supplier-btn--tag{height:64px}
+  .log-supplier-btn--tag img{max-height:30px;margin-top:-8px}
+  .log-supplier-btn .log-sup-tag{position:absolute;left:7px;right:7px;bottom:3px;height:16px;border-radius:7px;font-size:8px;font-weight:800;letter-spacing:.4px;display:inline-flex;align-items:center;justify-content:center;text-transform:uppercase;white-space:nowrap}
+  .log-sup-casa{background:#0ea5e9;color:#fff}
+  .log-sup-ferramentas{background:#f59e0b;color:#fff}
   .log-supplier-btn .log-supplier-init{font-size:11px;font-weight:800;color:#52677d;text-transform:uppercase}
   .log-supplier-btn .log-supplier-count{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:#2563eb;color:#fff;font-size:9px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(37,99,235,.35)}
   .log-period-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #eef2f7}
@@ -3095,8 +3100,15 @@ initCampaigns();
   const fmt0=v=>v==null?'–':String(Math.round(v));
   const TOTAL_CAP=30; /* prazos totais acima desse valor são ignorados (outliers) */
   const validTotal=d=>d>=0&&d<=TOTAL_CAP;
-  const keyOf=r=>r.logo||r.marca||r.fornecedor; /* identidade = imagem (logo), evitando duplicatas */
+  const keyOf=r=>r.marca||r.logo||r.fornecedor; /* identidade = marca (separa Tramontina CASA/FERRAMENTAS), senão logo/fornecedor */
   const logoName=l=>String(l||'').replace(/\.\w+$/i,'');
+  /* Badge destacado "CASA"/"FERRAMENTAS" para separar as variações da Tramontina nos filtros */
+  const tramontinaTag=key=>{
+    const m=String(key||'').toUpperCase();
+    if(m.indexOf('TRAMONTINA')<0) return null;
+    const v=m.indexOf('CASA')>=0?'CASA':(m.indexOf('FERRAMENTAS')>=0?'FERRAMENTAS':null);
+    return v?`<span class="log-sup-tag log-sup-${v.toLowerCase()}">${esc(v)}</span>`:null;
+  };
 
   let selected=new Set();
   let supplierMeta=[]; // [{key, logo, label, count}]
@@ -3199,7 +3211,9 @@ initCampaigns();
     wrap.innerHTML=supplierOrder().map(s=>{
       const initials=`<span class="log-supplier-init"${s.logo?' style="display:none"':''}>${esc(logoName(s.key).substring(0,3))}</span>`;
       const img=s.logo?`<img src="logos-marcas/${encodeURI(s.logo)}" alt="${esc(s.label)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
-      return `<button class="log-supplier-btn${selected.has(s.key)?' active':''}" type="button" data-key="${esc(s.key)}" title="${esc(s.label)} (${s.count})" aria-label="Filtrar por ${esc(s.label)}">${img}${initials}<span class="log-supplier-count">${s.count}</span></button>`;
+      const tag=tramontinaTag(s.key);
+      const tagHtml=tag?tag:'';
+      return `<button class="log-supplier-btn${selected.has(s.key)?' active':''}${tag?' log-supplier-btn--tag':''}" type="button" data-key="${esc(s.key)}" title="${esc(s.label)} (${s.count})" aria-label="Filtrar por ${esc(s.label)}">${img}${initials}${tagHtml}<span class="log-supplier-count">${s.count}</span></button>`;
     }).join('');
     wrap.querySelectorAll('.log-supplier-btn').forEach(btn=>btn.addEventListener('click',()=>{
       const k=btn.dataset.key;
@@ -3486,18 +3500,37 @@ initCampaigns();
   }
 
   // -------- VISÃO GERAL (configurado × real) --------
+  /* Chave única de identidade para a Visão Geral. Para a Tramontina separa CASA/FERRAMENTAS
+     (mesma logo, marcas distintas); para os demais usa a logo normalizada. */
+  function realKeyOf(r){
+    const m=(r.marca||'').toUpperCase();
+    if(m.indexOf('TRAMONTINA')===0) return 'tramontina::'+m;
+    return normLogo(r.logo);
+  }
   function geralBrandsConfig(){
     const map=new Map();
+    const addGroup=(key,fornecedor,image,ordem,marca)=>{
+      if(!map.has(key)) map.set(key,{fornecedor:fornecedor,image:image,ordem:ordem,niveis:[],marca:marca});
+      return map.get(key);
+    };
     crossDockingData.forEach(row=>{
-      if(!map.has(row.fornecedor)) map.set(row.fornecedor,{fornecedor:row.fornecedor,image:row.image,ordem:row.ordem,niveis:[]});
-      map.get(row.fornecedor).niveis.push(row);
+      const f=String(row.fornecedor||'').toUpperCase();
+      /* Tramontina: mesmo prazos configurados para as duas variações (CASA/FERRAMENTAS),
+         com marcas distintas para separá-las na Visão Geral. */
+      if(f.indexOf('TRAMONTINA')===0){
+        addGroup('tramontina::TRAMONTINA CASA',row.fornecedor,row.image,row.ordem,'TRAMONTINA CASA').niveis.push(row);
+        addGroup('tramontina::TRAMONTINA FERRAMENTAS',row.fornecedor,row.image,row.ordem+0.1,'TRAMONTINA FERRAMENTAS').niveis.push(row);
+      }else{
+        const key=normLogo(row.image);
+        addGroup(key,row.fornecedor,row.image,row.ordem,row.marca||row.fornecedor).niveis.push(row);
+      }
     });
     return [...map.values()].sort((a,b)=>a.ordem-b.ordem);
   }
   function geralRealByLogo(){
     const map=new Map();
     crossDockingPrazosData.forEach(r=>{
-      const k=normLogo(r.logo);
+      const k=realKeyOf(r);
       if(!map.has(k)) map.set(k,{logo:r.logo,label:(r.marca||r.fornecedor||logoName(r.logo)),oc:[],nf:[],tot:[]});
       const g=map.get(k);
       const c=fullCycle(r);
@@ -3507,6 +3540,11 @@ initCampaigns();
     const out=new Map();
     map.forEach((g,k)=>out.set(k,{logo:g.logo,label:g.label,oc:avg(g.oc),nf:avg(g.nf),tot:avg(g.tot),n:g.tot.length}));
     return out;
+  }
+  function geralKey(group){
+    const f=String(group.fornecedor||group.marca||'').toUpperCase();
+    if(f.indexOf('TRAMONTINA')===0) return 'tramontina::'+(String(group.marca||group.fornecedor)).toUpperCase();
+    return normLogo(group.image);
   }
   function configRef(group){
     const ger=group.niveis.find(x=>/GERAL|PRODU/i.test(x.operador||''));
@@ -3519,10 +3557,13 @@ initCampaigns();
     if(!wrap) return;
     const configs=geralBrandsConfig();
     wrap.innerHTML=configs.map(g=>{
-      const active=geralSelected.has(normLogo(g.image));
-      const init=`<span class="log-supplier-init"${g.image?' style="display:none"':''}>${esc(g.fornecedor.substring(0,3))}</span>`;
-      const img=g.image?`<img src="logos-marcas/${encodeURI(g.image)}" alt="${esc(g.fornecedor)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
-      return `<button class="log-supplier-btn${active?' active':''}" type="button" data-key="${esc(normLogo(g.image))}" title="${esc(g.fornecedor)}" aria-label="Filtrar por ${esc(g.fornecedor)}">${img}${init}<span class="log-supplier-count">${g.niveis.length}</span></button>`;
+      const key=geralKey(g);
+      const active=geralSelected.has(key);
+      const init=`<span class="log-supplier-init"${g.image?' style="display:none"':''}>${esc((g.marca||g.fornecedor).substring(0,3))}</span>`;
+      const img=g.image?`<img src="logos-marcas/${encodeURI(g.image)}" alt="${esc(g.marca||g.fornecedor)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">`:'';
+      const tag=tramontinaTag(key);
+      const tagHtml=tag?tag:'';
+      return `<button class="log-supplier-btn${active?' active':''}${tag?' log-supplier-btn--tag':''}" type="button" data-key="${esc(key)}" title="${esc(g.marca||g.fornecedor)}" aria-label="Filtrar por ${esc(g.marca||g.fornecedor)}">${img}${init}${tagHtml}<span class="log-supplier-count">${g.niveis.length}</span></button>`;
     }).join('');
     wrap.querySelectorAll('.log-supplier-btn').forEach(btn=>btn.addEventListener('click',()=>{
       const k=btn.dataset.key;
@@ -3540,14 +3581,15 @@ initCampaigns();
     if(typeof crossDockingData==='undefined'||typeof crossDockingPrazosData==='undefined') return;
     const configs=geralBrandsConfig();
     const real=geralRealByLogo();
-    const vis=geralSelected.size?configs.filter(g=>geralSelected.has(normLogo(g.image))):configs;
+    const vis=geralSelected.size?configs.filter(g=>geralSelected.has(geralKey(g))):configs;
     const allRows=vis.map(g=>{
-      const rd=real.get(normLogo(g.image))||null;
+      const key=geralKey(g);
+      const rd=real.get(key)||null;
       const ref=configRef(g);
       const realAvg=rd?rd.tot:null;
       const prazos=[...new Set(g.niveis.map(r=>Number(r.prazo)).filter(Number.isFinite))].sort((a,b)=>a-b);
       const levels=g.niveis.slice().sort((a,b)=>a.ordem-b.ordem);
-      return {label:g.fornecedor,image:g.image,prazos,ref,rd,levels,realAvg,status:geralStatusOf(levels,realAvg)};
+      return {label:g.marca||g.fornecedor,image:g.image,prazos,ref,rd,levels,realAvg,status:geralStatusOf(levels,realAvg)};
     });
     const rows=allRows
       .filter(r=>geralStatusFilter==='all'||r.status===geralStatusFilter)
