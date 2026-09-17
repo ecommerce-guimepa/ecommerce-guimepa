@@ -474,4 +474,29 @@ const marketplacesData = [
     "idLoja": "635517740347822",
     "validaXml": "Status Altera Por Xml"
   }
+  {
+    "ordem": 20,
+    "image": "picpay.png",
+    "canal": "PICPAY SHOP",
+    "comissaoBase": "16%",
+    "faturamento": "GMK8",
+    "nomeLoja": "Guimepa",
+    "localEstoque": "ESTOQUE SC",
+    "funcionamentoEstoque": "TAB SC + LIQ SC",
+    "sac": "Thais",
+    "politicaCancelamento": "Não cobra taxas",
+    "politicaFrete": "INTELIPOST",
+    "politicaRepasse": "Antecipado 30 dias",
+    "disparoRepasse": "Entregue",
+    "comissaoFrete": "SIM",
+    "portador": "PICPAY",
+    "slaSac": "24 horas úteis",
+    "atendimentoSac": "Painel",
+    "cnpj": "39.590.561/0001-23 - GMK8",
+    "cotaSku": "SIM",
+    "plataformaCotacao": "anymarket",
+    "canalIntelipost": "Não informado",
+    "idLoja": "39590561000",
+    "validaXml": "Não Validam"
+  }
 ];
