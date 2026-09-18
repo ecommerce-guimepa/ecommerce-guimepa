@@ -21,6 +21,7 @@ const canaisData = [
   { id:'tiktok', label:'TikTok', color:'#111827', logo:'TIKTOK.png', channels:['TIKTOK SHOP'] },
   { id:'temu', label:'Temu', color:'#16a34a', logo:'temu.png', channels:['TEMU'] },
   { id:'picpay', label:'PicPay', color:'#22c55e', logo:'picpay.png', channels:['PICPAY SHOP'] },
+  { id:'shein', label:'Shein', color:'#000', logo:'shein.png', channels:['SHEIN'] },
   { id:'site', label:'Site', color:'#1d4ed8', logo:'site.png', channels:['SITE'] },
   { id:'b2w', label:'B2W', color:'#c026d3', logo:'', channels:['B2W DELTATOP','B2W GMK8','B2W GUIMEPA'] },
   { id:'madeira-madeira', label:'Madeira Madeira', color:'#65a30d', logo:'', channels:['MADEIRA MADEIRA'] }

@@ -498,5 +498,30 @@ const marketplacesData = [
     "canalIntelipost": "Não informado",
     "idLoja": "39590561000",
     "validaXml": "Não Validam"
+  },
+  {
+    "ordem": 21,
+    "image": "shein.png",
+    "canal": "SHEIN",
+    "comissaoBase": "18%",
+    "faturamento": "GMK8",
+    "nomeLoja": "Guimepa",
+    "localEstoque": "ESTOQUE LIQ SC",
+    "funcionamentoEstoque": "LIQ SC",
+    "sac": "",
+    "politicaCancelamento": "Não cobra taxas",
+    "politicaFrete": "Shein Entregas",
+    "politicaRepasse": "Saque",
+    "disparoRepasse": "Entregue",
+    "comissaoFrete": "NÃO",
+    "portador": "SHEIN",
+    "slaSac": "24 à 48 horas úteis",
+    "atendimentoSac": "Painel",
+    "cnpj": "39.590.561/0001-23 - GMK8",
+    "cotaSku": "NÃO",
+    "plataformaCotacao": "X",
+    "canalIntelipost": "X",
+    "idLoja": "GS5419435",
+    "validaXml": "Status Altera Por Xml"
   }
 ];
