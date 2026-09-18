@@ -1372,6 +1372,44 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
   @media(max-width:1100px){.foco-routines-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foco-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:720px){.foco-main{padding:16px 12px 30px}.foco-routines-grid{grid-template-columns:1fr}.foco-filters{grid-template-columns:1fr}.foco-clear-btn{grid-column:1/-1}}
 
+  .mp-btn-mensagens{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:none;border-radius:10px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(37,99,235,.35);transition:all .2s;white-space:nowrap;margin-left:auto;flex-shrink:0}
+  .mp-btn-mensagens:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.45)}
+  .mp-btn-mensagens.mp-active{background:linear-gradient(135deg,#dc2626,#b91c1c);box-shadow:0 4px 14px rgba(220,38,38,.35)}
+  .mp-btn-mensagens.mp-active:hover{box-shadow:0 6px 20px rgba(220,38,38,.45)}
+  .mp-btn-mensagens-icon{font-size:16px}
+  .mensagens-panel{animation:mpFadeIn .3s ease}
+  @keyframes mpFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .mensagens-layout{display:flex;gap:0;min-height:500px;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff}
+  .mensagens-sidebar{width:220px;min-width:220px;background:#f8fafc;border-right:1px solid #e2e8f0;display:flex;flex-direction:column}
+  .mensagens-sidebar-header{padding:14px 16px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#64748b;border-bottom:1px solid #e2e8f0}
+  .mensagens-sidebar-list{flex:1;overflow-y:auto;padding:6px 0}
+  .mp-theme-item{display:flex;align-items:center;gap:8px;padding:10px 16px;cursor:pointer;font-size:13px;color:#475569;transition:all .12s;border-left:3px solid transparent}
+  .mp-theme-item:hover{background:#eef2ff;color:#2563eb}
+  .mp-theme-item.mp-active{background:#eff6ff;color:#1d4ed8;font-weight:700;border-left-color:#2563eb}
+  .mp-theme-item .mp-theme-count{margin-left:auto;font-size:10px;font-weight:700;color:#94a3b8;background:#e2e8f0;padding:2px 7px;border-radius:999px}
+  .mensagens-main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .mensagens-main-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #e2e8f0}
+  .mensagens-grid{flex:1;overflow-y:auto;padding:16px 20px;display:grid;gap:14px;align-content:start}
+  .mp-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:box-shadow .2s}
+  .mp-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  .mp-card-head{display:flex;align-items:center;padding:12px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;gap:10px;flex-wrap:nowrap}
+  .mp-card-head-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .mp-card-tema{display:inline-block;padding:3px 10px;border-radius:999px;background:#dbeafe;color:#1e40af;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;min-width:140px;text-align:center;flex-shrink:0}
+  .mp-card-assunto{font-size:13px;font-weight:700;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+  .mp-card-body{padding:16px;position:relative}
+  .mp-card-msg{font-size:13px;line-height:1.7;color:#334155;white-space:pre-wrap;word-break:break-word;max-height:320px;overflow-y:auto}
+  .mp-card-msg b,.mp-card-msg strong{color:#1e293b;font-weight:800}
+  .mp-card-readonly{display:flex;align-items:center;gap:6px;margin-top:10px;padding:6px 10px;background:#f1f5f9;border-radius:6px;font-size:10px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:.3px}
+  .mp-copy-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:none;border-radius:6px;background:#16a34a;color:#fff;font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .mp-copy-btn:hover{background:#15803d;transform:translateY(-1px)}
+  .mp-copy-btn.mp-copied{background:#2563eb}
+  .mp-empty{text-align:center;padding:40px 20px;color:#94a3b8;font-size:13px}
+  .mp-carousel{display:flex;align-items:center;gap:4px;flex-shrink:0}
+  .mp-carousel-btn{width:24px;height:24px;border:1.5px solid #e2e8f0;border-radius:50%;background:#fff;color:#64748b;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s;flex-shrink:0}
+  .mp-carousel-btn:hover{border-color:#2563eb;color:#2563eb}
+  .mp-carousel-btn:disabled{opacity:.3;cursor:default}
+  .mp-carousel-info{font-size:10px;color:#94a3b8;font-weight:600;white-space:nowrap}
+
 </style>
 </head>
 <body>
@@ -1552,9 +1590,15 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
     <div class="activities-subtabs" role="tablist" aria-label="Áreas de atividades">
       <button class="activities-subtab active" type="button" data-activities-tab="ecommerce">E-commerce</button>
       <button class="activities-subtab" type="button" data-activities-tab="suporte-ti">Suporte TI</button>
+      <button class="mp-btn-mensagens" id="btnMensagensPadroes" type="button">
+        <span class="mp-btn-mensagens-icon">💬</span>
+        <span>Mensagens Padrões</span>
+      </button>
     </div>
     <div class="activities-subpanel active" id="activities-panel-ecommerce">
     <div class="kpi-row activity-summary-kpi" id="activitiesKpiRow"></div>
+
+    <div id="atividadesMainContent">
 
     <div class="activities-overview-row">
       <div class="section activity-chart-card"><div class="section-header"><span class="section-title">Distribuição por Área</span></div><div class="activity-chart-body"><div class="activity-donut-wrap"><canvas class="activity-donut" id="activityAreaChart"></canvas><div class="activity-donut-center"><strong id="activityAreaChartTotal">0</strong><span>Atividades</span></div></div><div class="activity-chart-legend" id="activityAreaLegend"></div></div></div>
@@ -1585,6 +1629,23 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
         </table>
       </div>
     </div>
+    </div>
+    </div>
+
+    <div class="activities-subpanel mensagens-panel" id="mensagensPadroesPanel">
+      <div class="mensagens-layout">
+        <aside class="mensagens-sidebar">
+          <div class="mensagens-sidebar-header">Temas</div>
+          <div class="mensagens-sidebar-list" id="mensagensThemeFilters"></div>
+        </aside>
+        <main class="mensagens-main">
+          <div class="mensagens-main-header">
+            <span class="section-title">Mensagens Padrões</span>
+            <span id="mensagensResultCount" style="font-size:11px;color:var(--muted);font-weight:700;"></span>
+          </div>
+          <div class="mensagens-grid" id="mensagensGrid"></div>
+        </main>
+      </div>
     </div>
 
     <div class="activities-subpanel" id="activities-panel-suporte-ti">
@@ -1953,6 +2014,7 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 <script src="cronogramas-publicacao-data.js"></script>
 <script src="atividades-data.js"></script>
 <script src="suporte-ti-data.js"></script>
+<script src="mensagens-padroes-data.js"></script>
 <script src="campanhas-data.js"></script>
 <script src="crossdocking-data.js"></script>
 <script src="crossdocking-prazos-data.js"></script>
@@ -2908,7 +2970,12 @@ initActivities();
 // ============ SUB-ABAS ATIVIDADES E SUPORTE TI ============
 (function(){
  const tabs=[...document.querySelectorAll('.activities-subtab')];
- tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(b=>b.classList.toggle('active',b===btn));document.querySelectorAll('.activities-subpanel').forEach(p=>p.classList.toggle('active',p.id==='activities-panel-'+btn.dataset.activitiesTab));if(btn.dataset.activitiesTab==='suporte-ti')renderSupportTi();}));
+ tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.toggle('active',b===btn));
+  document.querySelectorAll('.activities-subpanel').forEach(p=>p.classList.toggle('active',p.id==='activities-panel-'+btn.dataset.activitiesTab));
+  if(btn.dataset.activitiesTab==='suporte-ti')renderSupportTi();
+  if(typeof window.mensagensClose==='function')window.mensagensClose();
+ }));
 })();
 const supportTiRows=(typeof suporteTiData!=='undefined'&&Array.isArray(suporteTiData)?suporteTiData:[]).map((x,i)=>({...x,id:i}));
 let supportTiSearch='',supportTiOwner='',supportTiBackup='';
@@ -2931,6 +2998,83 @@ function supportApply(kind,value){if(kind==='type'){const el=document.getElement
 function renderSupportTi(){const rows=supportFiltered(),types=supportCounts(rows,'melhoria'),owners=supportCounts(rows,'responsavelTi'),backupEntries=supportCounts(rows,'backupTi'),allOwners=supportOwnerOrder([...new Set(supportTiRows.map(x=>x.responsavelTi).filter(Boolean))]);document.getElementById('supportTiResultCount').textContent=rows.length+' de '+supportTiRows.length+' itens exibidos';const k=[['Total de Itens',rows.length,'base de responsabilidades','blue'],['Tipos de Melhoria',types.length,'categorias','green'],['Responsáveis TI',new Set(rows.map(x=>x.responsavelTi).filter(Boolean)).size,'responsáveis principais','purple'],['Backups TI',new Set(rows.map(x=>x.backupTi).filter(Boolean)).size,'backups cadastrados','orange'],['Responsáveis Setor',new Set(rows.map(x=>x.responsavelSetor).filter(Boolean)).size,'pontos de contato','red']];document.getElementById('supportTiKpiRow').innerHTML=k.map(x=>'<div class="kpi-card '+x[3]+'"><div class="kpi-label">'+x[0]+'</div><div class="kpi-value">'+x[1]+'</div><div class="kpi-sub">'+x[2]+'</div></div>').join('');supportDrawDonut('supportTiTypeChart','supportTiTypeLegend','supportTiTypeTotal',types,'type');supportDrawDonut('supportTiOwnerChart','supportTiOwnerLegend','supportTiOwnerTotal',owners,'owner');supportDrawDonut('supportTiBackupChart','supportTiBackupLegend','supportTiBackupTotal',backupEntries,'backup');supportPersonButtons('supportTiOwnerButtons',allOwners,supportTiOwner,'owner');const chips=[];if(document.getElementById('supportTiFilterType')?.value)chips.push(['type',document.getElementById('supportTiFilterType').value]);if(supportTiOwner)chips.push(['owner','Responsável: '+supportTiOwner]);if(supportTiBackup)chips.push(['backup','Backup: '+supportTiBackup]);if(document.getElementById('supportTiFilterSectorOwner')?.value)chips.push(['sector','Setor: '+document.getElementById('supportTiFilterSectorOwner').value]);document.getElementById('supportTiFilterChips').innerHTML=chips.map(c=>'<button class="activity-filter-chip" type="button" data-support-remove="'+c[0]+'">'+supportEsc(c[1])+' ×</button>').join('');document.getElementById('supportTiTableBody').innerHTML=rows.length?rows.map(x=>'<tr class="activity-clickable" data-support-id="'+x.id+'"><td><span class="support-ti-badge">'+supportEsc(x.melhoria||'—')+'</span></td><td class="activity-table-title">'+supportEsc(x.modulo)+'</td><td>'+supportPerson(x.responsavelTi)+'</td><td>'+supportPerson(x.backupTi)+'</td><td>'+supportPerson(x.responsavelSetor)+'</td><td>'+supportPerson(x.backupSetor)+'</td></tr>').join(''):'<tr><td colspan="6"><div class="empty-state">Nenhum item encontrado.</div></td></tr>';document.querySelectorAll('[data-support-id]').forEach(r=>r.onclick=()=>supportShowModal(r.dataset.supportId));document.querySelectorAll('[data-support-kind]').forEach(b=>b.onclick=()=>supportApply(b.dataset.supportKind,b.dataset.supportValue));document.querySelectorAll('[data-support-person-kind]').forEach(b=>b.onclick=()=>supportApply(b.dataset.supportPersonKind,b.dataset.supportPerson));document.querySelectorAll('[data-support-remove]').forEach(b=>b.onclick=()=>{const k=b.dataset.supportRemove;if(k==='type')document.getElementById('supportTiFilterType').value='';if(k==='owner')supportTiOwner='';if(k==='backup')supportTiBackup='';if(k==='sector')document.getElementById('supportTiFilterSectorOwner').value='';renderSupportTi()});document.getElementById('supportTiSearchClear').classList.toggle('visible',!!supportTiSearch);}
 function initSupportTi(){supportFill('supportTiFilterType',supportTiRows.map(x=>x.melhoria),'Todos os tipos');supportFill('supportTiFilterSectorOwner',supportTiRows.map(x=>x.responsavelSetor),'Todos do setor');['supportTiFilterType','supportTiFilterSectorOwner'].forEach(id=>document.getElementById(id).addEventListener('change',renderSupportTi));let timer;document.getElementById('supportTiSearch').addEventListener('input',e=>{clearTimeout(timer);timer=setTimeout(()=>{supportTiSearch=e.target.value.trim();renderSupportTi()},120)});document.getElementById('supportTiSearchClear').onclick=()=>{supportTiSearch='';document.getElementById('supportTiSearch').value='';renderSupportTi()};document.getElementById('clearSupportTiFilters').onclick=()=>{document.getElementById('supportTiFilterType').value='';document.getElementById('supportTiFilterSectorOwner').value='';supportTiOwner='';supportTiBackup='';supportTiSearch='';document.getElementById('supportTiSearch').value='';renderSupportTi()};document.getElementById('supportTiModalClose').onclick=()=>{document.getElementById('supportTiModal').classList.remove('open');document.body.style.overflow=''};document.getElementById('supportTiModal').onclick=e=>{if(e.target.id==='supportTiModal')document.getElementById('supportTiModalClose').click()};window.addEventListener('resize',()=>{if(document.getElementById('activities-panel-suporte-ti').classList.contains('active'))renderSupportTi()});renderSupportTi();}
 initSupportTi();
+</script>
+
+<script>
+// ============ MENSAGENS PADROES ============
+(function(){
+ const data=(typeof mensagensPadroesData!=='undefined'&&Array.isArray(mensagensPadroesData))?mensagensPadroesData:[];
+ const themes=data.map(g=>g.tema);
+ let activeTheme=themes[0]||'';
+ let carouselIdx={};
+ let isOpen=false;
+ function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ function highlightKeys(msg){
+  const keys=['estorno','reclamação','mercado livre','correios','nota fiscal','rastreio','devolução','troca','cancelamento','reembolso','fotos','vídeos','whatsapp','defesa do consumidor','transportadora','avaria','fornecedor','despacho','estoque','full','prazo','dias úteis','petição','código','link','não cobra taxas','saque','arrependimento','ressalva','indenização','reembolso','substituição','peças','fabricante','próxima semana','aguardar','WhatsApp GUIMEPA','Equipe GUIMEPA'];
+  let s=esc(msg);
+  keys.forEach(k=>{const re=new RegExp('('+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');s=s.replace(re,'<strong>$1</strong>');});
+  return s;
+ }
+ function renderSidebar(){
+  const el=document.getElementById('mensagensThemeFilters');if(!el)return;
+  let h='';
+  themes.forEach(t=>{const grp=data.find(g=>g.tema===t);const count=grp?grp.opcoes.length:0;h+='<div class="mp-theme-item'+(activeTheme===t?' mp-active':'')+'" data-theme="'+esc(t)+'">'+esc(t)+'<span class="mp-theme-count">'+count+'</span></div>';});
+  el.innerHTML=h;
+  el.querySelectorAll('.mp-theme-item').forEach(b=>b.addEventListener('click',()=>{activeTheme=b.dataset.theme;renderSidebar();renderCards();}));
+ }
+ function renderCards(){
+  const grp=data.find(g=>g.tema===activeTheme);
+  const grid=document.getElementById('mensagensGrid');
+  const count=document.getElementById('mensagensResultCount');
+  if(count)count.textContent=grp?grp.opcoes.length+' opção(ões)':'0 opções';
+  if(!grid)return;
+  if(!grp||!grp.opcoes.length){grid.innerHTML='<div class="mp-empty">Nenhuma mensagem encontrada.</div>';return;}
+  const total=grp.opcoes.length;
+  if(!carouselIdx[activeTheme])carouselIdx[activeTheme]=0;
+  if(carouselIdx[activeTheme]>=total)carouselIdx[activeTheme]=0;
+  const ci=carouselIdx[activeTheme];
+  const opt=grp.opcoes[ci];
+  const msgHtml=highlightKeys(opt.mensagem);
+  let carouselHtml='';
+  if(total>1){
+   carouselHtml='<div class="mp-carousel"><button class="mp-carousel-btn mp-carousel-prev" type="button" '+(ci===0?'disabled':'')+'>◀</button><span class="mp-carousel-info">Opção '+(ci+1)+' de '+total+'</span><button class="mp-carousel-btn mp-carousel-next" type="button" '+(ci>=total-1?'disabled':'')+'>▶</button></div>';
+  }
+  grid.innerHTML='<div class="mp-card"><div class="mp-card-head"><div class="mp-card-head-actions"><button class="mp-copy-btn" type="button">📋 Copiar</button>'+carouselHtml+'</div><span class="mp-card-tema">'+esc(grp.tema)+'</span><span class="mp-card-assunto">'+esc(opt.assunto)+'</span></div><div class="mp-card-body"><div class="mp-card-msg">'+msgHtml+'</div><div class="mp-card-readonly">🔒 Visualização — não editável</div></div></div>';
+  const prev=grid.querySelector('.mp-carousel-prev');
+  const next=grid.querySelector('.mp-carousel-next');
+  if(prev)prev.addEventListener('click',()=>{if(ci>0){carouselIdx[activeTheme]--;renderCards();}});
+  if(next)next.addEventListener('click',()=>{if(ci<total-1){carouselIdx[activeTheme]++;renderCards();}});
+  grid.querySelector('.mp-copy-btn')?.addEventListener('click',function(){
+   navigator.clipboard.writeText(opt.mensagem).then(()=>{this.classList.add('mp-copied');this.innerHTML='✅ Copiado!';setTimeout(()=>{this.classList.remove('mp-copied');this.innerHTML='📋 Copiar';},2000);}).catch(()=>{const ta=document.createElement('textarea');ta.value=opt.mensagem;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');this.classList.add('mp-copied');this.innerHTML='✅ Copiado!';setTimeout(()=>{this.classList.remove('mp-copied');this.innerHTML='📋 Copiar';},2000);}catch(e){}document.body.removeChild(ta);});
+  });
+ }
+ function toggleMensagens(open){
+  isOpen=open;
+  const panel=document.getElementById('mensagensPadroesPanel');
+  const btn=document.getElementById('btnMensagensPadroes');
+  const tabs=document.querySelectorAll('.activities-subtab');
+  const subpanels=document.querySelectorAll('.activities-subpanel');
+  if(isOpen){
+   subpanels.forEach(p=>p.classList.remove('active'));
+   tabs.forEach(t=>t.classList.remove('active'));
+   if(panel)panel.classList.add('active');
+   if(btn)btn.classList.add('mp-active');
+   renderSidebar();renderCards();
+  }else{
+   if(panel)panel.classList.remove('active');
+   if(btn)btn.classList.remove('mp-active');
+   const ecomTab=document.querySelector('.activities-subtab[data-activities-tab="ecommerce"]');
+   if(ecomTab){ecomTab.classList.add('active');}
+   const ecomPanel=document.getElementById('activities-panel-ecommerce');
+   if(ecomPanel)ecomPanel.classList.add('active');
+  }
+ }
+ window.mensagensToggle=function(){toggleMensagens(!isOpen);};
+ window.mensagensClose=function(){if(isOpen)toggleMensagens(false);};
+ const mpBtnEl=document.getElementById('btnMensagensPadroes');
+ if(mpBtnEl)mpBtnEl.addEventListener('click',window.mensagensToggle);
+ renderSidebar();renderCards();
+})();
 </script>
 
 <script>
