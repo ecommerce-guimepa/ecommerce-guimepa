@@ -473,7 +473,7 @@ const marketplacesData = [
     "canalIntelipost": "X",
     "idLoja": "635517740347822",
     "validaXml": "Status Altera Por Xml"
-  }
+  },
   {
     "ordem": 20,
     "image": "picpay.png",
