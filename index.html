@@ -216,6 +216,42 @@
   .pub-project-foot{padding:9px 20px;border-top:1px solid var(--border);background:#f8fafc;color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:10px;}
   @media(max-width:900px){.pub-project-modal{padding:0}.pub-project-dialog{width:100vw;height:100vh;border-radius:0}.pub-project-meta{grid-template-columns:1fr 1fr}.pub-project-brand{width:100px}.pub-project-heading h2{font-size:19px}}
 
+  /* Publicações: abas por status, score e resumo */
+  .pub-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:6px;background:#eef4fb;border:1px solid #dbe7f4;border-radius:14px}
+  .pub-tab{border:0;color:#fff;font-weight:800;padding:10px 16px;border-radius:10px;cursor:pointer;font-size:13px;display:inline-flex;align-items:center;gap:8px;transition:.15s;opacity:.85}
+  .pub-tab:nth-child(1){background:linear-gradient(135deg,#1e3a8a,#1d4ed8)}
+  .pub-tab:nth-child(2){background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+  .pub-tab:nth-child(3){background:linear-gradient(135deg,#2563eb,#60a5fa)}
+  .pub-tab:nth-child(4){background:linear-gradient(135deg,#60a5fa,#93c5fd);color:#0b3d91}
+  .pub-tab:nth-child(5){background:linear-gradient(135deg,#93c5fd,#c7ddfb);color:#0b3d91}
+  .pub-tab:hover{opacity:1}
+  .pub-tab.active{opacity:1;transform:translateY(-1px);box-shadow:0 0 0 2px #fff,0 6px 18px rgba(29,78,216,.45)}
+  .pub-tab-count{font-size:10px;font-weight:800;background:rgba(0,0,0,.18);color:inherit;border-radius:999px;padding:2px 8px}
+  .pub-tab:nth-child(4) .pub-tab-count,.pub-tab:nth-child(5) .pub-tab-count{background:rgba(11,61,145,.16)}
+  .pub-kpi-pair{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
+  .pub-kpi-block{display:flex;flex-direction:column;min-width:0}
+  .pub-kpi-num{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--text);line-height:1.1}
+  .pub-kpi-cap{font-size:11px;color:var(--muted);margin-top:2px;font-weight:600}
+  .pub-summary-row{grid-template-columns:1fr 1fr}
+  .pub-combined{min-width:auto!important}
+  .pub-combined tbody td:first-child{text-align:left;padding-left:10px}
+  .pub-combined .logo-cell{flex-direction:column;gap:3px;justify-content:flex-start;align-items:flex-start}
+  .pub-combined .logo-cell img{width:58px;height:22px}
+  .pub-combined .supplier-detail-tag{max-width:88px}
+  .pub-resumo-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1.5px solid #2563eb;border-radius:8px;background:#eff6ff;color:#1d4ed8;font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .pub-resumo-btn:hover{background:#2563eb;color:#fff}
+  .pub-score{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:800}
+  .pub-score-0{background:#f1f5f9;color:#64748b}
+  .pub-score-1{background:#fef3c7;color:#b45309}
+  .pub-score-2{background:#dcfce7;color:#15803d}
+  .pub-score-3{background:#dbeafe;color:#1d4ed8}
+  .pub-empty-row{text-align:center;padding:34px 16px;color:var(--muted);font-weight:600}
+  .pub-resumo-dialog{width:min(680px,96vw);height:auto;max-height:88vh}
+  .pub-resumo-body{padding:18px 22px}
+  .pub-resumo-line{position:relative;margin:0 0 12px;padding:11px 16px 11px 32px;background:#f8fafc;border-left:3px solid #2563eb;border-radius:6px;font-size:13px;line-height:1.6;color:#334155}
+  .pub-resumo-line:before{content:"";position:absolute;left:13px;top:18px;width:7px;height:7px;border-radius:50%;background:#2563eb}
+  @media(max-width:900px){.pub-summary-row{grid-template-columns:1fr}.pub-tab{flex:1 1 auto;justify-content:center}}
+
   /* Portal navigation */
   .portal-nav { background:#fff; border-bottom:1px solid var(--border); padding:0 24px; display:flex; gap:8px; position:sticky; top:0; z-index:50; box-shadow:0 1px 4px rgba(15,23,42,.06); }
   .portal-tab { border:0; background:transparent; padding:14px 18px 12px; font:600 13px 'Roboto',sans-serif; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; transition:.15s; }
@@ -1123,7 +1159,7 @@
   .skeleton-block.wide{grid-column:1/-1;height:280px}
   [data-tooltip]{position:relative}
   [data-tooltip]:hover::after,[data-tooltip]:focus-visible::after{content:attr(data-tooltip);position:absolute;z-index:800;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%);width:max-content;max-width:260px;padding:8px 10px;border-radius:8px;background:#0f172a;color:#fff;font-size:10px;font-weight:600;line-height:1.35;box-shadow:0 8px 20px rgba(2,6,23,.25);text-transform:none;letter-spacing:0;pointer-events:none}
-  [data-tooltip]:hover::before,[data-tooltip]:focus-visible::before{content:'';position:absolute;z-index:801;left:50%;bottom:calc(100% + 3px);transform:translateX(-50%);border:6px solid transparent;border-top-color:#0f172a;pointer-events:none}
+  [data-tooltip]:not(.kpi-card):hover::before,[data-tooltip]:not(.kpi-card):focus-visible::before{content:'';position:absolute;z-index:801;left:50%;bottom:calc(100% + 3px);transform:translateX(-50%);border:6px solid transparent;border-top-color:#0f172a;pointer-events:none}
   .dashboard-panel.active{animation:none}
   .filter-btn,.clear-btn,.portal-tab,.marketplace-logo-filter-btn,.activity-owner-btn,.crossdocking-logo-filter{transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease,border-color .16s ease,color .16s ease}
   button:active{transform:scale(.98)}
@@ -1454,53 +1490,24 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 <section id="dashboard-lotes" class="dashboard-panel">
 <div class="main">
   <div class="kpi-row" id="kpiRow"></div>
-  <div class="summary-row">
-    <div class="summary-card">
-      <div class="sc-header">Resumo por Responsável</div>
-      <div class="sc-body" id="summaryResponsavel"></div>
-    </div>
-    <div class="summary-card">
-      <div class="sc-header">Resumo por Status de Produção</div>
-      <div class="sc-body" id="summaryStatus"></div>
-    </div>
-    <div class="summary-card">
-      <div class="sc-header">Resumo por Prioridade</div>
-      <div class="sc-body" id="summaryRK"></div>
-    </div>
-  </div>
+  <div class="pub-tabs" id="publicationTabs" role="tablist" aria-label="Status de publicação"></div>
   <div class="section">
     <div class="section-header">
-      <span class="section-title">Detalhamento por Fornecedor + Cronograma Gantt</span>
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div><span class="legend-label">Em Produção</span></div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--orange);"></div><span class="legend-label">Próximo</span></div>
-        <div class="legend-item"><div class="legend-dot" style="background:#eab308;"></div><span class="legend-label">Levantamento</span></div>
-      </div>
-    </div>
-    <div class="gantt-toolbar">
-      <button class="filter-btn" data-filter="sim" onclick="toggleFilter(this)">Em Produção</button>
-      <button class="filter-btn" data-filter="próximo" onclick="toggleFilter(this)">Próximos da fila</button>
-      <button class="filter-btn" data-filter="espera" onclick="toggleFilter(this)">Em Espera</button>
-      <button class="filter-btn" data-filter="indefinido" onclick="toggleFilter(this)">Indefinidos</button>
-      <div class="filter-sep"></div>
-      <div class="multi-select">
-        <button type="button" class="multi-select-btn" onclick="toggleMultiSelect()">
-          <span>Filtros Avançados</span>
-          <span class="ms-count" id="msCount">3</span>
-          <span class="arrow">▼</span>
-        </button>
-        <div class="multi-select-dd" id="msDropdown">
-          <label><input type="checkbox" value="sim" checked onchange="updateMultiSelect()"> Em Produção</label>
-          <label><input type="checkbox" value="próximo" checked onchange="updateMultiSelect()"> Próximo</label>
-          <label><input type="checkbox" value="espera" checked onchange="updateMultiSelect()"> Espera</label>
-          <label><input type="checkbox" value="indefinido" onchange="updateMultiSelect()"> Indefinido</label>
-        </div>
-      </div>
+      <span class="section-title" id="publicationTabTitle">Publicações</span>
       <span class="publication-filter-result" id="publicationFilterResult" aria-live="polite"></span>
-      <button type="button" class="clear-btn publication-clear-btn" id="clearPublicationFilters" onclick="clearPublicationFilters()">Limpar filtros</button>
+    </div>
+    <div class="summary-row pub-summary-row">
+      <div class="summary-card">
+        <div class="sc-header">Resumo por Responsável</div>
+        <div class="sc-body" id="summaryResponsavel"></div>
+      </div>
+      <div class="summary-card">
+        <div class="sc-header">Resumo por Prioridade</div>
+        <div class="sc-body" id="summaryRK"></div>
+      </div>
     </div>
     <div class="section-body">
-      <div class="table-scroll" id="combinedContainer" tabindex="0" aria-label="Tabela de publicações com rolagem horizontal"></div>
+      <div class="table-scroll" id="combinedContainer" tabindex="0" aria-label="Tabela de publicações"></div>
     </div>
   </div>
 </div>
@@ -1508,16 +1515,15 @@ body{background:var(--app-page);color:var(--app-text);min-height:100vh;padding:0
 
 
 
-<div class="pub-project-modal" id="publicationProjectModal" aria-hidden="true">
-  <div class="pub-project-dialog" role="dialog" aria-modal="true" aria-labelledby="publicationProjectTitle">
+<div class="pub-project-modal" id="publicationResumoModal" aria-hidden="true">
+  <div class="pub-project-dialog pub-resumo-dialog" role="dialog" aria-modal="true" aria-labelledby="publicationResumoTitle">
     <div class="pub-project-topbar">
-      <img class="pub-project-brand" id="publicationProjectLogo" alt="Logo do fornecedor">
-      <div class="pub-project-heading"><h2 id="publicationProjectTitle">Cronograma de Publicação</h2><p id="publicationProjectSubtitle"></p></div>
-      <button class="pub-project-close" id="publicationProjectClose" type="button" aria-label="Fechar">×</button>
+      <img class="pub-project-brand" id="publicationResumoLogo" alt="Logo do fornecedor">
+      <div class="pub-project-heading"><h2 id="publicationResumoTitle">Resumo</h2><p id="publicationResumoSubtitle"></p></div>
+      <button class="pub-project-close" id="publicationResumoClose" type="button" aria-label="Fechar">×</button>
     </div>
-    <div class="pub-project-meta" id="publicationProjectMeta"></div>
-    <div class="pub-project-scroll" id="publicationProjectContent"></div>
-    <div class="pub-project-foot"><span>Clique fora ou pressione Esc para fechar.</span><span>Modelo operacional inspirado no cronograma detalhado da Foxlux/Famastil.</span></div>
+    <div class="pub-project-scroll" id="publicationResumoContent"></div>
+    <div class="pub-project-foot"><span>Clique fora ou pressione Esc para fechar.</span><span>Resumo do fornecedor</span></div>
   </div>
 </div>
 
@@ -2124,370 +2130,179 @@ const teamFileName = name => String(name||'').trim().toLocaleLowerCase('pt-BR').
 function teamPersonHTML(name, small=false){
   const clean=String(name||'Indefinido').trim();
   if(/^autom[aá]tico$/i.test(clean)) return '<span class="person-special person-automatic">Automático</span>';
-  if(/^(indefinido|s\/ resp\.|não informado)$/i.test(clean)) return '<span class="person-special person-undefined">'+clean+'</span>';
+  if(/^(indefinido|s\/ resp\.|sem responsável|não informado)$/i.test(clean)) return '<span class="person-special person-undefined">'+clean+'</span>';
   return '<span class="publication-person"><img class="team-avatar'+(small?' small':'')+'" src="logos-equipe/'+teamFileName(clean)+'.png" alt="'+clean+'" onerror="this.style.display=\'none\'"> <span>'+clean+'</span></span>';
 }
 
-// KPI Cards (5 cards)
-const totalProdutos = data.reduce((s,d) => s + d.produzir, 0);
-const totalProduzindo = data.filter(d => d.prod === 'sim').length;
-const totalEspera = data.filter(d => d.prod === 'próximo' || d.prod === 'espera').length;
-const totalUnidadesProducao = data.reduce((s,d) => s + (Number(d.producao) || 0), 0);
-const totalFornecedores = data.length;
-const totalComResp = data.filter(d => d.resp !== 's/ resp.').length;
-
-const kpis = [
-  { label: 'Total de Fornecedores', value: totalFornecedores, sub: totalComResp + ' com responsável designado', cls: 'blue' },
-  { label: 'Em Produção', value: totalProduzindo, sub: 'publicando agora', cls: 'green' },
-  { label: 'Próximo / Espera', value: totalEspera, sub: 'aguardando publicar', cls: 'orange' },
-  { label: 'Unidades em Produção', value: fmt(totalUnidadesProducao), sub: 'unidades em produção', cls: 'red' },
-  { label: 'Total a Produzir', value: fmt(totalProdutos), sub: 'unidades', cls: 'purple' },
-];
-document.getElementById('kpiRow').innerHTML = kpis.map(k =>
-  '<div class="kpi-card ' + k.cls + '"><div class="kpi-label">' + k.label + '</div><div class="kpi-value">' + k.value + '</div><div class="kpi-sub">' + k.sub + '</div></div>'
-).join('');
-
-// Summary: Responsável
-const respOrder = ['Lucas','Bruno','Jone','s/ resp.'];
-const respGroups = {};
-data.forEach(d => {
-  if (!respGroups[d.resp]) respGroups[d.resp] = { producao:0, prontos:0, produzir:0, restantes:0, count:0 };
-  const g = respGroups[d.resp];
-  g.producao += d.producao; g.prontos += d.prontos; g.produzir += d.produzir; g.restantes += d.restantes; g.count++;
-});
-
-let htmlResp = '<table class="stbl">';
-htmlResp += '<tr class="sh"><td>Responsável</td><td>Forn.</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td><td>Restantes</td></tr>';
-const respSorted = respOrder.filter(r => respGroups[r]);
-respSorted.forEach(name => {
-  const g = respGroups[name];
-  const bgP = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-  const respVisual = teamPersonHTML(name, true);
-  htmlResp += '<tr class="publication-summary-row" data-summary-resp="' + name.replace(/"/g,'&quot;') + '" onclick="togglePublicationResponsibleFilter(this.dataset.summaryResp)"><td>' + respVisual + '</td><td>' + g.count + '</td><td class="num num-bold" style="' + bgP + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td><td class="num" style="color:' + (g.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(g.restantes) + '</td></tr>';
-});
-const totResp = Object.values(respGroups).reduce((s,g) => ({ producao:s.producao+g.producao, prontos:s.prontos+g.prontos, produzir:s.produzir+g.produzir, restantes:s.restantes+g.restantes }), {producao:0,prontos:0,produzir:0,restantes:0});
-const bgPTot = totResp.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-htmlResp += '<tr><td>TOTAL</td><td>' + data.length + '</td><td class="num num-bold" style="' + bgPTot + '">' + fmt(totResp.producao) + '</td><td class="num">' + fmt(totResp.prontos) + '</td><td class="num num-bold">' + fmt(totResp.produzir) + '</td><td class="num" style="color:' + (totResp.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(totResp.restantes) + '</td></tr>';
-htmlResp += '</table>';
-document.getElementById('summaryResponsavel').innerHTML = htmlResp;
-
-// Summary: Status de Produção
-const statusGroups = {};
-data.forEach(d => {
-  if (!statusGroups[d.prod]) statusGroups[d.prod] = { ativo:0, novo:0, reativando:0, count:0, produzir:0, producao:0 };
-  const g = statusGroups[d.prod]; g.count++; g.produzir += d.produzir; g.producao += d.producao;
-  if (d.status === 'Ativo') g.ativo++; else if (d.status === 'Novo') g.novo++; else g.reativando++;
-});
-let htmlSt = '<table class="stbl">';
-htmlSt += '<tr class="sh"><td rowspan="2">Status Produção</td><td colspan="4" style="text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--accent-dark);">Fornecedores</td><td rowspan="2">Em Produção</td><td rowspan="2">Produzir</td></tr>';
-htmlSt += '<tr class="sh"><td>Qtd</td><td>Ativo</td><td>Novo</td><td>Reativ.</td></tr>';
-['sim','próximo','espera','indefinido'].forEach(s => {
-  const g = statusGroups[s]; if (!g) return;
-  const bgSt = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-  htmlSt += '<tr><td><span class="badge badge-' + s + '">' + s + '</span></td><td>' + g.count + '</td><td class="num">' + g.ativo + '</td><td class="num">' + g.novo + '</td><td class="num">' + g.reativando + '</td><td class="num num-bold" style="' + bgSt + '">' + fmt(g.producao) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td></tr>';
-});
-htmlSt += '</table>';
-document.getElementById('summaryStatus').innerHTML = htmlSt;
-
-// Summary: Prioridade
-const rkGroups = {};
-data.forEach(d => {
-  if (!rkGroups[d.rk]) rkGroups[d.rk] = { count:0, produzir:0, producao:0, prontos:0 };
-  const g = rkGroups[d.rk]; g.count++; g.produzir += d.produzir; g.producao += d.producao; g.prontos += d.prontos;
-});
-const rkDesc = { 1:'Enorme potencial', 2:'Grande potencial', 3:'Bom potencial', 4:'Baixo potencial' };
-let htmlRK = '<table class="stbl">';
-htmlRK += '<tr class="sh"><td>Prioridade</td><td>Fornecedores</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td></tr>';
-[1,2,3,4].forEach(rk => {
-  const g = rkGroups[rk]; if (!g) return;
-  const bgRk = g.producao > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-  htmlRK += '<tr><td><span class="rk-badge rk-' + rk + '">' + rk + '</span> <span style="font-size:10px;color:var(--muted);margin-left:3px;">' + rkDesc[rk] + '</span></td><td>' + g.count + '</td><td class="num num-bold" style="' + bgRk + '">' + fmt(g.producao) + '</td><td class="num">' + fmt(g.prontos) + '</td><td class="num num-bold">' + fmt(g.produzir) + '</td></tr>';
-});
-htmlRK += '</table>';
-document.getElementById('summaryRK').innerHTML = htmlRK;
-
-// Combined Table + Gantt
-// A ordem do Gantt segue exatamente a sequência da planilha.
+// ============ PUBLICACOES ============
+const PUB_STATUSES = ['Em produção','Próximo da fila','Em análise','Espera de Reativação','Indefinido'];
+const PUB_STATUS_COLOR = {'Em produção':'green','Próximo da fila':'orange','Em análise':'blue','Espera de Reativação':'purple','Indefinido':'red'};
+const PUB_SCORE_CROSS_DESC = {
+  0:'Fornecedor destacou que não atua e pode ser uma grande complicação.',
+  1:'Fornecedor destacou pouca experiência mas é aplicável.',
+  2:'Fornecedor tem experiência e será prático.',
+  3:'Formato especialista de Cross.'
+};
+const PUB_SCORE_ESTOQUE_DESC = {
+  0:'Atualização crítica, sem listagem garantida, estoque crítico.',
+  1:'Possuem listagem fora do padrão, recorrência baixa de atualização.',
+  2:'Possuem listagem dentro do padrão e atualização diária.',
+  3:'Possibilidade de API.'
+};
+const PUB_STATUS_TIP = {
+  'Em produção':'Quantidade de fornecedores atualmente em produção.',
+  'Próximo da fila':'Fornecedores na fila aguardando início da produção.',
+  'Em análise':'Fornecedores em análise para entrada na fila de produção.',
+  'Espera de Reativação':'Fornecedores aguardando reativação.',
+  'Indefinido':'Fornecedores sem status de publicação definido.'
+};
 const publicationRows = data.map((item,index)=>({...item,_originalIndex:index}));
-let html = '<table class="combined"><thead>';
-html += '<tr>';
-html += '<th colspan="10" style="text-align:left;padding-left:14px;">Dados do Fornecedor</th>';
-months.forEach(m => { html += '<th class="month-header" colspan="5">' + m + '</th>'; });
-html += '</tr>';
-html += '<tr>';
-html += '<th style="min-width:140px;text-align:center;">Fornecedor</th>';
-html += '<th style="min-width:72px;">Status</th>';
-html += '<th style="min-width:40px;">Lote</th>';
-html += '<th style="min-width:72px;">Status Produção</th>';
-html += '<th style="min-width:34px;">RK</th>';
-html += '<th style="min-width:72px;">Responsável</th>';
-html += '<th style="min-width:65px;">Em Produção</th>';
-html += '<th style="min-width:55px;">Prontos</th>';
-html += '<th style="min-width:60px;">Produzir</th>';
-html += '<th class="col-sep" style="min-width:55px;">Restantes</th>';
-months.forEach((m, mi) => {
-  weeks.forEach(w => {
-    const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
-    html += '<th class="gantt-col' + sep + '" title="' + m + ' Sem ' + w + '">' + w + '</th>';
-  });
-});
-html += '</tr></thead><tbody>';
+let activePublicationStatus = PUB_STATUSES[0];
+let activePublicationResp = null;
 
-publicationRows.forEach((d) => {
-  const schedule = ganttSchedule.find(g => g.idx === d._originalIndex);
-  const statusCls = d.status === 'Ativo' ? 'ativo' : d.status === 'Novo' ? 'novo' : 'reativando';
-  const rowCls = d.prod === 'sim' ? ' row-sim' : '';
-  const logoArquivo = d.logo ? String(d.logo).split('/').pop().split('\\').pop() : '';
-  const logoHTML = logoArquivo
-    ? '<img src="logos-marcas/' + logoArquivo + '" alt="' + d.fornecedor + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">' + d.fornecedor + '</span>'
-    : '<span class="forn-name">' + d.fornecedor + '</span>';
-
-  const isProduction = d.prod === 'sim';
-  const interactiveAttrs = isProduction ? ' tabindex="0" role="button" aria-label="Abrir cronograma detalhado de ' + String(d.fornecedor||'').replace(/"/g,'&quot;') + '" data-publication-index="' + d._originalIndex + '"' : '';
-  html += '<tr class="' + (isProduction ? 'publication-row-clickable' : '') + rowCls + '"' + interactiveAttrs + ' data-prod="' + d.prod + '" data-resp="' + String(d.resp||'').replace(/"/g,'&quot;') + '">';
-  const detailTag = d.detalhe ? '<span class="supplier-detail-tag">' + String(d.detalhe).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'\"':"&quot;","'":"&#039;"}[ch])) + '</span>' : '';
-  html += '<td><div class="logo-cell">' + logoHTML + detailTag + '</div></td>';
-  html += '<td><span class="badge badge-' + statusCls + '">' + d.status + '</span></td>';
-  html += '<td>' + d.lote + '</td>';
-  html += '<td><span class="badge badge-' + d.prod + '">' + d.prod + '</span></td>';
-  html += '<td><span class="rk-badge rk-' + d.rk + '">' + d.rk + '</span></td>';
-  html += '<td style="color:' + (d.resp==='s/ resp.'?'var(--muted)':'var(--text)') + ';">' + teamPersonHTML(d.resp, true) + '</td>';
-  html += '<td class="num ' + (d.producao===0?'zero':'') + '" style="' + (d.producao>0?'background:var(--accent-light);border-radius:4px;padding:2px 6px;font-weight:700;':'') + '">' + fmt(d.producao) + '</td>';
-  html += '<td class="num ' + (d.prontos===0?'zero':'') + '">' + fmt(d.prontos) + '</td>';
-  html += '<td class="num num-bold">' + fmt(d.produzir) + '</td>';
-  html += '<td class="num col-sep" style="color:' + (d.restantes<0?'var(--red)':'var(--text)') + ';">' + fmtSigned(d.restantes) + '</td>';
-
-  months.forEach((m, mi) => {
-    weeks.forEach(w => {
-      const key = m + '-' + w;
-      const cell = schedule ? schedule.cells.find(c => c.w === key) : null;
-      const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
-      if (cell) {
-        const cls = cell.t === 'active' ? 'gantt-cell-active' : cell.t === 'survey' ? 'gantt-cell-survey' : 'gantt-cell-waiting';
-        html += '<td class="gantt-col' + sep + '"><div class="' + cls + '"></div></td>';
-      } else {
-        html += '<td class="gantt-col' + sep + '"></td>';
-      }
-    });
-  });
-  html += '</tr>';
-});
-
-// Totals
-const totP = data.reduce((s,d)=>s+d.producao,0);
-const totPr = data.reduce((s,d)=>s+d.prontos,0);
-const totPz = data.reduce((s,d)=>s+d.produzir,0);
-const totR = data.reduce((s,d)=>s+d.restantes,0);
-html += '<tr class="totals-row">';
-html += '<td data-publication-total="label" colspan="6" style="padding-left:14px;">TOTAL GERAL (' + data.length + ' fornecedores)</td>';
-const bgTotP = totP > 0 ? 'background:var(--accent-light);border-radius:4px;padding:2px 6px;' : '';
-html += '<td data-publication-total="producao" class="num num-bold" style="' + bgTotP + '">' + fmt(totP) + '</td>';
-html += '<td data-publication-total="prontos" class="num">' + fmt(totPr) + '</td>';
-html += '<td data-publication-total="produzir" class="num">' + fmt(totPz) + '</td>';
-html += '<td data-publication-total="restantes" class="num col-sep">' + fmtSigned(totR) + '</td>';
-months.forEach((m, mi) => {
-  weeks.forEach(w => {
-    const sep = (w === 1 && mi > 0) ? ' col-sep' : '';
-    html += '<td class="gantt-col' + sep + '"></td>';
-  });
-});
-html += '</tr>';
-html += '</tbody></table>';
-document.getElementById('combinedContainer').innerHTML = html;
-
-
-
-// ============ CRONOGRAMA EXPANDIDO DE PUBLICAÇÃO ============
 function pubEsc(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));}
-function pubNormalizeKey(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,' ').trim();}
-function publicationProjectFor(item){
-  const base=(typeof cronogramasPublicacaoData==='object'&&cronogramasPublicacaoData)||{};
-  const wanted=pubNormalizeKey(item.fornecedor);
-  const key=Object.keys(base).find(k=>pubNormalizeKey(k)===wanted);
-  return key?base[key]:null;
+function pubListados(v){const n=Number(String(v==null?'':v).replace(/\D/g,''));return isNaN(n)?0:n;}
+function pubListadosHTML(v){if(v==null||String(v).trim()==='')return '<span class="zero">—</span>';return fmt(pubListados(v));}
+function pubLogoHTML(d){
+  const logoArquivo=d.logo?String(d.logo).split('/').pop().split('\\').pop():'';
+  const detailTag=d.detalhe?'<span class="supplier-detail-tag">'+pubEsc(d.detalhe)+'</span>':'';
+  return logoArquivo
+    ? '<div class="logo-cell"><img src="logos-marcas/'+logoArquivo+'" alt="'+pubEsc(d.fornecedor)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'inline\';"><span class="forn-name" style="display:none;">'+pubEsc(d.fornecedor)+'</span>'+detailTag+'</div>'
+    : '<div class="logo-cell"><span class="forn-name">'+pubEsc(d.fornecedor)+'</span>'+detailTag+'</div>';
 }
-function publicationBaseDate(item,project){
-  if(project&&project.startDate){const p=String(project.startDate).split('-').map(Number);if(p.length===3)return new Date(p[0],p[1]-1,p[2]);}
-  const schedule=ganttSchedule.find(g=>g.idx===item._originalIndex);
-  const first=schedule&&schedule.cells&&schedule.cells[0]?schedule.cells[0].w:null;
-  const monthMap={Jan:0,Fev:1,Mar:2,Abr:3,Mai:4,Jun:5,Jul:6,Ago:7,Set:8,Out:9,Nov:10,Dez:11};
-  if(first){
-    const [m,w]=first.split('-');
-    const mIndex=monthMap[m]??6;
-    const firstIndex=monthMap[months[0]]??0;
-    let year=publicationYear;
-    if(mIndex<firstIndex)year++;
-    return new Date(year,mIndex,1+(Number(w)-1)*7);
+
+// KPI totalizers: uma por Status de Publicação (Fornecedores + SKUs)
+function renderPublicationKpis(){
+  document.getElementById('kpiRow').innerHTML = PUB_STATUSES.map(st=>{
+    const rows = publicationRows.filter(d=>d.statusPublicacao===st);
+    const skus = rows.reduce((s,d)=>s+pubListados(d.listados),0);
+    return '<div class="kpi-card '+PUB_STATUS_COLOR[st]+'" data-tooltip="'+pubEsc(PUB_STATUS_TIP[st])+'" tabindex="0"><div class="kpi-label">'+pubEsc(st)+'</div><div class="pub-kpi-pair"><div class="pub-kpi-block"><div class="pub-kpi-num">'+rows.length+'</div><div class="pub-kpi-cap">Fornecedores</div></div><div class="pub-kpi-block"><div class="pub-kpi-num">'+fmt(skus)+'</div><div class="pub-kpi-cap">SKUs</div></div></div></div>';
+  }).join('');
+}
+
+// Abas por status
+function renderPublicationTabs(){
+  const host=document.getElementById('publicationTabs');
+  host.innerHTML = PUB_STATUSES.map(st=>{
+    const count=publicationRows.filter(d=>d.statusPublicacao===st).length;
+    return '<button class="pub-tab'+(st===activePublicationStatus?' active':'')+'" type="button" role="tab" data-status="'+pubEsc(st)+'" aria-selected="'+(st===activePublicationStatus)+'">'+pubEsc(st)+'<span class="pub-tab-count">'+count+'</span></button>';
+  }).join('');
+  host.querySelectorAll('.pub-tab').forEach(btn=>btn.addEventListener('click',()=>{
+    activePublicationStatus=btn.dataset.status;activePublicationResp=null;renderPublicationAll();
+  }));
+}
+
+// Resumos (grids de totalizadores) — unificados em Listados
+function renderPublicationResponsibleSummary(){
+  const rows=publicationRows.filter(d=>d.statusPublicacao===activePublicationStatus);
+  const groups={};
+  rows.forEach(d=>{if(!groups[d.resp])groups[d.resp]={count:0,listados:0};groups[d.resp].count++;groups[d.resp].listados+=pubListados(d.listados);});
+  const fixed=['Lucas','Bruno','Jone','sem responsável','s/ resp.'];
+  const order=[...fixed,...Object.keys(groups).filter(x=>!fixed.includes(x)).sort((a,b)=>a.localeCompare(b,'pt-BR'))];
+  let out='<table class="stbl"><tr class="sh"><td>Responsável</td><td>Fornecedores</td><td>Listados</td></tr>';
+  order.filter(n=>groups[n]).forEach(name=>{
+    const g=groups[name];
+    out+='<tr class="publication-summary-row'+(activePublicationResp===name?' active':'')+'" data-summary-resp="'+pubEsc(name)+'" tabindex="0" role="button"><td>'+teamPersonHTML(name,true)+'</td><td>'+g.count+'</td><td class="num num-bold">'+fmt(g.listados)+'</td></tr>';
+  });
+  const total=rows.reduce((s,d)=>s+pubListados(d.listados),0);
+  out+='<tr><td>TOTAL</td><td>'+rows.length+'</td><td class="num num-bold">'+fmt(total)+'</td></tr></table>';
+  const host=document.getElementById('summaryResponsavel');
+  host.innerHTML=out;
+  const toggle=name=>{activePublicationResp=activePublicationResp===name?null:name;renderPublicationAll();};
+  host.querySelectorAll('.publication-summary-row').forEach(r=>{
+    r.addEventListener('click',()=>toggle(r.dataset.summaryResp));
+    r.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(r.dataset.summaryResp);}});
+  });
+}
+function renderPublicationPrioritySummary(){
+  const rows=publicationRows.filter(d=>d.statusPublicacao===activePublicationStatus);
+  const groups={};rows.forEach(d=>{if(!groups[d.rk])groups[d.rk]={count:0,listados:0};groups[d.rk].count++;groups[d.rk].listados+=pubListados(d.listados);});
+  const desc={1:'Enorme potencial',2:'Grande potencial',3:'Bom potencial',4:'Baixo potencial'};
+  let out='<table class="stbl"><tr class="sh"><td>Prioridade</td><td>Fornecedores</td><td>Listados</td></tr>';
+  [1,2,3,4].forEach(rk=>{const g=groups[rk];if(!g)return;out+='<tr><td><span class="rk-badge rk-'+rk+'">'+rk+'</span> <span style="font-size:10px;color:var(--muted);margin-left:3px;">'+desc[rk]+'</span></td><td>'+g.count+'</td><td class="num num-bold">'+fmt(g.listados)+'</td></tr>';});
+  const totalListados=rows.reduce((s,d)=>s+pubListados(d.listados),0);
+  out+='<tr><td>TOTAL</td><td>'+rows.length+'</td><td class="num num-bold">'+fmt(totalListados)+'</td></tr>';
+  out+='</table>';
+  document.getElementById('summaryRK').innerHTML=out;
+}
+
+// Tabela principal (por aba/status)
+function renderPublicationTable(){
+  const rows=publicationRows.filter(d=>d.statusPublicacao===activePublicationStatus && (!activePublicationResp||d.resp===activePublicationResp));
+  const isAnalise=activePublicationStatus==='Em análise';
+  let html='<table class="combined pub-combined"><thead><tr>';
+  html+='<th style="min-width:96px;">Fornecedor</th>';
+  html+='<th style="min-width:96px;">Status</th>';
+  html+='<th style="min-width:60px;">Lote</th>';
+  html+='<th style="min-width:50px;">RK</th>';
+  html+='<th style="min-width:150px;">Responsável</th>';
+  html+='<th style="min-width:100px;">Listados</th>';
+  if(isAnalise){html+='<th style="min-width:96px;">Score Cross</th>';html+='<th style="min-width:104px;">Score Estoque</th>';}
+  html+='<th style="min-width:120px;">Resumo</th>';
+  html+='</tr></thead><tbody>';
+  if(!rows.length){
+    html+='<tr><td colspan="'+(isAnalise?9:7)+'"><div class="pub-empty-row">Nenhum fornecedor nesta aba.</div></td></tr>';
+  }else{
+    rows.forEach(d=>{
+      const statusCls=d.status==='Ativo'?'ativo':d.status==='Novo'?'novo':d.status==='Reativando'?'reativando':'';
+      const statusBadge=d.status?'<span class="badge badge-'+statusCls+'">'+pubEsc(d.status)+'</span>':'<span class="zero">—</span>';
+      const hasResumo=d.resumo&&String(d.resumo).trim()!=='';
+      const resumoCell=hasResumo?'<button class="pub-resumo-btn" type="button" data-resumo-index="'+d._originalIndex+'">Ver Resumo</button>':'<span class="zero">—</span>';
+      const scoreCell=(val,map)=>val==null?'<span class="zero">—</span>':'<span class="pub-score pub-score-'+val+'" title="'+pubEsc(map[val]||('Score '+val))+'">'+val+'</span>';
+      html+='<tr data-resp="'+pubEsc(d.resp)+'">';
+      html+='<td>'+pubLogoHTML(d)+'</td>';
+      html+='<td>'+statusBadge+'</td>';
+      html+='<td>'+(d.lote?pubEsc(d.lote):'<span class="zero">—</span>')+'</td>';
+      html+='<td><span class="rk-badge rk-'+d.rk+'">'+d.rk+'</span></td>';
+      html+='<td>'+teamPersonHTML(d.resp,true)+'</td>';
+      html+='<td class="num num-bold">'+pubListadosHTML(d.listados)+'</td>';
+      if(isAnalise){html+='<td>'+scoreCell(d.scoreCross,PUB_SCORE_CROSS_DESC)+'</td>';html+='<td>'+scoreCell(d.scoreEstoque,PUB_SCORE_ESTOQUE_DESC)+'</td>';}
+      html+='<td>'+resumoCell+'</td>';
+      html+='</tr>';
+    });
   }
-  return new Date();
+  const totalSku=rows.reduce((s,d)=>s+pubListados(d.listados),0);
+  html+='<tr class="totals-row"><td colspan="5" style="padding-left:14px;">TOTAL ('+rows.length+' fornecedor'+(rows.length===1?'':'es')+')</td><td class="num num-bold">'+fmt(totalSku)+'</td>';
+  if(isAnalise)html+='<td></td><td></td>';
+  html+='<td></td></tr>';
+  html+='</tbody></table>';
+  document.getElementById('combinedContainer').innerHTML=html;
+  document.getElementById('publicationTabTitle').textContent=activePublicationStatus;
+  const result=document.getElementById('publicationFilterResult');
+  if(result)result.textContent=rows.length+' fornecedor'+(rows.length===1?'':'es')+(activePublicationResp?' · filtro: '+activePublicationResp:'');
+  document.querySelectorAll('.pub-resumo-btn').forEach(b=>b.addEventListener('click',()=>openPublicationResumo(Number(b.dataset.resumoIndex))));
 }
-function addDays(date,n){const d=new Date(date);d.setDate(d.getDate()+n);return d;}
-function brDate(date){return String(date.getDate()).padStart(2,'0')+'/'+String(date.getMonth()+1).padStart(2,'0')+'/'+String(date.getFullYear()).slice(-2);}
-function openPublicationProject(index){
+
+
+
+// ============ RESUMO DO FORNECEDOR (modal) ============
+function openPublicationResumo(index){
   const item=publicationRows.find(x=>x._originalIndex===Number(index));
-  if(!item||item.prod!=='sim')return;
-  const project=publicationProjectFor(item);
-  const modal=document.getElementById('publicationProjectModal');
-  const logo=document.getElementById('publicationProjectLogo');
+  if(!item||!item.resumo)return;
+  const modal=document.getElementById('publicationResumoModal');
+  const logo=document.getElementById('publicationResumoLogo');
   const logoFile=item.logo?String(item.logo).split('/').pop().split('\\').pop():'';
   logo.src=logoFile?'logos-marcas/'+logoFile:'guimepa.png';logo.style.display='block';logo.onerror=()=>{logo.src='guimepa.png'};
-  document.getElementById('publicationProjectTitle').textContent=(project&&project.title)||('Publicação '+item.fornecedor+(item.detalhe?' — '+item.detalhe:''));
-  document.getElementById('publicationProjectSubtitle').textContent='Cronograma detalhado do lote '+(item.lote||'não informado');
-  const start=publicationBaseDate(item,project);
-  const phases=project&&Array.isArray(project.phases)?project.phases:[];
-  const maxEnd=phases.flatMap(g=>g.tasks||[]).reduce((max,t)=>Math.max(max,(Number(t.startOffset)||0)+(Number(t.duration)||0)),0);
-  const end=addDays(start,Math.max(1,maxEnd||1)-1);
-  document.getElementById('publicationProjectMeta').innerHTML=[
-    ['Título do projeto',(project&&project.title)||('Publicação '+item.fornecedor+(item.detalhe?' '+item.detalhe:''))],
-    ['Gerente do projeto',(project&&project.manager)||item.resp||'Não informado'],
-    ['Empresa',item.fornecedor],
-    ['Período',project&&phases.length?brDate(start)+' a '+brDate(end):'A cadastrar']
-  ].map(x=>'<div class="pub-project-meta-item"><span class="pub-project-meta-label">'+pubEsc(x[0])+'</span><span class="pub-project-meta-value">'+pubEsc(x[1])+'</span></div>').join('');
-  document.getElementById('publicationProjectContent').innerHTML=phases.length?buildPublicationProjectTable(item,start,project):'<div class="pub-project-empty"><strong>Cronograma detalhado ainda não cadastrado</strong><span>Esta marca está em produção e já possui acesso ao painel ampliado. Preencha o arquivo <b>cronogramas-publicacao-data.js</b> para exibir etapas, responsáveis, datas, duração e percentual concluído.</span></div>';
-  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('publicationProjectClose').focus();
+  document.getElementById('publicationResumoTitle').textContent=item.fornecedor+(item.detalhe?' — '+item.detalhe:'');
+  document.getElementById('publicationResumoSubtitle').textContent=item.statusPublicacao+(item.rk?' · Prioridade '+item.rk:'')+(item.resp?' · '+item.resp:'');
+  const lines=String(item.resumo).split('\n').map(l=>l.trim()).filter(Boolean);
+  document.getElementById('publicationResumoContent').innerHTML='<div class="pub-resumo-body">'+lines.map(l=>'<p class="pub-resumo-line">'+pubEsc(l)+'</p>').join('')+'</div>';
+  modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('publicationResumoClose').focus();
 }
-function buildPublicationProjectTable(item,start,project){
-  const phases=project.phases||[];
-  const totalDays=Math.max(1,phases.flatMap(g=>g.tasks||[]).reduce((max,t)=>Math.max(max,(Number(t.startOffset)||0)+(Number(t.duration)||0)),0));
-  const daysPerWeek=5,weekCount=Math.ceil(totalDays/daysPerWeek);
-  const phaseCount=Math.max(1,new Set(phases.map(x=>String(x.phase||''))).size);
-  let h='<table class="pub-detail-table"><thead>';
-  h+='<tr><th class="pub-fixed pub-col-stage" rowspan="3">Etapa</th><th class="pub-fixed pub-col-task pub-left" rowspan="3">Atividade</th><th class="pub-fixed pub-col-owner" rowspan="3">Responsável</th><th class="pub-fixed pub-col-start" rowspan="3">Data de início</th><th class="pub-fixed pub-col-end" rowspan="3">Data de conclusão</th><th class="pub-fixed pub-col-duration" rowspan="3">Duração</th><th class="pub-fixed pub-col-progress" rowspan="3">% concluída</th>';
-  const phaseGroups=[];phases.forEach(g=>{let p=phaseGroups.find(x=>x.phase===String(g.phase));if(!p){p={phase:String(g.phase),days:0};phaseGroups.push(p);}p.days=Math.max(p.days,...(g.tasks||[]).map(t=>(Number(t.startOffset)||0)+(Number(t.duration)||0)));});
-  let phaseStart=0;phaseGroups.forEach((p,i)=>{const next=phaseGroups[i+1];const span=Math.max(1,(next?Math.max(phaseStart+1,next.days):totalDays)-phaseStart);h+='<th class="pub-phase-head pub-phase-'+((i%3)+1)+'" colspan="'+span+'">Fase '+pubEsc(p.phase)+'</th>';phaseStart+=span;});
-  if(phaseStart<totalDays)h+='<th class="pub-phase-head pub-phase-3" colspan="'+(totalDays-phaseStart)+'">Cronograma</th>';
-  h+='</tr><tr>';for(let w=1;w<=weekCount;w++){h+='<th class="pub-week-head pub-week-'+(((w-1)%3)+1)+'" colspan="'+Math.min(daysPerWeek,totalDays-(w-1)*daysPerWeek)+'">Semana '+w+'</th>';}h+='</tr><tr>';
-  for(let d=0;d<totalDays;d++)h+='<th class="pub-day-head" title="'+brDate(addDays(start,d))+'">'+addDays(start,d).getDate()+'</th>';
-  h+='</tr></thead><tbody>';
-  phases.forEach(group=>{
-    h+='<tr class="pub-detail-phase"><td class="pub-fixed pub-col-stage">'+pubEsc(group.phase)+'</td><td class="pub-fixed pub-col-task pub-left" colspan="6">'+pubEsc(group.group)+'</td>'+Array(totalDays).fill('<td></td>').join('')+'</tr>';
-    (group.tasks||[]).forEach(t=>{
-      const offset=Number(t.startOffset)||0,duration=Math.max(1,Number(t.duration)||1),progress=Math.max(0,Math.min(100,Number(t.progress)||0));
-      const ts=addDays(start,offset),te=addDays(ts,duration-1),owner=t.owner==='Guimepa'?(item.resp||'Guimepa'):(t.owner||'Não informado');
-      h+='<tr><td class="pub-fixed pub-col-stage">'+pubEsc(t.code)+'</td><td class="pub-fixed pub-col-task pub-left">'+pubEsc(t.activity)+'</td><td class="pub-fixed pub-col-owner">'+pubEsc(owner)+'</td><td class="pub-fixed pub-col-start">'+brDate(ts)+'</td><td class="pub-fixed pub-col-end">'+brDate(te)+'</td><td class="pub-fixed pub-col-duration">'+duration+'</td><td class="pub-fixed pub-col-progress"><div class="pub-progress-track"><div class="pub-progress-fill" style="width:'+progress+'%"></div></div><div style="font-size:9px;margin-top:2px">'+progress+'%</div></td>';
-      for(let d=0;d<totalDays;d++){const active=d>=offset&&d<offset+duration;h+='<td>'+(active?'<div class="pub-task-bar pub-task-'+pubEsc(t.color||'blue')+'"></div>':'')+'</td>';}
-      h+='</tr>';
-    });
-  });
-  return h+'</tbody></table>';
-}
-function closePublicationProject(){const m=document.getElementById('publicationProjectModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
-document.getElementById('combinedContainer').addEventListener('click',e=>{const row=e.target.closest('tr[data-publication-index]');if(row&&row.dataset.prod==='sim')openPublicationProject(row.dataset.publicationIndex);});
-document.getElementById('combinedContainer').addEventListener('keydown',e=>{const row=e.target.closest('tr[data-publication-index]');if(row&&row.dataset.prod==='sim'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openPublicationProject(row.dataset.publicationIndex);}});
-document.getElementById('publicationProjectClose').addEventListener('click',closePublicationProject);
-document.getElementById('publicationProjectModal').addEventListener('click',e=>{if(e.target.id==='publicationProjectModal')closePublicationProject();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('publicationProjectModal').classList.contains('open'))closePublicationProject();});
+function closePublicationResumo(){const m=document.getElementById('publicationResumoModal');if(!m)return;m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+document.getElementById('publicationResumoClose').addEventListener('click',closePublicationResumo);
+document.getElementById('publicationResumoModal').addEventListener('click',e=>{if(e.target.id==='publicationResumoModal')closePublicationResumo();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('publicationResumoModal').classList.contains('open'))closePublicationResumo();});
 
-// ============ FILTERS ============
-let activeBtnFilter = null;
-let activePublicationResp = null;
-let activePublicationStatuses = ['sim','próximo','espera'];
-
-function publicationFilteredData({excludeResponsible=false,excludeStatus=false}={}){
-  return publicationRows.filter(d=>{
-    const statusOk=excludeStatus||!activePublicationStatuses||activePublicationStatuses.includes(d.prod);
-    const respOk=excludeResponsible||!activePublicationResp||d.resp===activePublicationResp;
-    return statusOk&&respOk;
-  });
+// ============ RENDER ============
+function renderPublicationAll(){
+  renderPublicationKpis();
+  renderPublicationTabs();
+  renderPublicationTable();
+  renderPublicationResponsibleSummary();
+  renderPublicationPrioritySummary();
 }
-function renderPublicationKpis(rows){
-  const totalProdutos=rows.reduce((s,d)=>s+d.produzir,0);
-  const totalProduzindo=rows.filter(d=>d.prod==='sim').length;
-  const totalEspera=rows.filter(d=>d.prod==='próximo'||d.prod==='espera').length;
-  const totalUnidadesProducao=rows.reduce((s,d)=>s+(Number(d.producao)||0),0);
-  const totalComResp=rows.filter(d=>d.resp!=='s/ resp.').length;
-  const cards=[
-    {label:'Total de Fornecedores',value:rows.length,sub:totalComResp+' com responsável designado',cls:'blue'},
-    {label:'Em Produção',value:totalProduzindo,sub:'publicando agora',cls:'green'},
-    {label:'Próximo / Espera',value:totalEspera,sub:'aguardando publicar',cls:'orange'},
-    {label:'Unidades em Produção',value:fmt(totalUnidadesProducao),sub:'unidades no recorte atual',cls:'red'},
-    {label:'Total a Produzir',value:fmt(totalProdutos),sub:'unidades no recorte atual',cls:'purple'}
-  ];
-  document.getElementById('kpiRow').innerHTML=cards.map(k=>'<div class="kpi-card '+k.cls+'"><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div><div class="kpi-sub">'+k.sub+'</div></div>').join('');
-}
-function renderPublicationResponsibleSummary(){
-  const rows=publicationFilteredData({excludeResponsible:true});
-  const groups={};
-  rows.forEach(d=>{if(!groups[d.resp])groups[d.resp]={producao:0,prontos:0,produzir:0,restantes:0,count:0};const g=groups[d.resp];g.producao+=d.producao;g.prontos+=d.prontos;g.produzir+=d.produzir;g.restantes+=d.restantes;g.count++;});
-  const order=['Lucas','Bruno','Jone','s/ resp.',...Object.keys(groups).filter(x=>!['Lucas','Bruno','Jone','s/ resp.'].includes(x)).sort((a,b)=>a.localeCompare(b,'pt-BR'))];
-  let out='<table class="stbl"><tr class="sh"><td>Responsável</td><td>Forn.</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td><td>Restantes</td></tr>';
-  order.filter(n=>groups[n]).forEach(name=>{const g=groups[name],bg=g.producao>0?'background:var(--accent-light);border-radius:4px;padding:2px 6px;':'';out+='<tr class="publication-summary-row" data-summary-resp="'+name.replace(/"/g,'&quot;')+'" onclick="togglePublicationResponsibleFilter(this.dataset.summaryResp)" tabindex="0" role="button"><td>'+teamPersonHTML(name,true)+'</td><td>'+g.count+'</td><td class="num num-bold" style="'+bg+'">'+fmt(g.producao)+'</td><td class="num">'+fmt(g.prontos)+'</td><td class="num num-bold">'+fmt(g.produzir)+'</td><td class="num" style="color:'+(g.restantes<0?'var(--red)':'var(--text)')+';">'+fmtSigned(g.restantes)+'</td></tr>';});
-  const total=rows.reduce((a,d)=>({producao:a.producao+d.producao,prontos:a.prontos+d.prontos,produzir:a.produzir+d.produzir,restantes:a.restantes+d.restantes}),{producao:0,prontos:0,produzir:0,restantes:0});
-  out+='<tr><td>TOTAL</td><td>'+rows.length+'</td><td class="num num-bold">'+fmt(total.producao)+'</td><td class="num">'+fmt(total.prontos)+'</td><td class="num num-bold">'+fmt(total.produzir)+'</td><td class="num">'+fmtSigned(total.restantes)+'</td></tr></table>';
-  document.getElementById('summaryResponsavel').innerHTML=out;
-}
-function renderPublicationStatusSummary(rows){
-  const groups={};rows.forEach(d=>{if(!groups[d.prod])groups[d.prod]={ativo:0,novo:0,reativando:0,count:0,produzir:0,producao:0};const g=groups[d.prod];g.count++;g.produzir+=d.produzir;g.producao+=d.producao;if(d.status==='Ativo')g.ativo++;else if(d.status==='Novo')g.novo++;else g.reativando++;});
-  let out='<table class="stbl"><tr class="sh"><td rowspan="2">Status Produção</td><td colspan="4" style="text-align:center;border-bottom:1px solid var(--border);font-weight:700;color:var(--accent-dark);">Fornecedores</td><td rowspan="2">Em Produção</td><td rowspan="2">Produzir</td></tr><tr class="sh"><td>Qtd</td><td>Ativo</td><td>Novo</td><td>Reativ.</td></tr>';
-  ['sim','próximo','espera','indefinido'].forEach(status=>{const g=groups[status];if(!g)return;out+='<tr><td><span class="badge badge-'+status+'">'+status+'</span></td><td>'+g.count+'</td><td class="num">'+g.ativo+'</td><td class="num">'+g.novo+'</td><td class="num">'+g.reativando+'</td><td class="num num-bold">'+fmt(g.producao)+'</td><td class="num num-bold">'+fmt(g.produzir)+'</td></tr>';});
-  document.getElementById('summaryStatus').innerHTML=out+'</table>';
-}
-function renderPublicationPrioritySummary(rows){
-  const groups={};rows.forEach(d=>{if(!groups[d.rk])groups[d.rk]={count:0,produzir:0,producao:0,prontos:0};const g=groups[d.rk];g.count++;g.produzir+=d.produzir;g.producao+=d.producao;g.prontos+=d.prontos;});
-  const desc={1:'Enorme potencial',2:'Grande potencial',3:'Bom potencial',4:'Baixo potencial'};
-  let out='<table class="stbl"><tr class="sh"><td>Prioridade</td><td>Fornecedores</td><td>Em Produção</td><td>Prontos</td><td>Produzir</td></tr>';
-  [1,2,3,4].forEach(rk=>{const g=groups[rk];if(!g)return;out+='<tr><td><span class="rk-badge rk-'+rk+'">'+rk+'</span> <span style="font-size:10px;color:var(--muted);margin-left:3px;">'+desc[rk]+'</span></td><td>'+g.count+'</td><td class="num num-bold">'+fmt(g.producao)+'</td><td class="num">'+fmt(g.prontos)+'</td><td class="num num-bold">'+fmt(g.produzir)+'</td></tr>';});
-  document.getElementById('summaryRK').innerHTML=out+'</table>';
-}
-function updatePublicationTableTotals(rows){
-  const sums=rows.reduce((a,d)=>({producao:a.producao+d.producao,prontos:a.prontos+d.prontos,produzir:a.produzir+d.produzir,restantes:a.restantes+d.restantes}),{producao:0,prontos:0,produzir:0,restantes:0});
-  const set=(key,val)=>{const el=document.querySelector('[data-publication-total="'+key+'"]');if(el)el.textContent=val;};
-  set('label','TOTAL DO FILTRO ('+rows.length+' fornecedores)');set('producao',fmt(sums.producao));set('prontos',fmt(sums.prontos));set('produzir',fmt(sums.produzir));set('restantes',fmtSigned(sums.restantes));
-  const result=document.getElementById('publicationFilterResult');if(result)result.textContent=rows.length+' de '+publicationRows.length+' fornecedores';
-}
-function updatePublicationSummarySelection(){
-  document.querySelectorAll('#summaryResponsavel .publication-summary-row').forEach(row=>{const active=activePublicationResp===row.dataset.summaryResp;row.classList.toggle('active',active);row.setAttribute('aria-pressed',active?'true':'false');});
-}
-function togglePublicationResponsibleFilter(name){activePublicationResp=activePublicationResp===name?null:name;applyPublicationFilters();}
-function applyPublicationFilters(){
-  const filtered=publicationFilteredData();
-  document.querySelectorAll('#combinedContainer tbody tr:not(.totals-row)').forEach(row=>{const statusOk=!activePublicationStatuses||activePublicationStatuses.includes(row.getAttribute('data-prod'));const respOk=!activePublicationResp||row.getAttribute('data-resp')===activePublicationResp;row.classList.toggle('row-hidden',!(statusOk&&respOk));});
-  renderPublicationKpis(filtered);renderPublicationResponsibleSummary();renderPublicationStatusSummary(filtered);renderPublicationPrioritySummary(filtered);updatePublicationTableTotals(filtered);updatePublicationSummarySelection();
-  document.querySelectorAll('.filter-btn').forEach(btn=>btn.setAttribute('aria-pressed',activePublicationStatuses?.length===1&&activePublicationStatuses[0]===btn.dataset.filter?'true':'false'));
-}
-function clearPublicationFilters(){
-  activePublicationResp=null;activePublicationStatuses=null;activeBtnFilter=null;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  resetMultiSelectCheckboxes(['sim','próximo','espera','indefinido']);applyPublicationFilters();
-}
-function toggleFilter(btn) {
-  const filter = btn.getAttribute('data-filter');
-  if (activeBtnFilter === filter) {
-    activeBtnFilter = null; activePublicationStatuses=null; btn.classList.remove('active');
-  } else {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    activeBtnFilter = filter; activePublicationStatuses=[filter]; btn.classList.add('active');
-  }
-  resetMultiSelectCheckboxes(activePublicationStatuses || ['sim','próximo','espera','indefinido']);
-  applyPublicationFilters();
-}
-function filterRows(statusList) {activePublicationStatuses=statusList&&statusList.length<4?statusList:null;applyPublicationFilters();}
-function showAllRows() {activePublicationStatuses=null;applyPublicationFilters();resetMultiSelectCheckboxes(['sim','próximo','espera','indefinido']);}
-function toggleMultiSelect() {document.getElementById('msDropdown').classList.toggle('open');}
-function updateMultiSelect() {
-  const selected=[...document.querySelectorAll('#msDropdown input[type="checkbox"]')].filter(cb=>cb.checked).map(cb=>cb.value);
-  document.getElementById('msCount').textContent=selected.length;
-  activeBtnFilter=null;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  activePublicationStatuses=(selected.length===0||selected.length===4)?null:selected;
-  applyPublicationFilters();
-}
-function resetMultiSelectCheckboxes(values) {
-  document.querySelectorAll('#msDropdown input[type="checkbox"]').forEach(cb=>{cb.checked=values.includes(cb.value);});
-  document.getElementById('msCount').textContent=values.length;
-}
-
-document.getElementById('summaryResponsavel').addEventListener('keydown',e=>{const row=e.target.closest('.publication-summary-row');if(row&&(e.key==='Enter'||e.key===' ')){e.preventDefault();togglePublicationResponsibleFilter(row.dataset.summaryResp);}});
-applyPublicationFilters();
-
-document.addEventListener('click', function(e) {
-  const ms = document.querySelector('.multi-select');
-  if (!ms.contains(e.target)) {
-    document.getElementById('msDropdown').classList.remove('open');
-  }
-});
-
-// Initial filter: hide indefinido by default
-filterRows(['sim','próximo','espera']);
+renderPublicationAll();
 </script>
 
 <script>
@@ -3888,7 +3703,7 @@ initCampaigns();
     try{(window.marketplacesData||marketplacesData||[]).forEach(x=>add(out,'Marketplaces',x.canal||x.nomeLoja,x.nomeLoja||'Canal de venda','marketplaces',Object.values(x).join(' ')))}catch(e){}
     try{(window.atividadesData||atividadesData||[]).forEach(x=>add(out,'Atividades',x.atividade||x.nome||x.titulo,[x.setor,x.area,x.subarea,x.responsavel].filter(Boolean).join(' • '),'atividades',Object.values(x).join(' ')))}catch(e){}
     try{(window.acoesData||acoesData||[]).forEach(x=>add(out,'Ações',x.titulo||x.acao||x.nome,[x.local,x.setor,x.responsavel].filter(Boolean).join(' • '),'acoes',Object.values(x).join(' ')))}catch(e){}
-    try{(window.data||data||[]).forEach(x=>add(out,'Publicações',x.forn||x.fornecedor||x.nome,[x.resp,x.prod,x.prioridade].filter(Boolean).join(' • '),'lotes',Object.values(x).join(' ')))}catch(e){}
+    try{(window.data||data||[]).forEach(x=>add(out,'Publicações',x.forn||x.fornecedor||x.nome,[x.resp,x.statusPublicacao,x.rk?'RK '+x.rk:''].filter(Boolean).join(' • '),'lotes',Object.values(x).join(' ')))}catch(e){}
     try{(window.campanhasData||campanhasData||[]).forEach(x=>add(out,'Campanhas',x.nome||x.campanha||x.titulo,[x.marketplace,x.tipo,x.desconto].filter(Boolean).join(' • '),'campanhas',Object.values(x).join(' ')))}catch(e){}
     try{((window.focoComercialData||focoComercialData||{}).rotinas||[]).forEach(x=>add(out,'Foco Comercial',x.nome,x.subarea,'foco-comercial',x.resumo))}catch(e){}
     try{(window.crossDockingData||crossDockingData||[]).forEach(x=>add(out,'Cross Docking',x.fornecedor||x.nome||x.supplier,'Fornecedor e regras de postagem','crossdocking',JSON.stringify(x)))}catch(e){}
@@ -3914,6 +3729,10 @@ initCampaigns();
   // Tooltips profissionais para indicadores e controles principais.
   const tips={
     'Em produção':'Quantidade de fornecedores atualmente em produção.',
+    'Próximo da fila':'Fornecedores na fila aguardando início da produção.',
+    'Em análise':'Fornecedores em análise para entrada na fila de produção.',
+    'Espera de Reativação':'Fornecedores aguardando reativação.',
+    'Indefinido':'Fornecedores sem status de publicação definido.',
     'Prontos':'Volume já concluído no recorte atual.',
     'A produzir':'Total planejado para produção no recorte atual.',
     'Restantes':'Saldo ainda pendente após considerar o que já está pronto.',
