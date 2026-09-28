@@ -710,7 +710,6 @@ const acoesData = [
   { "data": "2025-03-12", "acao": "AJUSTE CROSS BOVENAU 9 > 8 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2025-03-12", "acao": "AJUSTE CROSS BUFFALO 7 > 6 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2025-03-12", "acao": "AJUSTE CROSS TOYAMA 7 > 5 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
-  { "data": "2025-03-12", "acao": "AJUSTE CROSS TOYAMA 7 > 5 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2025-03-12", "acao": "AJUSTE CROSS WAP 20 > 18 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2025-03-12", "acao": "AJUSTE CROSS LYNUS 7 > 6 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2025-03-12", "acao": "AJUSTE CROSS TEKNA 7 > 5 DIAS", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
@@ -1083,5 +1082,15 @@ const acoesData = [
   { "data": "2026-08-28", "acao": "PRAZO CROSS BOSCH ALTERADO DE 12 > 9 DIAS ABAIXO DDE 100,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2026-08-28", "acao": "PRAZO CROSS WORKER ALTERADO DE 8 > 5 DIAS ABAIXO DDE 50,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
   { "data": "2026-08-28", "acao": "PRAZO CROSS OVD CORTE DE PREÇO FAIXA COM 1 DIA - ACIMA 1 MIL para ACIMA 200,00", "local": "HARDNESS", "setor": "Operações", "responsavel": "Bruno" },
-  { "data": "2026-08-28", "acao": "AUMENTO MARKUP - TRAMONTINA - FAIXA ATE 100 - TODOS OS CANAIS", "local": "ANYMARKET", "setor": "Preços", "responsavel": "Bruno" }
+  { "data": "2026-08-28", "acao": "AUMENTO MARKUP - TRAMONTINA - FAIXA ATE 100 - TODOS OS CANAIS", "local": "ANYMARKET", "setor": "Preços", "responsavel": "Bruno" },
+  { "data": "2026-08-28", "acao": "ATUALIZAÇÃO TABELA DE FRETE TECMAR ORIGEM SC", "local": "INTELIPOST", "setor": "Transportadoras", "responsavel": "Igor" },
+  { "data": "2026-08-31", "acao": "MAIS UM AUMENTO TRAMONTINA FAIXA BARATA", "local": "HARDNESS", "setor": "Preços", "responsavel": "Bruno" },
+  { "data": "2026-09-01", "acao": "LANÇAMENTO LOTE API WORKER 6900 SKUS", "local": "ANYMARKET", "setor": "Marketplaces", "responsavel": "Bruno" },
+  { "data": "2026-09-04", "acao": "ATUALIZAÇÃO TABELA DE FRETE BRASPRESS ORIGEM SC", "local": "INTELIPOST", "setor": "Transportadoras", "responsavel": "Igor" },
+  { "data": "2026-09-04", "acao": "ALTERAÇÃO PRAZO CROSS INTELIPOST FORNECEDOR", "local": "INTELIPOST", "setor": "Transportadoras", "responsavel": "Igor" },
+  { "data": "2026-09-16", "acao": "AUMENTO TRAMONTINA LL LOYALTY", "local": "ANYMARKET", "setor": "Preços", "responsavel": "Bruno" },
+  { "data": "2026-09-16", "acao": "CORREÇÃO PROBLEMA MARKUP PADRÃO PARA PRODUTOS NOVOS LL LOYALTY", "local": "ANYMARKET", "setor": "Preços", "responsavel": "Bruno" },
+  { "data": "2026-09-17", "acao": "LOJA AMAZON TROCADO LOCAL DE ESTOQUE DE GUIMEPA PARA GUIMEPA SC", "local": "ANYMARKET", "setor": "Operações", "responsavel": "Bruno" },
+  { "data": "2026-09-21", "acao": "MIGRAÇÃO SITE PARA NUVEMSHOP", "local": "SITE", "setor": "Vendas", "responsavel": "Lucas" },
+  { "data": "2026-09-22", "acao": "ATUALIZAÇÃO E REVISÃO DE REGRAS DE FRETE DE PRAZO CROSS DE FORNECEDOR E INCLUSÃO DO CANAL NUVEMSHOP", "local": "INTELIPOST", "setor": "Operações", "responsavel": "Igor" }
 ];

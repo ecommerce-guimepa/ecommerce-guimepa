@@ -2356,6 +2356,7 @@ const LOCAL_COLORS = {
   'FORNECEDORES': { bg:'#ffe4e6', text:'#be123c', border:'#fda4af', solid:'#e11d48' },
   'EQUIPE':       { bg:'#cffafe', text:'#0e7490', border:'#67e8f9', solid:'#0891b2' },
   'PLATAFORMAS':  { bg:'#ffedd5', text:'#c2410c', border:'#fdba74', solid:'#ea580c' },
+  'SITE':         { bg:'#e0e7ff', text:'#3730a3', border:'#a5b4fc', solid:'#4f46e5' },
   'Não informado':{ bg:'#f1f5f9', text:'#475569', border:'#cbd5e1', solid:'#64748b' }
 };
 const SECTOR_SHADES = [
@@ -2366,10 +2367,11 @@ const SECTOR_SHADES = [
   {bg:'#f5f3ff',text:'#5b21b6',border:'#ddd6fe'},
   {bg:'#ede9fe',text:'#6d28d9',border:'#c4b5fd'},
   {bg:'#e0f2fe',text:'#075985',border:'#7dd3fc'},
-  {bg:'#bae6fd',text:'#0c4a6e',border:'#38bdf8'}
+  {bg:'#bae6fd',text:'#0c4a6e',border:'#38bdf8'},
+  {bg:'#cffafe',text:'#155e75',border:'#a5f3fc'}
 ];
 const localColor = local => LOCAL_COLORS[local] || {bg:'#f1f5f9',text:'#334155',border:'#cbd5e1',solid:'#64748b'};
-const SECTOR_COLOR_ORDER = ['Preços','Operações','Campanhas','Transportadoras','Vendas','Marketplaces','Melhorias','Integradores'];
+const SECTOR_COLOR_ORDER = ['Preços','Operações','Campanhas','Transportadoras','Vendas','Marketplaces','Melhorias','Integradores','Publicações'];
 const sectorColorMap = Object.fromEntries(
   uniq(acoesData.map(a=>a.setor)).map((s,i)=>{
     const fixedIndex = SECTOR_COLOR_ORDER.indexOf(s);
