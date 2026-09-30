@@ -194,7 +194,7 @@ const atividadesData = [
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Jone",
     "atividade": "Correção Transmissões Marketplaces"
   },
   {
@@ -203,7 +203,7 @@ const atividadesData = [
     "area": "CATÁLOGO",
     "subarea": "PUBLICAÇÃO",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Jone",
     "atividade": "Atualização Bases Dados Power BI"
   },
   {
@@ -212,7 +212,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "CAMPANHAS",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Campanhas Marketplaces"
   },
   {
@@ -221,7 +221,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Diário",
-    "responsavel": "Bruno",
+    "responsavel": "Jone",
     "atividade": "Forçar Triagem Manual em Produtos Vendidos <2 Estoque Liquido | 08H00"
   },
   {
@@ -230,7 +230,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Diário",
-    "responsavel": "Bruno",
+    "responsavel": "Jone",
     "atividade": "Verificar Triagem Automática ME2 ME1"
   },
   {
@@ -239,7 +239,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Indefinido",
     "atividade": "Afiliados do Vendedor Shopee"
   },
   {
@@ -248,7 +248,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Criar Disparos de Transmissões No Chat Mercado Livre Cupons"
   },
   {
@@ -257,7 +257,7 @@ const atividadesData = [
     "area": "MARKETPLACE",
     "subarea": "VENDAS",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Criar Disparos de Transmissões No Chat Shopee Cupons"
   },
   {
@@ -266,7 +266,7 @@ const atividadesData = [
     "area": "PEDIDOS",
     "subarea": "OPERAÇÃO",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Alexandre",
     "atividade": "Monitorar Aba Any Pedidos Falha"
   },
   {
@@ -275,7 +275,7 @@ const atividadesData = [
     "area": "PREÇO",
     "subarea": "PREÇO VENDA",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Atualizar Markups Marketplaces"
   },
   {
@@ -284,7 +284,7 @@ const atividadesData = [
     "area": "PREÇO",
     "subarea": "PREÇO VENDA",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Alexandre",
     "atividade": "Verificar SKUs com Prejuízo | Dash BI Produtos Negativos | Pedidos Baixos"
   },
   {
@@ -293,7 +293,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "ATENDIMENTO",
     "rotina": "Diário",
-    "responsavel": "Bruno",
+    "responsavel": "Indefinido",
     "atividade": "Acompanhar Mensagens Facebook | Instragram"
   },
   {
@@ -302,7 +302,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Diário",
-    "responsavel": "Bruno",
+    "responsavel": "Igor",
     "atividade": "Painel de Monitoramento Any"
   },
   {
@@ -311,7 +311,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Thays",
     "atividade": "Atualizar Metas do E-Commerce"
   },
   {
@@ -320,7 +320,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "OPERAÇÃO",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Alexandre",
     "atividade": "Monitoramento Pedidos Pendentes Antigos Anymarket"
   },
   {
@@ -329,7 +329,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "SITE",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Alteração de Flags Promocionais"
   },
   {
@@ -338,7 +338,7 @@ const atividadesData = [
     "area": "VENDAS",
     "subarea": "SITE",
     "rotina": "Periódico",
-    "responsavel": "Bruno",
+    "responsavel": "Lucas",
     "atividade": "Atualizar Carrossel Site"
   },
   {
