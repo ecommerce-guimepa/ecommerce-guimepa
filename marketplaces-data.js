@@ -508,7 +508,7 @@ const marketplacesData = [
     "nomeLoja": "Guimepa",
     "localEstoque": "ESTOQUE LIQ SC",
     "funcionamentoEstoque": "LIQ SC",
-    "sac": "Thais",
+    "sac": "Karin",
     "politicaCancelamento": "Não cobra taxas",
     "politicaFrete": "Shein Entregas",
     "politicaRepasse": "Saque",
